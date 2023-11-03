@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: #88daec;
+  background-color: #191c19;
   width: 100%;
 }
 
@@ -35,12 +35,14 @@ h2, h3 {
 
 .getStarted {
   transition: all ease 0.3s;
-  background: white;
+  background: #282b28;
   width: 90vw;
   margin: auto;
   margin-top: 30px;
   border-radius: 5px;
   height: 90vh;
+  border: #313330 solid 0.1px;
+  color: white;
   text-align: center;
 }
 .getStarted h2 {
@@ -73,12 +75,14 @@ h2, h3 {
   display: none;
   opacity: 0;
   transition: all ease 0.3s;
-  background: white;
+  background: #282b28;
   width: 90vw;
   margin: auto;
   margin-top: 30px;
   border-radius: 5px;
   height: 90vh;
+  border: #313330 solid 0.1px;
+  color: white;
 }
 .generate h2 {
   padding-top: 45px;
@@ -133,12 +137,14 @@ h2, h3 {
   display: none;
   opacity: 0;
   transition: all ease 0.3s;
-  background: white;
+  background: #282b28;
   width: 90vw;
   margin: auto;
   margin-top: 30px;
   border-radius: 5px;
   height: 90vh;
+  border: #313330 solid 0.1px;
+  color: white;
 }
 .mainApp h2 {
   padding-top: 45px;
