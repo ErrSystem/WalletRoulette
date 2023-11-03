@@ -1,0 +1,179 @@
+@font-face {
+  font-family: boldRobotto;
+  src: url(/css/fonts/Roboto/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: lightRobotto;
+  src: url(/css/fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: boldUbuntu;
+  src: url(/css/fonts/Ubuntu/Ubuntu-Light.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #88daec;
+  width: 100%;
+}
+
+h2, h3, p {
+  padding: 20px;
+}
+
+p {
+  font-family: lightRobotto;
+}
+
+h2, h3 {
+  font-family: boldUbuntu;
+}
+
+.getStarted {
+  transition: all ease 0.3s;
+  background: white;
+  width: 90vw;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  height: 90vh;
+  text-align: center;
+}
+.getStarted h2 {
+  padding-top: 45px;
+  text-align: center;
+}
+.getStarted p {
+  text-align: left;
+  padding-left: 35px;
+}
+.getStarted h2 {
+  margin-bottom: 25px;
+}
+.getStarted .blueColor {
+  color: #888aec;
+  font-size: 16px;
+  font-weight: bold;
+  width: 180px;
+  margin-top: 35px;
+  transition: all ease 0.5s;
+}
+.getStarted .blueColor:hover {
+  transition: all ease 0.5s;
+  padding-left: 45px;
+  color: #88daec;
+  cursor: pointer;
+}
+
+.generate {
+  display: none;
+  opacity: 0;
+  transition: all ease 0.3s;
+  background: white;
+  width: 90vw;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  height: 90vh;
+}
+.generate h2 {
+  padding-top: 45px;
+  text-align: center;
+}
+.generate p {
+  text-align: left;
+  padding-left: 35px;
+}
+.generate h2 {
+  text-align: left;
+  padding-left: 35px;
+}
+.generate ul {
+  padding-left: 50px;
+  font-family: lightRobotto;
+}
+.generate ul li {
+  margin-bottom: 10px;
+  transition: all ease 0.3s;
+  list-style: none;
+}
+.generate ul li:hover {
+  transition: all ease 0.3s;
+  color: #888aec;
+  padding-left: 15px;
+  cursor: pointer;
+}
+.generate .paymentInfo {
+  margin-top: 20px;
+}
+.generate .connectWalletButton {
+  transition: all ease 0.3s;
+  background: #03d0b1;
+  border: 1px solid #088a08;
+  padding: 11px 20px;
+  font-family: boldUbuntu;
+  border-radius: 3px;
+  font-size: 16px;
+  color: white;
+  float: right;
+  margin-top: -62px;
+  margin-right: 30px;
+}
+.generate .connectWalletButton:hover {
+  transition: all ease 0.3s;
+  cursor: pointer;
+  background: #088a08;
+}
+
+.mainApp {
+  display: none;
+  opacity: 0;
+  transition: all ease 0.3s;
+  background: white;
+  width: 90vw;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  height: 90vh;
+}
+.mainApp h2 {
+  padding-top: 45px;
+  text-align: center;
+}
+.mainApp p {
+  text-align: left;
+  padding-left: 35px;
+}
+.mainApp ul {
+  padding-left: 50px;
+  font-family: lightRobotto;
+}
+.mainApp ul li {
+  margin-bottom: 10px;
+}
+.mainApp p {
+  padding-top: 0;
+}
+.mainApp .generateButton {
+  transition: all ease 0.3s;
+  background: #88daec;
+  border: #1b7184 solid 1px;
+  padding: 8px;
+  border-radius: 3px;
+  float: right;
+  margin-right: 25px;
+  margin-top: 35px;
+}
+.mainApp .generateButton:hover {
+  transition: all ease 0.3s;
+  cursor: pointer;
+  background-color: #1b7184;
+}
+
+.boldFamily {
+  font-family: boldRobotto;
+}/*# sourceMappingURL=styles.css.map */

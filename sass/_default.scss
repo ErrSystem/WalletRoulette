@@ -1,0 +1,37 @@
+@font-face {
+    font-family: boldRobotto;
+    src: url(/css/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: lightRobotto;
+    src: url(/css/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: boldUbuntu;
+    src: url(/css/fonts/Ubuntu/Ubuntu-Light.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #88daec;
+    width: 100%;
+}
+
+h2, h3, p {
+    padding: 20px;
+}
+
+p {
+    font-family: lightRobotto;
+}
+
+h2, h3 {
+    font-family: boldUbuntu;
+}
