@@ -17,9 +17,20 @@
             list-style: none;
             &:hover {
                 transition: all ease 0.3s;
-                color: #888aec;
                 padding-left: 10px;
                 cursor: pointer;
+            }
+            a {
+                transition: all ease 0.3s;
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    transition: all ease 0.3s;
+                    color: #888aec;
+                }
+                &:active {
+                
+                }
             }
         }
     }
