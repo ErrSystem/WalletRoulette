@@ -1,4 +1,5 @@
-let web3
+let web3;
+let errorMsg = document.querySelector('.errorMsg');
 
 const connectWalletHandler = async() => {
     
@@ -7,11 +8,13 @@ const connectWalletHandler = async() => {
             await window.ethereum.request({ method: "eth_requestAccounts" })
             web3 = new Web3(window.ethereum)
         } catch(err) {
-            alert(err.message)
+            errorMsg.innerText = err.message;
+            errorMsg.style.opacity = '1'; 
         }
     } else {
         // meta mask isn't installed 
-        alert('Install MetaMask and try again please!');
+        errorMsg.innerText = 'Install MetaMask and try again please!';
+        errorMsg.style.opacity = '1'; 
     }
 }
 

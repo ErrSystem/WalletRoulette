@@ -1,4 +1,3 @@
-const getStarted = document.querySelector('.blueColor');
 const generateButton = document.querySelector('.generateButton');
 const redirectTo = document.querySelector('.generate');
 const loadApp = () => {
@@ -9,5 +8,4 @@ const loadApp = () => {
         document.querySelector('.getStarted').style.display = 'none';
     }, 300);
 }
-getStarted.addEventListener('click', () => loadApp());
 generateButton.addEventListener('click', () => loadApp());
