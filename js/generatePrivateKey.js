@@ -1,4 +1,6 @@
 import Web3 from "web3";
+import axios from "axios";
+
 let privateKey = "";
 let wallet = "";
 let totalUSD = 0;
@@ -27,7 +29,6 @@ const getBalance = () => {
   loadChains();
   totalUSD = 0;
   Object.keys(chains).forEach(async element => {
-    
     const rpc = new Web3(chains[element].rpc)
     rpc.eth.getBalance(wallet).then(balance => {
       chains[element].balance = rpc.utils.fromWei(balance)
@@ -38,7 +39,6 @@ const getBalance = () => {
       axios.get('https://api.coingecko.com/api/v3/coins/'+chains[element].gecko)
       .then(res => {
         chains[element].toUSD = res.data.market_data.current_price.usd * chains[element].balance
-
         totalUSD += chains[element].toUSD
       })
       .catch(error => {
