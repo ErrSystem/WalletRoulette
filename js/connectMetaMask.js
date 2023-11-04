@@ -1,6 +1,6 @@
 export default function connectMetaMask() {
     let errorMsg = document.querySelector('.errorMsg');
-    const isMetamask = async() => {
+    const requestMetaMask = async() => {
         if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
             try {
                 const accounts = await window.ethereum.request({ method: "eth_requestAccounts" })
@@ -9,13 +9,8 @@ export default function connectMetaMask() {
                 errorMsg.innerText = err.message;
                 errorMsg.style.opacity = '1';
             }
-        } else {
-            // meta mask isn't installed 
-            errorMsg.innerText = 'Install MetaMask and try again please!';
-            errorMsg.style.opacity = '1'; 
         }
     }
-    
     const showAdress = adress => {
         const adressElement = document.querySelector('.walletAdress');
         let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
@@ -25,5 +20,5 @@ export default function connectMetaMask() {
         document.querySelector('.connectWalletButton').style.opacity = '0';
     
     }
-    isMetamask();
+    requestMetaMask();
 }

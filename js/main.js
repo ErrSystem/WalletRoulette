@@ -1,4 +1,4 @@
-import connectMetaMask from '/js/connectMetaMask.js'
+import detectWallets from './detectWallets.js';
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
@@ -14,5 +14,6 @@ const closeWalletSelect = () => {
 
 
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());
-document.querySelector('.metaMaskSelect').addEventListener('click', () => connectMetaMask());
+document.addEventListener('DOMContentLoaded', () => detectWallets());
+// document.querySelector('.metaMaskSelect').addEventListener('click', () => connectMetaMask());
 document.querySelector('.closeSelectWallet').addEventListener('click', () => closeWalletSelect());
