@@ -100,28 +100,47 @@ h2, h3 {
   margin-top: 20px;
 }
 .getStarted .connectWalletButton {
+  padding: 11px 33px;
   transition: all ease 0.3s;
   background: #99a3f7;
   border: 1px solid #a1a8e5;
-  padding: 11px 20px;
   font-family: boldUbuntu;
   border-radius: 3px;
-  font-size: 16px;
-  color: white;
   float: right;
   margin-top: -55px;
   margin-right: 30px;
+  position: relative;
 }
 .getStarted .connectWalletButton:hover {
   transition: all ease 0.3s;
   cursor: pointer;
   background: #5e67ad;
 }
+.getStarted .connectWalletButton img {
+  display: none;
+  margin-top: 2px;
+  padding: 7px;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+}
 @media (max-width: 500px) {
   .getStarted .connectWalletButton {
     padding: 11px 11px;
     font-size: 14px;
   }
+}
+.getStarted #connectedWalletBtn {
+  padding: 0;
+  padding-right: 212px;
+}
+.getStarted #connectedWalletBtn img {
+  display: inline;
+}
+.getStarted #connectedWalletBtn a {
+  position: absolute;
+  top: 16px;
+  right: 20px;
 }
 
 .mainApp {

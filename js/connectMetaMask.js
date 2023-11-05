@@ -1,3 +1,4 @@
+import { setAdress } from './walletsHandler.js';
 let alreadyLoading = false;
 export default function connectMetaMask() {
     if (!alreadyLoading) {
@@ -19,7 +20,16 @@ export default function connectMetaMask() {
                         }, 300);
                     }, 300);
                     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" })
-                    showAdress(accounts[0]);
+                    setAdress(accounts[0], "MetaMask");
+                    // removes the interval of Connection...
+                    clearInterval(intervalID);
+                    // show that it's a success
+                    document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Connected!';
+                    document.querySelector('.metaMaskSelect .isInstalled').style.color = 'green';
+                    current = 'success';
+                    vanishLoading();
+                    // remove event listener
+                    document.querySelector('.metaMaskSelect').removeEventListener('click', connectMetaMask);
                 } catch(err) {
                     clearInterval(intervalID);
                     errorMsg.innerText = err.message;
@@ -65,17 +75,7 @@ export default function connectMetaMask() {
                 current++;
             }
         }
-    
-        const showAdress = adress => {
-            clearInterval(intervalID);
-            let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
-            document.querySelector('.connectWalletButton').innerText = `Connected: ${text[0]}...${text[1]} `;
-            // show that it's a success
-            document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Connected!';
-            document.querySelector('.metaMaskSelect .isInstalled').style.color = 'green';
-            current = 'success';
-            vanishLoading();
-        }
+
         requestMetaMask();
     }
 }

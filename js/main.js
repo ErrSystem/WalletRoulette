@@ -1,4 +1,4 @@
-import detectWallets from './detectWallets.js';
+import detectWallets from './walletsHandler.js';
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
@@ -14,7 +14,6 @@ const closeWalletSelect = () => {
         document.querySelector('.metaMaskSelect').id = '';
     }
 }
-
 
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());
 document.addEventListener('DOMContentLoaded', () => detectWallets());
