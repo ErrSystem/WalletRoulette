@@ -68,12 +68,8 @@ export default function connectMetaMask() {
     
         const showAdress = adress => {
             clearInterval(intervalID);
-            const adressElement = document.querySelector('.walletAdress');
             let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
-            adressElement.innerText = `Connected: ${text[0]}...${text[1]} `;
-            adressElement.style.display = 'block'; 
-            adressElement.style.opacity = '1'; 
-            document.querySelector('.connectWalletButton').style.opacity = '0';
+            document.querySelector('.connectWalletButton').innerText = `Connected: ${text[0]}...${text[1]} `;
             // show that it's a success
             document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Connected!';
             document.querySelector('.metaMaskSelect .isInstalled').style.color = 'green';
