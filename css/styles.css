@@ -228,7 +228,6 @@ h2, h3 {
   right: 0;
 }
 .selectWallet .closeSelectWallet {
-  z-index: 3;
   width: 47px;
   height: 40px;
   position: absolute;
@@ -309,6 +308,14 @@ h2, h3 {
   font-size: 12px;
   color: green;
 }
+.selectWallet .metaMaskSelect .connectedImg {
+  display: none;
+  border: none;
+  margin-left: 100px;
+  height: 42px;
+  width: 42px;
+  margin-bottom: 2px;
+}
 .selectWallet #metaMaskSelected {
   transition: all ease 0.3s;
   top: 0;
@@ -343,6 +350,9 @@ h2, h3 {
 }
 .selectWallet #metaMaskConnected img {
   border-color: green;
+}
+.selectWallet #metaMaskConnected .connectedImg {
+  display: inline;
 }
 
 .boldFamily {

@@ -16,5 +16,4 @@ const closeWalletSelect = () => {
 
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());
 document.addEventListener('DOMContentLoaded', () => detectWallets());
-// document.querySelector('.metaMaskSelect').addEventListener('click', () => connectMetaMask());
 document.querySelector('.closeSelectWallet').addEventListener('click', () => closeWalletSelect());
