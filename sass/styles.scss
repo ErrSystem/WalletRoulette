@@ -129,6 +129,7 @@
         right: 0;
     }
     .closeSelectWallet {
+        z-index: 3;
         width: 47px;
         height: 40px;
         position: absolute;
@@ -172,7 +173,7 @@
     .metaMaskSelect {
         background-color: white;
         border: #d0d4f7 1px solid;
-        transition: background-color 250ms ease-in-out;
+        transition: all .3s ease;
         color: black;
         position: absolute;
         top: 70px;
@@ -180,6 +181,7 @@
         border-radius: 4px;
         height: 80px;
         left: 256px;
+        z-index: 2;
         &:hover {
             background-color: #eff1fc;
             cursor: pointer;
@@ -209,8 +211,53 @@
             color: green;
         }
     }
+    #metaMaskSelected {
+        transition: all ease 0.3s;
+        top: 0;
+        width: 625px;
+        height: 465px;
+        left: 0;
+        &:hover {
+            background-color: white;
+            cursor: initial;
+        }
+        .walletName {
+            top: 182px;
+            left: 260px;
+            font-size: 22px;
+        }
+        img {
+            animation: walletImgLoading 3s infinite;
+            width: 78px;
+            height: 78px;
+            margin-top: 171px;
+            margin-left: 159px;
+        }
+        .isInstalled {
+            top: 211px;
+            font-size: 16px;
+            color: green;
+            left: 260px;
+        }
+    }
+    #metaMaskConnected {
+        border-color: green;
+        img {
+            border-color: green;
+        }
+    }
 }
 
 .boldFamily {
     font-family: boldRobotto;
+}
+
+@keyframes walletImgLoading {
+    0% {
+        transform: rotate(0deg);
+    } 50% {
+        transform: rotate(360deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
 }
