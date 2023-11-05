@@ -6,7 +6,11 @@ export default function detectWallets() {
     const walletListener = () => {
         if (typeof window.ethereum != "undefined" && typeof window != "undefined") {
             window.ethereum.on("accountsChanged", accounts => {
-                setAdress(accounts[0], "MetaMask");
+                let walletUsed = undefined;
+                if (ethereum.isMetaMask) {
+                    walletUsed = "MetaMask";
+                }
+                setAdress(accounts[0], walletUsed);
             })
         }
     }
@@ -15,11 +19,14 @@ export default function detectWallets() {
             // checks if MetaMask is installed
             document.querySelector('.metaMaskSelect').addEventListener('click', connect);
             document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Installed';
+            document.querySelector('.metaMaskSelect .isInstalled').style.color = 'green';
             // checks if there was already a connected account in the last session
             try {
                 const accounts = await window.ethereum.request({method: "eth_accounts"});
-                if (accounts.length > 1) {
+                if (accounts.length > 0) {
                     setAdress(accounts[0], "MetaMask"); 
+                    document.querySelector('.metaMaskSelect .isInstalled').innerText = "Connected";
+                    document.querySelector('.metaMaskSelect').removeEventListener('click', connect);
                     document.querySelector('.metaMaskSelect').id = 'metaMaskConnected';
                 }
             } catch(err) {
@@ -47,8 +54,10 @@ export function setAdress(adress, wallet) {
         walletBtnImg.src = `css/imgs/${wallet}.png`;
         walletConnectBnt.id = "connectedWalletBtn";
     } else {
-        walletConnectBnt.innerText = "Connect Wallet";
+        walletBtnText.innerText = "Connect Wallet";
         walletConnectBnt.id = "";
         document.querySelector('.metaMaskSelect').id = '';
+        document.querySelector('.metaMaskSelect')
+        document.querySelector('.metaMaskSelect').addEventListener('click', connect);
     }
 }

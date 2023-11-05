@@ -42,7 +42,7 @@
         font-family: boldUbuntu;
         border-radius: 3px;
         float: right;
-        margin-top: -55px;
+        margin-top: -60px;
         margin-right: 30px;
         position: relative;
         &:hover {
@@ -73,6 +73,12 @@
             position: absolute;
             top: 16px;
             right: 20px;
+            @include mobile(500px){
+                font-size: 15px;
+            }
+        }
+        @include mobile(500px){
+            padding-right: 125px !important;
         }
     }
 }
