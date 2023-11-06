@@ -1,4 +1,5 @@
 import { setAdress } from './walletsHandler.js';
+import { successWalletConnect } from './walletsHandler.js';
 let alreadyLoading = false;
 export default function connectMetaMask() {
     if (!alreadyLoading) {
@@ -24,8 +25,7 @@ export default function connectMetaMask() {
                     // removes the interval of Connection...
                     clearInterval(intervalID);
                     // show that it's a success
-                    document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Connected!';
-                    document.querySelector('.metaMaskSelect .isInstalled').style.color = 'green';
+                    successWalletConnect('metaMask');
                     current = 'success';
                     vanishLoading();
                     // remove event listener
@@ -37,6 +37,7 @@ export default function connectMetaMask() {
                     // show that an error occured in the loading
                     document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Failed!';
                     document.querySelector('.metaMaskSelect .isInstalled').style.color = 'red';
+                    document.querySelector('.metaMaskSelect').id = "walletFailed";
                     current = 'error';
                     vanishLoading();
                     setTimeout(() => {
@@ -55,14 +56,14 @@ export default function connectMetaMask() {
                         document.querySelector('.metaMaskSelect .isInstalled').innerHTML = 'Installed';
                     } else if (current === 'success') {
                         document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Connected';
-                        document.querySelector('.metaMaskSelect').id = 'metaMaskConnected';
+                        document.querySelector('.metaMaskSelect').id = 'walletConnected';
                     }
                     setTimeout(() => {
                         document.querySelector('.metaMaskSelect .isInstalled').style.opacity = '1';
                         alreadyLoading = false;
                     }, 300);
                 }, 300);
-            }, 800);
+            }, 1500);
         }
     
         const connectingAnim = () => {

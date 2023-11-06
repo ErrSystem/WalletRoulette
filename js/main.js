@@ -10,7 +10,7 @@ const connectWalletHandler = () => {
 const closeWalletSelect = () => {
     document.querySelector('.getStarted').style = '';
     document.querySelector('.selectWallet').style = '';
-    if (document.querySelector('.metaMaskSelect').id !== "metaMaskConnected") {
+    if (document.querySelector('.metaMaskSelect').id !== "walletConnected") {
         document.querySelector('.metaMaskSelect').id = '';
     }
 }
