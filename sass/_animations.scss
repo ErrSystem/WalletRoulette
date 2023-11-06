@@ -1,0 +1,96 @@
+// paticles.js
+#particles-js{
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #191c19;
+	background-image: url('');
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+// wavy Borders animations
+.wavyBorder {
+	filter: invert(1);
+    width: 1215px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: 0.55;
+}
+
+.wavyBorder1 {
+	animation: wavyBorder 30s infinite;
+}
+
+.wavyBorder2 {
+	animation: wavyBorder 10s infinite;
+}
+
+@keyframes wavyBorder {
+	0% {
+		left: 0;
+	} 50% {
+		left: -325px;
+	} 100% {
+		left: 0;
+	}
+}
+
+// wallet connections animations
+.walletSuccessParticle {
+	position: absolute;
+	animation-name: fade;
+	border-radius: 50%;
+	@for $i from 0 to 400 {
+		$t: (1 + .01 * random(100)) * 1s;	
+		&:nth-child(#{ $i + 1 }) {
+			$d: random(5) + px;
+			width: $d; height: $d;
+			background: hsl(random(360deg), 80%, 80%);
+			animation-duration: $t;
+			animation-delay: -.01 * random(100) * $t;
+		}
+	}
+}
+
+@keyframes walletImgLoading {
+    0% {
+        transform: rotate(0deg);
+    } 50% {
+        transform: rotate(360deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes walletImgFailed {
+    25% {
+        margin-left: 170px;
+    } 50% {
+        margin-left: 127px;
+    } 100% {
+        margin-top: 171px;
+        margin-left: 159px;
+    }
+}
+
+@keyframes walletImgSuccess {
+    25% {
+        margin-top: 103px;
+    } 50% {
+        transform: rotate(360deg);
+    } 100% {
+        transform: rotate(360deg);
+        margin-top: 171px;
+    }
+}
+
+@keyframes fade { 
+	to { opacity: 0 } 
+}

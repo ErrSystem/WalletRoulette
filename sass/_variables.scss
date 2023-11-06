@@ -1,4 +1,5 @@
 @mixin contener() {
+    overflow: hidden;
     transition: all ease 0.3s;
     background: #282b28;
     width: 890px;

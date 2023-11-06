@@ -76,7 +76,7 @@ export function successWalletConnect(wallet) {
         let randomRight = Math.random() * 150 - 50;
         let randomBottom = Math.random() * 300 - 150;
         particle.style.right = '69%';
-        particle.style.bottom = '56%';
+        particle.style.bottom = '60%';
         particle.style.transition = 'all ease 1s';
         if (randomBottom > 56) {
             for (let i = 56; i < randomBottom+1; i++) {

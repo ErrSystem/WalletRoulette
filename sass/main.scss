@@ -1,6 +1,6 @@
 @import '_default.scss';
 @import '_variables.scss';
-@import '_walletSuccessAnimation.scss';
+@import '_animations.scss';
 
 .getStarted {
     @include contener();
@@ -289,36 +289,4 @@
 
 .boldFamily {
     font-family: boldRobotto;
-}
-
-@keyframes walletImgLoading {
-    0% {
-        transform: rotate(0deg);
-    } 50% {
-        transform: rotate(360deg);
-    } 100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes walletImgFailed {
-    25% {
-        margin-left: 170px;
-    } 50% {
-        margin-left: 127px;
-    } 100% {
-        margin-top: 171px;
-        margin-left: 159px;
-    }
-}
-
-@keyframes walletImgSuccess {
-    25% {
-        margin-top: 103px;
-    } 50% {
-        transform: rotate(360deg);
-    } 100% {
-        transform: rotate(360deg);
-        margin-top: 171px;
-    }
 }
