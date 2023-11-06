@@ -65,11 +65,28 @@ export function setAdress(adress, wallet) {
 }
 
 export function successWalletConnect(wallet) {
-    const numParticles = 150;
+    particleAnimation(wallet);
+    document.querySelector(`.${wallet}Select .isInstalled`).innerText = 'Connected!';
+    document.querySelector(`.${wallet}Select .isInstalled`).style.color = 'green';
+    document.querySelector(`.${wallet}Select`).id = "walletSuccess";
+}
+
+const particleAnimation = wallet => {
+    const particleAnimationHelper = (particle, where, num) => {
+        setTimeout(() => {
+            if(where == 'bottom'){
+                particle.style.bottom = num+'%';
+            } else if (where == 'right') {
+                particle.style.right = num+'%';
+            }
+        }, 1);
+    }
+    const numParticles = 200;
     const walletSelect = document.querySelector(`.${wallet}Select`);
     for (let i = 0; i < numParticles; i++) {
         const particle = document.createElement('div');
         particle.className = "walletSuccessParticle";
+        particle.style.transition = "ease all 0.3s"
         walletSelect.insertAdjacentElement("afterbegin", particle);
     }
     document.querySelectorAll('.walletSuccessParticle').forEach(particle => {
@@ -80,37 +97,27 @@ export function successWalletConnect(wallet) {
         particle.style.transition = 'all ease 1s';
         if (randomBottom > 56) {
             for (let i = 56; i < randomBottom+1; i++) {
-                particleAnimationHandler(particle, 'bottom', i);
+                particleAnimationHelper(particle, 'bottom', i);
             }
         } else {
             for (let i = 56; i > randomBottom+1; i--) {
-                particleAnimationHandler(particle, 'bottom', i);
+                particleAnimationHelper(particle, 'bottom', i);
             }
         }
         if (randomRight > 69) {
             for (let i = 69; i < randomRight+1; i++) {
-                particleAnimationHandler(particle, 'right', i);
+                particleAnimationHelper(particle, 'right', i);
             }
         } else {
             for (let i = 69; i > randomRight+1; i--) {
-                particleAnimationHandler(particle, 'right', i);
+                particleAnimationHelper(particle, 'right', i);
             }
         }
         setTimeout(() => {
-            particle.remove();
+            particle.style.opacity = '0';
+            setTimeout(() => {
+                particle.remove();
+            }, 300);
         }, 1200);
     })
-    document.querySelector(`.${wallet}Select .isInstalled`).innerText = 'Connected!';
-    document.querySelector(`.${wallet}Select .isInstalled`).style.color = 'green';
-    document.querySelector(`.${wallet}Select`).id = "walletSuccess";
-}
-
-const particleAnimationHandler = (particle, where, num) => {
-    setTimeout(() => {
-        if(where == 'bottom'){
-            particle.style.bottom = num+'%';
-        } else if (where == 'right') {
-            particle.style.right = num+'%';
-        }
-    }, 50);
 }

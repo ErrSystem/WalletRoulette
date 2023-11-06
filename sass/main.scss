@@ -38,8 +38,8 @@
     .connectWalletButton {
         padding: 11px 33px;
         transition: all ease 0.3s;
-        background: #99a3f7;
-        border: 1px solid #a1a8e5;
+        background: #191c19;
+        border: 1px solid #656464;
         font-family: boldUbuntu;
         border-radius: 3px;
         float: right;
@@ -49,7 +49,8 @@
         &:hover {
             transition: all ease 0.3s;
             cursor: pointer;
-            background: #5e67ad;
+            background: #656464;
+            border-color: white;
         }
         img {
             display: none;
@@ -132,7 +133,7 @@
     z-index: 99;
     width: 625px;
     border-radius: 6px;
-    background: white;
+    background: #f1f1f1;
     height: 465px;
     overflow: hidden;
     h2 {
@@ -168,7 +169,7 @@
     .explainSelectWallet {
         width: 235px;
         height: 463px;
-        background: #f3f3f3;
+        background: #e1e1e1;
         border-bottom-left-radius: 5px;
         border-top-left-radius: 5px;
         position: absolute;
@@ -251,6 +252,7 @@
             font-size: 22px;
         }
         img {
+            background-color: white;
             animation: walletImgLoading 3s infinite;
             width: 78px;
             height: 78px;
