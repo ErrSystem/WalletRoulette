@@ -1,9 +1,4 @@
 @font-face {
-    font-family: boldRobotto;
-    src: url(/css/fonts/Roboto/Roboto-Bold.ttf);
-}
-
-@font-face {
     font-family: lightRobotto;
     src: url(/css/fonts/Roboto/Roboto-Light.ttf);
 }
@@ -13,6 +8,20 @@
     src: url(/css/fonts/Ubuntu/Ubuntu-Light.ttf);
 }
 
+@font-face {
+    font-family: casinoStyle;
+    src: url(/css/fonts/grand-casino/GrandcasinoRegular-mLExx.otf);
+}
+
+@font-face {
+    font-family: comicStyle;
+    src: url(/css/fonts/lounge-bait-font/LoungeBait-JpVa.ttf);
+}
+
+@font-face {
+    font-family: lightFont;
+    src: url(/css/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,10 +37,15 @@ h2, h3, p {
     padding: 20px;
 }
 
-p {
-    font-family: lightRobotto;
+p, li, h3, h4 {
+    font-family: lightFont;
 }
 
-h2, h3 {
-    font-family: boldUbuntu;
+h2 {
+    font-family: comicStyle;
+    letter-spacing: 5px;
+}
+
+.boldFamily {
+    font-weight: bolder;
 }
