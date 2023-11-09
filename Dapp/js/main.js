@@ -2,10 +2,12 @@ import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
+import {leverClick} from './lever.js';
 let isTesting = false;
+const connectWalletBtn = document.querySelector('.connectWalletButton');
+const leverBoule = document.querySelector('.contener .lever .boule');
 
 // Connect wallet button handler 
-const connectWalletBtn = document.querySelector('.connectWalletButton');
 const connectWalletHandler = () => {
     document.querySelector('.getStarted').style.filter = 'blur(15px)';
     if (!isMobile()) {
@@ -27,6 +29,9 @@ connectWalletBtn.addEventListener('click', () => connectWalletHandler());
 document.addEventListener('DOMContentLoaded', () => detectWallets());
 document.querySelector('.closeSelectWallet').addEventListener('click', () => closeWalletSelect());
 document.addEventListener('DOMContentLoaded', () => Testing(isTesting));
-setTimeout(() => {
-    transactionDone();
-}, 3000);
+leverBoule.addEventListener('click', () => leverClick());
+document.addEventListener('keypress', event => {
+    if (event.code == "Space") {
+        transactionDone();
+    }
+})

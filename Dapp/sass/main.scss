@@ -98,21 +98,75 @@
     }
 }
 
-#getStartedTransationDone {
-    .connectWalletButton {
-        height: 17px;
-        border-radius: 56px;
-        background: #58d558;
-        border: #3d4f3d 3px solid;
-        margin-top: -48px;
-        margin-right: 39px;
-        padding-right: 11px;
-        img {
-            display: none;
+.lever {
+    background-color: #282b28;
+    width: 142px;
+    height: 444px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: #313330 solid 0.1px;
+    border-left: 0;
+    float: right;
+    margin-top: 245px;
+    position: absolute;
+    right: 73px;
+    transition: all ease 2s;
+    .littleBase {
+        top: 149px;
+        position: absolute;
+        width: 87px;
+        height: 130px;
+        background: #2e312e;
+        border-radius: 5px;
+        left: 26px;
+        box-shadow: 1px 1px 20px #1a1a1a;
+    }
+    .batton {
+        top: -61px;
+        position: absolute;
+        width: 40px;
+        height: 275px;
+        background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
+        border-radius: 5px;
+        left: 49px;
+        box-shadow: -2px -20px 20px #1a1a1a;
+    }
+    .boule {
+        top: -95px;
+        position: absolute;
+        width: 87px;
+        height: 89px;
+        background: #1d3b2e;
+        border-radius: 46px;
+        left: 25px;
+        box-shadow: -1px -20px 20px #1a1a1a;
+        &:hover {
+            cursor: pointer;
         }
-        a {
-            display: none;
-        }
+    }
+}
+
+#inclinedLever {
+    .batton {
+        top: 226px;
+        position: absolute;
+        width: 40px;
+        height: 275px;
+        background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
+        border-radius: 5px;
+        left: 49px;
+        box-shadow: -2px -20px 20px #1a1a1a;
+        transform: rotate(180deg);
+    }
+    .boule {
+        top: 446px;
+        position: absolute;
+        width: 87px;
+        height: 89px;
+        background: #1d3b2e;
+        border-radius: 46px;
+        left: 25px;
+        box-shadow: 0px -2px 20px #1a1a1a;
     }
 }
 
@@ -137,12 +191,6 @@
     } 
     p {
         padding-top: 0;
-    }
-    .mouseDown {
-        position: absolute;
-        top: 79vh;
-        right: 50%;
-        animation: scrollDown 3s infinite;
     }
 }
 
@@ -316,4 +364,13 @@
             animation: walletImgFailed .2s;
         }
     }
+}
+.mouseDown {
+    position: absolute;
+    z-index: 5;
+    top: 79vh;
+    right: 50%;
+    display: none;
+    opacity: 0;
+    animation: scrollDown 3s infinite;
 }

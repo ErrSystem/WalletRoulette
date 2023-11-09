@@ -8,4 +8,4 @@ const loadApp = () => {
         document.querySelector('.getStarted').style.display = 'none';
     }, 300);
 }
-generateButton.addEventListener('click', () => loadApp());
+// generateButton.addEventListener('click', () => loadApp());

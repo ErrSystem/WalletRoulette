@@ -1,11 +1,9 @@
-import {account} from './walletsHandler.js'
+import {account} from './walletsHandler.js';
+import {leverAnim} from './lever.js';
 
 export default function transactionDone() {
+    console.log('Transaction is done!')
     const getStarted = document.querySelector('.getStarted');
-    const connectButton = document.querySelector('.connectWalletButton');
-    const hoverConnectButton = document.querySelector('.connectWalletButton .hover');
     getStarted.id = "getStartedTransationDone";
-    connectButton.addEventListener('mouseover', () => {
-        hoverConnectButton.innerText = account
-    })
+    leverAnim();
 }
