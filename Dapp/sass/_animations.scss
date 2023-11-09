@@ -94,3 +94,13 @@
 @keyframes fade { 
 	to { opacity: 0 } 
 }
+
+@keyframes scrollDown {
+    0% {
+        top: 79vh;
+    } 50% {
+        top: 82vh;
+    } 100% {
+        top: 79vh;
+    }
+}

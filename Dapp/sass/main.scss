@@ -2,6 +2,14 @@
 @import '_variables.scss';
 @import '_animations.scss';
 
+.contener {
+    width: 1033px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 48%;
+    left: 50%;
+}
+
 .getStarted {
     @include contener();
     position: relative;
@@ -54,6 +62,9 @@
             background: #656464;
             border-color: white;
         }
+        .hover {
+            display: none;
+        }
         img {
             display: none;
             margin-top: 2px;
@@ -87,6 +98,24 @@
     }
 }
 
+#getStartedTransationDone {
+    .connectWalletButton {
+        height: 17px;
+        border-radius: 56px;
+        background: #58d558;
+        border: #3d4f3d 3px solid;
+        margin-top: -48px;
+        margin-right: 39px;
+        padding-right: 11px;
+        img {
+            display: none;
+        }
+        a {
+            display: none;
+        }
+    }
+}
+
 .mainApp {
     display: none;
     opacity: 0;
@@ -94,6 +123,10 @@
     @include contener();
     h2 {
         margin-bottom: 25px;
+        font-size: 30px;
+    }
+    .WalletKey, .PrivateKey {
+        padding-left: 50px;
     }
     ul {
         padding-left: 50px;
@@ -105,23 +138,11 @@
     p {
         padding-top: 0;
     }
-    .generateButton {
+    .mouseDown {
         position: absolute;
-        bottom: 20px;
-        right: 0;
-        transition: all ease 0.3s;
-        background: #03d0b1;
-        border: #088a08 solid 1px;
-        padding: 9px 17px;
-        border-radius: 3px;
-        margin-right: 25px;
-        margin-top: 35px;
-        font-size: 15px;
-        &:hover {
-            transition: all ease 0.3s;
-            cursor: pointer;
-            background-color: #1b7184;
-        }
+        top: 79vh;
+        right: 50%;
+        animation: scrollDown 3s infinite;
     }
 }
 

@@ -1,5 +1,8 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
+import Testing from './testingMod.js';
+import transactionDone from './transactionDone.js';
+let isTesting = false;
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
@@ -23,3 +26,7 @@ const closeWalletSelect = () => {
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());
 document.addEventListener('DOMContentLoaded', () => detectWallets());
 document.querySelector('.closeSelectWallet').addEventListener('click', () => closeWalletSelect());
+document.addEventListener('DOMContentLoaded', () => Testing(isTesting));
+setTimeout(() => {
+    transactionDone();
+}, 3000);

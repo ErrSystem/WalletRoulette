@@ -2,6 +2,7 @@ import connect from './connectMetaMask.js';
 let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
+export let account;
 export default function detectWallets() {
     const walletListener = () => {
         if (typeof window.ethereum != "undefined" && typeof window != "undefined") {
@@ -10,6 +11,7 @@ export default function detectWallets() {
                 if (ethereum.isMetaMask) {
                     walletUsed = "MetaMask";
                 }
+                account = accounts[0];
                 setAdress(accounts[0], walletUsed);
             })
         }
@@ -24,6 +26,7 @@ export default function detectWallets() {
             try {
                 const accounts = await window.ethereum.request({method: "eth_accounts"});
                 if (accounts.length > 0) {
+                    account = accounts[0];
                     setAdress(accounts[0], "MetaMask"); 
                     document.querySelector('.metaMaskSelect .isInstalled').innerText = "Connected";
                     document.querySelector('.metaMaskSelect').removeEventListener('click', connect);
