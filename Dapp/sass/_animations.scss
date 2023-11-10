@@ -104,3 +104,105 @@
         top: 79vh;
     }
 }
+
+@keyframes indicator {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0% { transform:  rotate(0deg); }
+    25% { transform:  rotate(1deg); }
+    50% { transform:  rotate(0deg); }
+    75% { transform:  rotate(-1deg); }
+    100% { transform:  rotate(0deg); }
+}
+
+@keyframes impactAnim {
+    0% {
+        transform: scale(1);
+    } 50% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes leverBattonClick1 {
+    0% {
+        top: -80px;
+        height: 275px;
+    } 100% {
+        top: 175px;
+        height: 50px;
+    }
+}
+
+@keyframes leverBattonClick2 {
+    0% {
+        top: 175px;
+        height: 50px;
+    } 100% {
+        top: 226px;
+        height: 275px;    
+    }
+}
+
+@keyframes leverBallClick1 {
+    0% {
+        top: -110px;
+    } 100% {
+        top: 170px;
+    }
+}
+
+@keyframes leverBallClick2 {
+    0% {
+        top: 170px;
+    } 100% {
+        top: 446px;
+    }
+}
+
+@keyframes leverBattonEnable1 {
+    0% {
+        top: 226px;
+        height: 275px;
+    } 100% {
+        top: 175px;
+        height: 50px;
+    }
+}
+
+@keyframes leverBattonEnable2 {
+    0% {
+        top: 175px;
+        height: 50px;
+    } 100% {
+        top: -80px;
+        height: 275px;
+    }
+}
+
+@keyframes leverBallEnable1 {
+    0% {
+        top: 446px;
+    } 100% {
+        top: 170px;
+    }
+}
+
+@keyframes leverBallEnable2 {
+    0% {
+        top: 170px;
+    } 100% {
+        top: -110px;
+    }
+}

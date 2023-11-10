@@ -2,17 +2,20 @@
 @import '_variables.scss';
 @import '_animations.scss';
 
-.contener {
+.getStartedContener {
     width: 1033px;
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 48%;
+    top: 5%;
     left: 50%;
+}
+
+#getStartedShake {
+    animation: shake 1s;
 }
 
 .getStarted {
     @include contener();
-    position: relative;
     h2 {
         text-align: left;
         padding-left: 35px;
@@ -122,7 +125,7 @@
         box-shadow: 1px 1px 20px #1a1a1a;
     }
     .batton {
-        top: -61px;
+        top: -80px;
         position: absolute;
         width: 40px;
         height: 275px;
@@ -132,22 +135,98 @@
         box-shadow: -2px -20px 20px #1a1a1a;
     }
     .boule {
-        top: -95px;
+        top: -110px;
         position: absolute;
         width: 87px;
         height: 89px;
-        background: #1d3b2e;
+        background: #274d3c;
         border-radius: 46px;
         left: 25px;
         box-shadow: -1px -20px 20px #1a1a1a;
+        border: white .1px solid;
         &:hover {
             cursor: pointer;
+        }
+        &::before {
+            content: "";
+            display: block;
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            border: white 1px solid;
+            animation: indicator 0.8s linear infinite;
+            margin-left: 1px;
+            margin-top: 1px;
+            box-shadow: 1px 1px 20px #ffffff52;   
+            filter: blur(0.8px);     
+        }
+    }
+    img {
+        transition: .5s all ease;
+        position: absolute;
+        bottom: -156px;
+        left: -44px;
+        opacity: .5;
+        animation: impactAnim 1s;
+        display: none;
+    }
+}
+
+#clickLever1 {
+    .batton {
+        animation: leverBattonClick1 .5s;
+    }
+    .boule {
+        animation: leverBallClick1 .5s;
+        border: none;
+        &::before {
+            display: none;
+        }
+    }
+}
+
+#clickLever2 {
+    .batton {
+        animation: leverBattonClick2 .5s;
+    }
+    .boule {
+        animation: leverBallClick2 .5s;
+        border: none;
+        &::before {
+            display: none;
+        }
+    }
+}
+
+#incliningLever1 {
+    .batton {
+        animation: leverBattonEnable1 .5s;
+    }
+    .boule {
+        animation: leverBallEnable1 .5s;
+        border: none;
+        &::before {
+            display: none;
+        }
+    }
+}
+
+#incliningLever2 {
+    .batton {
+        animation: leverBattonEnable2 .5s;
+    }
+    .boule {
+        animation: leverBallEnable2 .5s;
+        border: none;
+        &::before {
+            display: none;
         }
     }
 }
 
 #inclinedLever {
     .batton {
+        animation: none;
         top: 226px;
         position: absolute;
         width: 40px;
@@ -159,14 +238,23 @@
         transform: rotate(180deg);
     }
     .boule {
+        animation: none;
         top: 446px;
         position: absolute;
         width: 87px;
         height: 89px;
-        background: #1d3b2e;
+        background: #23392f;
         border-radius: 46px;
         left: 25px;
         box-shadow: 0px -2px 20px #1a1a1a;
+        border: none;
+        &:hover {
+            cursor: default;
+        }
+        &::before {
+            display: none;
+            animation: none;
+        }
     }
 }
 
@@ -195,6 +283,7 @@
 }
 
 .selectWallet {
+    transition: all ease 0.3s;
     position: absolute;
     display: none;
     opacity: 0;
@@ -366,6 +455,7 @@
     }
 }
 .mouseDown {
+    transition: all ease 0.3s;
     position: absolute;
     z-index: 5;
     top: 79vh;

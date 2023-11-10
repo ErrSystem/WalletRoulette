@@ -1,10 +1,11 @@
 @mixin contener() {
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 71px;
     transition: all ease 0.3s;
     background: #282b28;
     width: 890px;
-    margin: auto;
-    margin-top: 50px;
     border-radius: 5px;
     height: 90vh;
     border: #313330 solid 0.1px;

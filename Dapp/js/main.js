@@ -5,11 +5,11 @@ import transactionDone from './transactionDone.js';
 import {leverClick} from './lever.js';
 let isTesting = false;
 const connectWalletBtn = document.querySelector('.connectWalletButton');
-const leverBoule = document.querySelector('.contener .lever .boule');
+const leverBoule = document.querySelector('.getStartedContener .lever .boule');
 
 // Connect wallet button handler 
 const connectWalletHandler = () => {
-    document.querySelector('.getStarted').style.filter = 'blur(15px)';
+    document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
     if (!isMobile()) {
         document.querySelector('#particles-js').style.filter = 'blur(15px)';
     }
@@ -18,7 +18,7 @@ const connectWalletHandler = () => {
 }
 const closeWalletSelect = () => {
     document.querySelector('#particles-js').style = "";
-    document.querySelector('.getStarted').style = '';
+    document.querySelector('.getStartedContener').style = '';
     document.querySelector('.selectWallet').style = '';
     if (document.querySelector('.metaMaskSelect').id !== "walletConnected") {
         document.querySelector('.metaMaskSelect').id = '';
