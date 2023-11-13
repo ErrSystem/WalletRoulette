@@ -10,6 +10,7 @@ i{
 
 .lightsBackground {
     position: relative;
+    filter: blur(10px);
 }
     
 i:nth-child(1) {
