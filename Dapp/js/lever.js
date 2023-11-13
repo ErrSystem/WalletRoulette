@@ -1,10 +1,13 @@
 import {animationDone} from './transactionDone.js';
+import spin from './spin.js';
 const lever = document.querySelector('.getStartedContener .lever');
 const leverBatton = document.querySelector('.getStartedContener .lever .batton');
 const impact = document.querySelector('.getStartedContener img');
 
 export function leverClick() {
+    // mouse down indicator desappears
     mouseDownAnim();
+    // animation for the lever
     lever.id = "clickLever1";
     setTimeout(() => {
         leverBatton.style.transform = 'rotate(180deg)';
@@ -13,8 +16,8 @@ export function leverClick() {
             impact.style.display = 'block';
             lever.id = 'inclinedLever';
             animationDone();
-        }, 400);
-    }, 300);
+        }, 100);
+    }, 130);
     setTimeout(() => {
         lever.style.right = '73px';
         impact.style.opacity = '0';
@@ -23,7 +26,9 @@ export function leverClick() {
             impact.style = '';
             setTimeout(() => {
                 leverBatton.style = '';
-            }, 200);
+                // calls the spin animation
+                spin();
+            }, 120);
         }, 1000);
     }, 1000);
 }
@@ -40,8 +45,8 @@ export function leverAnim() {
                 lever.id = "incliningLever2";
                 setTimeout(() => {
                     lever.id = '';
-                }, 400);
-            }, 400);
+                }, 150);
+            }, 130);
         }, 1500);
     }, 1000);
 }
@@ -52,8 +57,4 @@ const mouseDownAnim = () => {
     setTimeout(() => {
         mouseDown.style.display = 'none';
     }, 300);
-}
-
-const leverClickAnim = () => {
-
 }

@@ -1,4 +1,13 @@
-@mixin contener() {
+@mixin contenerTemplate() {
+    width: 1033px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 5%;
+    left: 50%;
+}
+
+@mixin divTemplate() {
+    z-index: 3;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -12,7 +21,9 @@
     color: white;
     h2 {
         padding-top: 45px;
-        text-align: center;
+        text-align: left;
+        padding-left: 35px;
+        font-size: 35px;
     }
     p {
         text-align: left;

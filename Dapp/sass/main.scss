@@ -2,25 +2,21 @@
 @import '_variables.scss';
 @import '_animations.scss';
 
+// get started
 .getStartedContener {
-    width: 1033px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 5%;
-    left: 50%;
+    @include contenerTemplate();
 }
 
 #getStartedShake {
     animation: shake 1s;
 }
 
+#getStartedSpinning {
+    animation: fall 1.5s;
+}
+
 .getStarted {
-    @include contener();
-    h2 {
-        text-align: left;
-        padding-left: 35px;
-        font-size: 35px;
-    }
+    @include divTemplate();
     ul {
         padding-left: 50px;
         font-family: lightRobotto;
@@ -28,7 +24,7 @@
             margin-bottom: 10px;
             transition: all ease 0.3s;
             list-style: none;
-            width: 60px;
+            width: 70px;
             &:hover {
                 transition: all ease 0.3s;
                 padding-left: 10px;
@@ -101,6 +97,7 @@
     }
 }
 
+// lever
 .lever {
     background-color: #282b28;
     width: 142px;
@@ -136,6 +133,7 @@
     }
     .boule {
         top: -110px;
+        z-index: 2;
         position: absolute;
         width: 87px;
         height: 89px;
@@ -174,10 +172,10 @@
 
 #clickLever1 {
     .batton {
-        animation: leverBattonClick1 .5s;
+        animation: leverBattonClick1 .3s;
     }
     .boule {
-        animation: leverBallClick1 .5s;
+        animation: leverBallClick1 .3s;
         border: none;
         &::before {
             display: none;
@@ -187,10 +185,10 @@
 
 #clickLever2 {
     .batton {
-        animation: leverBattonClick2 .5s;
+        animation: leverBattonClick2 .3s;
     }
     .boule {
-        animation: leverBallClick2 .5s;
+        animation: leverBallClick2 .3s;
         border: none;
         &::before {
             display: none;
@@ -200,10 +198,10 @@
 
 #incliningLever1 {
     .batton {
-        animation: leverBattonEnable1 .5s;
+        animation: leverBattonEnable1 .3s;
     }
     .boule {
-        animation: leverBallEnable1 .5s;
+        animation: leverBallEnable1 .3s;
         border: none;
         &::before {
             display: none;
@@ -213,10 +211,10 @@
 
 #incliningLever2 {
     .batton {
-        animation: leverBattonEnable2 .5s;
+        animation: leverBattonEnable2 .3s;
     }
     .boule {
-        animation: leverBallEnable2 .5s;
+        animation: leverBallEnable2 .3s;
         border: none;
         &::before {
             display: none;
@@ -258,14 +256,27 @@
     }
 }
 
+// main app
+.mainAppContener {
+    @include contenerTemplate;
+    transition: all ease 1s;
+}
+
+#notLoadedApp {
+    top: -110%;
+}
+
+#mainAppSpinning {
+    top: -110%;
+    filter: blur(5px);
+    animation: spin .5s infinite;
+}
+
 .mainApp {
-    display: none;
-    opacity: 0;
     position: relative;
-    @include contener();
+    @include divTemplate();
     h2 {
         margin-bottom: 25px;
-        font-size: 30px;
     }
     .WalletKey, .PrivateKey {
         padding-left: 50px;
@@ -282,12 +293,13 @@
     }
 }
 
+// select wallet
 .selectWallet {
     transition: all ease 0.3s;
     position: absolute;
     display: none;
     opacity: 0;
-    bottom: 7%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
@@ -391,7 +403,7 @@
             @extend .walletName;
             top: 43px;
             font-size: 12px;
-            color: green;
+            color: #47b747;
         }
         .connectedImg {
             display: none;
@@ -440,6 +452,9 @@
         .connectedImg {
             display: inline;
         }
+        .isInstalled {
+            color: #47b747 !important;
+        }
     }
     #walletSuccess {
         @extend #metaMaskSelected;
@@ -454,6 +469,8 @@
         }
     }
 }
+
+// mouse down animation
 .mouseDown {
     transition: all ease 0.3s;
     position: absolute;

@@ -11,13 +11,13 @@ const leverBoule = document.querySelector('.getStartedContener .lever .boule');
 const connectWalletHandler = () => {
     document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
     if (!isMobile()) {
-        document.querySelector('#particles-js').style.filter = 'blur(15px)';
+        document.querySelector('.particlesBackground').style.filter = 'blur(15px)';
     }
     document.querySelector('.selectWallet').style.display = 'block';
     document.querySelector('.selectWallet').style.opacity = '1';
 }
 const closeWalletSelect = () => {
-    document.querySelector('#particles-js').style = "";
+    document.querySelector('.particlesBackground').style = "";
     document.querySelector('.getStartedContener').style = '';
     document.querySelector('.selectWallet').style = '';
     if (document.querySelector('.metaMaskSelect').id !== "walletConnected") {
