@@ -1,19 +1,34 @@
+let won = false;
 export default function spin() {
     const getStarted = document.querySelector('.getStartedContener');
-    const mainApp = document.querySelector('.mainAppContener');
+    const mainAppContener = document.querySelector('.mainAppContener');
+    const mainApp = document.querySelector('.mainAppContener .mainApp');
     getStarted.id = "getStartedSpinning";
     setTimeout(() => {
         getStarted.style.display = "none"; 
-        mainApp.id = "mainAppSpinning";
+        mainAppContener.id = "mainAppSpinning";
         setTimeout(() => {
-            mainApp.style.animationDuration = ".4s";
+            mainAppContener.style.animationDuration = ".4s";
             setTimeout(() => {
-                mainApp.style.animationDuration = ".2s";
+                mainAppContener.style.animationDuration = ".2s";
                 setTimeout(() => {
-                    mainApp.style.animationDuration = ".1s";
+                    mainAppContener.style.animationDuration = ".1s";
                         setTimeout(() => {
-                            mainApp.style.animation = "none";
-                            mainApp.id = '';
+                            mainAppContener.style.animation = "none";
+                            mainAppContener.id = '';
+                            if (!won) {
+                                document.querySelector('.mainAppContener h3').style.display = 'block';
+                                document.querySelector('.mainAppContener h3').style.opacity = '1';
+                                mainApp.style.boxShadow = "0px 0px 20px 20px #b34545";
+                                mainApp.style.filter = "brightness(0.2) blur(2px)";
+                                setTimeout(() => {
+                                    document.querySelector('.mainAppContener h3').style.opacity = '0';
+                                    mainApp.style = "";
+                                    setTimeout(() => {
+                                        document.querySelector('.mainAppContener h3').style.display = 'none';
+                                    }, 500);
+                                }, 3500);
+                            }
                         }, 500);
                 }, 500);
             }, 500);

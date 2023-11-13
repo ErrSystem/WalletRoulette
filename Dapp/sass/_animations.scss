@@ -1,20 +1,4 @@
-// paticles.js
-// #particles-js{
-// 	overflow: hidden;
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	height: 100%;
-// 	background-color: #191c19;
-// 	background-image: url('');
-// 	background-size: cover;
-// 	background-position: 50% 50%;
-// 	background-repeat: no-repeat;
-// }
-
-//test 
-
+// Particles Background
 i{
     position: absolute;
     width: 120px;
@@ -24,7 +8,7 @@ i{
     animation: screen  infinite;
 }
 
-.particlesBackground {
+.lightsBackground {
     position: relative;
 }
     
@@ -221,6 +205,10 @@ i:nth-child(21) {
 }
 
 // particle background animations
+.flyingParticles {
+    position: absolute;
+}
+
 .glowingParticles {
     position: relative;
     min-width: 700px;

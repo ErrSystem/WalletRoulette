@@ -19,7 +19,7 @@ export function leverClick() {
         }, 100);
     }, 130);
     setTimeout(() => {
-        lever.style.right = '73px';
+        lever.style.right = '100px';
         impact.style.opacity = '0';
         document.querySelector('.getStarted').id = "";
         setTimeout(() => {

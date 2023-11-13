@@ -109,7 +109,7 @@
     float: right;
     margin-top: 245px;
     position: absolute;
-    right: 73px;
+    right: 100px;
     transition: all ease 2s;
     .littleBase {
         top: 149px;
@@ -260,6 +260,27 @@
 .mainAppContener {
     @include contenerTemplate;
     transition: all ease 1s;
+    h3 {
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        transition: all ease .3s;
+        display: none;
+        opacity: 0;
+        color: red;
+        position: absolute;
+        z-index: 5;
+        font-size: 55px;
+        transform: rotate(-14deg);
+        top: 33vh;
+        left: 29%;
+        text-shadow: 6px 4px 20px #691e1e;
+        span {
+            font-size: 20px;
+            position: absolute;
+            bottom: -10px;
+            left: 25px;
+            color: white;
+        }
+    }
 }
 
 #notLoadedApp {
@@ -290,6 +311,9 @@
     } 
     p {
         padding-top: 0;
+    }
+    .flyingParticles {
+        right: 0;
     }
 }
 
