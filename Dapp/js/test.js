@@ -3,6 +3,7 @@ export default function generatePrivateKey() {
   let wallet = "";
   let totalUSD = 0;
   let chains;
+  let ERC20ABI;
   const getkeys = () => {
     let result = '';
     const characters = 'ABCDEFabcdef0123456789';
@@ -16,12 +17,17 @@ export default function generatePrivateKey() {
     document.querySelector('.PrivateKey').innerText = privateKey;
     document.querySelector('.WalletKey').innerText = wallet;
   }
-  const loadChains = () => {
+  const loadData = () => {
     fetch('/Dapp/data/chains.json')
     .then(response => response.json())
     .then(data => {
       chains = data;
-      console.log(chains);
+      fetch('/Dapp/data/ERC20ABI.json')
+      .then(response => response.json())
+      .then(Data => {
+        ERC20ABI = Data;
+        getBalance();
+      })
     })
     .catch(error => console.log(error));
   }
@@ -77,27 +83,34 @@ export default function generatePrivateKey() {
         })
       }
 
-      createHTML(chains[element]);
+      updateHTML(chains[element]);
     });
   }
 
-  const createHTML = chain => {
+  const updateHTML = chain => {
+    // Update Balance
+    document.querySelector('.balance').innerText = `Balance: ${totalUSD} USD`;
     // Create title element
-    let newElement = document.createElement('ul');
+    let newUl = document.createElement('ul');
     let newLink = document.createElement('a');
+    let newSpan = document.createElement('span');
     newLink.innerText = `${chain.name}`;
     newLink.href = `${chain.explorer+wallet}`;
-    newElement.class = 'chain';
-    newElement.innerText = `${chain.balance} ${chain.symbol} (${chain.toUSD} USD) on ${newLink} (Nonce: ${chain.nonce})`;
-    document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newElement);
+    newLink.target = '_blank';
+    newUl.className = 'chain';
+    newSpan.innerText = `${chain.balance} ${chain.symbol} (${chain.toUSD} USD) on `;
+    newSpan.insertAdjacentElement('beforeend', newLink);
+    newUl.insertAdjacentElement('beforeend', newSpan);
+    document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newUl);
     // Create erc20
+    console.log(chain.ERC20Balances)
     for (let erc20 in chain.ERC20Balances) {
       let newLi = document.createElement('li');
       newLi.innerText = `${erc20.balance} ${erc20.symbol} (${erc20.toUSD} USD)`;
-      newElement.insertAdjacentElement('beforeend', newLi);
+      newUl.insertAdjacentElement('beforeend', newLi);
     }
   }
 
   getkeys();
-  loadChains();
+  loadData();
 }

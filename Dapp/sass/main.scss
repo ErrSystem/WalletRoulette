@@ -319,6 +319,15 @@
             padding: 0;
             margin-bottom: 10px;
         }
+        a {
+            text-decoration: none;
+            color: #316131;
+            transition: all ease .3s;
+            &:hover {
+                transition: all ease .3s;
+                color: green;
+            }
+        }
         li {
             margin-bottom: 10px
         }
