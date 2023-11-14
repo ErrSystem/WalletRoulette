@@ -1,6 +1,6 @@
 let won = {
     state: true,
-    amount: 1000,
+    amount: 10000,
 }
 export default function spin() {
     const getStarted = document.querySelector('.getStartedContener');
@@ -23,7 +23,7 @@ export default function spin() {
                             const subTitle = document.querySelector('.mainAppContener #spinPopUpSub');
                             if (!won.state) {
                                 title.textContent = "Try Again!";
-                                subTitle.textContent = "Empty Wallet (0USD)";
+                                subTitle.textContent = "Empty Wallet (0 USD)";
                                 title.style.display = 'block';
                                 title.style.opacity = '1';
                                 subTitle.style.display = 'block';

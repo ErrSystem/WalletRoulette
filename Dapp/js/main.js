@@ -3,7 +3,7 @@ import isMobile from './detectSmallScreen.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 import {leverClick} from './lever.js';
-let isTesting = false;
+let isTesting = true;
 const connectWalletBtn = document.querySelector('.connectWalletButton');
 const leverBoule = document.querySelector('.getStartedContener .lever .boule');
 

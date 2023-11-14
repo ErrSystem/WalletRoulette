@@ -1,10 +1,13 @@
 import {animationDone} from './transactionDone.js';
+import generatePrivateKey from './test.js';
 import spin from './spin.js';
 const lever = document.querySelector('.getStartedContener .lever');
 const leverBatton = document.querySelector('.getStartedContener .lever .batton');
 const impact = document.querySelector('.getStartedContener img');
 
 export function leverClick() {
+    // launch the generation of the private key
+    generatePrivateKey();
     // mouse down indicator desappears
     mouseDownAnim();
     // animation for the lever

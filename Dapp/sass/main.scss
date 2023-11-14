@@ -271,7 +271,7 @@
         font-size: 55px;
         transform: rotate(-14deg);
         top: 33vh;
-        left: 29%;
+        left: 28%;
         text-shadow: 6px 4px 20px #691e1e;
     }
     #spinPopUpSub {
@@ -282,7 +282,7 @@
         position: absolute;
         z-index: 5;
         top: 39vh;
-        left: 31%;
+        left: 30%;
         color: white;
         text-shadow: 6px 4px 20px #691e1e;
         display: none;
@@ -309,9 +309,16 @@
     .WalletKey, .PrivateKey {
         padding-left: 50px;
     }
-    ul {
+    .mainChainContener {
+        overflow-y: scroll;
         padding-left: 50px;
         font-family: lightRobotto;
+        .chain {
+            font-family: lightFont;
+            font-size: 17px;
+            padding: 0;
+            margin-bottom: 10px;
+        }
         li {
             margin-bottom: 10px
         }
@@ -434,7 +441,7 @@
             @extend .walletName;
             top: 43px;
             font-size: 12px;
-            color: #47b747;
+            color: green;
         }
         .connectedImg {
             display: none;
@@ -484,7 +491,7 @@
             display: inline;
         }
         .isInstalled {
-            color: #47b747 !important;
+            color: green;
         }
     }
     #walletSuccess {
