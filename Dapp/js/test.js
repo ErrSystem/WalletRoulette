@@ -1,3 +1,4 @@
+import { webSiteAdress } from "./main.js";
 export default function generatePrivateKey() {
   let privateKey = "";
   let wallet = "";
@@ -18,11 +19,11 @@ export default function generatePrivateKey() {
     document.querySelector('.WalletKey').innerText = wallet;
   }
   const loadData = () => {
-    fetch('/Dapp/data/chains.json')
+    fetch(`${webSiteAdress}Dapp/data/chains.json`)
     .then(response => response.json())
     .then(data => {
       chains = data;
-      fetch('/Dapp/data/ERC20ABI.json')
+      fetch(`${webSiteAdress}Dapp/data/ERC20ABI.json`)
       .then(response => response.json())
       .then(Data => {
         ERC20ABI = Data;

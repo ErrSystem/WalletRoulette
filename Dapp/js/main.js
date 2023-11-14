@@ -4,6 +4,7 @@ import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 import {leverClick} from './lever.js';
 let isTesting = false;
+export let webSiteAdress = "https://errsystem.github.io/WalletRoulette/";
 const connectWalletBtn = document.querySelector('.connectWalletButton');
 const leverBoule = document.querySelector('.getStartedContener .lever .boule');
 
