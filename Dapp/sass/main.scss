@@ -310,7 +310,6 @@
         padding-left: 50px;
     }
     .mainChainContener {
-        overflow-y: scroll;
         padding-left: 50px;
         font-family: lightRobotto;
         .chain {
@@ -318,15 +317,33 @@
             font-size: 17px;
             padding: 0;
             margin-bottom: 10px;
+            li { 
+                font-size: 15px;
+                margin-top: 10px;
+                margin-left: 30px;
+                color: #7c817c;
+            }
         }
         a {
-            text-decoration: none;
-            color: #316131;
+            color: #428eab;
             transition: all ease .3s;
+            padding-left: 35px;
+            display: block;
+            margin-top: -26px;
+            text-decoration: none;
             &:hover {
                 transition: all ease .3s;
-                color: green;
+                color: #1e576d;
             }
+            span {
+                color: white;
+            }
+        }
+        img {
+            width: 25px;
+            background: white;
+            border-radius: 200px;
+            padding: 2px;
         }
         li {
             margin-bottom: 10px

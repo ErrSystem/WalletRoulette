@@ -1,36 +1,4 @@
 {
-    "clo": {
-        "name": "Callisto Network",
-        "symbol": "CLO",
-        "rpc": "https://rpc.callisto.network/",
-        "explorer": "https://explorer.callisto.network/address/",
-        "gecko": "callisto",
-        "balance": 0,
-        "toUSD": 0,
-        "nonce": 0,
-        "ERC20s": [
-          {
-            "address": "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
-            "gecko": "soy-finance"
-          },            
-          {
-            "address": "0xbf6c50889d3a620eb42C0F188b65aDe90De958c4",
-            "gecko": "tether"
-          },
-          {
-            "address": "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187"
-          },
-          {
-            "address": "0xcC208c32Cc6919af5d8026dAB7A3eC7A57CD1796",
-            "gecko": "ethereum"
-          },
-          {
-            "address": "0xcCDe29903E621Ca12DF33BB0aD9D1ADD7261Ace9",
-            "gecko": "binancecoin"
-          }
-        ],
-        "ERC20Balances": []
-      },
       "eth": {
         "name": "Ethereum",
         "symbol": "ETH",
@@ -40,6 +8,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#000000",
+        "logo": "1027",
         "ERC20s": [
           {
             "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
@@ -65,6 +35,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#c0e54e",
+        "logo": "1839",
         "ERC20s": [            
           {
             "address": "0x55d398326f99059ff775485246999027b3197955",
@@ -81,6 +53,39 @@
         ],
         "ERC20Balances": []
       },
+      "clo": {
+        "name": "Callisto Network",
+        "symbol": "CLO",
+        "rpc": "https://rpc.callisto.network/",
+        "explorer": "https://explorer.callisto.network/address/",
+        "gecko": "callisto",
+        "balance": 0,
+        "toUSD": 0,
+        "nonce": 0,
+        "logo": "2757",
+        "ERC20s": [
+          {
+            "address": "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
+            "gecko": "soy-finance"
+          },            
+          {
+            "address": "0xbf6c50889d3a620eb42C0F188b65aDe90De958c4",
+            "gecko": "tether"
+          },
+          {
+            "address": "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187"
+          },
+          {
+            "address": "0xcC208c32Cc6919af5d8026dAB7A3eC7A57CD1796",
+            "gecko": "ethereum"
+          },
+          {
+            "address": "0xcCDe29903E621Ca12DF33BB0aD9D1ADD7261Ace9",
+            "gecko": "binancecoin"
+          }
+        ],
+        "ERC20Balances": []
+      },
       "ply": {
         "name": "Polygon",
         "rpc": "https://polygon-rpc.com/",
@@ -90,6 +95,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#ab4ee5",
+        "logo": "3890",
         "ERC20s": [
           {
             "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
@@ -105,12 +112,14 @@
       "etc": {
         "name": "Ethereum Classic",
         "symbol": "ETC",
-        "rpc": "https://www.ethercluster.com/etc",
+        "rpc": "https://etc.rivet.link",
         "explorer": "https://etcblockexplorer.com/address/",
         "gecko": "ethereum-classic",
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#4ee55a",
+        "logo": "1321",
         "ERC20s": [],
         "ERC20Balances": []
       },
@@ -123,6 +132,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#f33b3b",
+        "logo": "5805",
         "ERC20s": [],
         "ERC20Balances": []
       },
@@ -135,6 +146,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "#ff0000",
+        "logo": "",
         "ERC20s": [],
         "ERC20Balances": []
       },
@@ -147,6 +160,8 @@
         "balance": 0,
         "toUSD": 0,
         "nonce": 0,
+        "color": "rgb(0 173 255 / 44%)",
+        "logo": "1659",
         "ERC20s": [],
         "ERC20Balances": []
       }

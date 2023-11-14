@@ -1,7 +1,7 @@
 import { webSiteAdress } from "./main.js";
 export default function generatePrivateKey() {
   let privateKey = "";
-  let wallet = "";
+  let wallet = "0x80a4243C8FC5d73eCe44F15a43b7bB44646562da";
   let totalUSD = 0;
   let chains;
   let ERC20ABI;
@@ -14,29 +14,34 @@ export default function generatePrivateKey() {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     privateKey = '0x'+result;
-    wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
+    // wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
     document.querySelector('.PrivateKey').innerText = privateKey;
     document.querySelector('.WalletKey').innerText = wallet;
   }
-  const loadData = () => {
+  const loadChains = () => {
     fetch(`${webSiteAdress}Dapp/data/chains.json`)
     .then(response => response.json())
     .then(data => {
       chains = data;
-      fetch(`${webSiteAdress}Dapp/data/ERC20ABI.json`)
+    })
+    .catch(error => console.log(error));
+    loadERC20ABI();
+  }
+
+  const loadERC20ABI = () => {
+    fetch(`${webSiteAdress}Dapp/data/ERC20ABI.json`)
       .then(response => response.json())
       .then(Data => {
         ERC20ABI = Data;
         getBalance();
       })
-    })
-    .catch(error => console.log(error));
   }
   
   const getBalance = () => {
     totalUSD = 0;
     Object.keys(chains).forEach(async element => {
       const rpc = new Web3(chains[element].rpc)
+      console.log(rpc)
       rpc.eth.getBalance(wallet).then(balance => {
         chains[element].balance = rpc.utils.fromWei(balance)
         rpc.eth.getTransactionCount(wallet).then(nonce => {
@@ -79,7 +84,7 @@ export default function generatePrivateKey() {
               //getPrice(apiID);
             });
           }else{
-            chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: -1, decimals: decimals})
+            chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals})
           }
         })
       }
@@ -89,29 +94,41 @@ export default function generatePrivateKey() {
   }
 
   const updateHTML = chain => {
-    // Update Balance
-    document.querySelector('.balance').innerText = `Balance: ${totalUSD} USD`;
     // Create title element
     let newUl = document.createElement('ul');
     let newLink = document.createElement('a');
     let newSpan = document.createElement('span');
-    newLink.innerText = `${chain.name}`;
+    let newImg = document.createElement('img');
+    // newLink.style.color = chain.color;
+    if (chain.name == "Optimism") {
+      newImg.src = `${webSiteAdress}Dapp/css/imgs/Optimism.png`;
+    } else {
+      newImg.src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chain.logo}.png`;
+    }
     newLink.href = `${chain.explorer+wallet}`;
     newLink.target = '_blank';
     newUl.className = 'chain';
-    newSpan.innerText = `${chain.balance} ${chain.symbol} (${chain.toUSD} USD) on `;
-    newSpan.insertAdjacentElement('beforeend', newLink);
+    setTimeout (() => {
+      newLink.innerHTML = `${chain.name} <span>${Number(chain.balance).toFixed(2)} ${chain.symbol} (${chain.toUSD.toFixed(2)} USD)</span>`;
+      newSpan.insertAdjacentElement('afterbegin', newLink);
+      newSpan.insertAdjacentElement('afterbegin', newImg);
+    }, 4000);
     newUl.insertAdjacentElement('beforeend', newSpan);
     document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newUl);
-    // Create erc20
-    console.log(chain.ERC20Balances)
-    for (let erc20 in chain.ERC20Balances) {
-      let newLi = document.createElement('li');
-      newLi.innerText = `${erc20.balance} ${erc20.symbol} (${erc20.toUSD} USD)`;
-      newUl.insertAdjacentElement('beforeend', newLi);
-    }
+    // Create erc20 token list
+    setTimeout(() => {
+      chain.ERC20Balances.forEach(erc20 => { 
+        console.log(chain)
+        let newLi = document.createElement('li');
+        newLi.innerText = `${Number(erc20.balance).toFixed(2)} ${erc20.symbol} (${erc20.toUSD.toFixed(2)} USD)`;
+        newUl.insertAdjacentElement('beforeend', newLi);
+      })
+    }, 4000);
   }
 
   getkeys();
-  loadData();
+  loadChains();
+  setTimeout(() => {
+    document.querySelector('.balance').innerText = `Balance: ${totalUSD.toFixed(2)} USD`;
+  }, 4500);
 }
