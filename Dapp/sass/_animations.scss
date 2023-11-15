@@ -416,16 +416,16 @@ i:nth-child(21) {
     } 40% {
         top: 3%;
     } 100% {
-        top: 115%;
+        top: 100%;
     }
 }
 
 // main app animations
 @keyframes spin {
     0% {
-        top: -110%;
+        top: -150%;
     } 100% {
-        top: 115%;
+        top: 155%;
     }
 }
 

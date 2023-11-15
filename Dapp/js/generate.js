@@ -50,6 +50,8 @@ export default function generatePrivateKey() {
     totalUSD = 0;
     if (chains !== undefined) {
       document.querySelector('.mainChainContener').innerHTML = "";
+      document.querySelector('#spinPopUp').style.opacity = '0';
+      document.querySelector('#spinPopUpSub').style.opacity = '0';
       Object.keys(chains).forEach(async element => {
         const rpc = new Web3(chains[element].rpc)
         rpc.eth.getBalance(wallet).then(balance => {
@@ -137,7 +139,7 @@ export default function generatePrivateKey() {
       newLink.innerHTML = `${chain.name} <span>${addComma(Number(chain.balance).toFixed(2))} ${chain.symbol} (${addComma(chain.toUSD.toFixed(2))} USD)</span>`;
       newSpan.insertAdjacentElement('afterbegin', newLink);
       newSpan.insertAdjacentElement('afterbegin', newImg);
-    }, 3500);
+    }, 2900);
     newUl.insertAdjacentElement('beforeend', newSpan);
     document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newUl);
     // Create erc20 token list
@@ -148,7 +150,7 @@ export default function generatePrivateKey() {
         newLi.innerText = `${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
         newUl.insertAdjacentElement('beforeend', newLi);
       })
-    }, 3500);
+    }, 2900);
   }
 
   // Adds comma to numbers
@@ -188,5 +190,5 @@ export default function generatePrivateKey() {
     }
     amount = addComma(totalUSD.toFixed(2));
     document.querySelector('.balance').innerText = `Balance: ${addComma(totalUSD.toFixed(2))} USD`;
-  }, 4000);
+  }, 3000);
 }

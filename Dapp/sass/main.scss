@@ -14,7 +14,7 @@
 }
 
 #Spinning {
-    animation: fall 1.5s !important;
+    animation: fall 1s !important;
 }
 
 .getStarted {
@@ -264,34 +264,6 @@
     display: none;
     @include contenerTemplate;
     transition: all ease 1s;
-    #spinPopUp {
-        font-family: 'Kdam Thmor Pro', sans-serif;
-        transition: all ease .3s;
-        display: none;
-        opacity: 0;
-        color: red;
-        position: absolute;
-        z-index: 5;
-        font-size: 55px;
-        transform: rotate(-14deg);
-        top: 33vh;
-        left: 28%;
-        text-shadow: 6px 4px 20px #691e1e;
-    }
-    #spinPopUpSub {
-        font-family: 'Kdam Thmor Pro', sans-serif;
-        transition: all ease .3s;
-        transform: rotate(-14deg);
-        font-size: 20px;
-        position: absolute;
-        z-index: 5;
-        top: 39vh;
-        left: 30%;
-        color: white;
-        text-shadow: 6px 4px 20px #691e1e;
-        display: none;
-        opacity: 0;
-    }
 }
 
 #notLoadedApp {
@@ -301,7 +273,7 @@
 #mainAppSpinning {
     top: -110%;
     filter: blur(5px);
-    animation: spin .5s infinite;
+    animation: spin 1s infinite;
 }
 
 .mainApp {
@@ -312,6 +284,34 @@
     }
     .WalletKey, .PrivateKey {
         padding-left: 50px;
+    }
+    #spinPopUp {
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        transition: all ease .3s;
+        display: none;
+        opacity: 0;
+        color: red;
+        position: absolute;
+        z-index: 5;
+        font-size: 55px;
+        transform: rotate(-14deg);
+        bottom: 140px;
+        right: 40px;
+        text-shadow: 6px 4px 20px #691e1e;
+    }
+    #spinPopUpSub {
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        transition: all ease .3s;
+        transform: rotate(-14deg);
+        font-size: 20px;
+        position: absolute;
+        z-index: 5;
+        bottom: 106px;
+        right: 63px;
+        color: white;
+        text-shadow: 6px 4px 20px #691e1e;
+        display: none;
+        opacity: 0;
     }
     .mainChainContener {
         transition: all ease .1s;
@@ -330,6 +330,7 @@
             }
         }
         a {
+            width: fit-content;
             color: #428eab;
             transition: all ease .3s;
             padding-left: 35px;

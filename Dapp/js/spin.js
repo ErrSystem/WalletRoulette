@@ -1,68 +1,52 @@
 import { state, amount } from "./generate.js";
 export default function spin(lever) {
-    let getStarted;
+    let start;
     console.log(lever)
     if (lever == 0) {
-        getStarted = document.querySelector('.getStartedContener');
+        start = document.querySelector('.getStartedContener');
     } else {
-        getStarted = document.querySelector('.mainAppContener');
+        start = document.querySelector('.mainAppContener');
     }
     const mainAppContener = document.querySelector('.mainAppContener');
     const mainApp = document.querySelector('.mainAppContener .mainApp');
     document.querySelector('body').style.overflow = 'hidden';
-    getStarted.id = "Spinning";
+    start.id = "Spinning";
     setTimeout(() => {
-        getStarted.style.display = "none"; 
+        start.style.display = "none"; 
         mainAppContener.style.display = "block";
-        mainAppContener.id = "mainAppSpinning";
-        setTimeout(() => {
-            mainAppContener.style.animationDuration = ".4s";
+        mainAppContener.style.top = "-115%";
             setTimeout(() => {
-                mainAppContener.style.animationDuration = ".2s";
+                mainAppContener.style.animation = "none";
+                mainAppContener.style.top = "";
+                mainAppContener.id = '';
+                document.querySelector('body').style.overflow = 'auto';
+                document.querySelector('.mainChainContener').style.opacity = "1";
+                const title = document.querySelector('#spinPopUp');
+                const subTitle = document.querySelector('#spinPopUpSub');
+                if (!state) {
+                    title.textContent = "Try Again!";
+                    subTitle.textContent = "Empty Wallet (0 USD)";
+                    title.style.display = 'block';
+                    title.style.opacity = '1';
+                    subTitle.style.display = 'block';
+                    subTitle.style.opacity = '1';
+                    mainApp.style.boxShadow = "0px 0px 20px 20px #b34545";
+                } else {
+                    title.textContent = "Congratulations!";
+                    subTitle.textContent = `You found a wallet with ${amount} USD!`;
+                    title.style.color = "#5090c7";
+                    title.style.textShadow = "6px 4px 20px #5090c7"
+                    subTitle.style.textShadow = "6px 4px 20px #5090c7"
+                    title.style.display = 'block';
+                    title.style.opacity = '1';
+                    subTitle.style.display = 'block';
+                    subTitle.style.opacity = '1';
+                    mainApp.style.boxShadow = "0px 0px 20px 20px #5090c7";
+                }
                 setTimeout(() => {
-                    mainAppContener.style.animationDuration = ".1s";
-                        setTimeout(() => {
-                            mainAppContener.style.animation = "none";
-                            mainAppContener.id = '';
-                            document.querySelector('body').style.overflow = 'auto';
-                            document.querySelector('.mainChainContener').style.opacity = "1";
-                            const title = document.querySelector('.mainAppContener #spinPopUp');
-                            const subTitle = document.querySelector('.mainAppContener #spinPopUpSub');
-                            if (!state) {
-                                title.textContent = "Try Again!";
-                                subTitle.textContent = "Empty Wallet (0 USD)";
-                                title.style.display = 'block';
-                                title.style.opacity = '1';
-                                subTitle.style.display = 'block';
-                                subTitle.style.opacity = '1';
-                                mainApp.style.boxShadow = "0px 0px 20px 20px #b34545";
-                                mainApp.style.filter = "brightness(0.2) blur(2px)";
-                            } else {
-                                title.textContent = "Congratulations!";
-                                subTitle.textContent = `You found a wallet with ${amount} USD!`;
-                                title.style.color = "#5090c7";
-                                title.style.textShadow = "6px 4px 20px #5090c7"
-                                subTitle.style.textShadow = "6px 4px 20px #5090c7"
-                                title.style.display = 'block';
-                                title.style.opacity = '1';
-                                subTitle.style.display = 'block';
-                                subTitle.style.opacity = '1';
-                                mainApp.style.boxShadow = "0px 0px 20px 20px #5090c7";
-                                mainApp.style.filter = "brightness(0.2) blur(2px)";
-                            }
-                            setTimeout(() => {
-                                getStarted.id = "";
-                                title.style.opacity = '0';
-                                subTitle.style.opacity = '0';
-                                mainApp.style = "";
-                                setTimeout(() => {
-                                    title.style.display = 'none';
-                                    subTitle.style.display = 'none';
-                                }, 500);
-                            }, 3500);
-                        }, 500);
-                }, 500);
+                    start.id = "";
+                    mainApp.style = "";
+                }, 1000);
             }, 500);
-        }, 500);
-    }, 1500);
+    }, 1000);
 }
