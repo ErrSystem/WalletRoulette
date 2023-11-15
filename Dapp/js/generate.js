@@ -21,8 +21,8 @@ export default function generatePrivateKey() {
     }
     privateKey = '0x'+result;
     wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
-    document.querySelector('.PrivateKey').innerText = privateKey;
-    document.querySelector('.WalletKey').innerText = wallet;
+    document.querySelector('.PrivateKey').innerText = "Loading...";
+    document.querySelector('.WalletKey').innerText = "Loading...";
   }
   const loadChains = () => {
     fetch(`${webSiteAdress}Dapp/data/chains.json`)
@@ -48,66 +48,72 @@ export default function generatePrivateKey() {
   
   const getBalance = () => {
     totalUSD = 0;
-    Object.keys(chains).forEach(async element => {
-      const rpc = new Web3(chains[element].rpc)
-      rpc.eth.getBalance(wallet).then(balance => {
-        chains[element].balance = rpc.utils.fromWei(balance)
-        rpc.eth.getTransactionCount(wallet).then(nonce => {
-          chains[element].nonce = nonce
-        })
-        if (balance > 0) {
-          axios.get('https://api.coingecko.com/api/v3/coins/'+chains[element].gecko)
-          .then(res => {
-            chains[element].toUSD = res.data.market_data.current_price.usd * chains[element].balance
-            totalUSD += chains[element].toUSD
+    if (chains !== undefined) {
+      document.querySelector('.mainChainContener').innerHTML = "";
+      Object.keys(chains).forEach(async element => {
+        const rpc = new Web3(chains[element].rpc)
+        rpc.eth.getBalance(wallet).then(balance => {
+          chains[element].balance = rpc.utils.fromWei(balance)
+          rpc.eth.getTransactionCount(wallet).then(nonce => {
+            chains[element].nonce = nonce
           })
-          .catch(error => {
-            console.error(error);
-            //retry if error
-            //getPrice(apiID);
-          });
-        }
-      })
-
-      if(chains[element].ERC20s.length > 0) {
-        chains[element].ERC20Balances = []
-        chains[element].ERC20s.forEach(async erc20 => {
-          var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
-          let symbol = await contract.methods.symbol().call()
-          let name = await contract.methods.name().call()
-          let decimals = await contract.methods.decimals().call()
-          let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals
-          let toUSD;
-          let className;
-
-          if(erc20.gecko && balance > 0){
-            axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
+          if (balance > 0) {
+            axios.get('https://api.coingecko.com/api/v3/coins/'+chains[element].gecko)
             .then(res => {
-              toUSD = res.data.market_data.current_price.usd * balance
-              
-              if (toUSD > 0) {
-                className = 'isNotEmpty';
-              } else {
-                className = '';
-              }
-
-              chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: className})
-
-              totalUSD += toUSD
+              chains[element].toUSD = res.data.market_data.current_price.usd * chains[element].balance
+              totalUSD += chains[element].toUSD
             })
             .catch(error => {
               console.error(error);
               //retry if error
               //getPrice(apiID);
             });
-          }else{
-            chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, className: ''})
           }
         })
-      }
-
-      updateHTML(chains[element]);
-    });
+  
+        if(chains[element].ERC20s.length > 0) {
+          chains[element].ERC20Balances = []
+          chains[element].ERC20s.forEach(async erc20 => {
+            var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
+            let symbol = await contract.methods.symbol().call()
+            let name = await contract.methods.name().call()
+            let decimals = await contract.methods.decimals().call()
+            let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals
+            let toUSD;
+            let className;
+  
+            if(erc20.gecko && balance > 0){
+              axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
+              .then(res => {
+                toUSD = res.data.market_data.current_price.usd * balance
+                
+                if (toUSD > 0) {
+                  className = 'isNotEmpty';
+                } else {
+                  className = '';
+                }
+  
+                chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: className})
+  
+                totalUSD += toUSD
+              })
+              .catch(error => {
+                console.error(error);
+                //retry if error
+                //getPrice(apiID);
+              });
+            }else{
+              chains[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, className: ''})
+            }
+          })
+        }
+  
+        updateHTML(chains[element]);
+      });
+    } else {
+      loadChains();
+      console.log('ze')
+    }
   }
 
   const updateHTML = chain => {
@@ -126,10 +132,12 @@ export default function generatePrivateKey() {
     newLink.target = '_blank';
     newUl.className = 'chain';
     setTimeout (() => {
+      document.querySelector('.PrivateKey').innerText = privateKey;
+      document.querySelector('.WalletKey').innerText = wallet;
       newLink.innerHTML = `${chain.name} <span>${addComma(Number(chain.balance).toFixed(2))} ${chain.symbol} (${addComma(chain.toUSD.toFixed(2))} USD)</span>`;
       newSpan.insertAdjacentElement('afterbegin', newLink);
       newSpan.insertAdjacentElement('afterbegin', newImg);
-    }, 4000);
+    }, 3500);
     newUl.insertAdjacentElement('beforeend', newSpan);
     document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newUl);
     // Create erc20 token list
@@ -140,7 +148,7 @@ export default function generatePrivateKey() {
         newLi.innerText = `${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
         newUl.insertAdjacentElement('beforeend', newLi);
       })
-    }, 4000);
+    }, 3500);
   }
 
   // Adds comma to numbers
@@ -180,5 +188,5 @@ export default function generatePrivateKey() {
     }
     amount = addComma(totalUSD.toFixed(2));
     document.querySelector('.balance').innerText = `Balance: ${addComma(totalUSD.toFixed(2))} USD`;
-  }, 4500);
+  }, 4000);
 }

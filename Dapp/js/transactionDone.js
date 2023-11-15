@@ -1,14 +1,20 @@
 import {account} from './walletsHandler.js';
 import {leverAnim} from './lever.js';
+export {tickets};
 let alreadyRunning = false;
+let alreadyRunned = false;
+let tickets = 10;
 
 export default function transactionDone() {
-    if (!alreadyRunning) {
-        alreadyRunning = true;
+    if (!alreadyRunning && tickets > 0) {
+        if (!alreadyRunned) {
+            alreadyRunned = true;
+            leverAnim(0);
+        } else {
+            leverAnim(1);
+        }
         console.log('Transaction is done!');
-        const getStarted = document.querySelector('.getStarted');
-        getStarted.id = "getStartedTransationDone";
-        leverAnim();
+        alreadyRunning = true;
     }
 }
 

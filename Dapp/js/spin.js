@@ -1,12 +1,19 @@
 import { state, amount } from "./generate.js";
-export default function spin() {
-    const getStarted = document.querySelector('.getStartedContener');
+export default function spin(lever) {
+    let getStarted;
+    console.log(lever)
+    if (lever == 0) {
+        getStarted = document.querySelector('.getStartedContener');
+    } else {
+        getStarted = document.querySelector('.mainAppContener');
+    }
     const mainAppContener = document.querySelector('.mainAppContener');
     const mainApp = document.querySelector('.mainAppContener .mainApp');
     document.querySelector('body').style.overflow = 'hidden';
-    getStarted.id = "getStartedSpinning";
+    getStarted.id = "Spinning";
     setTimeout(() => {
         getStarted.style.display = "none"; 
+        mainAppContener.style.display = "block";
         mainAppContener.id = "mainAppSpinning";
         setTimeout(() => {
             mainAppContener.style.animationDuration = ".4s";
@@ -18,6 +25,7 @@ export default function spin() {
                             mainAppContener.style.animation = "none";
                             mainAppContener.id = '';
                             document.querySelector('body').style.overflow = 'auto';
+                            document.querySelector('.mainChainContener').style.opacity = "1";
                             const title = document.querySelector('.mainAppContener #spinPopUp');
                             const subTitle = document.querySelector('.mainAppContener #spinPopUpSub');
                             if (!state) {
@@ -43,6 +51,7 @@ export default function spin() {
                                 mainApp.style.filter = "brightness(0.2) blur(2px)";
                             }
                             setTimeout(() => {
+                                getStarted.id = "";
                                 title.style.opacity = '0';
                                 subTitle.style.opacity = '0';
                                 mainApp.style = "";

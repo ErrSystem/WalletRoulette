@@ -9,12 +9,12 @@
     transition: all ease .3s;
 }
 
-#getStartedShake {
-    animation: shake .5s;
+#Shake {
+    animation: shake .5s !important;
 }
 
-#getStartedSpinning {
-    animation: fall 1.5s;
+#Spinning {
+    animation: fall 1.5s !important;
 }
 
 .getStarted {
@@ -101,6 +101,7 @@
 
 // lever
 .lever {
+    display: none;
     background-color: #282b28;
     width: 142px;
     height: 444px;
@@ -260,6 +261,7 @@
 
 // main app
 .mainAppContener {
+    display: none;
     @include contenerTemplate;
     transition: all ease 1s;
     #spinPopUp {
@@ -312,6 +314,7 @@
         padding-left: 50px;
     }
     .mainChainContener {
+        transition: all ease .1s;
         padding-left: 50px;
         font-family: lightRobotto;
         .chain {
