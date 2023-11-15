@@ -1,6 +1,5 @@
 import {account} from './walletsHandler.js';
 import {leverAnim} from './lever.js';
-export {tickets};
 let alreadyRunning = false;
 let alreadyRunned = false;
 let tickets = 10;
@@ -22,4 +21,16 @@ export function animationDone() {
     setTimeout(() => {
         alreadyRunning = false;
     }, 4000);
+}
+
+export function reduceTickets() {
+    tickets--;
+}
+
+export function updateTickets () {
+    const counter = document.querySelector('.RltsTicketsCounter');
+    counter.innerText = tickets;
+    if (tickets > 99) {
+        counter.style.right = "55px"; 
+    }
 }

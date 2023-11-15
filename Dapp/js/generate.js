@@ -1,4 +1,5 @@
 import { webSiteAdress } from "./main.js";
+import { reduceTickets } from "./transactionDone.js";
 
 let state;
 let amount;
@@ -6,6 +7,7 @@ let amount;
 export {state, amount};
 
 export default function generatePrivateKey() {
+  reduceTickets();
   let privateKey = "";
   let wallet = "";
   let totalUSD = 0;

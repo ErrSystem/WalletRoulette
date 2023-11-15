@@ -14,7 +14,7 @@ export default function spin(lever) {
     setTimeout(() => {
         start.style.display = "none"; 
         mainAppContener.style.display = "block";
-        mainAppContener.style.top = "-115%";
+        mainAppContener.style.top = "-155%";
             setTimeout(() => {
                 mainAppContener.style.animation = "none";
                 mainAppContener.style.top = "";

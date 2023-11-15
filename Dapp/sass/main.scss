@@ -285,6 +285,22 @@
     .WalletKey, .PrivateKey {
         padding-left: 50px;
     }
+    .RltsTickets {
+        width: 60px;
+        float: right;
+        margin-right: 120px;
+        margin-top: 35px;
+    }
+    .RltsTicketsCounter {
+        position: absolute;
+        right: 65px;
+        top: 50px;
+        color: #870606;
+        font-size: 25px;
+        font-weight: bolder;
+        font-family: comicStyle;
+        letter-spacing: 5px;
+    }
     #spinPopUp {
         font-family: 'Kdam Thmor Pro', sans-serif;
         transition: all ease .3s;

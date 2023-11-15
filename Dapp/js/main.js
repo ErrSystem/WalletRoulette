@@ -1,5 +1,6 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
+import { updateTickets } from './transactionDone.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 let isTesting = false;
@@ -34,3 +35,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.getStartedContener').style.opacity = "1";
     }, 50);
 })
+
+setInterval(updateTickets, 50);

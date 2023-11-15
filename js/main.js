@@ -24,7 +24,7 @@ const clickAnimation = () => {
                 leverBatton.style = '';
                 document.querySelector('body').style.opacity = '0';
                 setTimeout(() => {
-                    document.location.href = './Dapp/index.html'
+                    document.location.href = './Dapp/'
                 }, 400);
             }, 120);
         }, 500);
