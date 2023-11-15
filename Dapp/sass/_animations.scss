@@ -523,15 +523,3 @@ i:nth-child(21) {
         top: -110px;
     }
 }
-
-// misc 
-
-@keyframes scrollDown {
-    0% {
-        top: 79vh;
-    } 50% {
-        top: 82vh;
-    } 100% {
-        top: 79vh;
-    }
-}

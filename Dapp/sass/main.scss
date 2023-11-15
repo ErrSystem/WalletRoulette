@@ -536,15 +536,3 @@
         }
     }
 }
-
-// mouse down animation
-.mouseDown {
-    transition: all ease 0.3s;
-    position: absolute;
-    z-index: 5;
-    top: 79vh;
-    right: 50%;
-    display: none;
-    opacity: 0;
-    animation: scrollDown 3s infinite;
-}

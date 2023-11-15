@@ -1,13 +1,9 @@
-import {animationDone} from './transactionDone.js';
-import generatePrivateKey from './generate.js';
-import spin from './spin.js';
 const lever = document.querySelector('.getStartedContener .lever');
 const leverBatton = document.querySelector('.getStartedContener .lever .batton');
 const impact = document.querySelector('.getStartedContener img');
+const btn = document.querySelector('a');
 
-export function leverClick() {
-    // launch the generation of the private key
-    generatePrivateKey();
+const clickAnimation = () => {
     // animation for the lever
     lever.id = "clickLever1";
     setTimeout(() => {
@@ -27,14 +23,17 @@ export function leverClick() {
             impact.style = '';
             setTimeout(() => {
                 leverBatton.style = '';
-                // calls the spin animation
-                spin();
+                document.querySelector('body').style.opacity = '0';
+                setTimeout(() => {
+                    document.location.href = './Dapp/index.html'
+                }, 400);
             }, 120);
         }, 500);
     }, 500);
 }
 
-export function leverAnim() {
+const firstAnimation = () => {
+    btn.style.opacity = '0';
     leverBatton.style.transform = 'rotate(180deg)';
     document.querySelector('.getStarted').id = "getStartedShake";
     setTimeout(() => {
@@ -46,8 +45,16 @@ export function leverAnim() {
                 lever.id = "incliningLever2";
                 setTimeout(() => {
                     lever.id = '';
+                    document.querySelector('.lever .boule').addEventListener('click', () => {
+                        clickAnimation();
+                    })
                 }, 150);
             }, 130);
         }, 500);
     }, 500);
 }
+
+btn.addEventListener('click', () => {
+    firstAnimation();
+})
+

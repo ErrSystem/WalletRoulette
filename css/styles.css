@@ -1,0 +1,413 @@
+
+  @font-face {
+    font-family: boldUbuntu;
+    src: url(../css/fonts/Ubuntu/Ubuntu-Light.ttf);
+  }
+  @font-face {
+    font-family: comicStyle;
+    src: url(../css/fonts/lounge-bait-font/LoungeBait-JpVa.ttf);
+  }
+  @font-face {
+    font-family: lightFont;
+    src: url(../css/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+  }
+
+  body {
+    background-color: #191c19;
+    width: 100%;
+    transition: all ease .3s;
+  }
+  
+  p, li, h3, h4 {
+    font-family: lightFont;
+  }
+  
+  h2 {
+    font-family: comicStyle;
+    letter-spacing: 5px;
+  }
+
+  .lever {
+    background-color: #282b28;
+    width: 142px;
+    height: 444px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: #313330 solid 0.1px;
+    border-left: 0;
+    float: right;
+    margin-top: 245px;
+    position: absolute;
+    right: 100px;
+    transition: all ease 1s;
+  }
+  .lever .littleBase {
+    top: 149px;
+    position: absolute;
+    width: 87px;
+    height: 130px;
+    background: #2e312e;
+    border-radius: 5px;
+    left: 26px;
+    box-shadow: 1px 1px 20px #1a1a1a;
+  }
+  .lever .batton {
+    top: -80px;
+    position: absolute;
+    width: 40px;
+    height: 275px;
+    background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
+    border-radius: 5px;
+    left: 49px;
+    box-shadow: -2px -20px 20px #1a1a1a;
+  }
+  .lever .boule {
+    top: -110px;
+    z-index: 2;
+    position: absolute;
+    width: 87px;
+    height: 89px;
+    background: #274d3c;
+    border-radius: 46px;
+    left: 25px;
+    box-shadow: -1px -20px 20px #1a1a1a;
+    border: white 0.1px solid;
+  }
+  .lever .boule:hover {
+    cursor: pointer;
+  }
+  .lever .boule::before {
+    content: "";
+    display: block;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    border: white 1px solid;
+    animation: indicator 0.8s linear infinite;
+    margin-left: 1px;
+    margin-top: 1px;
+    box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3215686275);
+    filter: blur(0.8px);
+  }
+  .lever img {
+    transition: 0.5s all ease;
+    position: absolute;
+    bottom: -156px;
+    left: -44px;
+    opacity: 0.5;
+    animation: impactAnim 1s;
+    display: none;
+  }
+  
+  #clickLever1 .batton {
+    animation: leverBattonClick1 0.3s;
+  }
+  #clickLever1 .boule {
+    animation: leverBallClick1 0.3s;
+    border: none;
+  }
+  #clickLever1 .boule::before {
+    display: none;
+  }
+  
+  #clickLever2 .batton {
+    animation: leverBattonClick2 0.3s;
+  }
+  #clickLever2 .boule {
+    animation: leverBallClick2 0.3s;
+    border: none;
+  }
+  #clickLever2 .boule::before {
+    display: none;
+  }
+  
+  #incliningLever1 .batton {
+    animation: leverBattonEnable1 0.3s;
+  }
+  #incliningLever1 .boule {
+    animation: leverBallEnable1 0.3s;
+    border: none;
+  }
+  #incliningLever1 .boule::before {
+    display: none;
+  }
+  
+  #incliningLever2 .batton {
+    animation: leverBattonEnable2 0.3s;
+  }
+  #incliningLever2 .boule {
+    animation: leverBallEnable2 0.3s;
+    border: none;
+  }
+  #incliningLever2 .boule::before {
+    display: none;
+  }
+  
+  #inclinedLever .batton {
+    animation: none;
+    top: 226px;
+    position: absolute;
+    width: 40px;
+    height: 275px;
+    background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
+    border-radius: 5px;
+    left: 49px;
+    box-shadow: -2px -20px 20px #1a1a1a;
+    transform: rotate(180deg);
+  }
+  #inclinedLever .boule {
+    animation: none;
+    top: 446px;
+    position: absolute;
+    width: 87px;
+    height: 89px;
+    background: #23392f;
+    border-radius: 46px;
+    left: 25px;
+    box-shadow: 0px -2px 20px #1a1a1a;
+    border: none;
+  }
+  #inclinedLever .boule:hover {
+    cursor: default;
+  }
+  #inclinedLever .boule::before {
+    display: none;
+    animation: none;
+  }
+
+  .getStartedContener {
+    width: 1033px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 5%;
+    left: 50%;
+  }
+  
+  #getStartedShake {
+    animation: shake 0.5s;
+  }
+  
+  #getStartedSpinning {
+    animation: fall 1.5s;
+  }
+  
+  .getStarted {
+    z-index: 3;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 71px;
+    transition: all ease 0.3s;
+    background: #282b28;
+    width: 890px;
+    border-radius: 5px;
+    height: 1200px;
+    border: #313330 solid 0.1px;
+    color: white;
+  }
+
+  .getStarted h2 {
+    margin-top: 65px;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 60px;
+  }
+
+  .getStarted h3 {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 35px;
+  }
+
+  .getStarted p {
+    padding: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 35px;
+  }
+
+  .getStarted a {
+    display: block;
+    width: 140px;
+    transition: all ease .3s;
+    color: white;
+    background-color: #191c19;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 55px;
+    font-family: boldUbuntu;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: left;
+    margin-left: 35px;
+  }
+
+  .getStarted a:hover {
+    transition: all ease .3s;
+    background-color: #a9aea9;
+    border: .1px solid #191c19;
+    color: black;
+    margin-left: 45px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1000px) {
+    .getStarted {
+      width: 675px;
+    }
+  }
+  @media (max-width: 800px) {
+    .getStarted {
+      width: 445px;
+    }
+  }
+  @media (max-width: 500px) {
+    .getStarted {
+      width: 400px;
+      height: 85vh;
+    }
+  }
+
+  .wavyBorder {
+    filter: invert(1);
+    width: 1215px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: 0.55;
+  }
+  
+  .wavyBorder1 {
+    animation: wavyBorder 30s infinite;
+  }
+  
+  .wavyBorder2 {
+    animation: wavyBorder 10s infinite;
+  }
+
+  @keyframes indicator {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  @keyframes impactAnim {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+  @keyframes leverBattonClick1 {
+    0% {
+      top: -80px;
+      height: 275px;
+    }
+    100% {
+      top: 175px;
+      height: 50px;
+    }
+  }
+  @keyframes leverBattonClick2 {
+    0% {
+      top: 175px;
+      height: 50px;
+    }
+    100% {
+      top: 226px;
+      height: 275px;
+    }
+  }
+  @keyframes leverBallClick1 {
+    0% {
+      top: -110px;
+    }
+    100% {
+      top: 170px;
+    }
+  }
+  @keyframes leverBallClick2 {
+    0% {
+      top: 170px;
+    }
+    100% {
+      top: 446px;
+    }
+  }
+  @keyframes leverBattonEnable1 {
+    0% {
+      top: 226px;
+      height: 275px;
+    }
+    100% {
+      top: 175px;
+      height: 50px;
+    }
+  }
+  @keyframes leverBattonEnable2 {
+    0% {
+      top: 175px;
+      height: 50px;
+    }
+    100% {
+      top: -80px;
+      height: 275px;
+    }
+  }
+  @keyframes leverBallEnable1 {
+    0% {
+      top: 446px;
+    }
+    100% {
+      top: 170px;
+    }
+  }
+  @keyframes leverBallEnable2 {
+    0% {
+      top: 170px;
+    }
+    100% {
+      top: -110px;
+    }
+  }
+  
+  @keyframes wavyBorder {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: -325px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(1deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
