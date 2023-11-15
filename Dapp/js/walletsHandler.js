@@ -54,7 +54,7 @@ export function setAdress(adress, wallet) {
     if (typeof adress != "undefined") {
         let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
         walletBtnText.innerText = `Connected: ${text[0]}...${text[1]} `;
-        walletBtnImg.src = `Dapp/css/imgs/${wallet}.png`;
+        walletBtnImg.src = `css/imgs/${wallet}.png`;
         walletConnectBnt.id = "connectedWalletBtn";
     } else {
         walletBtnText.innerText = "Connect Wallet";
