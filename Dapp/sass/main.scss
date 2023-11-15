@@ -5,6 +5,8 @@
 // get started
 .getStartedContener {
     @include contenerTemplate();
+    opacity: 0;
+    transition: all ease .3s;
 }
 
 #getStartedShake {

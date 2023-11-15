@@ -32,3 +32,8 @@ document.addEventListener('keypress', event => {
         transactionDone();
     }
 })
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.querySelector('.getStartedContener').style.opacity = "1";
+    }, 50);
+})

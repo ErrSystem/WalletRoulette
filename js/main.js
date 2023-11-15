@@ -12,7 +12,6 @@ const clickAnimation = () => {
         setTimeout(() => {
             impact.style.display = 'block';
             lever.id = 'inclinedLever';
-            animationDone();
         }, 100);
     }, 130);
     setTimeout(() => {

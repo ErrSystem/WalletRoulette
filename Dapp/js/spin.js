@@ -3,6 +3,7 @@ export default function spin() {
     const getStarted = document.querySelector('.getStartedContener');
     const mainAppContener = document.querySelector('.mainAppContener');
     const mainApp = document.querySelector('.mainAppContener .mainApp');
+    document.querySelector('body').style.overflow = 'hidden';
     getStarted.id = "getStartedSpinning";
     setTimeout(() => {
         getStarted.style.display = "none"; 
@@ -16,6 +17,7 @@ export default function spin() {
                         setTimeout(() => {
                             mainAppContener.style.animation = "none";
                             mainAppContener.id = '';
+                            document.querySelector('body').style.overflow = 'auto';
                             const title = document.querySelector('.mainAppContener #spinPopUp');
                             const subTitle = document.querySelector('.mainAppContener #spinPopUpSub');
                             if (!state) {

@@ -29,6 +29,9 @@ export default function generatePrivateKey() {
     .then(response => response.json())
     .then(data => {
       chains = data;
+      if (chains === undefined) {
+        loadChains();
+      }
     })
     .catch(error => console.log(error));
     loadERC20ABI();
