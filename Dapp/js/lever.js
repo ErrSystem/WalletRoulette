@@ -1,5 +1,5 @@
 import {animationDone} from './transactionDone.js';
-import generatePrivateKey from './test.js';
+import generatePrivateKey from './generate.js';
 import spin from './spin.js';
 const lever = document.querySelector('.getStartedContener .lever');
 const leverBatton = document.querySelector('.getStartedContener .lever .batton');
@@ -32,8 +32,8 @@ export function leverClick() {
                 // calls the spin animation
                 spin();
             }, 120);
-        }, 1000);
-    }, 1000);
+        }, 500);
+    }, 500);
 }
 
 export function leverAnim() {
@@ -50,8 +50,8 @@ export function leverAnim() {
                     lever.id = '';
                 }, 150);
             }, 130);
-        }, 1500);
-    }, 1000);
+        }, 500);
+    }, 500);
 }
 
 const mouseDownAnim = () => {

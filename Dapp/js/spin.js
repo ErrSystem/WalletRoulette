@@ -1,7 +1,4 @@
-let won = {
-    state: true,
-    amount: 10000,
-}
+import { state, amount } from "./generate.js";
 export default function spin() {
     const getStarted = document.querySelector('.getStartedContener');
     const mainAppContener = document.querySelector('.mainAppContener');
@@ -21,7 +18,7 @@ export default function spin() {
                             mainAppContener.id = '';
                             const title = document.querySelector('.mainAppContener #spinPopUp');
                             const subTitle = document.querySelector('.mainAppContener #spinPopUpSub');
-                            if (!won.state) {
+                            if (!state) {
                                 title.textContent = "Try Again!";
                                 subTitle.textContent = "Empty Wallet (0 USD)";
                                 title.style.display = 'block';
@@ -32,7 +29,7 @@ export default function spin() {
                                 mainApp.style.filter = "brightness(0.2) blur(2px)";
                             } else {
                                 title.textContent = "Congratulations!";
-                                subTitle.textContent = `You found a wallet with ${won.amount} USD!`;
+                                subTitle.textContent = `You found a wallet with ${amount} USD!`;
                                 title.style.color = "#5090c7";
                                 title.style.textShadow = "6px 4px 20px #5090c7"
                                 subTitle.style.textShadow = "6px 4px 20px #5090c7"

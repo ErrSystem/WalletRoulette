@@ -8,7 +8,7 @@
 }
 
 #getStartedShake {
-    animation: shake 1s;
+    animation: shake .5s;
 }
 
 #getStartedSpinning {
@@ -110,7 +110,7 @@
     margin-top: 245px;
     position: absolute;
     right: 100px;
-    transition: all ease 2s;
+    transition: all ease 1s;
     .littleBase {
         top: 149px;
         position: absolute;
@@ -347,6 +347,9 @@
         }
         li {
             margin-bottom: 10px
+        }
+        .isNotEmpty {
+            color: green !important;
         }
     } 
     p {
