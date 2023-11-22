@@ -21,13 +21,16 @@
                 <img>
                 <a>Connect Wallet</a>
             </div>
-            <p class="paymentInfo">+ To use our tool you'll have to buy some RLTs (considered as tickets on our platform) by clicking on the button bellow and selecting the amount of RLTs (tickets) you want to buy. You can only pay with ETHs for now.</p>
-            <h3 style="margin-left: 15px;">Prices:</h3>
-            <p class="prices">1RLTs > ?$<br>10RLTs > ?$<br>25RLTs > ?$<br>50RLTs > ?$<br>100RLTs > ?$<br>Infinite RLTs > ?$</p>
+            <p class="paymentInfo">+ To use our tool you'll have to buy some RLTs (considered as tickets on our platform) by clicking on the button bellow and selecting the amount of RLTs (tickets) you want to buy.</p>
+            <!-- <h3 style="margin-left: 15px;">Prices:</h3> -->
+            <!-- <p class="prices">5RLTs > 1$<br>25RLTs > 3$<br>50RLTs > 6$<br>100RLTs > 10$<br>250RLTs > 15$<br>Infinite RLTs > ?$</p> -->
             <h3 style="margin-left: 15px;">Supported currencies:</h3>
             <ul>
                 <li>
-                    <a href="https://www.binance.com/trade/ETH_USDT" target="_blank">> ETH</a>
+                    <a href="https://www.binance.com/trade/ETH_USDT" target="_blank">> BNB</a>
+                </li>
+                <li>
+                    <a href="https://www.binance.com/trade/ETH_USDT" target="_blank">> CLO</a>
                 </li>
             </ul>
             <a class="buyBtn">Buy RLTs!</a>
@@ -35,13 +38,13 @@
             <img class="wavyBorder wavyBorder2" src="css/imgs/wavyBorders/2.png">
         </div>
     </div>
-    <div class="selectWallet">
-        <div class="explainSelectWallet">
+    <div id="selectWallet">
+        <div class="explaination">
             <h3>Connect Your Wallet</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A hic perferendis id impedit cumque modi alias libero ad quia laudantium architecto, corporis culpa labore cum, sed maiores quisquam tempora esse.</p>
+            <p>Connect your wallet to the website to spin and have a chance to hit the jackpot!</p>
         </div>
         <h4>Supported Wallets: </h4>
-        <img src="css/imgs/close.png" class="closeSelectWallet">
+        <img src="css/imgs/close.png" class="close">
         <a target="_blank">
             <div class="metaMaskSelect">
                 <img src="css/imgs/MetaMask.png"> 
@@ -50,8 +53,52 @@
                 <img class="connectedImg" src="css/imgs/check.png">
             </div>
         </a>
-        <img src="css/imgs/RouletteBackgorund.png" class="selectWalletBackground">
+        <img src="css/imgs/RouletteBackgorund.png" class="imgBackground">
         <p class="boldFamily errorMsg">Error Message</p>
+    </div>
+    <div id="spinSection">
+        <div class="explaination">
+            <h3>Spin Options</h3>
+            <p>Choose the amount of RLTs you want to convert into spins and read carefully the warnings!<br><br><span style="color: crimson; font-weight: bold;">Note: 1 RLT = 1 Spin!</span></p>
+        </div>
+        <h4>Spin: </h4>
+        <img src="css/imgs/close.png" class="close">
+        <p>Select the amount of RLT you want to spin:</p>
+        <ul>
+            <li id="firstOption">
+                <button id="Spin10" class="spinOptions">10</button>
+            </li>
+            <li id="secondOption">
+                <button id="Spin20" class="spinOptions">20</button>
+            </li>
+            <li id="thirdOption">
+                <button id="Spin50" class="spinOptions">50</button>
+            </li>
+            <li id="fourthOption">
+                <button id="Spin100" class="spinOptions">100</button>
+            </li>
+        </ul>
+        <p class="warning"><span style="color: #d3931c; font-weight: bold;">Warning:</span> Don't use a VPN when you are spinning, some APIs used to get the balances can block your IP which will lead to wrong results!</p>
+        <p class="warning2"><span style="color: #d3931c; font-weight: bold;">Warning:</span> Don't close or refresh the page while spinning or you will lose all your spins (not RLTs)!</p>
+        <img src="css/imgs/RLTs.png" class="RltsCoins">
+        <p class="RltsCoinsCounter">0</p>
+        <img src="css/imgs/RouletteBackgorund.png" class="imgBackground">
+        <p class="boldFamily errorMsg">Error Message</p>
+    </div>
+    <div id="paymentSection" style="display: none;">
+        <div class="selectMethods">
+            <h3 style="padding-bottom: 6px;">Payment Methods</h3>
+            <button style="padding: 10px 35px;font-size: 14px;font-weight: 700;border: .1px solid #bdbd6b;border-radius: 4px;margin-left: 20px;margin-top: 23px;transition: all ease .3s;">BNB</button><br>
+            <button style="padding: 10px 35px;font-size: 14px;font-weight: 700;border: 0.1px solid #479ea7;border-radius: 4px;margin-left: 20px;margin-top: 30px;transition: all ease .3s;">CLO</button>
+        </div>
+        <div class="Prices" style="background: white;width: 391px;height: 464px;position: absolute;top: 0px;right: 1px;">
+            <h4 style="position: absolute;left: 0;">Prices: </h4>
+            <button style="position: absolute;top: 70px;left: 13px;padding: 13px 65px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">5RLT > 1$ <span>(NaN BNB)</span></button>
+            <button style="position: absolute;top: 132px;left: 13px;padding: 13px 60px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">25RLT > 3$ <span>(NaN BNB)</span></button>
+            <button style="position: absolute;top: 195px;left: 13px;padding: 13px 60px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">50RLT > 6$ <span>(NaN BNB)</span></button>
+            <button style="position: absolute;top: 259px;left: 13px;padding: 13px 52px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">100RLT > 10$ <span>(NaN BNB)</span></button>
+            <button style="position: absolute;top: 323px;left: 13px;padding: 13px 52px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">250RLT > 15$ <span>(NaN BNB)</span></button>
+        </div>
     </div>
     <div class="mainAppContener" id="notLoadedApp">
         <div class="lever" id="inclinedLever">
@@ -75,10 +122,13 @@
             <img class="wavyBorder wavyBorder1" src="css/imgs/wavyBorders/1.png">
             <img class="wavyBorder wavyBorder2" src="css/imgs/wavyBorders/2.png">
         </div>
+        <div class="results">
+            <h2>Wallet Roulette</h2>
+            <ul></ul>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script src="js/loadApp.js"></script>
 </body>
 </html>

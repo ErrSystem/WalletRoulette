@@ -1,4 +1,5 @@
 import connect from './connectMetaMask.js';
+import isMobile from './detectSmallScreen.js';
 let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
@@ -18,7 +19,7 @@ export default function detectWallets() {
     }
     const isMetaMask = async () => {
         const redirectToMetaMask = () => {
-            const link = document.querySelector('.selectWallet a');
+            const link = document.querySelector('#selectWallet a');
             link.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn';
         }
         if (typeof window.ethereum != "undefined" && ethereum.isMetaMask) {
@@ -45,7 +46,6 @@ export default function detectWallets() {
             document.querySelector('.metaMaskSelect .isInstalled').style.color = 'red';
         }
     }
-    
     walletListener();
     isMetaMask();
 }
@@ -53,7 +53,11 @@ export default function detectWallets() {
 export function setAdress(adress, wallet) {
     if (typeof adress != "undefined") {
         let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
-        walletBtnText.innerText = `Connected: ${text[0]}...${text[1]} `;
+        if (isMobile()) {
+            walletBtnText.innerText = `${text[0]}...${text[1]} `;
+        } else {
+            walletBtnText.innerText = `Connected: ${text[0]}...${text[1]} `;
+        }
         walletBtnImg.src = `css/imgs/${wallet}.png`;
         walletConnectBnt.id = "connectedWalletBtn";
     } else {

@@ -51,3 +51,20 @@ h2 {
 .boldFamily {
     font-weight: bolder;
 }
+
+// scroll bar
+
+::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-thumb {
+    transition: all ease .3s;
+    background: darkgray;
+    &:hover {
+        transition: all ease .3s;
+        background: rgb(73, 73, 73);
+    }
+}

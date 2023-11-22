@@ -1,17 +1,187 @@
 import { webSiteAdress } from "./main.js";
-import { reduceTickets } from "./transactionDone.js";
+import { reduceTickets } from "./spinParameters.js";
 
 let state;
 let amount;
+let isLoading = false;
+let wallets = [];
 
-export {state, amount};
+export {state, amount, isLoading, wallets};
 
 export default function generatePrivateKey() {
   reduceTickets();
   let privateKey = "";
-  let wallet = "";
+  let wallet = "0x764507F7fBd32B1b3b0223b0582E7bfA750ED735";
   let totalUSD = 0;
-  let chains;
+  let chains = {
+    "eth": {
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "rpc": "https://rpc.ankr.com/eth",
+      "explorer": "https://etherscan.io/address/",
+      "gecko": "ethereum",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#000000",
+      "logo": "1027",
+      "ERC20s": [
+        {
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "gecko": "tether"
+        },
+        {
+          "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+          "gecko": "wrapped-bitcoin"
+        },
+        {
+          "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "gecko": "usd-coin"
+        }
+      ],
+      "ERC20Balances": []
+    },
+    "bsc": {
+      "name": "Binance Smart Chain",
+      "symbol": "BSC",
+      "rpc": "https://bsc-dataseed.binance.org/",
+      "explorer": "https://bscscan.com/address/",
+      "gecko": "binancecoin",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#c0e54e",
+      "logo": "1839",
+      "ERC20s": [            
+        {
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "gecko": "tether"
+        },
+        {
+          "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+          "gecko": "ethereum"
+        },
+        {
+          "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+          "gecko": "binance-usd"
+        }
+      ],
+      "ERC20Balances": []
+    },
+    "clo": {
+      "name": "Callisto Network",
+      "symbol": "CLO",
+      "rpc": "https://rpc.callisto.network/",
+      "explorer": "https://explorer.callisto.network/address/",
+      "gecko": "callisto",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "logo": "2757",
+      "ERC20s": [
+        {
+          "address": "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
+          "gecko": "soy-finance"
+        },            
+        {
+          "address": "0xbf6c50889d3a620eb42C0F188b65aDe90De958c4",
+          "gecko": "tether"
+        },
+        {
+          "address": "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187"
+        },
+        {
+          "address": "0xcC208c32Cc6919af5d8026dAB7A3eC7A57CD1796",
+          "gecko": "ethereum"
+        },
+        {
+          "address": "0xcCDe29903E621Ca12DF33BB0aD9D1ADD7261Ace9",
+          "gecko": "binancecoin"
+        }
+      ],
+      "ERC20Balances": []
+    },
+    "ply": {
+      "name": "Polygon",
+      "rpc": "https://polygon-rpc.com/",
+      "symbol": "MATIC",
+      "explorer": "https://polygonscan.com/address/",
+      "gecko": "matic-network",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#ab4ee5",
+      "logo": "3890",
+      "ERC20s": [
+        {
+          "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "gecko": "tether"
+        },
+        {
+          "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "gecko": "ethereum"
+        }
+      ],
+      "ERC20Balances": []
+    },
+    "etc": {
+      "name": "Ethereum Classic",
+      "symbol": "ETC",
+      "rpc": "https://etc.rivet.link",
+      "explorer": "https://etcblockexplorer.com/address/",
+      "gecko": "ethereum-classic",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#4ee55a",
+      "logo": "1321",
+      "ERC20s": [],
+      "ERC20Balances": []
+    },
+    "ava": {
+      "name": "Avalanche",
+      "symbol": "AVAX",
+      "rpc": "https://api.avax.network/ext/bc/C/rpc",
+      "explorer": "https://avascan.info/blockchain/c/address/",
+      "gecko": "avalanche-2",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#f33b3b",
+      "logo": "5805",
+      "ERC20s": [],
+      "ERC20Balances": []
+    },
+    "opt": {
+      "name": "Optimism",
+      "symbol": "ETH",
+      "rpc": "https://mainnet.optimism.io",
+      "explorer": "https://optimistic.etherscan.io/address/",
+      "gecko": "optimism",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "#ff0000",
+      "logo": "",
+      "ERC20s": [],
+      "ERC20Balances": []
+    },
+    "gns": {
+      "name": "Gnosis",
+      "symbol": "xDAI",
+      "rpc": "https://rpc.gnosischain.com",
+      "explorer": "https://gnosisscan.io/address/",
+      "gecko": "gnosis",
+      "balance": 0,
+      "toUSD": 0,
+      "nonce": 0,
+      "color": "rgb(0 173 255 / 44%)",
+      "logo": "1659",
+      "ERC20s": [],
+      "ERC20Balances": []
+    }
+  };
+
   let ERC20ABI;
   const getkeys = () => {
     let result = '';
@@ -22,21 +192,9 @@ export default function generatePrivateKey() {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     privateKey = '0x'+result;
-    wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
+    // wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
     document.querySelector('.PrivateKey').innerText = "Loading...";
     document.querySelector('.WalletKey').innerText = "Loading...";
-  }
-  const loadChains = () => {
-    fetch(`${webSiteAdress}Dapp/data/chains.json`)
-    .then(response => response.json())
-    .then(data => {
-      chains = data;
-      if (chains === undefined) {
-        loadChains();
-      }
-    })
-    .catch(error => console.log(error));
-    loadERC20ABI();
   }
 
   const loadERC20ABI = () => {
@@ -115,8 +273,7 @@ export default function generatePrivateKey() {
         updateHTML(chains[element]);
       });
     } else {
-      loadChains();
-      console.log('ze')
+      console.log('Error occured reloading chains!');
     }
   }
 
@@ -141,7 +298,7 @@ export default function generatePrivateKey() {
       newLink.innerHTML = `${chain.name} <span>${addComma(Number(chain.balance).toFixed(2))} ${chain.symbol} (${addComma(chain.toUSD.toFixed(2))} USD)</span>`;
       newSpan.insertAdjacentElement('afterbegin', newLink);
       newSpan.insertAdjacentElement('afterbegin', newImg);
-    }, 2900);
+    }, 2500);
     newUl.insertAdjacentElement('beforeend', newSpan);
     document.querySelector('.mainChainContener').insertAdjacentElement('beforeend', newUl);
     // Create erc20 token list
@@ -152,7 +309,7 @@ export default function generatePrivateKey() {
         newLi.innerText = `${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
         newUl.insertAdjacentElement('beforeend', newLi);
       })
-    }, 2900);
+    }, 2700);
   }
 
   // Adds comma to numbers
@@ -183,7 +340,7 @@ export default function generatePrivateKey() {
   }
 
   getkeys();
-  loadChains();
+  loadERC20ABI();
   setTimeout(() => {
     if (totalUSD > 0) {
       state = true;
@@ -191,6 +348,11 @@ export default function generatePrivateKey() {
       state = false;
     }
     amount = addComma(totalUSD.toFixed(2));
-    document.querySelector('.balance').innerText = `Balance: ${addComma(totalUSD.toFixed(2))} USD`;
+    document.querySelector('.balance').innerText = `Balance: ${amount} USD`;
+    wallets.push({wallet: wallet, privateKey: privateKey, balance: `${amount} USD`, status: state});
   }, 3000);
+}
+
+export function emptyWalletsStorage() {
+  wallets = [];
 }

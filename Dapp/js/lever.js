@@ -1,21 +1,19 @@
-import {animationDone} from './transactionDone.js';
-import generatePrivateKey from './generate.js';
+import showSpinParameters from './spinParameters.js';
 import spin from './spin.js';
+import generatePrivateKey from './generate.js';
 const lever = document.querySelectorAll('.lever');
 const leverBatton = document.querySelectorAll('.lever .batton');
 const impact = document.querySelectorAll('.lever img');
 let leverId;
 let divId;
+let leverMode;
 
+// when you click on it
 export function leverClick() {
     // remove event listener
     removeLeverListener();
     // Adds loading effect to main app
     document.querySelector('.mainChainContener').style.opacity = "0";
-    // launch the generation of the private key
-    setTimeout(() => {
-        generatePrivateKey();
-    }, 100);
     // animation for the lever
     lever[leverId].id = "clickLever1";
     setTimeout(() => {
@@ -24,7 +22,6 @@ export function leverClick() {
         setTimeout(() => {
             impact[leverId].style.display = 'block';
             lever[leverId].id = 'inclinedLever';
-            animationDone();
         }, 100);
     }, 130);
     setTimeout(() => {
@@ -36,14 +33,23 @@ export function leverClick() {
             setTimeout(() => {
                 leverBatton[leverId].style = '';
                 lever[leverId].style.display = "none";
-                // calls the spin animation
-                spin(leverId);
+                // calls the spin parameters function
+                if (leverMode !== undefined) {
+                    generatePrivateKey();
+                    setTimeout(() => {
+                        spin(1)
+                    }, 500);
+                } else {
+                    showSpinParameters(leverId);
+                }
             }, 120);
         }, 500);
     }, 500);
 }
 
-export function leverAnim(id) {
+// when lever appears
+export function leverAnim(id, mode) {
+    leverMode = mode;
     if (id == 0) {
         divId = ".getStarted";
     } else {
@@ -72,6 +78,7 @@ export function leverAnim(id) {
     }, 500);
 }
 
+// listeners
 const leverListener = () => {
     document.querySelectorAll('.lever .boule')[leverId].addEventListener('click', leverClick)
 }
