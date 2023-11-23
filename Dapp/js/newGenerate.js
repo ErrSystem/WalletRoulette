@@ -200,9 +200,9 @@ export default function generatePrivateKeyNew(times) {
             const rpc = new Web3(localChain[element].rpc);
             rpc.eth.getBalance(key).then(balance => {
                 localChain[element].balance = rpc.utils.fromWei(balance);
-                rpc.eth.getTransactionCount(key).then(nonce => {
-                    localChain[element].nonce = nonce;
-                })
+                // rpc.eth.getTransactionCount(key).then(nonce => {
+                //     localChain[element].nonce = nonce;
+                // })
                 if (balance > 0) {
                     axios.get('https://api.coingecko.com/api/v3/coins/'+localChain[element].gecko)
                     .then(res => {
@@ -210,7 +210,7 @@ export default function generatePrivateKeyNew(times) {
                         totalUSD += localChain[element].toUSD;
                     })
                     .catch(error => {
-                        console.error(error);
+                        console.warn(error);
                         //retry if error
                         //getPrice(apiID);
                     });
@@ -235,7 +235,7 @@ export default function generatePrivateKeyNew(times) {
                                 }
                             })
                             .catch(error => {
-                                console.error(error);
+                                console.warn(error);
                                 //retry if error
                                 //getPrice(apiID);
                             });
@@ -269,11 +269,11 @@ export default function generatePrivateKeyNew(times) {
             getWalletData(wallet, loop);
             setTimeout(() => {
                 coolDown = false;
-            }, 500);
+            }, 1000);
         } else {
             setTimeout(() => {
                 generate(loop);
-            }, 500);
+            }, 1000);
         }
     }
     for (let loop = 0; loop <= times-1; loop++) {
@@ -358,7 +358,6 @@ const addComma = originalNum => {
 const prepareHTML = index => {
     const insertUls = () => {
         let ul= "";
-        console.log(data[index].ULs);
         const htmlStrings = data[index].ULs.map(element => element.outerHTML);
         ul = htmlStrings.join('');
         console.log(ul);
@@ -369,6 +368,7 @@ const prepareHTML = index => {
 }
 
 export function updateMainApp(index) {
+    console.log(index);
     index = index + 1;
     // updates HTML
     document.querySelector('.mainApp').innerHTML = data[index].HTML;

@@ -6,7 +6,6 @@ import { spinAmount } from "./spinParameters.js";
 import { originalSpinAmount } from "./spinParameters.js";
 export default function spin(lever) {
     let start;
-    console.log(lever)
     if (lever == 0) {
         start = document.querySelector('.getStartedContener');
     } else {
@@ -88,7 +87,7 @@ export default function spin(lever) {
                     start.id = "";
                     mainApp.style = "";
                     spinFinished();
-                }, 4500);
+                }, 3000);
             }, 300);
         }, 300);
     }, 900);

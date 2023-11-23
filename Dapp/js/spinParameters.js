@@ -2,10 +2,10 @@ import spin from './spin.js';
 import generatePrivateKey from './generate.js';
 import { RLT } from './RLTSCounter.js';
 import { enableFunction } from './transactionDone.js';
-import { state } from './generate.js';
+import { state } from './newGenerate.js';
 import transactionDone from './transactionDone.js';
-import { wallets } from './generate.js';
-import { emptyWalletsStorage } from "./generate.js";
+import { wallets } from './newGenerate.js';
+import { emptyWalletsStorage } from './newGenerate.js';
 import generatePrivateKeyNew from './newGenerate.js';
 import isMobile from './detectSmallScreen.js';
 
@@ -86,7 +86,7 @@ const detectAmount = id => {
     if (!alreadySpinning) {
         switch (number) {
             case '10':
-                spinAmount = 1;
+                spinAmount = 10;
                 spinButton()
             break;
             case '20':
