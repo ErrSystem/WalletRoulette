@@ -11,7 +11,7 @@ export {state, amount, isLoading, wallets};
 export default function generatePrivateKey() {
   reduceTickets();
   let privateKey = "";
-  let wallet = "0x764507F7fBd32B1b3b0223b0582E7bfA750ED735";
+  let wallet = "";
   let totalUSD = 0;
   let chains = {
     "eth": {
@@ -192,7 +192,7 @@ export default function generatePrivateKey() {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     privateKey = '0x'+result;
-    // wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
+    wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address
     document.querySelector('.PrivateKey').innerText = "Loading...";
     document.querySelector('.WalletKey').innerText = "Loading...";
   }

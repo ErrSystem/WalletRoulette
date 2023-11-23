@@ -6,10 +6,15 @@ import { state } from './generate.js';
 import transactionDone from './transactionDone.js';
 import { wallets } from './generate.js';
 import { emptyWalletsStorage } from "./generate.js";
+import generatePrivateKeyNew from './newGenerate.js';
+import isMobile from './detectSmallScreen.js';
 
 let spinAmount;
+let originalSpinAmount;
 let lever;
 let alreadySpinning = false;
+
+export { spinAmount, originalSpinAmount };
 
 Array.from(document.getElementsByClassName('spinOptions')).forEach(element => {
     element.addEventListener('click', () => detectAmount(element.id));
@@ -30,6 +35,10 @@ const closeSpinOptions = () => {
     document.querySelector('.getStartedContener').style.filter = '';
     document.querySelector('.mainAppContener').style.filter = "";
     document.querySelector('#spinSection').style = '';
+    if (lever == 0) {
+        enableFunction(0);
+        transactionDone();
+    }
 }
 
 const spinButton = async () => {
@@ -37,8 +46,9 @@ const spinButton = async () => {
         const contractReturn = await askContract();
         if (contractReturn) {
             alreadySpinning = true;
+            originalSpinAmount = spinAmount;
             // launch the generation of the private key
-            generatePrivateKey();
+            generatePrivateKeyNew(originalSpinAmount);
             if (lever == 1) {
                 document.querySelector('.mainAppContener .mainApp').style.display = 'block';
                 document.querySelector('.mainAppContener .results').style.opacity = '0';
@@ -59,14 +69,14 @@ const spinButton = async () => {
                     document.querySelector('.mainAppContener .mainApp').style.opacity = '1';
                     spin(lever);
                 }, 500);
-            }, 1000);
+            }, 2500);
         } else {
             alert('Failed!');
         }
     }
 }
 
-const askContract = () => {
+const askContract = async() => {
     let contractAnswer = true;
     return contractAnswer;
 }
@@ -76,7 +86,7 @@ const detectAmount = id => {
     if (!alreadySpinning) {
         switch (number) {
             case '10':
-                spinAmount = 10;
+                spinAmount = 1;
                 spinButton()
             break;
             case '20':
@@ -97,6 +107,7 @@ const detectAmount = id => {
 
 const showResults = () => {
     let overall = [];
+    console.log(wallets)
     wallets.forEach(element => {
         let newLi = document.createElement('li');
         let index = wallets.indexOf(element) + 1;
@@ -112,6 +123,7 @@ const showResults = () => {
             statusColor = "red";
         }
         newLi.innerHTML = `<span style="font-weight: bold;">${index}. Wallet:</span> ${wallet} <br><span style="font-weight: bold;">PrivateKey:</span> ${privateKey} <br><span style="font-weight: bold;">Balance:</span> ${balance} <br><span style="font-weight: bold;color:${statusColor}">Status: ${status}</span>`;
+        console.log(newLi.innerHTML);
         document.querySelector('.mainAppContener .results ul').insertAdjacentElement('beforeend', newLi);
     })
     document.querySelector('.mainAppContener .mainApp').style.opacity = '0';
@@ -136,8 +148,12 @@ const showResults = () => {
 export function updateTickets () {
     const counter = document.querySelector('.RltsTicketsCounter');
     counter.innerText = spinAmount;
-    if (spinAmount > 99) {
-        counter.style.right = "55px"; 
+    if (spinAmount > 9) {
+        if (!isMobile()) {
+            counter.style.right = "55px"; 
+        } else {
+            counter.style.right = "8px"; 
+        }
     }
 }
 
@@ -157,12 +173,22 @@ export function reduceTickets() {
 
 export function spinFinished() {
     if (spinAmount > 0 && !state) {
-        setTimeout(() => {
-            generatePrivateKey();
+        if (isMobile()) {
             setTimeout(() => {
-                spin(1);
-            }, 1000);        
-        }, 3000);
+                document.querySelector('.mainAppContener').style.marginTop = "1500px";
+                // generatePrivateKey();
+                setTimeout(() => {
+                    spin(1);
+                }, 1000);
+            }, 2600);    
+        } else {
+            setTimeout(() => {
+                // generatePrivateKey();
+                setTimeout(() => {
+                    spin(1);
+                }, 1000);        
+            }, 3000);
+        }
     } else if (state && spinAmount > 0) {
         enableFunction();
         transactionDone("Continue");
@@ -171,12 +197,14 @@ export function spinFinished() {
         setTimeout(() => {
             alreadySpinning = false;
             emptyWalletsStorage();
-            enableFunction();
-            transactionDone();
+            if (!isMobile()) {
+                enableFunction();
+                transactionDone();
+            }
         }, 1000);
     }
 }
 
 setInterval(() => {
     updateRLTs();
-}, 50);
+}, 500);

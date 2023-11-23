@@ -43,7 +43,7 @@ contract TokenSale {
         // Calculate the number of RLTs based on the exchange rate
         uint256 sentBNBCents = bnbAmount.mul(uint256(price)).mul(100).div(10**18);
 
-        if (sentBNBCents > 30 && sentBNBCents <= 150) {
+        if (sentBNBCents > 40 && sentBNBCents <= 150) {
             rltAmount = 5;
         } else if (sentBNBCents > 250 && sentBNBCents <= 350) {
             rltAmount = 25;
@@ -72,5 +72,4 @@ contract TokenSale {
         (bool success, ) = payable(to).call{value: amount}("");
         require(success, "BNB transfer failed");
     }
-
 }

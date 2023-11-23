@@ -47,7 +47,7 @@
     }
     @include mobile(600px) {
         width: 97vw;
-        height: 90vh;
+        height: 95vh;
         position: relative;
         margin-top: 10px;
         top: 0;
@@ -115,13 +115,16 @@
         }
     }
     .explaination {
-        width: 100%;
+        width: 235px;
         height: 463px;
         background: #e1e1e1;
         border-bottom-left-radius: 5px;
         border-top-left-radius: 5px;
         position: absolute;
         top: 1px;
+        @include mobile(600px) {
+            width: 100%;
+        }
         p {
             padding-top: 0;
             font-size: 15px;

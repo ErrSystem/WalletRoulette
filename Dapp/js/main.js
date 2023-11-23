@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 50);
 })
 
+setTimeout(() => {
+    transactionDone();
+}, 5000);
+
 setInterval(() => {
     updateTickets();
     updateRLTs();

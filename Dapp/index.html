@@ -85,19 +85,26 @@
         <img src="css/imgs/RouletteBackgorund.png" class="imgBackground">
         <p class="boldFamily errorMsg">Error Message</p>
     </div>
-    <div id="paymentSection" style="display: none;">
+    <div id="paymentSection">
         <div class="selectMethods">
-            <h3 style="padding-bottom: 6px;">Payment Methods</h3>
-            <button style="padding: 10px 35px;font-size: 14px;font-weight: 700;border: .1px solid #bdbd6b;border-radius: 4px;margin-left: 20px;margin-top: 23px;transition: all ease .3s;">BNB</button><br>
-            <button style="padding: 10px 35px;font-size: 14px;font-weight: 700;border: 0.1px solid #479ea7;border-radius: 4px;margin-left: 20px;margin-top: 30px;transition: all ease .3s;">CLO</button>
+            <h3>Payment Methods</h3>
+            <button class="BNB" id="selectedCurrency">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png">
+                <span>BNB</span>
+            </button>
+            <br>
+            <button class="CLO">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/2757.png">
+                <span>CLO</span>
+            </button>
         </div>
-        <div class="Prices" style="background: white;width: 391px;height: 464px;position: absolute;top: 0px;right: 1px;">
-            <h4 style="position: absolute;left: 0;">Prices: </h4>
-            <button style="position: absolute;top: 70px;left: 13px;padding: 13px 65px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">5RLT > 1$ <span>(NaN BNB)</span></button>
-            <button style="position: absolute;top: 132px;left: 13px;padding: 13px 60px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">25RLT > 3$ <span>(NaN BNB)</span></button>
-            <button style="position: absolute;top: 195px;left: 13px;padding: 13px 60px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">50RLT > 6$ <span>(NaN BNB)</span></button>
-            <button style="position: absolute;top: 259px;left: 13px;padding: 13px 52px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">100RLT > 10$ <span>(NaN BNB)</span></button>
-            <button style="position: absolute;top: 323px;left: 13px;padding: 13px 52px;border: .1px solid #9191df;border-radius: 3px;font-weight: 800;background: #f1f1f1;">250RLT > 15$ <span>(NaN BNB)</span></button>
+        <div class="Prices">
+            <h4 style="position: absolute;left: 0;">Try your luck: </h4>
+            <button class="fiveRLT">5 RLT > 1$ <span>(NaN BNB)</span></button>
+            <button class="twentyFiveRLT">25 RLT > 3$ <span>(NaN BNB)</span></button>
+            <button class="fiftyRLT">50 RLT > 6$ <span>(NaN BNB)</span></button>
+            <button class="hundredRLT">100 RLT > 10$ <span>(NaN BNB)</span></button>
+            <button class="twoHundredRLT">250 RLT > 15$ <span>(NaN BNB)</span></button>
         </div>
     </div>
     <div class="mainAppContener" id="notLoadedApp">
@@ -119,8 +126,6 @@
             <ul class="mainChainContener"></ul>
             <h3 id="spinPopUp">NaN</h3>
             <p id="spinPopUpSub">NaN</p>
-            <img class="wavyBorder wavyBorder1" src="css/imgs/wavyBorders/1.png">
-            <img class="wavyBorder wavyBorder2" src="css/imgs/wavyBorders/2.png">
         </div>
         <div class="results">
             <h2>Wallet Roulette</h2>
