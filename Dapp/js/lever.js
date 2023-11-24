@@ -1,6 +1,5 @@
-import showSpinParameters from './spinParameters.js';
-import spin from './spin.js';
-import generatePrivateKey from './generate.js';
+import showSpinParameters from './spin.js';
+import {spinAnim} from './spin.js';
 const lever = document.querySelectorAll('.lever');
 const leverBatton = document.querySelectorAll('.lever .batton');
 const impact = document.querySelectorAll('.lever img');
@@ -33,11 +32,10 @@ export function leverClick() {
             setTimeout(() => {
                 leverBatton[leverId].style = '';
                 lever[leverId].style.display = "none";
-                // calls the spin parameters function
-                if (leverMode !== undefined) {
-                    generatePrivateKey();
+                // if the spin was stopped because the user found a wallet if he clicks again it continues spinning
+                if (leverMode == "Continue") {
                     setTimeout(() => {
-                        spin(1)
+                        spinAnim(1);
                     }, 500);
                 } else {
                     showSpinParameters(leverId);

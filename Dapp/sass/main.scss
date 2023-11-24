@@ -14,7 +14,7 @@
 }
 
 #Spinning {
-    animation: fall 1s !important;
+    animation: fall .5s !important;
 }
 
 .getStarted {
@@ -361,19 +361,17 @@
         }
     }
     .WalletKey, .PrivateKey {
-        padding-left: 50px;
         text-overflow: ellipsis;
         overflow: hidden;
         @include mobile(600px) {
             font-size: 14px;
-            padding-left: 28px;
         }
     }
     .balance {
         font-size: 20px;
         color: #c5a458;
         @include mobile(600px) {
-            font-size: 17px;
+            font-size: 15px;
             padding-left: 20px;
         }
     }
@@ -390,16 +388,16 @@
     }
     .RltsTicketsCounter {
         position: absolute;
-        right: 65px;
-        top: 50px;
+        right: 75px;
+        top: 55px;
         color: #fff;
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bolder;
-        font-family: comicStyle;
-        letter-spacing: 5px;
+        font-family: casinoStyle;
+        letter-spacing: 3px;
         @include mobile(600px) {
             right: 15px;
-            top: 33px;
+            top: 36px;
         }
     }
     #spinPopUp {
@@ -451,15 +449,32 @@
             font-family: lightFont;
             font-size: 17px;
             padding: 0;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             @include mobile(600px) {
-                font-size: 15px;
+                font-size: 13px;
+            }
+            a {
+                display: inline;
+                img {
+                    float: left;
+                    margin-top: -3px;
+                }
+            }
+            .arrowImg {
+                background: transparent;
+                margin-top: -3px;
+                width: 19px;
+                filter: invert(.4);
+                transform: rotate(180deg);
+                padding-top: 0px;
+                margin-left: 5px;
             }
             li { 
                 font-size: 15px;
                 margin-top: 10px;
-                margin-left: 30px;
+                margin-left: 36px;
                 color: #7c817c;
+                display: none;
                 @include mobile(600px) {
                     margin-left: 37px;
                     font-size: 13px;
@@ -470,7 +485,8 @@
             width: fit-content;
             color: #428eab;
             transition: all ease .3s;
-            padding-left: 35px;
+            padding-left: 10px;
+            padding-right: 8px;
             display: block;
             margin-top: -26px;
             text-decoration: none;
@@ -509,9 +525,26 @@
     display: none;
     opacity: 0;
     overflow-y: scroll;
+    @include mobile(600px) {
+        padding-bottom: 20px;
+    }
     h2 {
         padding-top: 37px;
-        padding-left: 20px;
+        padding-left: 32px;
+    }
+    input {
+        float: left;
+        margin-top: 23px;
+        margin-left: 29px;
+        @include mobile(600px) {
+            margin-top: 20px;
+        }
+    }
+    p {
+        margin-left: 22px;
+        @include mobile(600px) {
+            font-size: 13px;
+        }
     }
     ul {
         margin-top: 30px;
@@ -526,6 +559,14 @@
                 overflow: hidden;
             }
         }
+    }
+    .getBack {
+        text-decoration: none;
+        float: right;
+        margin-top: -48px;
+        margin-right: 25px;
+        font-family: 'lightFont';
+        color: cadetblue;
     }
 }
 

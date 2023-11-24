@@ -1,5 +1,5 @@
 import { webSiteAdress } from "./main.js";
-import { reduceTickets } from "./spinParameters.js";
+import { reduceTickets } from "./spin.js";
 
 let state;
 let amount;

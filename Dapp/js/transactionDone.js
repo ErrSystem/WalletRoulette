@@ -1,9 +1,8 @@
 import {account} from './walletsHandler.js';
-import {leverAnim} from './lever.js';
+import { leverAnim } from './lever.js';
 import { RLT } from './RLTSCounter.js';
 import isMobile from './detectSmallScreen.js';
-import showSpinParameters from './spinParameters.js';
-import spin from './spin.js';
+import showSpinParameters from './spin.js';
 let alreadyRunning = false;
 let alreadyRunned = false;
 let touchStart;

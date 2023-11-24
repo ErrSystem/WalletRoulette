@@ -1,7 +1,6 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
-import { updateTickets } from './spinParameters.js';
-import { updateRLTs } from './spinParameters.js';
+import { updateTickets, updateRLTs } from './spin.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 let isTesting = false;
