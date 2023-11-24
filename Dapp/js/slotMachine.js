@@ -15,7 +15,7 @@ let chains = {
     "eth": {
       "name": "Ethereum",
       "symbol": "ETH",
-      "rpc": "https://rpc.ankr.com/eth",
+      "rpc": "https://ethereum.publicnode.com",
       "explorer": "https://etherscan.io/address/",
       "gecko": "ethereum",
       "balance": 0,
@@ -101,7 +101,7 @@ let chains = {
     },
     "ply": {
       "name": "Polygon",
-      "rpc": "https://polygon-rpc.com/",
+      "rpc": "https://polygon-bor.publicnode.com",
       "symbol": "MATIC",
       "explorer": "https://polygonscan.com/address/",
       "gecko": "matic-network",
@@ -269,11 +269,11 @@ export default function generatePrivateKeyNew(times) {
             getWalletData(wallet, loop);
             setTimeout(() => {
                 coolDown = false;
-            }, 1000);
+            }, 500);
         } else {
             setTimeout(() => {
                 generate(loop);
-            }, 1000);
+            }, 500);
         }
     }
     for (let loop = 0; loop <= times-1; loop++) {
@@ -320,12 +320,12 @@ const prepareHTMLForChain = (chain, index) => {
     createLis();
     intervalId = setInterval(() => isDone(index), 50);
     const isDone = index => {
-        if (data[index].ULs.length === Object.keys(data[index].chain).length) {
-            prepareHTML(index); 
-            clearInterval(intervalId);
-        }
+      if (data[index].ULs.length === Object.keys(data[index].chain).length) {
+        prepareHTML(index); 
+        clearInterval(intervalId);
+      }
     }
-  }, 2000);
+  }, 1000);
 }
 
 // Adds comma to numbers
@@ -360,15 +360,14 @@ const prepareHTML = index => {
         let ul= "";
         const htmlStrings = data[index].ULs.map(element => element.outerHTML);
         ul = htmlStrings.join('');
-        console.log(ul);
         return ul;
     }
     let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p>`;
     data[index].HTML = mainAppHTML;
+    console.log(data[index].totalUSD);
 }
 
 export function updateMainApp(index) {
-    console.log(index);
     index = index + 1;
     // updates HTML
     document.querySelector('.mainApp').innerHTML = data[index].HTML;

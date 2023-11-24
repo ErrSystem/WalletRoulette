@@ -2,7 +2,6 @@ import {account} from './walletsHandler.js';
 import {leverAnim} from './lever.js';
 import { RLT } from './RLTSCounter.js';
 import isMobile from './detectSmallScreen.js';
-import generatePrivateKey from './generate.js';
 import showSpinParameters from './spinParameters.js';
 import spin from './spin.js';
 let alreadyRunning = false;
