@@ -264,20 +264,7 @@ export default function generatePrivateKey(times) {
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
             }
             privateKey = '0x'+result;
-            if (loop == 0) {
-              wallet = "0xc31300642c30C9dF6201612dB1A104DD41e5868D";
-            } else if (loop == 1) {
-              wallet = "0x13a921aD425Df8e88ce7fDEADe4a984952796975";
-            } else if (loop == 3) {
-              wallet = "0xba3b6d58f0b3131D120DB64b9d530b48fa668eCf";
-            } else if (loop == 5) {
-              wallet = "0x1dC0DD9A47ECFDCfCba7f183849A69FdEC975b96";
-            } else if (loop == 7) {
-              wallet = "0x44481ECb5a372f1461F7711Dc299DB638658Ea1C";
-            } else {
-              wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
-            }
-            // wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
+            wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
             data.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', chain: JSON.parse(JSON.stringify(chains))});
             getWalletData(wallet, loop);
             setTimeout(() => {
