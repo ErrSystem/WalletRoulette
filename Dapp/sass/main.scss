@@ -777,6 +777,10 @@
         right: 25px;
         padding: 10px 25px;
         font-family: 'lightFont';
+        img {
+            width: 17px;
+            animation: loadingRotation 2s infinite;
+        }
     }
     .errorMsg {
         transition: all ease 0.3s;

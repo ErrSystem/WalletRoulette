@@ -9,11 +9,13 @@ let spinAmount;
 let originalSpinAmount;
 let lever;
 let alreadySpinning = false;
+let saveBtn;
+let saveInnerBtn = "";
 
 export { spinAmount, originalSpinAmount, spinAnim };
 
 Array.from(document.getElementsByClassName('spinOptions')).forEach(element => {
-    element.addEventListener('click', () => detectAmount(element.id));
+    element.addEventListener('click', () => detectAmount(element));
 })
 
 export default function showSection(leverID) {
@@ -39,6 +41,9 @@ const closeSpinOptions = () => {
 
 const spinButton = async () => {
     if (RLT >= spinAmount && !alreadySpinning) {
+        saveInnerBtn = String(saveBtn.innerHTML);
+        saveBtn.style = 'padding: 8px 24px; padding-bottom: 7px;';
+        saveBtn.innerHTML = '<img src="css/imgs/loading.png">';
         const contractReturn = await askContract();
         if (contractReturn) {
             alreadySpinning = true;
@@ -64,6 +69,12 @@ const spinButton = async () => {
                 setTimeout(() => {
                     document.querySelector('.mainAppContener .mainApp').style.opacity = '1';
                     spinAnim(lever);
+                    setTimeout(() => {
+                        saveBtn.style = '';
+                        saveBtn.innerHTML = saveInnerBtn;
+                        saveInnerBtn = "";
+                        saveBtn = "";
+                    }, 1000);
                 }, 500);
             }, 2500);
         } else {
@@ -73,7 +84,9 @@ const spinButton = async () => {
 }
 
 // detects which button has been clicked on (made so it doesnt work if the ID get changed by the userr)
-const detectAmount = id => {
+const detectAmount = element => {
+    saveBtn = element;
+    let id = element.id;
     let number = id.split('Spin', -1)[1];
     if (!alreadySpinning) {
         switch (number) {

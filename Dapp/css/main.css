@@ -125,2804 +125,2804 @@ h2 {
   border-radius: 50%;
 }
 .walletSuccessParticle:nth-child(1) {
-  width: 1px;
-  height: 1px;
-  background: hsl(144, 80%, 80%);
-  animation-duration: 1.79s;
-  animation-delay: -1.79s;
+  width: 2px;
+  height: 2px;
+  background: hsl(217, 80%, 80%);
+  animation-duration: 1.43s;
+  animation-delay: -0.2717s;
 }
 .walletSuccessParticle:nth-child(2) {
   width: 5px;
   height: 5px;
-  background: hsl(200, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -0.0465s;
+  background: hsl(31, 80%, 80%);
+  animation-duration: 1.35s;
+  animation-delay: -1.1205s;
 }
 .walletSuccessParticle:nth-child(3) {
-  width: 3px;
-  height: 3px;
-  background: hsl(167, 80%, 80%);
-  animation-duration: 1.32s;
-  animation-delay: -0.8712s;
+  width: 5px;
+  height: 5px;
+  background: hsl(342, 80%, 80%);
+  animation-duration: 1.04s;
+  animation-delay: -0.624s;
 }
 .walletSuccessParticle:nth-child(4) {
-  width: 1px;
-  height: 1px;
-  background: hsl(270, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -0.8685s;
-}
-.walletSuccessParticle:nth-child(5) {
-  width: 5px;
-  height: 5px;
-  background: hsl(129, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -0.7493s;
-}
-.walletSuccessParticle:nth-child(6) {
-  width: 3px;
-  height: 3px;
-  background: hsl(140, 80%, 80%);
-  animation-duration: 1.28s;
-  animation-delay: -1.28s;
-}
-.walletSuccessParticle:nth-child(7) {
-  width: 3px;
-  height: 3px;
-  background: hsl(30, 80%, 80%);
-  animation-duration: 1.98s;
-  animation-delay: -0.99s;
-}
-.walletSuccessParticle:nth-child(8) {
-  width: 5px;
-  height: 5px;
-  background: hsl(211, 80%, 80%);
-  animation-duration: 1.28s;
-  animation-delay: -0.1792s;
-}
-.walletSuccessParticle:nth-child(9) {
   width: 4px;
   height: 4px;
-  background: hsl(331, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -1.0125s;
+  background: hsl(19, 80%, 80%);
+  animation-duration: 1.66s;
+  animation-delay: -1.6102s;
 }
-.walletSuccessParticle:nth-child(10) {
-  width: 5px;
-  height: 5px;
-  background: hsl(94, 80%, 80%);
-  animation-duration: 1.4s;
-  animation-delay: -0.364s;
-}
-.walletSuccessParticle:nth-child(11) {
-  width: 2px;
-  height: 2px;
-  background: hsl(36, 80%, 80%);
-  animation-duration: 1.79s;
-  animation-delay: -0.3222s;
-}
-.walletSuccessParticle:nth-child(12) {
+.walletSuccessParticle:nth-child(5) {
   width: 3px;
   height: 3px;
-  background: hsl(103, 80%, 80%);
-  animation-duration: 1.72s;
-  animation-delay: -0.4472s;
+  background: hsl(321, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -1.364s;
+}
+.walletSuccessParticle:nth-child(6) {
+  width: 5px;
+  height: 5px;
+  background: hsl(125, 80%, 80%);
+  animation-duration: 1.06s;
+  animation-delay: -0.4346s;
+}
+.walletSuccessParticle:nth-child(7) {
+  width: 4px;
+  height: 4px;
+  background: hsl(344, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.9636s;
+}
+.walletSuccessParticle:nth-child(8) {
+  width: 4px;
+  height: 4px;
+  background: hsl(355, 80%, 80%);
+  animation-duration: 1.69s;
+  animation-delay: -0.1183s;
+}
+.walletSuccessParticle:nth-child(9) {
+  width: 5px;
+  height: 5px;
+  background: hsl(355, 80%, 80%);
+  animation-duration: 1.35s;
+  animation-delay: -0.8775s;
+}
+.walletSuccessParticle:nth-child(10) {
+  width: 3px;
+  height: 3px;
+  background: hsl(253, 80%, 80%);
+  animation-duration: 1.15s;
+  animation-delay: -0.736s;
+}
+.walletSuccessParticle:nth-child(11) {
+  width: 1px;
+  height: 1px;
+  background: hsl(56, 80%, 80%);
+  animation-duration: 1.09s;
+  animation-delay: -0.8611s;
+}
+.walletSuccessParticle:nth-child(12) {
+  width: 4px;
+  height: 4px;
+  background: hsl(350, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.8494s;
 }
 .walletSuccessParticle:nth-child(13) {
   width: 3px;
   height: 3px;
-  background: hsl(196, 80%, 80%);
-  animation-duration: 1.8s;
-  animation-delay: -1.242s;
+  background: hsl(27, 80%, 80%);
+  animation-duration: 1.24s;
+  animation-delay: -1.2028s;
 }
 .walletSuccessParticle:nth-child(14) {
-  width: 3px;
-  height: 3px;
-  background: hsl(4, 80%, 80%);
-  animation-duration: 1.9s;
-  animation-delay: -1.862s;
-}
-.walletSuccessParticle:nth-child(15) {
-  width: 1px;
-  height: 1px;
-  background: hsl(228, 80%, 80%);
-  animation-duration: 1.47s;
-  animation-delay: -0.4998s;
-}
-.walletSuccessParticle:nth-child(16) {
   width: 4px;
   height: 4px;
-  background: hsl(8, 80%, 80%);
-  animation-duration: 1.28s;
-  animation-delay: -0.2816s;
+  background: hsl(125, 80%, 80%);
+  animation-duration: 1.27s;
+  animation-delay: -0.8255s;
 }
-.walletSuccessParticle:nth-child(17) {
-  width: 2px;
-  height: 2px;
-  background: hsl(246, 80%, 80%);
-  animation-duration: 1.02s;
-  animation-delay: -0.0102s;
+.walletSuccessParticle:nth-child(15) {
+  width: 5px;
+  height: 5px;
+  background: hsl(323, 80%, 80%);
+  animation-duration: 1.13s;
+  animation-delay: -0.8023s;
 }
-.walletSuccessParticle:nth-child(18) {
+.walletSuccessParticle:nth-child(16) {
   width: 3px;
   height: 3px;
-  background: hsl(321, 80%, 80%);
-  animation-duration: 1.49s;
-  animation-delay: -0.2235s;
+  background: hsl(108, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.58s;
+}
+.walletSuccessParticle:nth-child(17) {
+  width: 3px;
+  height: 3px;
+  background: hsl(282, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -1.8018s;
+}
+.walletSuccessParticle:nth-child(18) {
+  width: 2px;
+  height: 2px;
+  background: hsl(288, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -1.164s;
 }
 .walletSuccessParticle:nth-child(19) {
   width: 2px;
   height: 2px;
-  background: hsl(143, 80%, 80%);
-  animation-duration: 1.38s;
-  animation-delay: -1.2558s;
+  background: hsl(152, 80%, 80%);
+  animation-duration: 1.22s;
+  animation-delay: -0.5368s;
 }
 .walletSuccessParticle:nth-child(20) {
-  width: 3px;
-  height: 3px;
-  background: hsl(84, 80%, 80%);
-  animation-duration: 1.42s;
-  animation-delay: -1.349s;
+  width: 5px;
+  height: 5px;
+  background: hsl(174, 80%, 80%);
+  animation-duration: 1.4s;
+  animation-delay: -0.896s;
 }
 .walletSuccessParticle:nth-child(21) {
-  width: 4px;
-  height: 4px;
-  background: hsl(342, 80%, 80%);
-  animation-duration: 1.73s;
-  animation-delay: -0.0519s;
+  width: 3px;
+  height: 3px;
+  background: hsl(198, 80%, 80%);
+  animation-duration: 1.54s;
+  animation-delay: -0.6006s;
 }
 .walletSuccessParticle:nth-child(22) {
   width: 3px;
   height: 3px;
-  background: hsl(134, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -1.404s;
+  background: hsl(175, 80%, 80%);
+  animation-duration: 1.28s;
+  animation-delay: -0.1536s;
 }
 .walletSuccessParticle:nth-child(23) {
-  width: 3px;
-  height: 3px;
-  background: hsl(130, 80%, 80%);
-  animation-duration: 1.07s;
-  animation-delay: -0.0214s;
+  width: 4px;
+  height: 4px;
+  background: hsl(339, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.3774s;
 }
 .walletSuccessParticle:nth-child(24) {
-  width: 2px;
-  height: 2px;
-  background: hsl(29, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.5824s;
+  width: 4px;
+  height: 4px;
+  background: hsl(113, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.1177s;
 }
 .walletSuccessParticle:nth-child(25) {
-  width: 2px;
-  height: 2px;
-  background: hsl(31, 80%, 80%);
-  animation-duration: 1.08s;
-  animation-delay: -0.4428s;
-}
-.walletSuccessParticle:nth-child(26) {
-  width: 4px;
-  height: 4px;
-  background: hsl(189, 80%, 80%);
-  animation-duration: 1.59s;
-  animation-delay: -1.1766s;
-}
-.walletSuccessParticle:nth-child(27) {
-  width: 4px;
-  height: 4px;
-  background: hsl(23, 80%, 80%);
-  animation-duration: 1.32s;
-  animation-delay: -0.462s;
-}
-.walletSuccessParticle:nth-child(28) {
-  width: 5px;
-  height: 5px;
-  background: hsl(235, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.4396s;
-}
-.walletSuccessParticle:nth-child(29) {
-  width: 5px;
-  height: 5px;
-  background: hsl(117, 80%, 80%);
-  animation-duration: 1.23s;
-  animation-delay: -0.246s;
-}
-.walletSuccessParticle:nth-child(30) {
   width: 1px;
   height: 1px;
-  background: hsl(126, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -0.4698s;
+  background: hsl(177, 80%, 80%);
+  animation-duration: 1.82s;
+  animation-delay: -0.273s;
 }
-.walletSuccessParticle:nth-child(31) {
-  width: 4px;
-  height: 4px;
-  background: hsl(243, 80%, 80%);
-  animation-duration: 1.5s;
-  animation-delay: -1.185s;
+.walletSuccessParticle:nth-child(26) {
+  width: 1px;
+  height: 1px;
+  background: hsl(337, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.3043s;
 }
-.walletSuccessParticle:nth-child(32) {
-  width: 5px;
-  height: 5px;
-  background: hsl(203, 80%, 80%);
-  animation-duration: 1.36s;
-  animation-delay: -0.5712s;
-}
-.walletSuccessParticle:nth-child(33) {
+.walletSuccessParticle:nth-child(27) {
   width: 3px;
   height: 3px;
-  background: hsl(125, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.2669s;
+  background: hsl(276, 80%, 80%);
+  animation-duration: 1.39s;
+  animation-delay: -0.9313s;
 }
-.walletSuccessParticle:nth-child(34) {
+.walletSuccessParticle:nth-child(28) {
   width: 2px;
   height: 2px;
-  background: hsl(17, 80%, 80%);
-  animation-duration: 1.53s;
-  animation-delay: -0.5202s;
+  background: hsl(48, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.34s;
+}
+.walletSuccessParticle:nth-child(29) {
+  width: 2px;
+  height: 2px;
+  background: hsl(125, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -1.8706s;
+}
+.walletSuccessParticle:nth-child(30) {
+  width: 4px;
+  height: 4px;
+  background: hsl(324, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -0.093s;
+}
+.walletSuccessParticle:nth-child(31) {
+  width: 5px;
+  height: 5px;
+  background: hsl(108, 80%, 80%);
+  animation-duration: 1.31s;
+  animation-delay: -0.6419s;
+}
+.walletSuccessParticle:nth-child(32) {
+  width: 1px;
+  height: 1px;
+  background: hsl(207, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -1.0974s;
+}
+.walletSuccessParticle:nth-child(33) {
+  width: 1px;
+  height: 1px;
+  background: hsl(173, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.1253s;
+}
+.walletSuccessParticle:nth-child(34) {
+  width: 1px;
+  height: 1px;
+  background: hsl(141, 80%, 80%);
+  animation-duration: 1.69s;
+  animation-delay: -0.3211s;
 }
 .walletSuccessParticle:nth-child(35) {
-  width: 3px;
-  height: 3px;
-  background: hsl(83, 80%, 80%);
-  animation-duration: 1.83s;
-  animation-delay: -0.9699s;
+  width: 2px;
+  height: 2px;
+  background: hsl(346, 80%, 80%);
+  animation-duration: 1.76s;
+  animation-delay: -1.32s;
 }
 .walletSuccessParticle:nth-child(36) {
-  width: 4px;
-  height: 4px;
-  background: hsl(166, 80%, 80%);
-  animation-duration: 1.85s;
-  animation-delay: -1.776s;
+  width: 1px;
+  height: 1px;
+  background: hsl(252, 80%, 80%);
+  animation-duration: 1.68s;
+  animation-delay: -0.6384s;
 }
 .walletSuccessParticle:nth-child(37) {
-  width: 4px;
-  height: 4px;
-  background: hsl(251, 80%, 80%);
-  animation-duration: 1.36s;
-  animation-delay: -1.0472s;
+  width: 1px;
+  height: 1px;
+  background: hsl(37, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -1.6284s;
 }
 .walletSuccessParticle:nth-child(38) {
-  width: 4px;
-  height: 4px;
-  background: hsl(144, 80%, 80%);
-  animation-duration: 1.63s;
-  animation-delay: -0.2282s;
+  width: 2px;
+  height: 2px;
+  background: hsl(108, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -1.0824s;
 }
 .walletSuccessParticle:nth-child(39) {
-  width: 3px;
-  height: 3px;
-  background: hsl(14, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -1.0792s;
+  width: 1px;
+  height: 1px;
+  background: hsl(309, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.7344s;
 }
 .walletSuccessParticle:nth-child(40) {
   width: 3px;
   height: 3px;
-  background: hsl(173, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.915s;
+  background: hsl(151, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -0.5831s;
 }
 .walletSuccessParticle:nth-child(41) {
-  width: 2px;
-  height: 2px;
-  background: hsl(237, 80%, 80%);
-  animation-duration: 1.5s;
-  animation-delay: -0.96s;
+  width: 1px;
+  height: 1px;
+  background: hsl(305, 80%, 80%);
+  animation-duration: 1.24s;
+  animation-delay: -0.558s;
 }
 .walletSuccessParticle:nth-child(42) {
-  width: 2px;
-  height: 2px;
-  background: hsl(186, 80%, 80%);
-  animation-duration: 1.97s;
-  animation-delay: -0.5122s;
+  width: 1px;
+  height: 1px;
+  background: hsl(263, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.2877s;
 }
 .walletSuccessParticle:nth-child(43) {
   width: 3px;
   height: 3px;
-  background: hsl(238, 80%, 80%);
-  animation-duration: 1.85s;
-  animation-delay: -0.037s;
+  background: hsl(112, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -1.84s;
 }
 .walletSuccessParticle:nth-child(44) {
-  width: 1px;
-  height: 1px;
-  background: hsl(190, 80%, 80%);
-  animation-duration: 1.21s;
-  animation-delay: -0.3025s;
-}
-.walletSuccessParticle:nth-child(45) {
-  width: 4px;
-  height: 4px;
-  background: hsl(83, 80%, 80%);
-  animation-duration: 1.81s;
-  animation-delay: -0.543s;
-}
-.walletSuccessParticle:nth-child(46) {
   width: 2px;
   height: 2px;
-  background: hsl(15, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -0.651s;
+  background: hsl(23, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.411s;
+}
+.walletSuccessParticle:nth-child(45) {
+  width: 2px;
+  height: 2px;
+  background: hsl(70, 80%, 80%);
+  animation-duration: 1.5s;
+  animation-delay: -1.29s;
+}
+.walletSuccessParticle:nth-child(46) {
+  width: 5px;
+  height: 5px;
+  background: hsl(329, 80%, 80%);
+  animation-duration: 1.73s;
+  animation-delay: -1.1591s;
 }
 .walletSuccessParticle:nth-child(47) {
-  width: 4px;
-  height: 4px;
-  background: hsl(136, 80%, 80%);
-  animation-duration: 1.51s;
-  animation-delay: -1.057s;
+  width: 3px;
+  height: 3px;
+  background: hsl(268, 80%, 80%);
+  animation-duration: 1.35s;
+  animation-delay: -0.1215s;
 }
 .walletSuccessParticle:nth-child(48) {
-  width: 4px;
-  height: 4px;
-  background: hsl(75, 80%, 80%);
-  animation-duration: 1.02s;
-  animation-delay: -0.3672s;
+  width: 5px;
+  height: 5px;
+  background: hsl(243, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.8928s;
 }
 .walletSuccessParticle:nth-child(49) {
-  width: 4px;
-  height: 4px;
-  background: hsl(53, 80%, 80%);
-  animation-duration: 1.35s;
-  animation-delay: -0.2295s;
+  width: 3px;
+  height: 3px;
+  background: hsl(254, 80%, 80%);
+  animation-duration: 1.52s;
+  animation-delay: -1.0792s;
 }
 .walletSuccessParticle:nth-child(50) {
   width: 5px;
   height: 5px;
-  background: hsl(57, 80%, 80%);
-  animation-duration: 1.98s;
-  animation-delay: -0.891s;
+  background: hsl(166, 80%, 80%);
+  animation-duration: 1.18s;
+  animation-delay: -0.7434s;
 }
 .walletSuccessParticle:nth-child(51) {
-  width: 2px;
-  height: 2px;
-  background: hsl(25, 80%, 80%);
-  animation-duration: 1.21s;
-  animation-delay: -0.0605s;
+  width: 5px;
+  height: 5px;
+  background: hsl(3, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.4756s;
 }
 .walletSuccessParticle:nth-child(52) {
-  width: 2px;
-  height: 2px;
-  background: hsl(175, 80%, 80%);
-  animation-duration: 1.78s;
-  animation-delay: -1.1748s;
+  width: 5px;
+  height: 5px;
+  background: hsl(250, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.1904s;
 }
 .walletSuccessParticle:nth-child(53) {
-  width: 3px;
-  height: 3px;
-  background: hsl(103, 80%, 80%);
-  animation-duration: 2s;
-  animation-delay: -0.82s;
+  width: 5px;
+  height: 5px;
+  background: hsl(346, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.6018s;
 }
 .walletSuccessParticle:nth-child(54) {
-  width: 5px;
-  height: 5px;
-  background: hsl(87, 80%, 80%);
-  animation-duration: 1.23s;
-  animation-delay: -0.5043s;
+  width: 2px;
+  height: 2px;
+  background: hsl(142, 80%, 80%);
+  animation-duration: 1.15s;
+  animation-delay: -0.5635s;
 }
 .walletSuccessParticle:nth-child(55) {
-  width: 5px;
-  height: 5px;
-  background: hsl(257, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -1.457s;
+  width: 3px;
+  height: 3px;
+  background: hsl(119, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.2112s;
 }
 .walletSuccessParticle:nth-child(56) {
-  width: 4px;
-  height: 4px;
-  background: hsl(129, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -1.0854s;
+  width: 2px;
+  height: 2px;
+  background: hsl(96, 80%, 80%);
+  animation-duration: 1.18s;
+  animation-delay: -0.1416s;
 }
 .walletSuccessParticle:nth-child(57) {
-  width: 5px;
-  height: 5px;
-  background: hsl(164, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -0.6755s;
+  width: 2px;
+  height: 2px;
+  background: hsl(291, 80%, 80%);
+  animation-duration: 1.67s;
+  animation-delay: -1.4696s;
 }
 .walletSuccessParticle:nth-child(58) {
-  width: 5px;
-  height: 5px;
-  background: hsl(75, 80%, 80%);
-  animation-duration: 1.12s;
-  animation-delay: -0.9408s;
+  width: 2px;
+  height: 2px;
+  background: hsl(138, 80%, 80%);
+  animation-duration: 1.83s;
+  animation-delay: -0.7686s;
 }
 .walletSuccessParticle:nth-child(59) {
-  width: 1px;
-  height: 1px;
-  background: hsl(16, 80%, 80%);
-  animation-duration: 1.88s;
-  animation-delay: -1.2032s;
+  width: 5px;
+  height: 5px;
+  background: hsl(52, 80%, 80%);
+  animation-duration: 1.92s;
+  animation-delay: -1.152s;
 }
 .walletSuccessParticle:nth-child(60) {
-  width: 1px;
-  height: 1px;
-  background: hsl(187, 80%, 80%);
-  animation-duration: 1.17s;
-  animation-delay: -0.8541s;
+  width: 3px;
+  height: 3px;
+  background: hsl(138, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -0.46s;
 }
 .walletSuccessParticle:nth-child(61) {
   width: 5px;
   height: 5px;
-  background: hsl(193, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -0.3816s;
+  background: hsl(262, 80%, 80%);
+  animation-duration: 1.42s;
+  animation-delay: -0.3124s;
 }
 .walletSuccessParticle:nth-child(62) {
-  width: 5px;
-  height: 5px;
-  background: hsl(221, 80%, 80%);
-  animation-duration: 1.26s;
-  animation-delay: -0.6678s;
+  width: 3px;
+  height: 3px;
+  background: hsl(313, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.5754s;
 }
 .walletSuccessParticle:nth-child(63) {
-  width: 2px;
-  height: 2px;
-  background: hsl(345, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.5096s;
+  width: 3px;
+  height: 3px;
+  background: hsl(213, 80%, 80%);
+  animation-duration: 1.01s;
+  animation-delay: -0.4545s;
 }
 .walletSuccessParticle:nth-child(64) {
-  width: 2px;
-  height: 2px;
+  width: 5px;
+  height: 5px;
   background: hsl(248, 80%, 80%);
-  animation-duration: 1.94s;
-  animation-delay: -0.6208s;
+  animation-duration: 1.21s;
+  animation-delay: -0.5203s;
 }
 .walletSuccessParticle:nth-child(65) {
-  width: 4px;
-  height: 4px;
-  background: hsl(236, 80%, 80%);
-  animation-duration: 1.2s;
-  animation-delay: -0.192s;
+  width: 3px;
+  height: 3px;
+  background: hsl(161, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.4378s;
 }
 .walletSuccessParticle:nth-child(66) {
-  width: 1px;
-  height: 1px;
-  background: hsl(162, 80%, 80%);
-  animation-duration: 1.13s;
-  animation-delay: -0.8249s;
+  width: 4px;
+  height: 4px;
+  background: hsl(107, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -1.2921s;
 }
 .walletSuccessParticle:nth-child(67) {
   width: 3px;
   height: 3px;
-  background: hsl(112, 80%, 80%);
-  animation-duration: 1.98s;
-  animation-delay: -1.683s;
+  background: hsl(135, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.0136s;
 }
 .walletSuccessParticle:nth-child(68) {
-  width: 2px;
-  height: 2px;
-  background: hsl(111, 80%, 80%);
-  animation-duration: 1.95s;
-  animation-delay: -0.078s;
+  width: 1px;
+  height: 1px;
+  background: hsl(353, 80%, 80%);
+  animation-duration: 1.35s;
+  animation-delay: -0.108s;
 }
 .walletSuccessParticle:nth-child(69) {
-  width: 5px;
-  height: 5px;
-  background: hsl(345, 80%, 80%);
-  animation-duration: 1.71s;
-  animation-delay: -0.5301s;
+  width: 1px;
+  height: 1px;
+  background: hsl(123, 80%, 80%);
+  animation-duration: 1.93s;
+  animation-delay: -1.3703s;
 }
 .walletSuccessParticle:nth-child(70) {
-  width: 2px;
-  height: 2px;
-  background: hsl(7, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -1.1484s;
-}
-.walletSuccessParticle:nth-child(71) {
   width: 5px;
   height: 5px;
-  background: hsl(207, 80%, 80%);
-  animation-duration: 1.61s;
-  animation-delay: -0.4186s;
+  background: hsl(264, 80%, 80%);
+  animation-duration: 1.12s;
+  animation-delay: -0.8736s;
 }
-.walletSuccessParticle:nth-child(72) {
+.walletSuccessParticle:nth-child(71) {
   width: 2px;
   height: 2px;
-  background: hsl(91, 80%, 80%);
-  animation-duration: 1.02s;
-  animation-delay: -0.663s;
+  background: hsl(253, 80%, 80%);
+  animation-duration: 1.9s;
+  animation-delay: -0.874s;
+}
+.walletSuccessParticle:nth-child(72) {
+  width: 5px;
+  height: 5px;
+  background: hsl(351, 80%, 80%);
+  animation-duration: 1.39s;
+  animation-delay: -0.0834s;
 }
 .walletSuccessParticle:nth-child(73) {
   width: 2px;
   height: 2px;
-  background: hsl(151, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -1.1952s;
+  background: hsl(53, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.9486s;
 }
 .walletSuccessParticle:nth-child(74) {
-  width: 2px;
-  height: 2px;
-  background: hsl(218, 80%, 80%);
-  animation-duration: 1.28s;
-  animation-delay: -0.1792s;
+  width: 5px;
+  height: 5px;
+  background: hsl(250, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -0.434s;
 }
 .walletSuccessParticle:nth-child(75) {
-  width: 5px;
-  height: 5px;
-  background: hsl(300, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -1.18s;
+  width: 1px;
+  height: 1px;
+  background: hsl(279, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.1053s;
 }
 .walletSuccessParticle:nth-child(76) {
-  width: 5px;
-  height: 5px;
-  background: hsl(177, 80%, 80%);
-  animation-duration: 1.29s;
-  animation-delay: -0.6579s;
+  width: 4px;
+  height: 4px;
+  background: hsl(348, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.34s;
 }
 .walletSuccessParticle:nth-child(77) {
-  width: 3px;
-  height: 3px;
-  background: hsl(290, 80%, 80%);
-  animation-duration: 1.35s;
-  animation-delay: -1.2555s;
+  width: 4px;
+  height: 4px;
+  background: hsl(161, 80%, 80%);
+  animation-duration: 1.88s;
+  animation-delay: -1.8612s;
 }
 .walletSuccessParticle:nth-child(78) {
-  width: 5px;
-  height: 5px;
-  background: hsl(69, 80%, 80%);
-  animation-duration: 1.78s;
-  animation-delay: -0.9612s;
+  width: 1px;
+  height: 1px;
+  background: hsl(61, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.279s;
 }
 .walletSuccessParticle:nth-child(79) {
   width: 5px;
   height: 5px;
-  background: hsl(236, 80%, 80%);
-  animation-duration: 1.09s;
-  animation-delay: -0.8284s;
+  background: hsl(336, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.594s;
 }
 .walletSuccessParticle:nth-child(80) {
-  width: 3px;
-  height: 3px;
-  background: hsl(24, 80%, 80%);
-  animation-duration: 1.75s;
-  animation-delay: -0.6475s;
+  width: 5px;
+  height: 5px;
+  background: hsl(348, 80%, 80%);
+  animation-duration: 1.5s;
+  animation-delay: -1.5s;
 }
 .walletSuccessParticle:nth-child(81) {
   width: 2px;
   height: 2px;
-  background: hsl(123, 80%, 80%);
-  animation-duration: 1.58s;
-  animation-delay: -0.9954s;
+  background: hsl(353, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -0.7616s;
 }
 .walletSuccessParticle:nth-child(82) {
-  width: 3px;
-  height: 3px;
-  background: hsl(291, 80%, 80%);
-  animation-duration: 1.76s;
-  animation-delay: -0.7568s;
+  width: 5px;
+  height: 5px;
+  background: hsl(324, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.1856s;
 }
 .walletSuccessParticle:nth-child(83) {
-  width: 4px;
-  height: 4px;
-  background: hsl(103, 80%, 80%);
-  animation-duration: 1.91s;
-  animation-delay: -1.2415s;
+  width: 3px;
+  height: 3px;
+  background: hsl(203, 80%, 80%);
+  animation-duration: 1.38s;
+  animation-delay: -0.9384s;
 }
 .walletSuccessParticle:nth-child(84) {
   width: 1px;
   height: 1px;
-  background: hsl(307, 80%, 80%);
-  animation-duration: 1.4s;
-  animation-delay: -1.19s;
+  background: hsl(257, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -1.7523s;
 }
 .walletSuccessParticle:nth-child(85) {
-  width: 1px;
-  height: 1px;
-  background: hsl(97, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -0.4825s;
+  width: 2px;
+  height: 2px;
+  background: hsl(297, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.1194s;
 }
 .walletSuccessParticle:nth-child(86) {
   width: 2px;
   height: 2px;
-  background: hsl(47, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -0.2125s;
+  background: hsl(184, 80%, 80%);
+  animation-duration: 1.31s;
+  animation-delay: -0.5895s;
 }
 .walletSuccessParticle:nth-child(87) {
-  width: 4px;
-  height: 4px;
-  background: hsl(353, 80%, 80%);
-  animation-duration: 1.78s;
-  animation-delay: -0.89s;
+  width: 5px;
+  height: 5px;
+  background: hsl(118, 80%, 80%);
+  animation-duration: 1.92s;
+  animation-delay: -1.5168s;
 }
 .walletSuccessParticle:nth-child(88) {
-  width: 1px;
-  height: 1px;
-  background: hsl(134, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -0.649s;
+  width: 3px;
+  height: 3px;
+  background: hsl(201, 80%, 80%);
+  animation-duration: 1.23s;
+  animation-delay: -0.9471s;
 }
 .walletSuccessParticle:nth-child(89) {
-  width: 2px;
-  height: 2px;
-  background: hsl(326, 80%, 80%);
-  animation-duration: 1.15s;
-  animation-delay: -0.598s;
+  width: 3px;
+  height: 3px;
+  background: hsl(72, 80%, 80%);
+  animation-duration: 1.45s;
+  animation-delay: -0.6525s;
 }
 .walletSuccessParticle:nth-child(90) {
   width: 2px;
   height: 2px;
-  background: hsl(171, 80%, 80%);
-  animation-duration: 1.61s;
-  animation-delay: -0.805s;
+  background: hsl(115, 80%, 80%);
+  animation-duration: 1.24s;
+  animation-delay: -0.1364s;
 }
 .walletSuccessParticle:nth-child(91) {
-  width: 1px;
-  height: 1px;
-  background: hsl(322, 80%, 80%);
-  animation-duration: 1.69s;
-  animation-delay: -1.5886s;
-}
-.walletSuccessParticle:nth-child(92) {
-  width: 2px;
-  height: 2px;
-  background: hsl(60, 80%, 80%);
-  animation-duration: 1.6s;
-  animation-delay: -0.768s;
-}
-.walletSuccessParticle:nth-child(93) {
-  width: 3px;
-  height: 3px;
-  background: hsl(194, 80%, 80%);
-  animation-duration: 1.33s;
-  animation-delay: -0.0931s;
-}
-.walletSuccessParticle:nth-child(94) {
-  width: 2px;
-  height: 2px;
-  background: hsl(136, 80%, 80%);
-  animation-duration: 1.92s;
-  animation-delay: -0.0576s;
-}
-.walletSuccessParticle:nth-child(95) {
-  width: 3px;
-  height: 3px;
-  background: hsl(160, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.432s;
-}
-.walletSuccessParticle:nth-child(96) {
-  width: 5px;
-  height: 5px;
-  background: hsl(254, 80%, 80%);
-  animation-duration: 1.79s;
-  animation-delay: -0.7518s;
-}
-.walletSuccessParticle:nth-child(97) {
-  width: 3px;
-  height: 3px;
-  background: hsl(316, 80%, 80%);
-  animation-duration: 1.84s;
-  animation-delay: -0.2944s;
-}
-.walletSuccessParticle:nth-child(98) {
-  width: 5px;
-  height: 5px;
-  background: hsl(148, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -0.0348s;
-}
-.walletSuccessParticle:nth-child(99) {
-  width: 1px;
-  height: 1px;
-  background: hsl(279, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -0.2316s;
-}
-.walletSuccessParticle:nth-child(100) {
-  width: 1px;
-  height: 1px;
-  background: hsl(323, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -1.14s;
-}
-.walletSuccessParticle:nth-child(101) {
-  width: 5px;
-  height: 5px;
-  background: hsl(128, 80%, 80%);
-  animation-duration: 1.96s;
-  animation-delay: -0.0588s;
-}
-.walletSuccessParticle:nth-child(102) {
-  width: 5px;
-  height: 5px;
-  background: hsl(127, 80%, 80%);
-  animation-duration: 1.45s;
-  animation-delay: -0.1885s;
-}
-.walletSuccessParticle:nth-child(103) {
-  width: 3px;
-  height: 3px;
-  background: hsl(327, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -0.6396s;
-}
-.walletSuccessParticle:nth-child(104) {
-  width: 1px;
-  height: 1px;
-  background: hsl(37, 80%, 80%);
-  animation-duration: 1.03s;
-  animation-delay: -0.2163s;
-}
-.walletSuccessParticle:nth-child(105) {
-  width: 5px;
-  height: 5px;
-  background: hsl(334, 80%, 80%);
-  animation-duration: 1.19s;
-  animation-delay: -0.9758s;
-}
-.walletSuccessParticle:nth-child(106) {
-  width: 1px;
-  height: 1px;
-  background: hsl(88, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -1.1826s;
-}
-.walletSuccessParticle:nth-child(107) {
   width: 4px;
   height: 4px;
-  background: hsl(5, 80%, 80%);
-  animation-duration: 2s;
-  animation-delay: -1.06s;
+  background: hsl(260, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.1872s;
 }
-.walletSuccessParticle:nth-child(108) {
-  width: 5px;
-  height: 5px;
-  background: hsl(263, 80%, 80%);
-  animation-duration: 1.29s;
-  animation-delay: -0.5418s;
+.walletSuccessParticle:nth-child(92) {
+  width: 3px;
+  height: 3px;
+  background: hsl(303, 80%, 80%);
+  animation-duration: 1.92s;
+  animation-delay: -0.1728s;
 }
-.walletSuccessParticle:nth-child(109) {
+.walletSuccessParticle:nth-child(93) {
   width: 2px;
   height: 2px;
-  background: hsl(242, 80%, 80%);
-  animation-duration: 1.01s;
-  animation-delay: -0.1313s;
+  background: hsl(121, 80%, 80%);
+  animation-duration: 1.06s;
+  animation-delay: -0.0318s;
 }
-.walletSuccessParticle:nth-child(110) {
+.walletSuccessParticle:nth-child(94) {
+  width: 1px;
+  height: 1px;
+  background: hsl(292, 80%, 80%);
+  animation-duration: 1.73s;
+  animation-delay: -0.5882s;
+}
+.walletSuccessParticle:nth-child(95) {
+  width: 2px;
+  height: 2px;
+  background: hsl(286, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -0.2512s;
+}
+.walletSuccessParticle:nth-child(96) {
+  width: 3px;
+  height: 3px;
+  background: hsl(173, 80%, 80%);
+  animation-duration: 1.69s;
+  animation-delay: -0.3887s;
+}
+.walletSuccessParticle:nth-child(97) {
   width: 5px;
   height: 5px;
-  background: hsl(154, 80%, 80%);
+  background: hsl(239, 80%, 80%);
+  animation-duration: 1.03s;
+  animation-delay: -0.2781s;
+}
+.walletSuccessParticle:nth-child(98) {
+  width: 2px;
+  height: 2px;
+  background: hsl(102, 80%, 80%);
+  animation-duration: 1.51s;
+  animation-delay: -0.2416s;
+}
+.walletSuccessParticle:nth-child(99) {
+  width: 4px;
+  height: 4px;
+  background: hsl(192, 80%, 80%);
+  animation-duration: 1.73s;
+  animation-delay: -1.3321s;
+}
+.walletSuccessParticle:nth-child(100) {
+  width: 2px;
+  height: 2px;
+  background: hsl(211, 80%, 80%);
+  animation-duration: 1.58s;
+  animation-delay: -1.0586s;
+}
+.walletSuccessParticle:nth-child(101) {
+  width: 3px;
+  height: 3px;
+  background: hsl(177, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.315s;
+}
+.walletSuccessParticle:nth-child(102) {
+  width: 1px;
+  height: 1px;
+  background: hsl(226, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -1.79s;
+}
+.walletSuccessParticle:nth-child(103) {
+  width: 5px;
+  height: 5px;
+  background: hsl(45, 80%, 80%);
+  animation-duration: 1.4s;
+  animation-delay: -0.182s;
+}
+.walletSuccessParticle:nth-child(104) {
+  width: 2px;
+  height: 2px;
+  background: hsl(273, 80%, 80%);
   animation-duration: 1.05s;
-  animation-delay: -0.756s;
+  animation-delay: -0.5145s;
+}
+.walletSuccessParticle:nth-child(105) {
+  width: 2px;
+  height: 2px;
+  background: hsl(150, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -1.5345s;
+}
+.walletSuccessParticle:nth-child(106) {
+  width: 4px;
+  height: 4px;
+  background: hsl(279, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.0558s;
+}
+.walletSuccessParticle:nth-child(107) {
+  width: 2px;
+  height: 2px;
+  background: hsl(218, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -0.1377s;
+}
+.walletSuccessParticle:nth-child(108) {
+  width: 1px;
+  height: 1px;
+  background: hsl(344, 80%, 80%);
+  animation-duration: 1.78s;
+  animation-delay: -0.801s;
+}
+.walletSuccessParticle:nth-child(109) {
+  width: 5px;
+  height: 5px;
+  background: hsl(105, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -1.32s;
+}
+.walletSuccessParticle:nth-child(110) {
+  width: 4px;
+  height: 4px;
+  background: hsl(280, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.8357s;
 }
 .walletSuccessParticle:nth-child(111) {
   width: 1px;
   height: 1px;
-  background: hsl(320, 80%, 80%);
-  animation-duration: 1.17s;
-  animation-delay: -0.2106s;
+  background: hsl(204, 80%, 80%);
+  animation-duration: 1.47s;
+  animation-delay: -1.2495s;
 }
 .walletSuccessParticle:nth-child(112) {
   width: 2px;
   height: 2px;
-  background: hsl(34, 80%, 80%);
-  animation-duration: 1.07s;
-  animation-delay: -1.0058s;
+  background: hsl(122, 80%, 80%);
+  animation-duration: 1.47s;
+  animation-delay: -0.6027s;
 }
 .walletSuccessParticle:nth-child(113) {
-  width: 4px;
-  height: 4px;
-  background: hsl(253, 80%, 80%);
-  animation-duration: 1.89s;
-  animation-delay: -0.4158s;
-}
-.walletSuccessParticle:nth-child(114) {
   width: 1px;
   height: 1px;
-  background: hsl(137, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -0.1441s;
+  background: hsl(212, 80%, 80%);
+  animation-duration: 1.71s;
+  animation-delay: -0.7182s;
+}
+.walletSuccessParticle:nth-child(114) {
+  width: 4px;
+  height: 4px;
+  background: hsl(2, 80%, 80%);
+  animation-duration: 1.46s;
+  animation-delay: -1.0512s;
 }
 .walletSuccessParticle:nth-child(115) {
-  width: 5px;
-  height: 5px;
-  background: hsl(59, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -1.2545s;
+  width: 2px;
+  height: 2px;
+  background: hsl(127, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.1904s;
 }
 .walletSuccessParticle:nth-child(116) {
   width: 3px;
   height: 3px;
-  background: hsl(14, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -0.8664s;
+  background: hsl(146, 80%, 80%);
+  animation-duration: 1.68s;
+  animation-delay: -0.756s;
 }
 .walletSuccessParticle:nth-child(117) {
-  width: 5px;
-  height: 5px;
-  background: hsl(71, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -0.2926s;
-}
-.walletSuccessParticle:nth-child(118) {
-  width: 5px;
-  height: 5px;
-  background: hsl(264, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -0.3364s;
-}
-.walletSuccessParticle:nth-child(119) {
-  width: 4px;
-  height: 4px;
-  background: hsl(317, 80%, 80%);
-  animation-duration: 1.37s;
-  animation-delay: -0.7261s;
-}
-.walletSuccessParticle:nth-child(120) {
-  width: 5px;
-  height: 5px;
-  background: hsl(222, 80%, 80%);
-  animation-duration: 1.33s;
-  animation-delay: -0.2527s;
-}
-.walletSuccessParticle:nth-child(121) {
-  width: 4px;
-  height: 4px;
-  background: hsl(47, 80%, 80%);
-  animation-duration: 1.3s;
-  animation-delay: -0.39s;
-}
-.walletSuccessParticle:nth-child(122) {
   width: 3px;
   height: 3px;
-  background: hsl(234, 80%, 80%);
-  animation-duration: 1.7s;
-  animation-delay: -0.629s;
+  background: hsl(118, 80%, 80%);
+  animation-duration: 1.91s;
+  animation-delay: -1.6617s;
+}
+.walletSuccessParticle:nth-child(118) {
+  width: 3px;
+  height: 3px;
+  background: hsl(73, 80%, 80%);
+  animation-duration: 1.75s;
+  animation-delay: -1.5925s;
+}
+.walletSuccessParticle:nth-child(119) {
+  width: 1px;
+  height: 1px;
+  background: hsl(278, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -1.8042s;
+}
+.walletSuccessParticle:nth-child(120) {
+  width: 3px;
+  height: 3px;
+  background: hsl(9, 80%, 80%);
+  animation-duration: 1.27s;
+  animation-delay: -0.7112s;
+}
+.walletSuccessParticle:nth-child(121) {
+  width: 5px;
+  height: 5px;
+  background: hsl(225, 80%, 80%);
+  animation-duration: 1.2s;
+  animation-delay: -1.044s;
+}
+.walletSuccessParticle:nth-child(122) {
+  width: 2px;
+  height: 2px;
+  background: hsl(17, 80%, 80%);
+  animation-duration: 1.52s;
+  animation-delay: -0.1824s;
 }
 .walletSuccessParticle:nth-child(123) {
   width: 5px;
   height: 5px;
-  background: hsl(1, 80%, 80%);
-  animation-duration: 1.75s;
-  animation-delay: -0.49s;
+  background: hsl(322, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -1.3448s;
 }
 .walletSuccessParticle:nth-child(124) {
-  width: 4px;
-  height: 4px;
-  background: hsl(128, 80%, 80%);
-  animation-duration: 1.86s;
-  animation-delay: -1.4694s;
-}
-.walletSuccessParticle:nth-child(125) {
   width: 5px;
   height: 5px;
-  background: hsl(209, 80%, 80%);
-  animation-duration: 1.53s;
-  animation-delay: -1.4076s;
+  background: hsl(268, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.9154s;
+}
+.walletSuccessParticle:nth-child(125) {
+  width: 2px;
+  height: 2px;
+  background: hsl(232, 80%, 80%);
+  animation-duration: 1.75s;
+  animation-delay: -0.525s;
 }
 .walletSuccessParticle:nth-child(126) {
   width: 5px;
   height: 5px;
-  background: hsl(171, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -0.609s;
+  background: hsl(266, 80%, 80%);
+  animation-duration: 1.58s;
+  animation-delay: -0.1422s;
 }
 .walletSuccessParticle:nth-child(127) {
   width: 5px;
   height: 5px;
-  background: hsl(198, 80%, 80%);
-  animation-duration: 2s;
-  animation-delay: -1.1s;
+  background: hsl(61, 80%, 80%);
+  animation-duration: 1.01s;
+  animation-delay: -0.0101s;
 }
 .walletSuccessParticle:nth-child(128) {
-  width: 1px;
-  height: 1px;
-  background: hsl(54, 80%, 80%);
-  animation-duration: 1.23s;
-  animation-delay: -0.3444s;
+  width: 2px;
+  height: 2px;
+  background: hsl(357, 80%, 80%);
+  animation-duration: 1.09s;
+  animation-delay: -0.0218s;
 }
 .walletSuccessParticle:nth-child(129) {
-  width: 5px;
-  height: 5px;
-  background: hsl(46, 80%, 80%);
-  animation-duration: 1.05s;
-  animation-delay: -0.8925s;
+  width: 1px;
+  height: 1px;
+  background: hsl(241, 80%, 80%);
+  animation-duration: 1.93s;
+  animation-delay: -0.2702s;
 }
 .walletSuccessParticle:nth-child(130) {
   width: 1px;
   height: 1px;
-  background: hsl(218, 80%, 80%);
-  animation-duration: 1.43s;
-  animation-delay: -1.0439s;
+  background: hsl(51, 80%, 80%);
+  animation-duration: 1.71s;
+  animation-delay: -0.8379s;
 }
 .walletSuccessParticle:nth-child(131) {
-  width: 3px;
-  height: 3px;
-  background: hsl(358, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.9216s;
-}
-.walletSuccessParticle:nth-child(132) {
-  width: 5px;
-  height: 5px;
-  background: hsl(12, 80%, 80%);
-  animation-duration: 1.7s;
-  animation-delay: -1.36s;
-}
-.walletSuccessParticle:nth-child(133) {
   width: 2px;
   height: 2px;
-  background: hsl(147, 80%, 80%);
-  animation-duration: 1.97s;
-  animation-delay: -1.3593s;
+  background: hsl(289, 80%, 80%);
+  animation-duration: 1.22s;
+  animation-delay: -0.61s;
+}
+.walletSuccessParticle:nth-child(132) {
+  width: 4px;
+  height: 4px;
+  background: hsl(60, 80%, 80%);
+  animation-duration: 1.08s;
+  animation-delay: -0.7452s;
+}
+.walletSuccessParticle:nth-child(133) {
+  width: 3px;
+  height: 3px;
+  background: hsl(286, 80%, 80%);
+  animation-duration: 1.01s;
+  animation-delay: -0.3737s;
 }
 .walletSuccessParticle:nth-child(134) {
-  width: 4px;
-  height: 4px;
-  background: hsl(84, 80%, 80%);
-  animation-duration: 1.8s;
-  animation-delay: -1.476s;
+  width: 2px;
+  height: 2px;
+  background: hsl(49, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -0.6751s;
 }
 .walletSuccessParticle:nth-child(135) {
-  width: 4px;
-  height: 4px;
-  background: hsl(121, 80%, 80%);
-  animation-duration: 1.34s;
-  animation-delay: -0.0536s;
+  width: 1px;
+  height: 1px;
+  background: hsl(346, 80%, 80%);
+  animation-duration: 1.05s;
+  animation-delay: -0.7875s;
 }
 .walletSuccessParticle:nth-child(136) {
   width: 4px;
   height: 4px;
-  background: hsl(138, 80%, 80%);
-  animation-duration: 1.76s;
-  animation-delay: -0.44s;
+  background: hsl(127, 80%, 80%);
+  animation-duration: 1.31s;
+  animation-delay: -1.2707s;
 }
 .walletSuccessParticle:nth-child(137) {
   width: 2px;
   height: 2px;
-  background: hsl(241, 80%, 80%);
-  animation-duration: 1.45s;
-  animation-delay: -1.276s;
+  background: hsl(54, 80%, 80%);
+  animation-duration: 1.52s;
+  animation-delay: -1.1096s;
 }
 .walletSuccessParticle:nth-child(138) {
-  width: 5px;
-  height: 5px;
-  background: hsl(340, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.2808s;
-}
-.walletSuccessParticle:nth-child(139) {
   width: 3px;
   height: 3px;
-  background: hsl(111, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -0.0972s;
+  background: hsl(6, 80%, 80%);
+  animation-duration: 1.83s;
+  animation-delay: -0.5124s;
 }
-.walletSuccessParticle:nth-child(140) {
-  width: 1px;
-  height: 1px;
-  background: hsl(205, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -0.4672s;
-}
-.walletSuccessParticle:nth-child(141) {
-  width: 5px;
-  height: 5px;
-  background: hsl(30, 80%, 80%);
-  animation-duration: 1.82s;
-  animation-delay: -1.4196s;
-}
-.walletSuccessParticle:nth-child(142) {
-  width: 5px;
-  height: 5px;
-  background: hsl(157, 80%, 80%);
-  animation-duration: 1.64s;
-  animation-delay: -1.394s;
-}
-.walletSuccessParticle:nth-child(143) {
-  width: 5px;
-  height: 5px;
-  background: hsl(76, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -0.6232s;
-}
-.walletSuccessParticle:nth-child(144) {
-  width: 1px;
-  height: 1px;
-  background: hsl(219, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.6908s;
-}
-.walletSuccessParticle:nth-child(145) {
-  width: 1px;
-  height: 1px;
-  background: hsl(230, 80%, 80%);
-  animation-duration: 1.82s;
-  animation-delay: -0.4004s;
-}
-.walletSuccessParticle:nth-child(146) {
+.walletSuccessParticle:nth-child(139) {
   width: 2px;
   height: 2px;
+  background: hsl(235, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.2856s;
+}
+.walletSuccessParticle:nth-child(140) {
+  width: 5px;
+  height: 5px;
+  background: hsl(218, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -1.2672s;
+}
+.walletSuccessParticle:nth-child(141) {
+  width: 3px;
+  height: 3px;
+  background: hsl(327, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.4577s;
+}
+.walletSuccessParticle:nth-child(142) {
+  width: 4px;
+  height: 4px;
   background: hsl(23, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -0.7776s;
+  animation-duration: 1.43s;
+  animation-delay: -0.6435s;
+}
+.walletSuccessParticle:nth-child(143) {
+  width: 1px;
+  height: 1px;
+  background: hsl(241, 80%, 80%);
+  animation-duration: 1.13s;
+  animation-delay: -0.9718s;
+}
+.walletSuccessParticle:nth-child(144) {
+  width: 3px;
+  height: 3px;
+  background: hsl(175, 80%, 80%);
+  animation-duration: 1.1s;
+  animation-delay: -0.88s;
+}
+.walletSuccessParticle:nth-child(145) {
+  width: 4px;
+  height: 4px;
+  background: hsl(132, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -0.7854s;
+}
+.walletSuccessParticle:nth-child(146) {
+  width: 5px;
+  height: 5px;
+  background: hsl(158, 80%, 80%);
+  animation-duration: 1.47s;
+  animation-delay: -0.1323s;
 }
 .walletSuccessParticle:nth-child(147) {
   width: 2px;
   height: 2px;
-  background: hsl(289, 80%, 80%);
-  animation-duration: 1.39s;
-  animation-delay: -0.695s;
+  background: hsl(30, 80%, 80%);
+  animation-duration: 1.87s;
+  animation-delay: -0.2244s;
 }
 .walletSuccessParticle:nth-child(148) {
   width: 4px;
   height: 4px;
-  background: hsl(15, 80%, 80%);
-  animation-duration: 1.67s;
-  animation-delay: -0.4676s;
+  background: hsl(194, 80%, 80%);
+  animation-duration: 1.29s;
+  animation-delay: -1.2771s;
 }
 .walletSuccessParticle:nth-child(149) {
-  width: 4px;
-  height: 4px;
-  background: hsl(42, 80%, 80%);
-  animation-duration: 1.13s;
-  animation-delay: -0.9944s;
+  width: 3px;
+  height: 3px;
+  background: hsl(25, 80%, 80%);
+  animation-duration: 1.28s;
+  animation-delay: -0.768s;
 }
 .walletSuccessParticle:nth-child(150) {
   width: 1px;
   height: 1px;
-  background: hsl(200, 80%, 80%);
-  animation-duration: 1.3s;
-  animation-delay: -0.104s;
+  background: hsl(299, 80%, 80%);
+  animation-duration: 1.06s;
+  animation-delay: -0.159s;
 }
 .walletSuccessParticle:nth-child(151) {
   width: 2px;
   height: 2px;
-  background: hsl(50, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -0.2808s;
+  background: hsl(256, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.6567s;
 }
 .walletSuccessParticle:nth-child(152) {
-  width: 4px;
-  height: 4px;
-  background: hsl(106, 80%, 80%);
-  animation-duration: 1.73s;
-  animation-delay: -0.7612s;
-}
-.walletSuccessParticle:nth-child(153) {
-  width: 5px;
-  height: 5px;
-  background: hsl(215, 80%, 80%);
-  animation-duration: 1.03s;
-  animation-delay: -0.7416s;
-}
-.walletSuccessParticle:nth-child(154) {
   width: 1px;
   height: 1px;
-  background: hsl(183, 80%, 80%);
-  animation-duration: 1.94s;
-  animation-delay: -1.3386s;
+  background: hsl(130, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -0.7252s;
 }
-.walletSuccessParticle:nth-child(155) {
+.walletSuccessParticle:nth-child(153) {
   width: 2px;
   height: 2px;
-  background: hsl(308, 80%, 80%);
-  animation-duration: 1.89s;
-  animation-delay: -1.2474s;
+  background: hsl(8, 80%, 80%);
+  animation-duration: 1.27s;
+  animation-delay: -1.143s;
+}
+.walletSuccessParticle:nth-child(154) {
+  width: 2px;
+  height: 2px;
+  background: hsl(357, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.4475s;
+}
+.walletSuccessParticle:nth-child(155) {
+  width: 5px;
+  height: 5px;
+  background: hsl(64, 80%, 80%);
+  animation-duration: 1.09s;
+  animation-delay: -0.3924s;
 }
 .walletSuccessParticle:nth-child(156) {
   width: 1px;
   height: 1px;
-  background: hsl(155, 80%, 80%);
-  animation-duration: 1.42s;
-  animation-delay: -0.9372s;
+  background: hsl(113, 80%, 80%);
+  animation-duration: 1.39s;
+  animation-delay: -0.5977s;
 }
 .walletSuccessParticle:nth-child(157) {
-  width: 2px;
-  height: 2px;
-  background: hsl(323, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.2808s;
+  width: 1px;
+  height: 1px;
+  background: hsl(155, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -1.6638s;
 }
 .walletSuccessParticle:nth-child(158) {
-  width: 4px;
-  height: 4px;
-  background: hsl(45, 80%, 80%);
-  animation-duration: 1.32s;
-  animation-delay: -0.5412s;
+  width: 5px;
+  height: 5px;
+  background: hsl(281, 80%, 80%);
+  animation-duration: 1.97s;
+  animation-delay: -0.788s;
 }
 .walletSuccessParticle:nth-child(159) {
-  width: 2px;
-  height: 2px;
-  background: hsl(10, 80%, 80%);
-  animation-duration: 1.87s;
-  animation-delay: -0.748s;
+  width: 4px;
+  height: 4px;
+  background: hsl(293, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.0528s;
 }
 .walletSuccessParticle:nth-child(160) {
   width: 3px;
   height: 3px;
-  background: hsl(207, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.854s;
+  background: hsl(359, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -0.5544s;
 }
 .walletSuccessParticle:nth-child(161) {
-  width: 4px;
-  height: 4px;
-  background: hsl(14, 80%, 80%);
-  animation-duration: 1.34s;
-  animation-delay: -0.1608s;
+  width: 5px;
+  height: 5px;
+  background: hsl(38, 80%, 80%);
+  animation-duration: 1.6s;
+  animation-delay: -0.544s;
 }
 .walletSuccessParticle:nth-child(162) {
-  width: 5px;
-  height: 5px;
-  background: hsl(233, 80%, 80%);
-  animation-duration: 1.68s;
-  animation-delay: -1.344s;
-}
-.walletSuccessParticle:nth-child(163) {
-  width: 5px;
-  height: 5px;
-  background: hsl(37, 80%, 80%);
-  animation-duration: 1.84s;
-  animation-delay: -1.0672s;
-}
-.walletSuccessParticle:nth-child(164) {
   width: 1px;
   height: 1px;
-  background: hsl(12, 80%, 80%);
-  animation-duration: 1.9s;
-  animation-delay: -1.577s;
+  background: hsl(170, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.126s;
 }
-.walletSuccessParticle:nth-child(165) {
+.walletSuccessParticle:nth-child(163) {
+  width: 4px;
+  height: 4px;
+  background: hsl(326, 80%, 80%);
+  animation-duration: 1.89s;
+  animation-delay: -1.1718s;
+}
+.walletSuccessParticle:nth-child(164) {
   width: 3px;
   height: 3px;
-  background: hsl(83, 80%, 80%);
-  animation-duration: 1.58s;
-  animation-delay: -0.237s;
+  background: hsl(95, 80%, 80%);
+  animation-duration: 1.92s;
+  animation-delay: -0.1152s;
+}
+.walletSuccessParticle:nth-child(165) {
+  width: 1px;
+  height: 1px;
+  background: hsl(308, 80%, 80%);
+  animation-duration: 1.28s;
+  animation-delay: -1.1776s;
 }
 .walletSuccessParticle:nth-child(166) {
   width: 5px;
   height: 5px;
-  background: hsl(94, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -1.0792s;
+  background: hsl(19, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -1.1169s;
 }
 .walletSuccessParticle:nth-child(167) {
-  width: 3px;
-  height: 3px;
-  background: hsl(213, 80%, 80%);
-  animation-duration: 1.21s;
-  animation-delay: -0.5566s;
+  width: 4px;
+  height: 4px;
+  background: hsl(330, 80%, 80%);
+  animation-duration: 1.76s;
+  animation-delay: -0.8448s;
 }
 .walletSuccessParticle:nth-child(168) {
   width: 5px;
   height: 5px;
-  background: hsl(181, 80%, 80%);
-  animation-duration: 1.97s;
-  animation-delay: -0.5516s;
+  background: hsl(128, 80%, 80%);
+  animation-duration: 1.75s;
+  animation-delay: -0.4025s;
 }
 .walletSuccessParticle:nth-child(169) {
-  width: 1px;
-  height: 1px;
-  background: hsl(138, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -0.3816s;
+  width: 4px;
+  height: 4px;
+  background: hsl(85, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -0.7536s;
 }
 .walletSuccessParticle:nth-child(170) {
   width: 4px;
   height: 4px;
-  background: hsl(321, 80%, 80%);
-  animation-duration: 1.77s;
-  animation-delay: -0.708s;
+  background: hsl(35, 80%, 80%);
+  animation-duration: 1.68s;
+  animation-delay: -1.4952s;
 }
 .walletSuccessParticle:nth-child(171) {
-  width: 3px;
-  height: 3px;
-  background: hsl(276, 80%, 80%);
-  animation-duration: 1.42s;
-  animation-delay: -0.852s;
-}
-.walletSuccessParticle:nth-child(172) {
-  width: 4px;
-  height: 4px;
-  background: hsl(267, 80%, 80%);
-  animation-duration: 1.45s;
-  animation-delay: -0.986s;
-}
-.walletSuccessParticle:nth-child(173) {
-  width: 3px;
-  height: 3px;
-  background: hsl(337, 80%, 80%);
-  animation-duration: 1.68s;
-  animation-delay: -0.168s;
-}
-.walletSuccessParticle:nth-child(174) {
-  width: 3px;
-  height: 3px;
-  background: hsl(171, 80%, 80%);
-  animation-duration: 1.77s;
-  animation-delay: -1.5753s;
-}
-.walletSuccessParticle:nth-child(175) {
-  width: 1px;
-  height: 1px;
-  background: hsl(2, 80%, 80%);
-  animation-duration: 1.85s;
-  animation-delay: -0.222s;
-}
-.walletSuccessParticle:nth-child(176) {
-  width: 4px;
-  height: 4px;
-  background: hsl(251, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.9882s;
-}
-.walletSuccessParticle:nth-child(177) {
   width: 2px;
   height: 2px;
-  background: hsl(16, 80%, 80%);
-  animation-duration: 1.82s;
-  animation-delay: -1.3104s;
+  background: hsl(258, 80%, 80%);
+  animation-duration: 1.03s;
+  animation-delay: -0.2472s;
+}
+.walletSuccessParticle:nth-child(172) {
+  width: 5px;
+  height: 5px;
+  background: hsl(104, 80%, 80%);
+  animation-duration: 1.04s;
+  animation-delay: -0.5512s;
+}
+.walletSuccessParticle:nth-child(173) {
+  width: 1px;
+  height: 1px;
+  background: hsl(171, 80%, 80%);
+  animation-duration: 1.06s;
+  animation-delay: -0.8692s;
+}
+.walletSuccessParticle:nth-child(174) {
+  width: 4px;
+  height: 4px;
+  background: hsl(231, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.4922s;
+}
+.walletSuccessParticle:nth-child(175) {
+  width: 2px;
+  height: 2px;
+  background: hsl(70, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.1674s;
+}
+.walletSuccessParticle:nth-child(176) {
+  width: 2px;
+  height: 2px;
+  background: hsl(311, 80%, 80%);
+  animation-duration: 1.4s;
+  animation-delay: -0.994s;
+}
+.walletSuccessParticle:nth-child(177) {
+  width: 5px;
+  height: 5px;
+  background: hsl(296, 80%, 80%);
+  animation-duration: 1.46s;
+  animation-delay: -1.2702s;
 }
 .walletSuccessParticle:nth-child(178) {
   width: 3px;
   height: 3px;
-  background: hsl(181, 80%, 80%);
-  animation-duration: 1.67s;
-  animation-delay: -1.5865s;
+  background: hsl(295, 80%, 80%);
+  animation-duration: 1.03s;
+  animation-delay: -0.9682s;
 }
 .walletSuccessParticle:nth-child(179) {
-  width: 1px;
-  height: 1px;
-  background: hsl(43, 80%, 80%);
-  animation-duration: 1.81s;
-  animation-delay: -0.5611s;
+  width: 5px;
+  height: 5px;
+  background: hsl(87, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -1.0519s;
 }
 .walletSuccessParticle:nth-child(180) {
-  width: 2px;
-  height: 2px;
-  background: hsl(119, 80%, 80%);
-  animation-duration: 1.13s;
-  animation-delay: -1.0735s;
+  width: 3px;
+  height: 3px;
+  background: hsl(129, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.2142s;
 }
 .walletSuccessParticle:nth-child(181) {
   width: 4px;
   height: 4px;
-  background: hsl(0, 80%, 80%);
-  animation-duration: 1.49s;
-  animation-delay: -0.2831s;
+  background: hsl(275, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.1926s;
 }
 .walletSuccessParticle:nth-child(182) {
   width: 1px;
   height: 1px;
-  background: hsl(309, 80%, 80%);
-  animation-duration: 1.35s;
-  animation-delay: -1.134s;
+  background: hsl(349, 80%, 80%);
+  animation-duration: 1.71s;
+  animation-delay: -0.8379s;
 }
 .walletSuccessParticle:nth-child(183) {
-  width: 3px;
-  height: 3px;
-  background: hsl(290, 80%, 80%);
-  animation-duration: 1.45s;
-  animation-delay: -0.1885s;
+  width: 5px;
+  height: 5px;
+  background: hsl(23, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -1.3188s;
 }
 .walletSuccessParticle:nth-child(184) {
-  width: 5px;
-  height: 5px;
-  background: hsl(149, 80%, 80%);
-  animation-duration: 1.91s;
-  animation-delay: -1.7763s;
+  width: 2px;
+  height: 2px;
+  background: hsl(180, 80%, 80%);
+  animation-duration: 1.15s;
+  animation-delay: -0.0805s;
 }
 .walletSuccessParticle:nth-child(185) {
-  width: 5px;
-  height: 5px;
-  background: hsl(313, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -1.3502s;
+  width: 4px;
+  height: 4px;
+  background: hsl(311, 80%, 80%);
+  animation-duration: 1.29s;
+  animation-delay: -0.7869s;
 }
 .walletSuccessParticle:nth-child(186) {
   width: 5px;
   height: 5px;
-  background: hsl(348, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.0157s;
+  background: hsl(259, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.2033s;
 }
 .walletSuccessParticle:nth-child(187) {
-  width: 4px;
-  height: 4px;
-  background: hsl(248, 80%, 80%);
-  animation-duration: 1.86s;
-  animation-delay: -1.86s;
+  width: 3px;
+  height: 3px;
+  background: hsl(308, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.68s;
 }
 .walletSuccessParticle:nth-child(188) {
-  width: 2px;
-  height: 2px;
-  background: hsl(111, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -0.1166s;
-}
-.walletSuccessParticle:nth-child(189) {
-  width: 5px;
-  height: 5px;
-  background: hsl(220, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.366s;
-}
-.walletSuccessParticle:nth-child(190) {
   width: 1px;
   height: 1px;
-  background: hsl(356, 80%, 80%);
-  animation-duration: 1.03s;
-  animation-delay: -0.515s;
+  background: hsl(135, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -1.3175s;
+}
+.walletSuccessParticle:nth-child(189) {
+  width: 2px;
+  height: 2px;
+  background: hsl(139, 80%, 80%);
+  animation-duration: 1.45s;
+  animation-delay: -0.783s;
+}
+.walletSuccessParticle:nth-child(190) {
+  width: 2px;
+  height: 2px;
+  background: hsl(89, 80%, 80%);
+  animation-duration: 1.81s;
+  animation-delay: -1.0317s;
 }
 .walletSuccessParticle:nth-child(191) {
-  width: 5px;
-  height: 5px;
-  background: hsl(202, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -0.1572s;
+  width: 1px;
+  height: 1px;
+  background: hsl(72, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.1592s;
 }
 .walletSuccessParticle:nth-child(192) {
-  width: 4px;
-  height: 4px;
-  background: hsl(234, 80%, 80%);
-  animation-duration: 1.13s;
-  animation-delay: -0.2147s;
+  width: 5px;
+  height: 5px;
+  background: hsl(271, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -1.1475s;
 }
 .walletSuccessParticle:nth-child(193) {
   width: 2px;
   height: 2px;
-  background: hsl(192, 80%, 80%);
-  animation-duration: 1.53s;
-  animation-delay: -1.2393s;
+  background: hsl(199, 80%, 80%);
+  animation-duration: 1.48s;
+  animation-delay: -1.0952s;
 }
 .walletSuccessParticle:nth-child(194) {
-  width: 2px;
-  height: 2px;
-  background: hsl(231, 80%, 80%);
-  animation-duration: 1.71s;
-  animation-delay: -0.4446s;
-}
-.walletSuccessParticle:nth-child(195) {
   width: 3px;
   height: 3px;
-  background: hsl(251, 80%, 80%);
-  animation-duration: 1.47s;
-  animation-delay: -0.5733s;
+  background: hsl(164, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -0.628s;
+}
+.walletSuccessParticle:nth-child(195) {
+  width: 4px;
+  height: 4px;
+  background: hsl(154, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -1.102s;
 }
 .walletSuccessParticle:nth-child(196) {
   width: 2px;
   height: 2px;
-  background: hsl(310, 80%, 80%);
-  animation-duration: 1.47s;
-  animation-delay: -0.2646s;
+  background: hsl(291, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.0702s;
 }
 .walletSuccessParticle:nth-child(197) {
-  width: 5px;
-  height: 5px;
-  background: hsl(109, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -1.4014s;
+  width: 2px;
+  height: 2px;
+  background: hsl(147, 80%, 80%);
+  animation-duration: 1.7s;
+  animation-delay: -0.391s;
 }
 .walletSuccessParticle:nth-child(198) {
   width: 4px;
   height: 4px;
-  background: hsl(112, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -0.1606s;
+  background: hsl(357, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -0.1386s;
 }
 .walletSuccessParticle:nth-child(199) {
-  width: 1px;
-  height: 1px;
-  background: hsl(107, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -1.0126s;
+  width: 3px;
+  height: 3px;
+  background: hsl(319, 80%, 80%);
+  animation-duration: 1.95s;
+  animation-delay: -1.1505s;
 }
 .walletSuccessParticle:nth-child(200) {
-  width: 4px;
-  height: 4px;
-  background: hsl(283, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -0.9396s;
-}
-.walletSuccessParticle:nth-child(201) {
-  width: 4px;
-  height: 4px;
-  background: hsl(261, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -1.1096s;
-}
-.walletSuccessParticle:nth-child(202) {
   width: 1px;
   height: 1px;
-  background: hsl(46, 80%, 80%);
-  animation-duration: 1.58s;
-  animation-delay: -0.7268s;
+  background: hsl(231, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.0544s;
+}
+.walletSuccessParticle:nth-child(201) {
+  width: 5px;
+  height: 5px;
+  background: hsl(45, 80%, 80%);
+  animation-duration: 1.54s;
+  animation-delay: -0.7238s;
+}
+.walletSuccessParticle:nth-child(202) {
+  width: 4px;
+  height: 4px;
+  background: hsl(94, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -0.3255s;
 }
 .walletSuccessParticle:nth-child(203) {
-  width: 3px;
-  height: 3px;
-  background: hsl(335, 80%, 80%);
-  animation-duration: 1.51s;
-  animation-delay: -1.2533s;
+  width: 4px;
+  height: 4px;
+  background: hsl(290, 80%, 80%);
+  animation-duration: 1.76s;
+  animation-delay: -0.1584s;
 }
 .walletSuccessParticle:nth-child(204) {
-  width: 3px;
-  height: 3px;
-  background: hsl(259, 80%, 80%);
-  animation-duration: 1.01s;
-  animation-delay: -1.01s;
+  width: 2px;
+  height: 2px;
+  background: hsl(31, 80%, 80%);
+  animation-duration: 1.05s;
+  animation-delay: -0.861s;
 }
 .walletSuccessParticle:nth-child(205) {
   width: 4px;
   height: 4px;
-  background: hsl(144, 80%, 80%);
-  animation-duration: 1.83s;
-  animation-delay: -1.1712s;
+  background: hsl(107, 80%, 80%);
+  animation-duration: 1.62s;
+  animation-delay: -0.5184s;
 }
 .walletSuccessParticle:nth-child(206) {
-  width: 4px;
-  height: 4px;
-  background: hsl(272, 80%, 80%);
-  animation-duration: 1.65s;
-  animation-delay: -0.198s;
+  width: 1px;
+  height: 1px;
+  background: hsl(314, 80%, 80%);
+  animation-duration: 1.21s;
+  animation-delay: -1.0164s;
 }
 .walletSuccessParticle:nth-child(207) {
   width: 2px;
   height: 2px;
-  background: hsl(248, 80%, 80%);
-  animation-duration: 1.36s;
-  animation-delay: -0.1088s;
+  background: hsl(252, 80%, 80%);
+  animation-duration: 1.63s;
+  animation-delay: -0.6031s;
 }
 .walletSuccessParticle:nth-child(208) {
-  width: 4px;
-  height: 4px;
-  background: hsl(164, 80%, 80%);
-  animation-duration: 1.09s;
-  animation-delay: -1.0791s;
+  width: 3px;
+  height: 3px;
+  background: hsl(158, 80%, 80%);
+  animation-duration: 1.23s;
+  animation-delay: -0.4674s;
 }
 .walletSuccessParticle:nth-child(209) {
-  width: 5px;
-  height: 5px;
-  background: hsl(91, 80%, 80%);
-  animation-duration: 1.79s;
-  animation-delay: -0.8771s;
+  width: 3px;
+  height: 3px;
+  background: hsl(120, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -1.66s;
 }
 .walletSuccessParticle:nth-child(210) {
-  width: 4px;
-  height: 4px;
-  background: hsl(110, 80%, 80%);
-  animation-duration: 1.68s;
-  animation-delay: -1.68s;
+  width: 3px;
+  height: 3px;
+  background: hsl(243, 80%, 80%);
+  animation-duration: 1.44s;
+  animation-delay: -0.7632s;
 }
 .walletSuccessParticle:nth-child(211) {
-  width: 4px;
-  height: 4px;
-  background: hsl(338, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -0.8932s;
+  width: 2px;
+  height: 2px;
+  background: hsl(73, 80%, 80%);
+  animation-duration: 1.23s;
+  animation-delay: -0.7626s;
 }
 .walletSuccessParticle:nth-child(212) {
   width: 2px;
   height: 2px;
-  background: hsl(222, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -0.8162s;
+  background: hsl(336, 80%, 80%);
+  animation-duration: 1.77s;
+  animation-delay: -0.5841s;
 }
 .walletSuccessParticle:nth-child(213) {
-  width: 2px;
-  height: 2px;
-  background: hsl(30, 80%, 80%);
-  animation-duration: 1.1s;
-  animation-delay: -0.704s;
+  width: 4px;
+  height: 4px;
+  background: hsl(80, 80%, 80%);
+  animation-duration: 1.74s;
+  animation-delay: -1.131s;
 }
 .walletSuccessParticle:nth-child(214) {
-  width: 1px;
-  height: 1px;
-  background: hsl(91, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -0.9048s;
+  width: 4px;
+  height: 4px;
+  background: hsl(292, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.5191s;
 }
 .walletSuccessParticle:nth-child(215) {
-  width: 1px;
-  height: 1px;
-  background: hsl(95, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -1.0625s;
+  width: 4px;
+  height: 4px;
+  background: hsl(176, 80%, 80%);
+  animation-duration: 1.33s;
+  animation-delay: -1.0507s;
 }
 .walletSuccessParticle:nth-child(216) {
-  width: 4px;
-  height: 4px;
-  background: hsl(281, 80%, 80%);
-  animation-duration: 1.71s;
-  animation-delay: -0.9405s;
+  width: 5px;
+  height: 5px;
+  background: hsl(327, 80%, 80%);
+  animation-duration: 1.31s;
+  animation-delay: -0.8646s;
 }
 .walletSuccessParticle:nth-child(217) {
-  width: 5px;
-  height: 5px;
-  background: hsl(144, 80%, 80%);
-  animation-duration: 1.01s;
-  animation-delay: -0.4848s;
+  width: 1px;
+  height: 1px;
+  background: hsl(262, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.1836s;
 }
 .walletSuccessParticle:nth-child(218) {
-  width: 2px;
-  height: 2px;
-  background: hsl(230, 80%, 80%);
-  animation-duration: 1.02s;
-  animation-delay: -0.1734s;
-}
-.walletSuccessParticle:nth-child(219) {
   width: 4px;
   height: 4px;
-  background: hsl(127, 80%, 80%);
-  animation-duration: 1.23s;
-  animation-delay: -0.6519s;
+  background: hsl(9, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -1.274s;
 }
-.walletSuccessParticle:nth-child(220) {
-  width: 5px;
-  height: 5px;
-  background: hsl(145, 80%, 80%);
-  animation-duration: 1.15s;
-  animation-delay: -0.4485s;
-}
-.walletSuccessParticle:nth-child(221) {
+.walletSuccessParticle:nth-child(219) {
   width: 2px;
   height: 2px;
-  background: hsl(196, 80%, 80%);
-  animation-duration: 1.43s;
-  animation-delay: -1.1011s;
+  background: hsl(180, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.8442s;
+}
+.walletSuccessParticle:nth-child(220) {
+  width: 2px;
+  height: 2px;
+  background: hsl(80, 80%, 80%);
+  animation-duration: 1.89s;
+  animation-delay: -1.0206s;
+}
+.walletSuccessParticle:nth-child(221) {
+  width: 1px;
+  height: 1px;
+  background: hsl(217, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -0.1884s;
 }
 .walletSuccessParticle:nth-child(222) {
   width: 2px;
   height: 2px;
-  background: hsl(82, 80%, 80%);
-  animation-duration: 1.09s;
-  animation-delay: -0.436s;
+  background: hsl(319, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -0.4048s;
 }
 .walletSuccessParticle:nth-child(223) {
-  width: 4px;
-  height: 4px;
-  background: hsl(329, 80%, 80%);
-  animation-duration: 1.94s;
-  animation-delay: -0.9506s;
+  width: 2px;
+  height: 2px;
+  background: hsl(98, 80%, 80%);
+  animation-duration: 1.78s;
+  animation-delay: -1.0502s;
 }
 .walletSuccessParticle:nth-child(224) {
-  width: 2px;
-  height: 2px;
-  background: hsl(226, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -1.0795s;
+  width: 5px;
+  height: 5px;
+  background: hsl(113, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -0.891s;
 }
 .walletSuccessParticle:nth-child(225) {
-  width: 5px;
-  height: 5px;
-  background: hsl(90, 80%, 80%);
-  animation-duration: 1.19s;
-  animation-delay: -0.9282s;
+  width: 3px;
+  height: 3px;
+  background: hsl(114, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.4896s;
 }
 .walletSuccessParticle:nth-child(226) {
-  width: 5px;
-  height: 5px;
-  background: hsl(43, 80%, 80%);
-  animation-duration: 1.29s;
-  animation-delay: -0.5031s;
-}
-.walletSuccessParticle:nth-child(227) {
-  width: 2px;
-  height: 2px;
-  background: hsl(78, 80%, 80%);
-  animation-duration: 1.59s;
-  animation-delay: -1.5741s;
-}
-.walletSuccessParticle:nth-child(228) {
-  width: 1px;
-  height: 1px;
-  background: hsl(348, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -0.1218s;
-}
-.walletSuccessParticle:nth-child(229) {
   width: 4px;
   height: 4px;
-  background: hsl(203, 80%, 80%);
-  animation-duration: 1.76s;
-  animation-delay: -0.2288s;
+  background: hsl(309, 80%, 80%);
+  animation-duration: 1.23s;
+  animation-delay: -0.5166s;
+}
+.walletSuccessParticle:nth-child(227) {
+  width: 4px;
+  height: 4px;
+  background: hsl(121, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -0.1764s;
+}
+.walletSuccessParticle:nth-child(228) {
+  width: 5px;
+  height: 5px;
+  background: hsl(145, 80%, 80%);
+  animation-duration: 1.83s;
+  animation-delay: -1.2078s;
+}
+.walletSuccessParticle:nth-child(229) {
+  width: 5px;
+  height: 5px;
+  background: hsl(284, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -0.6732s;
 }
 .walletSuccessParticle:nth-child(230) {
   width: 2px;
   height: 2px;
-  background: hsl(258, 80%, 80%);
-  animation-duration: 1.09s;
-  animation-delay: -0.8611s;
+  background: hsl(9, 80%, 80%);
+  animation-duration: 1.71s;
+  animation-delay: -1.5048s;
 }
 .walletSuccessParticle:nth-child(231) {
-  width: 1px;
-  height: 1px;
-  background: hsl(259, 80%, 80%);
-  animation-duration: 1.83s;
-  animation-delay: -1.0614s;
-}
-.walletSuccessParticle:nth-child(232) {
   width: 4px;
   height: 4px;
-  background: hsl(25, 80%, 80%);
-  animation-duration: 1.17s;
-  animation-delay: -0.9477s;
+  background: hsl(349, 80%, 80%);
+  animation-duration: 1.41s;
+  animation-delay: -0.0564s;
+}
+.walletSuccessParticle:nth-child(232) {
+  width: 3px;
+  height: 3px;
+  background: hsl(139, 80%, 80%);
+  animation-duration: 1.83s;
+  animation-delay: -1.0065s;
 }
 .walletSuccessParticle:nth-child(233) {
-  width: 5px;
-  height: 5px;
-  background: hsl(132, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -0.6844s;
+  width: 1px;
+  height: 1px;
+  background: hsl(337, 80%, 80%);
+  animation-duration: 1.35s;
+  animation-delay: -0.5535s;
 }
 .walletSuccessParticle:nth-child(234) {
-  width: 2px;
-  height: 2px;
-  background: hsl(112, 80%, 80%);
-  animation-duration: 1.49s;
-  animation-delay: -1.2814s;
+  width: 1px;
+  height: 1px;
+  background: hsl(159, 80%, 80%);
+  animation-duration: 1.44s;
+  animation-delay: -0.4464s;
 }
 .walletSuccessParticle:nth-child(235) {
-  width: 1px;
-  height: 1px;
-  background: hsl(103, 80%, 80%);
-  animation-duration: 1.07s;
-  animation-delay: -0.9844s;
+  width: 4px;
+  height: 4px;
+  background: hsl(187, 80%, 80%);
+  animation-duration: 1.93s;
+  animation-delay: -0.8685s;
 }
 .walletSuccessParticle:nth-child(236) {
-  width: 1px;
-  height: 1px;
-  background: hsl(54, 80%, 80%);
-  animation-duration: 1.87s;
-  animation-delay: -1.7952s;
+  width: 4px;
+  height: 4px;
+  background: hsl(108, 80%, 80%);
+  animation-duration: 1.42s;
+  animation-delay: -1.1218s;
 }
 .walletSuccessParticle:nth-child(237) {
-  width: 2px;
-  height: 2px;
-  background: hsl(330, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -0.8525s;
+  width: 1px;
+  height: 1px;
+  background: hsl(343, 80%, 80%);
+  animation-duration: 1.67s;
+  animation-delay: -1.169s;
 }
 .walletSuccessParticle:nth-child(238) {
-  width: 2px;
-  height: 2px;
-  background: hsl(220, 80%, 80%);
-  animation-duration: 1.01s;
-  animation-delay: -0.2727s;
+  width: 1px;
+  height: 1px;
+  background: hsl(37, 80%, 80%);
+  animation-duration: 1.63s;
+  animation-delay: -0.6683s;
 }
 .walletSuccessParticle:nth-child(239) {
   width: 2px;
   height: 2px;
-  background: hsl(335, 80%, 80%);
-  animation-duration: 1.65s;
-  animation-delay: -0.5115s;
+  background: hsl(82, 80%, 80%);
+  animation-duration: 1.3s;
+  animation-delay: -0.065s;
 }
 .walletSuccessParticle:nth-child(240) {
-  width: 5px;
-  height: 5px;
-  background: hsl(322, 80%, 80%);
-  animation-duration: 1.86s;
-  animation-delay: -1.0974s;
+  width: 2px;
+  height: 2px;
+  background: hsl(259, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.3654s;
 }
 .walletSuccessParticle:nth-child(241) {
-  width: 1px;
-  height: 1px;
-  background: hsl(20, 80%, 80%);
-  animation-duration: 1.82s;
-  animation-delay: -0.0182s;
-}
-.walletSuccessParticle:nth-child(242) {
   width: 4px;
   height: 4px;
-  background: hsl(41, 80%, 80%);
-  animation-duration: 1.43s;
-  animation-delay: -0.8294s;
+  background: hsl(350, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.504s;
+}
+.walletSuccessParticle:nth-child(242) {
+  width: 2px;
+  height: 2px;
+  background: hsl(12, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.2088s;
 }
 .walletSuccessParticle:nth-child(243) {
-  width: 5px;
-  height: 5px;
-  background: hsl(74, 80%, 80%);
-  animation-duration: 1.32s;
-  animation-delay: -1.1616s;
+  width: 1px;
+  height: 1px;
+  background: hsl(91, 80%, 80%);
+  animation-duration: 1.74s;
+  animation-delay: -0.4002s;
 }
 .walletSuccessParticle:nth-child(244) {
-  width: 3px;
-  height: 3px;
-  background: hsl(258, 80%, 80%);
-  animation-duration: 1.83s;
-  animation-delay: -1.3542s;
+  width: 4px;
+  height: 4px;
+  background: hsl(88, 80%, 80%);
+  animation-duration: 1.61s;
+  animation-delay: -1.127s;
 }
 .walletSuccessParticle:nth-child(245) {
   width: 3px;
   height: 3px;
-  background: hsl(77, 80%, 80%);
-  animation-duration: 1.63s;
-  animation-delay: -1.63s;
+  background: hsl(64, 80%, 80%);
+  animation-duration: 1.69s;
+  animation-delay: -0.338s;
 }
 .walletSuccessParticle:nth-child(246) {
-  width: 1px;
-  height: 1px;
-  background: hsl(185, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.0628s;
+  width: 4px;
+  height: 4px;
+  background: hsl(72, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.959s;
 }
 .walletSuccessParticle:nth-child(247) {
   width: 1px;
   height: 1px;
-  background: hsl(39, 80%, 80%);
-  animation-duration: 1.24s;
-  animation-delay: -0.0248s;
+  background: hsl(60, 80%, 80%);
+  animation-duration: 1.06s;
+  animation-delay: -0.1166s;
 }
 .walletSuccessParticle:nth-child(248) {
   width: 1px;
   height: 1px;
-  background: hsl(121, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -0.636s;
+  background: hsl(24, 80%, 80%);
+  animation-duration: 1.22s;
+  animation-delay: -0.7076s;
 }
 .walletSuccessParticle:nth-child(249) {
-  width: 2px;
-  height: 2px;
-  background: hsl(177, 80%, 80%);
-  animation-duration: 1.05s;
-  animation-delay: -0.462s;
+  width: 1px;
+  height: 1px;
+  background: hsl(139, 80%, 80%);
+  animation-duration: 1.45s;
+  animation-delay: -0.6525s;
 }
 .walletSuccessParticle:nth-child(250) {
   width: 3px;
   height: 3px;
-  background: hsl(288, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -0.5588s;
+  background: hsl(359, 80%, 80%);
+  animation-duration: 1.15s;
+  animation-delay: -0.4945s;
 }
 .walletSuccessParticle:nth-child(251) {
-  width: 3px;
-  height: 3px;
-  background: hsl(297, 80%, 80%);
-  animation-duration: 1.15s;
-  animation-delay: -0.1265s;
+  width: 5px;
+  height: 5px;
+  background: hsl(82, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -0.3772s;
 }
 .walletSuccessParticle:nth-child(252) {
   width: 4px;
   height: 4px;
-  background: hsl(63, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -0.6042s;
+  background: hsl(206, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -1.341s;
 }
 .walletSuccessParticle:nth-child(253) {
-  width: 5px;
-  height: 5px;
-  background: hsl(327, 80%, 80%);
-  animation-duration: 1.91s;
-  animation-delay: -1.5662s;
+  width: 2px;
+  height: 2px;
+  background: hsl(16, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -1.0132s;
 }
 .walletSuccessParticle:nth-child(254) {
-  width: 4px;
-  height: 4px;
-  background: hsl(329, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -0.83s;
+  width: 1px;
+  height: 1px;
+  background: hsl(251, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -0.164s;
 }
 .walletSuccessParticle:nth-child(255) {
-  width: 4px;
-  height: 4px;
-  background: hsl(128, 80%, 80%);
-  animation-duration: 1.05s;
-  animation-delay: -0.5775s;
+  width: 3px;
+  height: 3px;
+  background: hsl(22, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -0.2s;
 }
 .walletSuccessParticle:nth-child(256) {
-  width: 4px;
-  height: 4px;
-  background: hsl(307, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -0.5478s;
+  width: 5px;
+  height: 5px;
+  background: hsl(215, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -1.2874s;
 }
 .walletSuccessParticle:nth-child(257) {
-  width: 3px;
-  height: 3px;
-  background: hsl(280, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.9648s;
+  width: 1px;
+  height: 1px;
+  background: hsl(270, 80%, 80%);
+  animation-duration: 1.21s;
+  animation-delay: -0.9075s;
 }
 .walletSuccessParticle:nth-child(258) {
-  width: 2px;
-  height: 2px;
-  background: hsl(342, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -0.0635s;
+  width: 5px;
+  height: 5px;
+  background: hsl(194, 80%, 80%);
+  animation-duration: 1.41s;
+  animation-delay: -0.9024s;
 }
 .walletSuccessParticle:nth-child(259) {
-  width: 1px;
-  height: 1px;
-  background: hsl(150, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.732s;
-}
-.walletSuccessParticle:nth-child(260) {
-  width: 2px;
-  height: 2px;
-  background: hsl(284, 80%, 80%);
-  animation-duration: 1.96s;
-  animation-delay: -0.882s;
-}
-.walletSuccessParticle:nth-child(261) {
-  width: 5px;
-  height: 5px;
-  background: hsl(359, 80%, 80%);
-  animation-duration: 1.03s;
-  animation-delay: -0.309s;
-}
-.walletSuccessParticle:nth-child(262) {
   width: 4px;
   height: 4px;
-  background: hsl(308, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.4752s;
+  background: hsl(251, 80%, 80%);
+  animation-duration: 1.34s;
+  animation-delay: -1.0318s;
 }
-.walletSuccessParticle:nth-child(263) {
-  width: 3px;
-  height: 3px;
-  background: hsl(137, 80%, 80%);
-  animation-duration: 1.37s;
-  animation-delay: -0.1233s;
-}
-.walletSuccessParticle:nth-child(264) {
+.walletSuccessParticle:nth-child(260) {
   width: 1px;
   height: 1px;
-  background: hsl(306, 80%, 80%);
-  animation-duration: 1.3s;
-  animation-delay: -0.338s;
+  background: hsl(159, 80%, 80%);
+  animation-duration: 1.43s;
+  animation-delay: -0.715s;
 }
-.walletSuccessParticle:nth-child(265) {
-  width: 1px;
-  height: 1px;
-  background: hsl(6, 80%, 80%);
-  animation-duration: 1.6s;
-  animation-delay: -0.144s;
-}
-.walletSuccessParticle:nth-child(266) {
-  width: 5px;
-  height: 5px;
-  background: hsl(99, 80%, 80%);
-  animation-duration: 1.2s;
-  animation-delay: -0.048s;
-}
-.walletSuccessParticle:nth-child(267) {
+.walletSuccessParticle:nth-child(261) {
   width: 2px;
   height: 2px;
-  background: hsl(149, 80%, 80%);
-  animation-duration: 1.86s;
-  animation-delay: -1.8414s;
+  background: hsl(65, 80%, 80%);
+  animation-duration: 1.81s;
+  animation-delay: -0.8507s;
+}
+.walletSuccessParticle:nth-child(262) {
+  width: 1px;
+  height: 1px;
+  background: hsl(355, 80%, 80%);
+  animation-duration: 1.29s;
+  animation-delay: -0.4128s;
+}
+.walletSuccessParticle:nth-child(263) {
+  width: 4px;
+  height: 4px;
+  background: hsl(84, 80%, 80%);
+  animation-duration: 1.67s;
+  animation-delay: -0.835s;
+}
+.walletSuccessParticle:nth-child(264) {
+  width: 2px;
+  height: 2px;
+  background: hsl(19, 80%, 80%);
+  animation-duration: 1.2s;
+  animation-delay: -0.528s;
+}
+.walletSuccessParticle:nth-child(265) {
+  width: 2px;
+  height: 2px;
+  background: hsl(102, 80%, 80%);
+  animation-duration: 1.28s;
+  animation-delay: -0.5376s;
+}
+.walletSuccessParticle:nth-child(266) {
+  width: 2px;
+  height: 2px;
+  background: hsl(218, 80%, 80%);
+  animation-duration: 1.69s;
+  animation-delay: -1.3351s;
+}
+.walletSuccessParticle:nth-child(267) {
+  width: 5px;
+  height: 5px;
+  background: hsl(92, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -0.5066s;
 }
 .walletSuccessParticle:nth-child(268) {
-  width: 1px;
-  height: 1px;
-  background: hsl(172, 80%, 80%);
-  animation-duration: 1.83s;
-  animation-delay: -1.8117s;
+  width: 4px;
+  height: 4px;
+  background: hsl(232, 80%, 80%);
+  animation-duration: 1.54s;
+  animation-delay: -1.2628s;
 }
 .walletSuccessParticle:nth-child(269) {
-  width: 1px;
-  height: 1px;
-  background: hsl(29, 80%, 80%);
-  animation-duration: 1.73s;
-  animation-delay: -0.4152s;
+  width: 3px;
+  height: 3px;
+  background: hsl(122, 80%, 80%);
+  animation-duration: 1.9s;
+  animation-delay: -1.881s;
 }
 .walletSuccessParticle:nth-child(270) {
   width: 3px;
   height: 3px;
-  background: hsl(161, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -1.3932s;
+  background: hsl(129, 80%, 80%);
+  animation-duration: 1.34s;
+  animation-delay: -1.2194s;
 }
 .walletSuccessParticle:nth-child(271) {
-  width: 1px;
-  height: 1px;
-  background: hsl(225, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -0.8268s;
+  width: 4px;
+  height: 4px;
+  background: hsl(275, 80%, 80%);
+  animation-duration: 1.67s;
+  animation-delay: -1.4195s;
 }
 .walletSuccessParticle:nth-child(272) {
   width: 3px;
   height: 3px;
-  background: hsl(229, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -1s;
+  background: hsl(353, 80%, 80%);
+  animation-duration: 1.08s;
+  animation-delay: -0.9936s;
 }
 .walletSuccessParticle:nth-child(273) {
-  width: 5px;
-  height: 5px;
-  background: hsl(100, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.8478s;
+  width: 3px;
+  height: 3px;
+  background: hsl(292, 80%, 80%);
+  animation-duration: 1.11s;
+  animation-delay: -0.1332s;
 }
 .walletSuccessParticle:nth-child(274) {
   width: 1px;
   height: 1px;
-  background: hsl(202, 80%, 80%);
-  animation-duration: 1.8s;
-  animation-delay: -0.198s;
+  background: hsl(100, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -1.0168s;
 }
 .walletSuccessParticle:nth-child(275) {
-  width: 1px;
-  height: 1px;
-  background: hsl(330, 80%, 80%);
-  animation-duration: 1.42s;
-  animation-delay: -0.0994s;
-}
-.walletSuccessParticle:nth-child(276) {
-  width: 2px;
-  height: 2px;
-  background: hsl(239, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.3904s;
-}
-.walletSuccessParticle:nth-child(277) {
-  width: 2px;
-  height: 2px;
-  background: hsl(125, 80%, 80%);
-  animation-duration: 1.72s;
-  animation-delay: -0.9804s;
-}
-.walletSuccessParticle:nth-child(278) {
   width: 4px;
   height: 4px;
-  background: hsl(307, 80%, 80%);
-  animation-duration: 1.17s;
-  animation-delay: -1.0296s;
+  background: hsl(230, 80%, 80%);
+  animation-duration: 1.66s;
+  animation-delay: -0.747s;
+}
+.walletSuccessParticle:nth-child(276) {
+  width: 5px;
+  height: 5px;
+  background: hsl(140, 80%, 80%);
+  animation-duration: 1.95s;
+  animation-delay: -0.117s;
+}
+.walletSuccessParticle:nth-child(277) {
+  width: 3px;
+  height: 3px;
+  background: hsl(156, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.5304s;
+}
+.walletSuccessParticle:nth-child(278) {
+  width: 5px;
+  height: 5px;
+  background: hsl(339, 80%, 80%);
+  animation-duration: 1.61s;
+  animation-delay: -0.2576s;
 }
 .walletSuccessParticle:nth-child(279) {
   width: 2px;
   height: 2px;
-  background: hsl(87, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -1.3984s;
+  background: hsl(41, 80%, 80%);
+  animation-duration: 1.5s;
+  animation-delay: -0.51s;
 }
 .walletSuccessParticle:nth-child(280) {
-  width: 5px;
-  height: 5px;
-  background: hsl(174, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -0.1494s;
-}
-.walletSuccessParticle:nth-child(281) {
-  width: 4px;
-  height: 4px;
-  background: hsl(326, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -1.3572s;
-}
-.walletSuccessParticle:nth-child(282) {
-  width: 2px;
-  height: 2px;
-  background: hsl(199, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -0.0152s;
-}
-.walletSuccessParticle:nth-child(283) {
-  width: 4px;
-  height: 4px;
-  background: hsl(29, 80%, 80%);
-  animation-duration: 1.78s;
-  animation-delay: -0.9612s;
-}
-.walletSuccessParticle:nth-child(284) {
   width: 1px;
   height: 1px;
-  background: hsl(176, 80%, 80%);
-  animation-duration: 1.68s;
-  animation-delay: -0.7056s;
+  background: hsl(175, 80%, 80%);
+  animation-duration: 1.85s;
+  animation-delay: -1.369s;
+}
+.walletSuccessParticle:nth-child(281) {
+  width: 3px;
+  height: 3px;
+  background: hsl(234, 80%, 80%);
+  animation-duration: 1.8s;
+  animation-delay: -0.036s;
+}
+.walletSuccessParticle:nth-child(282) {
+  width: 4px;
+  height: 4px;
+  background: hsl(274, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -1.122s;
+}
+.walletSuccessParticle:nth-child(283) {
+  width: 1px;
+  height: 1px;
+  background: hsl(238, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.5452s;
+}
+.walletSuccessParticle:nth-child(284) {
+  width: 4px;
+  height: 4px;
+  background: hsl(340, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.1177s;
 }
 .walletSuccessParticle:nth-child(285) {
-  width: 4px;
-  height: 4px;
-  background: hsl(221, 80%, 80%);
-  animation-duration: 1.26s;
-  animation-delay: -0.63s;
+  width: 5px;
+  height: 5px;
+  background: hsl(123, 80%, 80%);
+  animation-duration: 1.21s;
+  animation-delay: -0.7623s;
 }
 .walletSuccessParticle:nth-child(286) {
-  width: 4px;
-  height: 4px;
-  background: hsl(58, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -1.3122s;
+  width: 3px;
+  height: 3px;
+  background: hsl(207, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -0.594s;
 }
 .walletSuccessParticle:nth-child(287) {
-  width: 4px;
-  height: 4px;
-  background: hsl(195, 80%, 80%);
-  animation-duration: 1.64s;
-  animation-delay: -0.5248s;
+  width: 2px;
+  height: 2px;
+  background: hsl(16, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -1.4s;
 }
 .walletSuccessParticle:nth-child(288) {
   width: 1px;
   height: 1px;
-  background: hsl(315, 80%, 80%);
-  animation-duration: 1.48s;
-  animation-delay: -0.4292s;
+  background: hsl(0, 80%, 80%);
+  animation-duration: 1.14s;
+  animation-delay: -1.083s;
 }
 .walletSuccessParticle:nth-child(289) {
-  width: 5px;
-  height: 5px;
-  background: hsl(49, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -0.0162s;
-}
-.walletSuccessParticle:nth-child(290) {
-  width: 4px;
-  height: 4px;
-  background: hsl(43, 80%, 80%);
-  animation-duration: 1.24s;
-  animation-delay: -0.93s;
-}
-.walletSuccessParticle:nth-child(291) {
   width: 3px;
   height: 3px;
-  background: hsl(19, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -1.0205s;
+  background: hsl(146, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.9384s;
 }
-.walletSuccessParticle:nth-child(292) {
+.walletSuccessParticle:nth-child(290) {
+  width: 1px;
+  height: 1px;
+  background: hsl(213, 80%, 80%);
+  animation-duration: 1.31s;
+  animation-delay: -0.6812s;
+}
+.walletSuccessParticle:nth-child(291) {
   width: 2px;
   height: 2px;
-  background: hsl(346, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -1.1704s;
+  background: hsl(334, 80%, 80%);
+  animation-duration: 1.7s;
+  animation-delay: -0.153s;
+}
+.walletSuccessParticle:nth-child(292) {
+  width: 1px;
+  height: 1px;
+  background: hsl(96, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -1.0863s;
 }
 .walletSuccessParticle:nth-child(293) {
   width: 2px;
   height: 2px;
-  background: hsl(28, 80%, 80%);
-  animation-duration: 1.69s;
-  animation-delay: -1.1492s;
+  background: hsl(252, 80%, 80%);
+  animation-duration: 1.98s;
+  animation-delay: -0.1386s;
 }
 .walletSuccessParticle:nth-child(294) {
-  width: 4px;
-  height: 4px;
-  background: hsl(89, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -1.3244s;
+  width: 5px;
+  height: 5px;
+  background: hsl(316, 80%, 80%);
+  animation-duration: 1.7s;
+  animation-delay: -0.901s;
 }
 .walletSuccessParticle:nth-child(295) {
   width: 3px;
   height: 3px;
-  background: hsl(61, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -1.2707s;
+  background: hsl(162, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -1.274s;
 }
 .walletSuccessParticle:nth-child(296) {
-  width: 4px;
-  height: 4px;
-  background: hsl(69, 80%, 80%);
-  animation-duration: 1.81s;
-  animation-delay: -0.4344s;
+  width: 1px;
+  height: 1px;
+  background: hsl(348, 80%, 80%);
+  animation-duration: 1.24s;
+  animation-delay: -0.496s;
 }
 .walletSuccessParticle:nth-child(297) {
-  width: 5px;
-  height: 5px;
-  background: hsl(279, 80%, 80%);
-  animation-duration: 1.67s;
-  animation-delay: -0.3173s;
-}
-.walletSuccessParticle:nth-child(298) {
-  width: 2px;
-  height: 2px;
-  background: hsl(76, 80%, 80%);
-  animation-duration: 1.73s;
-  animation-delay: -1.1764s;
-}
-.walletSuccessParticle:nth-child(299) {
   width: 4px;
   height: 4px;
-  background: hsl(305, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -1.4162s;
+  background: hsl(52, 80%, 80%);
+  animation-duration: 1.78s;
+  animation-delay: -1.5842s;
+}
+.walletSuccessParticle:nth-child(298) {
+  width: 3px;
+  height: 3px;
+  background: hsl(359, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -0.4784s;
+}
+.walletSuccessParticle:nth-child(299) {
+  width: 1px;
+  height: 1px;
+  background: hsl(236, 80%, 80%);
+  animation-duration: 1.71s;
+  animation-delay: -0.0684s;
 }
 .walletSuccessParticle:nth-child(300) {
-  width: 5px;
-  height: 5px;
-  background: hsl(352, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -1.4282s;
+  width: 4px;
+  height: 4px;
+  background: hsl(26, 80%, 80%);
+  animation-duration: 1.52s;
+  animation-delay: -1.5048s;
 }
 .walletSuccessParticle:nth-child(301) {
   width: 5px;
   height: 5px;
-  background: hsl(163, 80%, 80%);
-  animation-duration: 1.78s;
-  animation-delay: -0.623s;
+  background: hsl(45, 80%, 80%);
+  animation-duration: 1.95s;
+  animation-delay: -1.1115s;
 }
 .walletSuccessParticle:nth-child(302) {
-  width: 3px;
-  height: 3px;
-  background: hsl(293, 80%, 80%);
-  animation-duration: 1.71s;
-  animation-delay: -1.4706s;
+  width: 4px;
+  height: 4px;
+  background: hsl(14, 80%, 80%);
+  animation-duration: 1.15s;
+  animation-delay: -0.391s;
 }
 .walletSuccessParticle:nth-child(303) {
   width: 2px;
   height: 2px;
-  background: hsl(335, 80%, 80%);
-  animation-duration: 1.7s;
-  animation-delay: -0.034s;
+  background: hsl(80, 80%, 80%);
+  animation-duration: 1.68s;
+  animation-delay: -0.9576s;
 }
 .walletSuccessParticle:nth-child(304) {
-  width: 2px;
-  height: 2px;
-  background: hsl(185, 80%, 80%);
-  animation-duration: 1.26s;
-  animation-delay: -0.1764s;
+  width: 1px;
+  height: 1px;
+  background: hsl(193, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.7704s;
 }
 .walletSuccessParticle:nth-child(305) {
-  width: 1px;
-  height: 1px;
-  background: hsl(113, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -1.519s;
+  width: 2px;
+  height: 2px;
+  background: hsl(177, 80%, 80%);
+  animation-duration: 1.24s;
+  animation-delay: -0.0248s;
 }
 .walletSuccessParticle:nth-child(306) {
-  width: 3px;
-  height: 3px;
-  background: hsl(290, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -0.354s;
-}
-.walletSuccessParticle:nth-child(307) {
   width: 1px;
   height: 1px;
-  background: hsl(245, 80%, 80%);
-  animation-duration: 1.2s;
-  animation-delay: -0.888s;
+  background: hsl(130, 80%, 80%);
+  animation-duration: 1.12s;
+  animation-delay: -1.008s;
+}
+.walletSuccessParticle:nth-child(307) {
+  width: 5px;
+  height: 5px;
+  background: hsl(64, 80%, 80%);
+  animation-duration: 1.61s;
+  animation-delay: -0.3864s;
 }
 .walletSuccessParticle:nth-child(308) {
   width: 5px;
   height: 5px;
-  background: hsl(263, 80%, 80%);
-  animation-duration: 1.49s;
-  animation-delay: -1.3559s;
+  background: hsl(306, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -1.6684s;
 }
 .walletSuccessParticle:nth-child(309) {
   width: 3px;
   height: 3px;
-  background: hsl(1, 80%, 80%);
-  animation-duration: 1.02s;
-  animation-delay: -0.0204s;
+  background: hsl(183, 80%, 80%);
+  animation-duration: 1.93s;
+  animation-delay: -0.2316s;
 }
 .walletSuccessParticle:nth-child(310) {
   width: 2px;
   height: 2px;
-  background: hsl(25, 80%, 80%);
-  animation-duration: 1.08s;
-  animation-delay: -0.81s;
+  background: hsl(285, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -0.1224s;
 }
 .walletSuccessParticle:nth-child(311) {
-  width: 5px;
-  height: 5px;
-  background: hsl(19, 80%, 80%);
-  animation-duration: 1.88s;
-  animation-delay: -1.4476s;
+  width: 2px;
+  height: 2px;
+  background: hsl(296, 80%, 80%);
+  animation-duration: 1.78s;
+  animation-delay: -1.6732s;
 }
 .walletSuccessParticle:nth-child(312) {
-  width: 1px;
-  height: 1px;
-  background: hsl(152, 80%, 80%);
-  animation-duration: 1.85s;
-  animation-delay: -1.258s;
+  width: 5px;
+  height: 5px;
+  background: hsl(188, 80%, 80%);
+  animation-duration: 1.23s;
+  animation-delay: -0.2952s;
 }
 .walletSuccessParticle:nth-child(313) {
-  width: 3px;
-  height: 3px;
-  background: hsl(85, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -0.9636s;
+  width: 4px;
+  height: 4px;
+  background: hsl(16, 80%, 80%);
+  animation-duration: 1.89s;
+  animation-delay: -0.1323s;
 }
 .walletSuccessParticle:nth-child(314) {
   width: 5px;
   height: 5px;
-  background: hsl(123, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -0.8496s;
+  background: hsl(194, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.8025s;
 }
 .walletSuccessParticle:nth-child(315) {
-  width: 3px;
-  height: 3px;
-  background: hsl(232, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.7904s;
-}
-.walletSuccessParticle:nth-child(316) {
-  width: 4px;
-  height: 4px;
-  background: hsl(176, 80%, 80%);
-  animation-duration: 1.24s;
-  animation-delay: -0.1612s;
-}
-.walletSuccessParticle:nth-child(317) {
-  width: 4px;
-  height: 4px;
-  background: hsl(125, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -0.786s;
-}
-.walletSuccessParticle:nth-child(318) {
-  width: 2px;
-  height: 2px;
-  background: hsl(66, 80%, 80%);
-  animation-duration: 1.46s;
-  animation-delay: -0.0438s;
-}
-.walletSuccessParticle:nth-child(319) {
   width: 5px;
   height: 5px;
-  background: hsl(141, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -0.4368s;
+  background: hsl(278, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -0.8342s;
+}
+.walletSuccessParticle:nth-child(316) {
+  width: 2px;
+  height: 2px;
+  background: hsl(74, 80%, 80%);
+  animation-duration: 1.38s;
+  animation-delay: -0.7452s;
+}
+.walletSuccessParticle:nth-child(317) {
+  width: 3px;
+  height: 3px;
+  background: hsl(21, 80%, 80%);
+  animation-duration: 1.72s;
+  animation-delay: -0.4472s;
+}
+.walletSuccessParticle:nth-child(318) {
+  width: 1px;
+  height: 1px;
+  background: hsl(221, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -1.7444s;
+}
+.walletSuccessParticle:nth-child(319) {
+  width: 1px;
+  height: 1px;
+  background: hsl(221, 80%, 80%);
+  animation-duration: 1.72s;
+  animation-delay: -1.5652s;
 }
 .walletSuccessParticle:nth-child(320) {
-  width: 2px;
-  height: 2px;
-  background: hsl(28, 80%, 80%);
-  animation-duration: 1.36s;
-  animation-delay: -1.0336s;
+  width: 4px;
+  height: 4px;
+  background: hsl(340, 80%, 80%);
+  animation-duration: 1.09s;
+  animation-delay: -0.7085s;
 }
 .walletSuccessParticle:nth-child(321) {
-  width: 2px;
-  height: 2px;
-  background: hsl(175, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -1.1s;
+  width: 1px;
+  height: 1px;
+  background: hsl(268, 80%, 80%);
+  animation-duration: 1.03s;
+  animation-delay: -0.4944s;
 }
 .walletSuccessParticle:nth-child(322) {
   width: 3px;
   height: 3px;
-  background: hsl(200, 80%, 80%);
-  animation-duration: 1.88s;
-  animation-delay: -1.786s;
+  background: hsl(107, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -0.1192s;
 }
 .walletSuccessParticle:nth-child(323) {
-  width: 3px;
-  height: 3px;
-  background: hsl(271, 80%, 80%);
-  animation-duration: 1.91s;
-  animation-delay: -0.9359s;
+  width: 4px;
+  height: 4px;
+  background: hsl(345, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -0.119s;
 }
 .walletSuccessParticle:nth-child(324) {
-  width: 4px;
-  height: 4px;
-  background: hsl(295, 80%, 80%);
-  animation-duration: 1.28s;
-  animation-delay: -0.9344s;
-}
-.walletSuccessParticle:nth-child(325) {
-  width: 4px;
-  height: 4px;
-  background: hsl(323, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -0.9039s;
-}
-.walletSuccessParticle:nth-child(326) {
-  width: 2px;
-  height: 2px;
-  background: hsl(26, 80%, 80%);
-  animation-duration: 1.21s;
-  animation-delay: -1.0769s;
-}
-.walletSuccessParticle:nth-child(327) {
   width: 1px;
   height: 1px;
-  background: hsl(47, 80%, 80%);
-  animation-duration: 1.43s;
-  animation-delay: -0.8294s;
+  background: hsl(317, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -1.06s;
 }
-.walletSuccessParticle:nth-child(328) {
+.walletSuccessParticle:nth-child(325) {
+  width: 2px;
+  height: 2px;
+  background: hsl(280, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.8556s;
+}
+.walletSuccessParticle:nth-child(326) {
+  width: 1px;
+  height: 1px;
+  background: hsl(2, 80%, 80%);
+  animation-duration: 1.51s;
+  animation-delay: -0.151s;
+}
+.walletSuccessParticle:nth-child(327) {
   width: 5px;
   height: 5px;
-  background: hsl(238, 80%, 80%);
-  animation-duration: 1.19s;
-  animation-delay: -0.2856s;
+  background: hsl(252, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.462s;
+}
+.walletSuccessParticle:nth-child(328) {
+  width: 3px;
+  height: 3px;
+  background: hsl(226, 80%, 80%);
+  animation-duration: 1.12s;
+  animation-delay: -0.616s;
 }
 .walletSuccessParticle:nth-child(329) {
-  width: 4px;
-  height: 4px;
-  background: hsl(288, 80%, 80%);
-  animation-duration: 1.64s;
-  animation-delay: -0.7052s;
+  width: 5px;
+  height: 5px;
+  background: hsl(176, 80%, 80%);
+  animation-duration: 1.96s;
+  animation-delay: -0.3332s;
 }
 .walletSuccessParticle:nth-child(330) {
-  width: 4px;
-  height: 4px;
-  background: hsl(80, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -0.9548s;
+  width: 3px;
+  height: 3px;
+  background: hsl(356, 80%, 80%);
+  animation-duration: 1.02s;
+  animation-delay: -0.4284s;
 }
 .walletSuccessParticle:nth-child(331) {
   width: 1px;
   height: 1px;
-  background: hsl(205, 80%, 80%);
-  animation-duration: 1.43s;
-  animation-delay: -0.5863s;
+  background: hsl(286, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -1.1424s;
 }
 .walletSuccessParticle:nth-child(332) {
-  width: 4px;
-  height: 4px;
-  background: hsl(348, 80%, 80%);
-  animation-duration: 1.96s;
-  animation-delay: -0.3528s;
+  width: 3px;
+  height: 3px;
+  background: hsl(336, 80%, 80%);
+  animation-duration: 1.76s;
+  animation-delay: -1.672s;
 }
 .walletSuccessParticle:nth-child(333) {
   width: 4px;
   height: 4px;
-  background: hsl(183, 80%, 80%);
-  animation-duration: 1.09s;
-  animation-delay: -0.8611s;
+  background: hsl(340, 80%, 80%);
+  animation-duration: 1.46s;
+  animation-delay: -1.022s;
 }
 .walletSuccessParticle:nth-child(334) {
-  width: 2px;
-  height: 2px;
-  background: hsl(148, 80%, 80%);
-  animation-duration: 1.89s;
-  animation-delay: -1.7388s;
+  width: 5px;
+  height: 5px;
+  background: hsl(252, 80%, 80%);
+  animation-duration: 1.62s;
+  animation-delay: -0.4536s;
 }
 .walletSuccessParticle:nth-child(335) {
-  width: 2px;
-  height: 2px;
-  background: hsl(24, 80%, 80%);
-  animation-duration: 1.03s;
-  animation-delay: -0.1133s;
+  width: 4px;
+  height: 4px;
+  background: hsl(171, 80%, 80%);
+  animation-duration: 1.28s;
+  animation-delay: -0.9984s;
 }
 .walletSuccessParticle:nth-child(336) {
   width: 2px;
   height: 2px;
-  background: hsl(250, 80%, 80%);
-  animation-duration: 1.51s;
-  animation-delay: -1.4647s;
+  background: hsl(136, 80%, 80%);
+  animation-duration: 1.36s;
+  animation-delay: -0.2448s;
 }
 .walletSuccessParticle:nth-child(337) {
   width: 4px;
   height: 4px;
-  background: hsl(75, 80%, 80%);
-  animation-duration: 1.92s;
-  animation-delay: -0.8064s;
+  background: hsl(28, 80%, 80%);
+  animation-duration: 1.86s;
+  animation-delay: -0.2046s;
 }
 .walletSuccessParticle:nth-child(338) {
-  width: 3px;
-  height: 3px;
-  background: hsl(99, 80%, 80%);
-  animation-duration: 1.59s;
-  animation-delay: -1.5264s;
+  width: 1px;
+  height: 1px;
+  background: hsl(177, 80%, 80%);
+  animation-duration: 1.91s;
+  animation-delay: -1.0696s;
 }
 .walletSuccessParticle:nth-child(339) {
-  width: 3px;
-  height: 3px;
-  background: hsl(264, 80%, 80%);
-  animation-duration: 1.25s;
-  animation-delay: -0.7875s;
-}
-.walletSuccessParticle:nth-child(340) {
-  width: 3px;
-  height: 3px;
-  background: hsl(206, 80%, 80%);
-  animation-duration: 1.1s;
-  animation-delay: -0.572s;
-}
-.walletSuccessParticle:nth-child(341) {
-  width: 1px;
-  height: 1px;
-  background: hsl(25, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.2736s;
-}
-.walletSuccessParticle:nth-child(342) {
   width: 4px;
   height: 4px;
-  background: hsl(346, 80%, 80%);
-  animation-duration: 1.98s;
-  animation-delay: -1.9008s;
+  background: hsl(152, 80%, 80%);
+  animation-duration: 1.78s;
+  animation-delay: -0.7476s;
 }
-.walletSuccessParticle:nth-child(343) {
+.walletSuccessParticle:nth-child(340) {
+  width: 4px;
+  height: 4px;
+  background: hsl(94, 80%, 80%);
+  animation-duration: 1.91s;
+  animation-delay: -1.1842s;
+}
+.walletSuccessParticle:nth-child(341) {
+  width: 5px;
+  height: 5px;
+  background: hsl(82, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.9945s;
+}
+.walletSuccessParticle:nth-child(342) {
   width: 1px;
   height: 1px;
-  background: hsl(106, 80%, 80%);
-  animation-duration: 1.63s;
-  animation-delay: -0.8965s;
+  background: hsl(351, 80%, 80%);
+  animation-duration: 1.34s;
+  animation-delay: -0.7638s;
+}
+.walletSuccessParticle:nth-child(343) {
+  width: 3px;
+  height: 3px;
+  background: hsl(193, 80%, 80%);
+  animation-duration: 1.46s;
+  animation-delay: -0.8176s;
 }
 .walletSuccessParticle:nth-child(344) {
-  width: 2px;
-  height: 2px;
-  background: hsl(238, 80%, 80%);
-  animation-duration: 1.82s;
-  animation-delay: -1.3468s;
+  width: 1px;
+  height: 1px;
+  background: hsl(203, 80%, 80%);
+  animation-duration: 1.1s;
+  animation-delay: -0.198s;
 }
 .walletSuccessParticle:nth-child(345) {
   width: 4px;
   height: 4px;
-  background: hsl(91, 80%, 80%);
-  animation-duration: 1.04s;
-  animation-delay: -0.78s;
+  background: hsl(229, 80%, 80%);
+  animation-duration: 1.66s;
+  animation-delay: -1.66s;
 }
 .walletSuccessParticle:nth-child(346) {
-  width: 3px;
-  height: 3px;
-  background: hsl(219, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -0.913s;
-}
-.walletSuccessParticle:nth-child(347) {
   width: 4px;
   height: 4px;
-  background: hsl(335, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.216s;
+  background: hsl(254, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.2691s;
+}
+.walletSuccessParticle:nth-child(347) {
+  width: 1px;
+  height: 1px;
+  background: hsl(236, 80%, 80%);
+  animation-duration: 1.75s;
+  animation-delay: -0.3325s;
 }
 .walletSuccessParticle:nth-child(348) {
   width: 3px;
   height: 3px;
-  background: hsl(123, 80%, 80%);
-  animation-duration: 1.86s;
-  animation-delay: -1.0602s;
+  background: hsl(105, 80%, 80%);
+  animation-duration: 1.32s;
+  animation-delay: -0.2112s;
 }
 .walletSuccessParticle:nth-child(349) {
-  width: 4px;
-  height: 4px;
-  background: hsl(349, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -0.6612s;
+  width: 2px;
+  height: 2px;
+  background: hsl(91, 80%, 80%);
+  animation-duration: 1.67s;
+  animation-delay: -0.4843s;
 }
 .walletSuccessParticle:nth-child(350) {
-  width: 4px;
-  height: 4px;
-  background: hsl(123, 80%, 80%);
-  animation-duration: 1.91s;
-  animation-delay: -1.6999s;
+  width: 2px;
+  height: 2px;
+  background: hsl(229, 80%, 80%);
+  animation-duration: 1.12s;
+  animation-delay: -0.7168s;
 }
 .walletSuccessParticle:nth-child(351) {
-  width: 4px;
-  height: 4px;
-  background: hsl(225, 80%, 80%);
-  animation-duration: 1.18s;
-  animation-delay: -0.826s;
+  width: 5px;
+  height: 5px;
+  background: hsl(297, 80%, 80%);
+  animation-duration: 1.17s;
+  animation-delay: -0.9711s;
 }
 .walletSuccessParticle:nth-child(352) {
-  width: 5px;
-  height: 5px;
-  background: hsl(288, 80%, 80%);
-  animation-duration: 1.55s;
-  animation-delay: -0.7285s;
+  width: 1px;
+  height: 1px;
+  background: hsl(314, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.4494s;
 }
 .walletSuccessParticle:nth-child(353) {
-  width: 2px;
-  height: 2px;
-  background: hsl(189, 80%, 80%);
-  animation-duration: 1.7s;
-  animation-delay: -0.187s;
+  width: 5px;
+  height: 5px;
+  background: hsl(162, 80%, 80%);
+  animation-duration: 1.26s;
+  animation-delay: -0.8694s;
 }
 .walletSuccessParticle:nth-child(354) {
-  width: 4px;
-  height: 4px;
-  background: hsl(18, 80%, 80%);
-  animation-duration: 1.71s;
-  animation-delay: -0.8379s;
+  width: 5px;
+  height: 5px;
+  background: hsl(150, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -0.0464s;
 }
 .walletSuccessParticle:nth-child(355) {
-  width: 2px;
-  height: 2px;
-  background: hsl(214, 80%, 80%);
-  animation-duration: 1.16s;
-  animation-delay: -0.058s;
+  width: 3px;
+  height: 3px;
+  background: hsl(109, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -1.76s;
 }
 .walletSuccessParticle:nth-child(356) {
-  width: 3px;
-  height: 3px;
-  background: hsl(153, 80%, 80%);
-  animation-duration: 1.56s;
-  animation-delay: -1.5444s;
+  width: 1px;
+  height: 1px;
+  background: hsl(11, 80%, 80%);
+  animation-duration: 1.08s;
+  animation-delay: -0.8208s;
 }
 .walletSuccessParticle:nth-child(357) {
-  width: 5px;
-  height: 5px;
-  background: hsl(357, 80%, 80%);
-  animation-duration: 1.17s;
-  animation-delay: -0.7371s;
-}
-.walletSuccessParticle:nth-child(358) {
-  width: 1px;
-  height: 1px;
-  background: hsl(310, 80%, 80%);
-  animation-duration: 1.45s;
-  animation-delay: -0.986s;
-}
-.walletSuccessParticle:nth-child(359) {
   width: 4px;
   height: 4px;
-  background: hsl(276, 80%, 80%);
-  animation-duration: 1.22s;
-  animation-delay: -0.5978s;
+  background: hsl(198, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -1.16s;
 }
-.walletSuccessParticle:nth-child(360) {
+.walletSuccessParticle:nth-child(358) {
   width: 2px;
   height: 2px;
-  background: hsl(58, 80%, 80%);
-  animation-duration: 1.42s;
-  animation-delay: -0.71s;
+  background: hsl(99, 80%, 80%);
+  animation-duration: 1.07s;
+  animation-delay: -0.1284s;
 }
-.walletSuccessParticle:nth-child(361) {
+.walletSuccessParticle:nth-child(359) {
   width: 5px;
   height: 5px;
-  background: hsl(136, 80%, 80%);
-  animation-duration: 1.68s;
-  animation-delay: -0.5208s;
+  background: hsl(13, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -1.6928s;
 }
-.walletSuccessParticle:nth-child(362) {
-  width: 3px;
-  height: 3px;
-  background: hsl(222, 80%, 80%);
-  animation-duration: 1.97s;
-  animation-delay: -0.5319s;
+.walletSuccessParticle:nth-child(360) {
+  width: 4px;
+  height: 4px;
+  background: hsl(217, 80%, 80%);
+  animation-duration: 1.82s;
+  animation-delay: -0.6916s;
 }
-.walletSuccessParticle:nth-child(363) {
-  width: 3px;
-  height: 3px;
-  background: hsl(223, 80%, 80%);
-  animation-duration: 1.29s;
-  animation-delay: -0.9675s;
-}
-.walletSuccessParticle:nth-child(364) {
+.walletSuccessParticle:nth-child(361) {
   width: 1px;
   height: 1px;
-  background: hsl(208, 80%, 80%);
-  animation-duration: 1.88s;
-  animation-delay: -0.846s;
+  background: hsl(201, 80%, 80%);
+  animation-duration: 1.99s;
+  animation-delay: -0.0995s;
+}
+.walletSuccessParticle:nth-child(362) {
+  width: 1px;
+  height: 1px;
+  background: hsl(66, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -0.0582s;
+}
+.walletSuccessParticle:nth-child(363) {
+  width: 5px;
+  height: 5px;
+  background: hsl(221, 80%, 80%);
+  animation-duration: 1.16s;
+  animation-delay: -1.0556s;
+}
+.walletSuccessParticle:nth-child(364) {
+  width: 5px;
+  height: 5px;
+  background: hsl(1, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.8771s;
 }
 .walletSuccessParticle:nth-child(365) {
   width: 1px;
   height: 1px;
-  background: hsl(276, 80%, 80%);
-  animation-duration: 1.47s;
-  animation-delay: -0.3675s;
+  background: hsl(289, 80%, 80%);
+  animation-duration: 1.7s;
+  animation-delay: -1.377s;
 }
 .walletSuccessParticle:nth-child(366) {
-  width: 5px;
-  height: 5px;
-  background: hsl(168, 80%, 80%);
-  animation-duration: 1.96s;
-  animation-delay: -0.5488s;
+  width: 4px;
+  height: 4px;
+  background: hsl(40, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -0.328s;
 }
 .walletSuccessParticle:nth-child(367) {
-  width: 4px;
-  height: 4px;
-  background: hsl(131, 80%, 80%);
-  animation-duration: 1.96s;
-  animation-delay: -1.4112s;
+  width: 1px;
+  height: 1px;
+  background: hsl(306, 80%, 80%);
+  animation-duration: 1.62s;
+  animation-delay: -0.1296s;
 }
 .walletSuccessParticle:nth-child(368) {
-  width: 4px;
-  height: 4px;
-  background: hsl(7, 80%, 80%);
-  animation-duration: 1.13s;
-  animation-delay: -0.2034s;
-}
-.walletSuccessParticle:nth-child(369) {
   width: 2px;
   height: 2px;
-  background: hsl(102, 80%, 80%);
-  animation-duration: 1.33s;
-  animation-delay: -0.5586s;
+  background: hsl(291, 80%, 80%);
+  animation-duration: 1.48s;
+  animation-delay: -1.3172s;
+}
+.walletSuccessParticle:nth-child(369) {
+  width: 3px;
+  height: 3px;
+  background: hsl(239, 80%, 80%);
+  animation-duration: 1.93s;
+  animation-delay: -1.5054s;
 }
 .walletSuccessParticle:nth-child(370) {
   width: 4px;
   height: 4px;
-  background: hsl(200, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.7379s;
+  background: hsl(141, 80%, 80%);
+  animation-duration: 2s;
+  animation-delay: -0.98s;
 }
 .walletSuccessParticle:nth-child(371) {
-  width: 2px;
-  height: 2px;
-  background: hsl(11, 80%, 80%);
-  animation-duration: 1.52s;
-  animation-delay: -0.5928s;
+  width: 3px;
+  height: 3px;
+  background: hsl(352, 80%, 80%);
+  animation-duration: 1.55s;
+  animation-delay: -0.3875s;
 }
 .walletSuccessParticle:nth-child(372) {
   width: 3px;
   height: 3px;
-  background: hsl(351, 80%, 80%);
-  animation-duration: 1.51s;
-  animation-delay: -0.1812s;
+  background: hsl(118, 80%, 80%);
+  animation-duration: 1.39s;
+  animation-delay: -0.5143s;
 }
 .walletSuccessParticle:nth-child(373) {
-  width: 4px;
-  height: 4px;
-  background: hsl(62, 80%, 80%);
-  animation-duration: 1.12s;
-  animation-delay: -0.9744s;
+  width: 3px;
+  height: 3px;
+  background: hsl(282, 80%, 80%);
+  animation-duration: 1.64s;
+  animation-delay: -0.7872s;
 }
 .walletSuccessParticle:nth-child(374) {
-  width: 5px;
-  height: 5px;
-  background: hsl(185, 80%, 80%);
-  animation-duration: 1.77s;
-  animation-delay: -1.5753s;
+  width: 2px;
+  height: 2px;
+  background: hsl(100, 80%, 80%);
+  animation-duration: 1.63s;
+  animation-delay: -1.3366s;
 }
 .walletSuccessParticle:nth-child(375) {
   width: 1px;
   height: 1px;
-  background: hsl(103, 80%, 80%);
-  animation-duration: 1.49s;
-  animation-delay: -0.6109s;
+  background: hsl(187, 80%, 80%);
+  animation-duration: 1.61s;
+  animation-delay: -0.8211s;
 }
 .walletSuccessParticle:nth-child(376) {
-  width: 4px;
-  height: 4px;
-  background: hsl(28, 80%, 80%);
-  animation-duration: 1.62s;
-  animation-delay: -1.0368s;
+  width: 3px;
+  height: 3px;
+  background: hsl(52, 80%, 80%);
+  animation-duration: 1.66s;
+  animation-delay: -1.1288s;
 }
 .walletSuccessParticle:nth-child(377) {
   width: 5px;
   height: 5px;
-  background: hsl(195, 80%, 80%);
-  animation-duration: 1.38s;
-  animation-delay: -0.8418s;
+  background: hsl(328, 80%, 80%);
+  animation-duration: 1.57s;
+  animation-delay: -1.3345s;
 }
 .walletSuccessParticle:nth-child(378) {
-  width: 4px;
-  height: 4px;
-  background: hsl(320, 80%, 80%);
-  animation-duration: 1.73s;
-  animation-delay: -1.5224s;
+  width: 3px;
+  height: 3px;
+  background: hsl(208, 80%, 80%);
+  animation-duration: 1.21s;
+  animation-delay: -0.7744s;
 }
 .walletSuccessParticle:nth-child(379) {
-  width: 3px;
-  height: 3px;
-  background: hsl(179, 80%, 80%);
-  animation-duration: 1.53s;
-  animation-delay: -0.7956s;
+  width: 1px;
+  height: 1px;
+  background: hsl(6, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -0.1288s;
 }
 .walletSuccessParticle:nth-child(380) {
-  width: 3px;
-  height: 3px;
-  background: hsl(260, 80%, 80%);
-  animation-duration: 1.57s;
-  animation-delay: -0.9577s;
-}
-.walletSuccessParticle:nth-child(381) {
   width: 5px;
   height: 5px;
-  background: hsl(223, 80%, 80%);
-  animation-duration: 1.54s;
-  animation-delay: -0.8932s;
+  background: hsl(358, 80%, 80%);
+  animation-duration: 1.27s;
+  animation-delay: -0.0127s;
+}
+.walletSuccessParticle:nth-child(381) {
+  width: 3px;
+  height: 3px;
+  background: hsl(315, 80%, 80%);
+  animation-duration: 1.61s;
+  animation-delay: -1.2719s;
 }
 .walletSuccessParticle:nth-child(382) {
   width: 1px;
   height: 1px;
-  background: hsl(51, 80%, 80%);
-  animation-duration: 1.89s;
-  animation-delay: -0.8883s;
+  background: hsl(175, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -0.9487s;
 }
 .walletSuccessParticle:nth-child(383) {
   width: 4px;
   height: 4px;
-  background: hsl(113, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -1.0033s;
+  background: hsl(118, 80%, 80%);
+  animation-duration: 1.79s;
+  animation-delay: -1.4499s;
 }
 .walletSuccessParticle:nth-child(384) {
-  width: 3px;
-  height: 3px;
-  background: hsl(293, 80%, 80%);
-  animation-duration: 1.31s;
-  animation-delay: -0.5764s;
-}
-.walletSuccessParticle:nth-child(385) {
   width: 2px;
   height: 2px;
-  background: hsl(328, 80%, 80%);
-  animation-duration: 1.24s;
-  animation-delay: -0.4836s;
+  background: hsl(89, 80%, 80%);
+  animation-duration: 1.84s;
+  animation-delay: -1.6192s;
+}
+.walletSuccessParticle:nth-child(385) {
+  width: 4px;
+  height: 4px;
+  background: hsl(24, 80%, 80%);
+  animation-duration: 1.37s;
+  animation-delay: -0.411s;
 }
 .walletSuccessParticle:nth-child(386) {
-  width: 5px;
-  height: 5px;
-  background: hsl(267, 80%, 80%);
-  animation-duration: 1.61s;
-  animation-delay: -1.5134s;
+  width: 2px;
+  height: 2px;
+  background: hsl(123, 80%, 80%);
+  animation-duration: 1.05s;
+  animation-delay: -0.798s;
 }
 .walletSuccessParticle:nth-child(387) {
   width: 2px;
   height: 2px;
-  background: hsl(299, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -0.2794s;
+  background: hsl(293, 80%, 80%);
+  animation-duration: 1.44s;
+  animation-delay: -0.9936s;
 }
 .walletSuccessParticle:nth-child(388) {
-  width: 1px;
-  height: 1px;
-  background: hsl(36, 80%, 80%);
-  animation-duration: 1.66s;
-  animation-delay: -0.1328s;
+  width: 4px;
+  height: 4px;
+  background: hsl(99, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -1.1771s;
 }
 .walletSuccessParticle:nth-child(389) {
   width: 4px;
   height: 4px;
-  background: hsl(85, 80%, 80%);
-  animation-duration: 1.74s;
-  animation-delay: -1.3224s;
+  background: hsl(99, 80%, 80%);
+  animation-duration: 1.49s;
+  animation-delay: -0.8195s;
 }
 .walletSuccessParticle:nth-child(390) {
   width: 3px;
   height: 3px;
-  background: hsl(311, 80%, 80%);
-  animation-duration: 1.05s;
-  animation-delay: -0.0315s;
+  background: hsl(211, 80%, 80%);
+  animation-duration: 1.12s;
+  animation-delay: -0.392s;
 }
 .walletSuccessParticle:nth-child(391) {
   width: 1px;
   height: 1px;
-  background: hsl(174, 80%, 80%);
-  animation-duration: 1.93s;
-  animation-delay: -1.5633s;
+  background: hsl(59, 80%, 80%);
+  animation-duration: 1.88s;
+  animation-delay: -0.8084s;
 }
 .walletSuccessParticle:nth-child(392) {
   width: 2px;
   height: 2px;
-  background: hsl(120, 80%, 80%);
-  animation-duration: 1.7s;
-  animation-delay: -0.289s;
+  background: hsl(178, 80%, 80%);
+  animation-duration: 1.09s;
+  animation-delay: -0.3052s;
 }
 .walletSuccessParticle:nth-child(393) {
-  width: 1px;
-  height: 1px;
-  background: hsl(39, 80%, 80%);
-  animation-duration: 1.53s;
-  animation-delay: -0.9945s;
+  width: 5px;
+  height: 5px;
+  background: hsl(10, 80%, 80%);
+  animation-duration: 1.14s;
+  animation-delay: -0.6612s;
 }
 .walletSuccessParticle:nth-child(394) {
-  width: 2px;
-  height: 2px;
-  background: hsl(242, 80%, 80%);
-  animation-duration: 1.44s;
-  animation-delay: -0.6048s;
+  width: 5px;
+  height: 5px;
+  background: hsl(38, 80%, 80%);
+  animation-duration: 1.85s;
+  animation-delay: -1.184s;
 }
 .walletSuccessParticle:nth-child(395) {
-  width: 2px;
-  height: 2px;
-  background: hsl(356, 80%, 80%);
-  animation-duration: 1.24s;
-  animation-delay: -0.9548s;
+  width: 4px;
+  height: 4px;
+  background: hsl(2, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -0.0119s;
 }
 .walletSuccessParticle:nth-child(396) {
-  width: 3px;
-  height: 3px;
-  background: hsl(16, 80%, 80%);
-  animation-duration: 1.41s;
-  animation-delay: -0.3807s;
-}
-.walletSuccessParticle:nth-child(397) {
-  width: 3px;
-  height: 3px;
-  background: hsl(289, 80%, 80%);
-  animation-duration: 1.27s;
-  animation-delay: -0.6096s;
-}
-.walletSuccessParticle:nth-child(398) {
-  width: 1px;
-  height: 1px;
-  background: hsl(34, 80%, 80%);
-  animation-duration: 1.23s;
-  animation-delay: -0.5289s;
-}
-.walletSuccessParticle:nth-child(399) {
   width: 2px;
   height: 2px;
-  background: hsl(344, 80%, 80%);
-  animation-duration: 1.06s;
-  animation-delay: -1.06s;
+  background: hsl(238, 80%, 80%);
+  animation-duration: 1.76s;
+  animation-delay: -1.6016s;
 }
-.walletSuccessParticle:nth-child(400) {
+.walletSuccessParticle:nth-child(397) {
+  width: 1px;
+  height: 1px;
+  background: hsl(351, 80%, 80%);
+  animation-duration: 1.94s;
+  animation-delay: -0.97s;
+}
+.walletSuccessParticle:nth-child(398) {
   width: 3px;
   height: 3px;
-  background: hsl(140, 80%, 80%);
+  background: hsl(72, 80%, 80%);
   animation-duration: 1.73s;
-  animation-delay: -1.5051s;
+  animation-delay: -1.4532s;
+}
+.walletSuccessParticle:nth-child(399) {
+  width: 3px;
+  height: 3px;
+  background: hsl(159, 80%, 80%);
+  animation-duration: 1.53s;
+  animation-delay: -0.5049s;
+}
+.walletSuccessParticle:nth-child(400) {
+  width: 2px;
+  height: 2px;
+  background: hsl(322, 80%, 80%);
+  animation-duration: 1.19s;
+  animation-delay: -1.071s;
 }
 
 @keyframes walletImgLoading {
@@ -3092,6 +3092,14 @@ h2 {
   }
   100% {
     top: -110px;
+  }
+}
+@keyframes loadingRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 .getStartedContener {
@@ -4251,6 +4259,10 @@ h2 {
   right: 25px;
   padding: 10px 25px;
   font-family: "lightFont";
+}
+#spinSection button img {
+  width: 17px;
+  animation: loadingRotation 2s infinite;
 }
 #spinSection .errorMsg {
   transition: all ease 0.3s;
