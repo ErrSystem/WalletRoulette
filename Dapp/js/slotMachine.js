@@ -269,11 +269,11 @@ export default function generatePrivateKey(times) {
             getWalletData(wallet, loop);
             setTimeout(() => {
                 coolDown = false;
-            }, 500);
+            }, 800);
         } else {
             setTimeout(() => {
                 generate(loop);
-            }, 500);
+            }, 800);
         }
     }
     for (let loop = 0; loop <= times-1; loop++) {

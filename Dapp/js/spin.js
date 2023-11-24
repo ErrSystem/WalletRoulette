@@ -41,10 +41,17 @@ const closeSpinOptions = () => {
 
 const spinButton = async () => {
     if (RLT >= spinAmount && !alreadySpinning) {
+        // add loading anim to the button
         saveInnerBtn = String(saveBtn.innerHTML);
-        saveBtn.style = 'padding: 8px 24px; padding-bottom: 7px;';
+        if (window.screen.width > 450) {
+            saveBtn.style = 'padding: 8px 24px; padding-bottom: 7px;';
+        } else {
+            saveBtn.style = 'padding: 8px 15px; padding-bottom: 7px;';
+        }
         saveBtn.innerHTML = '<img src="css/imgs/loading.png">';
+        // smart contract
         const contractReturn = await askContract();
+        // Animations + Loadings
         if (contractReturn) {
             alreadySpinning = true;
             originalSpinAmount = spinAmount;

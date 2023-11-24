@@ -31,10 +31,19 @@ const clickAnimation = () => {
     }, 500);
 }
 
+const isMobile = () => {
+    if (window.screen.width >= 600) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 const firstAnimation = () => {
     btn.style.opacity = '0';
     leverBatton.style.transform = 'rotate(180deg)';
     document.querySelector('.getStarted').id = "getStartedShake";
+    lever.style.display = "block";
     setTimeout(() => {
         lever.style.right = '-71px';
         setTimeout(() => {
@@ -54,6 +63,13 @@ const firstAnimation = () => {
 }
 
 btn.addEventListener('click', () => {
-    firstAnimation();
+    if (!isMobile()) {
+        firstAnimation();
+    } else {
+        document.querySelector('body').style.opacity = '0';
+        setTimeout(() => {
+            document.location.href = './Dapp/';            
+        }, 400);
+    }
 })
 
