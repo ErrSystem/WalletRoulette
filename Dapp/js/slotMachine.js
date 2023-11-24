@@ -379,7 +379,7 @@ const prepareHTML = index => {
         ul = htmlStrings.join('');
         return ul;
     }
-    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p>`;
+    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
     data[index].HTML = mainAppHTML;
     console.log(data[index].totalUSD);
 }

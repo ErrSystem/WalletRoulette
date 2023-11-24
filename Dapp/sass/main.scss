@@ -414,9 +414,10 @@
         right: 40px;
         text-shadow: 6px 4px 20px #691e1e;
         @include mobile(600px) {
-            bottom: 50%;
-            right: -18px;
+            bottom: 12%;
+            right: 9px;
             text-shadow: 6px 4px 20px #0000;
+            font-size: 35px;
         }
     }
     #spinPopUpSub {
@@ -434,8 +435,10 @@
         opacity: 0;
         @include mobile(600px) {
             text-shadow: 6px 4px 20px #0000;
-            bottom: 48%;
-            right: -8px;
+            font-size: 16px;
+            bottom: 10%;
+            right: 2px;
+            font-size: 14px;
         }
     }
     .mainChainContener {
@@ -516,6 +519,15 @@
         @include mobile(600px) {
             padding-left: 16px
         }
+    }
+    .mobileContinue {
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        font-size: 14px;
+        color: #9999eb;
+        display: none;
+        opacity: 0;
     }
 }
 
@@ -738,6 +750,9 @@
     .warning2 {
         @extend .warning;
         top: 255px;
+        @include mobile(329px) {
+            display: none;
+        }
     }
     .RltsCoins {
         position: absolute;
@@ -779,6 +794,12 @@
             top: 171px;
             left: 209px;
         }
+        @include mobile(390px) {
+            left: 188px;
+            button {
+                padding: 10px 16px;
+            }
+        }
         li {
             list-style: none;
             position: absolute;
@@ -790,22 +811,29 @@
         #secondOption {
             top: 20px;
             right: 7px;
+            @include mobile(390px) {
+                right: 25px;
+            }
         }
         #thirdOption {
             top: 20px;
             right: -80px;
+            @include mobile(390px) {
+                right: -44px;
+            }
         }
         #fourthOption {
             top: 20px;
             right: -170px;
+            @include mobile(390px) {
+                right: -120px;
+            }
         }
     }
 }
 
 #paymentSection {
     @include popUp();
-    // display: block;
-    // opacity: 1;
     button:hover {
         box-shadow: 0 0 5px #afafaf;
         transition: all ease .2s;

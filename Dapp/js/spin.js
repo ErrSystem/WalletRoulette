@@ -195,7 +195,7 @@ const spinAnim = lever => {
                                 subTitle.style = '';
                                 title.style = '';
                             }, 300);
-                        }, 1000);
+                        }, 2000);
                     } else if (state) {
                         nextTimeOut = 4500;
                         title.textContent = "Congratulations!";
