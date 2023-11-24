@@ -129,7 +129,7 @@ export function updateTickets () {
         if (!isMobile()) {
             counter.style.right = "65px"; 
         } else {
-            counter.style.right = "8px"; 
+            counter.style.right = "5px"; 
         }
     } else {
         if (!isMobile()) {

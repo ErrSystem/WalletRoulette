@@ -594,7 +594,7 @@
         position: absolute;
         top: 70px;
         width: 220px;
-        border-radius: 4px;
+        border-radius: 10px;
         height: 80px;
         left: 256px;
         z-index: 2;
@@ -838,12 +838,16 @@
 
 #paymentSection {
     @include popUp();
-    button:hover {
+     button:hover {
         box-shadow: 0 0 5px #afafaf;
         transition: all ease .2s;
     }
+    .close {
+        z-index: 2;
+        filter: invert(1);
+    }
     .selectMethods {
-        background: #1f1d33;
+        background: #414141;
         height: 100%;
         color: white;
         h3 {
@@ -858,7 +862,7 @@
             margin-top: 23px;
             transition: all ease .2s;
             width: 101px;
-            background: #595959;
+            background: #615f5f;
             img {
                 width: 28px;
                 margin-left: -23px;
@@ -885,45 +889,45 @@
         }
     }
     .Prices {
-        background: #181818;
-        width: 391px;
-        height: 464px;
+        background: #313131;
+        width: 389px;
+        height: 466px;
         position: absolute;
-        top: 0px;
-        right: 1px;
+        top: 0;
+        right: 0;
         color: white;
         h4 {
             position: absolute;
             text-transform: capitalize;
             left: 0;
-            border-bottom: #3c3861 solid .1px;
+            border-bottom: #515151 solid .1px;
         }
         button {
             position: absolute;
             padding: 13px 16px;
-            border: .1px solid #9191df;
-            border-radius: 3px;
+            border: 2px solid #ababab;
+            border-radius: 10px;
             font-weight: 800;
             left: 81px;
-            background: #191a2f;
-            color: #8d8d8d;
+            background: #535151;
+            color: #d3d3d3;
             width: 227px;
-            transition: all ease .2s;
+            transition: all ease 0.2s;
         }
         .fiveRLT {
-            top: 70px;
+            top: 85px;
         }
         .twentyFiveRLT {
-            top: 132px;
+            top: 147px;
         }
         .fiftyRLT {
-            top: 195px;
+            top: 210px;
         }
         .hundredRLT {
-            top: 259px;
+            top: 274px;
         }
         .twoHundredRLT {
-            top: 323px;
+            top: 338px;
         }
     }
 }
