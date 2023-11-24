@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 setTimeout(() => {
     transactionDone();
-}, 5000);
+}, 1000);
 
 setInterval(() => {
     updateTickets();

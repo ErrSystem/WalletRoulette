@@ -8,6 +8,7 @@ let alreadyRunning = false;
 let alreadyRunned = false;
 let touchStart;
 let id;
+let arrowDownMobile = document.querySelector('.getStarted .arrowDownMobile');
 
 export default function transactionDone(mode) {
     if (!alreadyRunning && RLT != 0) {
@@ -17,9 +18,13 @@ export default function transactionDone(mode) {
                 alreadyRunned = true;
                 leverAnim(0);
             } else {
-                alreadyRunned = true;
-                id = 0;
-                mobileListener();
+                arrowDownMobile.style.display = "block";
+                setTimeout(() => {
+                    arrowDownMobile.style.opacity = "1";
+                    alreadyRunned = true;
+                    id = 0;
+                    mobileListener();
+                }, 300);
             }
         } else {
             if (!isMobile()) {
@@ -61,8 +66,12 @@ const touchDetector = event => {
     let CurrentY = event.changedTouches[0].clientY;
     let direction = CurrentY > touchStart ? "up" : "down";
     if (direction == 'down') {
-        showSpinParameters(id);
-        window.removeEventListener('touchmove', touchDetector);
+        arrowDownMobile.style.opacity = "0";
+        setTimeout(() => {
+            arrowDownMobile.style.display = "none";
+            showSpinParameters(id);
+            window.removeEventListener('touchmove', touchDetector);
+        }, 300);
     }
     window.scrollTo({
         top: 0,
