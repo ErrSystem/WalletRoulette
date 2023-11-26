@@ -5,28 +5,33 @@ import { updateTickets, updateRLTs } from './spin.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 let isTesting = false;
+let isAddRLTButton = false;
 export let webSiteAdress = "https://errsystem.github.io/WalletRoulette/";
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
 export function connectWalletHandler() {
-    document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
-    document.querySelector('#selectWallet').style.display = 'block';
-    try {
-        document.querySelector('#networkImcompatible').addEventListener('click', () => {
-            document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
-            document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
-            setTimeout(() => {
-                document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
-                document.querySelector('#selectWallet .connectWallets').style.display = 'none';
-            }, 300);
-        })
-    } catch {
-        // do nothing since this func is only used to check the state of the metaMask button and add the listener :))
-    }
     setTimeout(() => {
-        document.querySelector('#selectWallet').style.opacity = '1';        
-    }, 300);
+        if (!isAddRLTButton) {
+            document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
+            document.querySelector('#selectWallet').style.display = 'block';
+            try {
+                document.querySelector('#networkImcompatible').addEventListener('click', () => {
+                    document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
+                    document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
+                    setTimeout(() => {
+                        document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
+                        document.querySelector('#selectWallet .connectWallets').style.display = 'none';
+                    }, 300);
+                })
+            } catch {
+                // do nothing since this func is only used to check the state of the metaMask button and add the listener :))
+            }
+            setTimeout(() => {
+                document.querySelector('#selectWallet').style.opacity = '1';        
+            }, 300);
+        }
+    }, 10);
 }
 export function closeWalletSelect() {
     document.querySelector('.getStartedContener').style.filter = '';
@@ -49,13 +54,15 @@ document.addEventListener('DOMContentLoaded', () => detectWallets());
 document.querySelector('#selectWallet .close').addEventListener('click', () => closeWalletSelect());
 
 // Buy Rlts Button
-const buyRLTBtn = document.querySelector('.buyBtn');
+const buyRLTBtn = document.querySelector('.getStarted .connectWalletButton .addBtn');
 const buyRLTSection = document.querySelector('#paymentSection');
 const openRLTPayments = () => {
+    isAddRLTButton = true;
     buyRLTSection.style.display = 'block';
     setTimeout(() => {
         document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
         buyRLTSection.style.opacity = '1';
+        isAddRLTButton = false;
     }, 300);
 }
 const closeRLTPayments = () => {
