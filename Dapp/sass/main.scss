@@ -113,22 +113,68 @@
     .connectWalletButton {
         padding: 11px 33px;
         transition: all ease 0.3s;
-        background: #191c19;
         border: 1px solid #656464;
         font-family: boldUbuntu;
-        border-radius: 3px;
+        border-radius: 10px;
         float: right;
         margin-top: -74px;
         margin-right: 30px;
         position: relative;
+        background: linear-gradient(273deg, black, #837c7c);
         &:hover {
             transition: all ease 0.3s;
             cursor: pointer;
-            background: #656464;
             border-color: white;
         }
         .hover {
             display: none;
+        }
+        .walletAddress {
+            padding-top: 0px;
+            color: rgb(183 175 175);
+            font-weight: bold;
+            margin-top: -6px;
+        }
+        .link {
+            display: none;
+            filter: invert(0.8) drop-shadow(2px 3px 3px black);
+            width: 35px;
+            height: 37px;
+            margin-right: -15px;
+            transform: rotate(44deg);
+            margin-left: -14px;
+        }
+        .usedWallet {
+            display: none;
+            background: #212121;
+            margin-top: 7px;
+            margin-bottom: 4px;
+            margin-left: 6px;
+        }
+        .usedNetwork {
+            display: none;
+            background: #212121;
+            margin-bottom: 4px;
+        }
+        .RltValue {
+            display: none;
+            padding-top: 18px;
+            color: #b5b5b5;
+            font-weight: bold;
+            font-size: 13px;
+            padding-right: 31px;
+        }
+        .addBtn {
+            display: none;
+            margin-top: 15px;
+            color: #1a1a1a;
+            font-weight: bold;
+            float: left;
+            font-size: 13px;
+            background: linear-gradient(45deg, #e3e3e3, #5b5a5a);
+            padding: 2px 7px;
+            border-radius: 3px;
+            padding-bottom: 4px;
         }
         img {
             display: none;
@@ -147,9 +193,26 @@
     }
     #connectedWalletBtn {
         padding: 0;
-        padding-right: 212px;
-        img {
+        padding-right: 133px;
+        .addBtn {
+            display: block;
+        }
+        .RltValue {
+            display: block;
+        }
+        .usedNetwork {
             display: inline;
+        }
+        .link {
+            display: inline;
+        }
+        .usedWallet {
+            display: inline;
+        }
+        .walletAddress {
+            // color: gray;
+        }
+        img {
             @include mobile(600px) {
                 margin-right: -15px;
                 margin-top: 0;
@@ -586,120 +649,193 @@
 // select wallet
 #selectWallet {
     @include popUp();
-    .metaMaskSelect {
-        background-color: white;
-        border: #d0d4f7 1px solid;
-        transition: all .3s ease;
-        color: black;
-        position: absolute;
-        top: 70px;
-        width: 220px;
-        border-radius: 10px;
-        height: 80px;
-        left: 256px;
-        z-index: 2;
-        &:hover {
-            background-color: #eff1fc;
-            cursor: pointer;
-        }
-        img {
-            padding: 7px;
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+    .connectWallets {
+        transition: all ease .3s;
+        .metaMaskSelect {
+            background-color: white;
+            border: #d0d4f7 1px solid;
+            transition: all .3s ease;
             color: black;
-            margin-top: 15px;
-            border: 1px solid #c4c9f3;
-            margin-left: 17px;
-        }
-        .walletName {
             position: absolute;
-            font-family: 'boldUbuntu';
-            top: 22px;
-            left: 80px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        .isInstalled {
-            @extend .walletName;
-            top: 43px;
-            font-size: 12px;
-            color: green;
-        }
-        .connectedImg {
-            display: none;
-            border: none;
-            margin-left: 100px;
-            height: 42px;
-            width: 42px;
-            margin-bottom: 2px;
-        }
-        @include mobile(600px) {
-            left: 19px;
-            top: 140px;
-        }
-    }
-    #metaMaskSelected {
-        transition: all ease 0.3s;
-        top: 0;
-        width: 625px;
-        height: 465px;
-        left: 0;
-        &:hover {
-            background-color: white;
-            cursor: initial;
-        }
-        .walletName {
-            top: 182px;
-            left: 260px;
-            font-size: 22px;
+            top: 70px;
+            width: 220px;
+            border-radius: 10px;
+            height: 80px;
+            left: 256px;
+            z-index: 2;
+            &:hover {
+                background-color: #eff1fc;
+                cursor: pointer;
+            }
+            img {
+                padding: 7px;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                color: black;
+                margin-top: 15px;
+                border: 1px solid #c4c9f3;
+                margin-left: 17px;
+            }
+            .walletName {
+                position: absolute;
+                font-family: 'boldUbuntu';
+                top: 22px;
+                left: 80px;
+                font-weight: 600;
+                font-size: 15px;
+            }
+            .isInstalled {
+                @extend .walletName;
+                top: 43px;
+                font-size: 12px;
+                color: green;
+            }
+            .connectedImg {
+                display: none;
+                border: none;
+                margin-left: 100px;
+                height: 42px;
+                width: 42px;
+                margin-bottom: 2px;
+            }
             @include mobile(600px) {
-                left: 177px;
+                left: 19px;
+                top: 140px;
             }
         }
-        img {
-            background-color: white;
-            animation: walletImgLoading 3s infinite;
-            width: 78px;
-            height: 78px;
-            margin-top: 171px;
-            margin-left: 159px;
-            @include mobile(600px) {
-                margin-left: 77px;
+        #metaMaskSelected {
+            transition: all ease 0.3s;
+            top: 0;
+            width: 625px;
+            height: 465px;
+            left: 0;
+            &:hover {
+                background-color: white;
+                cursor: initial;
+            }
+            .walletName {
+                top: 182px;
+                left: 260px;
+                font-size: 22px;
+                @include mobile(600px) {
+                    left: 177px;
+                }
+            }
+            img {
+                background-color: white;
+                animation: walletImgLoading 3s infinite;
+                width: 78px;
+                height: 78px;
+                margin-top: 171px;
+                margin-left: 159px;
+                @include mobile(600px) {
+                    margin-left: 77px;
+                }
+            }
+            .isInstalled {
+                top: 211px;
+                font-size: 16px;
+                color: green;
+                left: 260px;
+                @include mobile(600px) {
+                    left: 178px;
+                }
             }
         }
-        .isInstalled {
-            top: 211px;
-            font-size: 16px;
-            color: green;
-            left: 260px;
-            @include mobile(600px) {
-                left: 178px;
-            }
-        }
-    }
-    #walletConnected {
-        border-color: green;
-        img {
+        #walletConnected {
             border-color: green;
+            img {
+                border-color: green;
+            }
+            .connectedImg {
+                display: inline;
+            }
+            .isInstalled {
+                color: green;
+            }
         }
-        .connectedImg {
-            display: inline;
+        #networkImcompatible {
+            border-color: #fdba36;
+            img {
+                border-color: #fdba36;
+            }
+            .connectedImg {
+                display: none;
+            }
+            .isInstalled {
+                color: #fdba36 !important;
+                font-size: 11px
+            }
         }
-        .isInstalled {
-            color: green;
+        #walletSuccess {
+            @extend #metaMaskSelected;
+            img {
+                animation: walletImgSuccess 1.2s;
+            }
+        }
+        #walletFailed {
+            @extend #metaMaskSelected;
+            img {
+                animation: walletImgFailed .2s;
+            }
         }
     }
-    #walletSuccess {
-        @extend #metaMaskSelected;
-        img {
-            animation: walletImgSuccess 1.2s;
+    .connectNetworks {
+        transition: all ease .3s;
+        font-family: "boldUbuntu";
+        display: none;
+        opacity: 0;
+        .network {
+            background-color: white;
+            border: #d0d4f7 1px solid;
+            transition: all .3s ease;
+            color: black;
+            position: absolute;
+            top: 70px;
+            width: 220px;
+            border-radius: 10px;
+            height: 80px;
+            left: 256px;
+            z-index: 2;
+            &:hover {
+                background-color: #eff1fc;
+                cursor: pointer;
+            }
+            img {
+                padding: 7px;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                color: black;
+                margin-top: 15px;
+                border: 1px solid #c4c9f3;
+                margin-left: 17px;
+            }
+            .networkName {
+                position: absolute;
+                top: 22px;
+                left: 80px;
+                font-weight: 600;
+                font-size: 15px;
+                @include mobile(600px) {
+                    left: 177px;
+                }
+            }
+            .Connect {
+                position: absolute;
+                top: 43px;
+                font-size: 12px;
+                font-weight: 600;
+                left: 80px;
+                color: #3cb1d5;
+                @include mobile(600px) {
+                    left: 178px;
+                }
+            }
         }
-    }
-    #walletFailed {
-        @extend #metaMaskSelected;
-        img {
-            animation: walletImgFailed .2s;
+        .network2 {
+            top: 165px;
         }
     }
 }
@@ -838,7 +974,7 @@
 
 #paymentSection {
     @include popUp();
-     button:hover {
+    button:hover {
         box-shadow: 0 0 5px #afafaf;
         transition: all ease .2s;
     }
@@ -847,7 +983,7 @@
         filter: invert(1);
     }
     .selectMethods {
-        background: #414141;
+        background: linear-gradient(325deg, black, #474747);
         height: 100%;
         color: white;
         h3 {
@@ -862,7 +998,7 @@
             margin-top: 23px;
             transition: all ease .2s;
             width: 101px;
-            background: #615f5f;
+            background: linear-gradient(45deg, black, #333333);;
             img {
                 width: 28px;
                 margin-left: -23px;
@@ -875,7 +1011,7 @@
                 display: block;
                 margin-left: 14px;
                 margin-bottom: 5px;
-                color: #ffffffc2;
+                color: #b7b7b7;;
             }
         }
         .BNB {
@@ -889,7 +1025,7 @@
         }
     }
     .Prices {
-        background: #313131;
+        background: linear-gradient(45deg, black, #333333);
         width: 389px;
         height: 466px;
         position: absolute;
@@ -904,13 +1040,14 @@
         }
         button {
             position: absolute;
+            color: gray;
             padding: 13px 16px;
-            border: 2px solid #ababab;
+            border: 2px solid #615d5d;
             border-radius: 10px;
             font-weight: 800;
             left: 81px;
-            background: #535151;
-            color: #d3d3d3;
+            background: linear-gradient(45deg, black, #333333);
+            color: #e1e1e1;
             width: 227px;
             transition: all ease 0.2s;
         }

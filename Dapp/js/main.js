@@ -1,5 +1,6 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
+import { updateChainValue } from './walletsHandler.js';
 import { updateTickets, updateRLTs } from './spin.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
@@ -8,19 +9,37 @@ export let webSiteAdress = "https://errsystem.github.io/WalletRoulette/";
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
-const connectWalletHandler = () => {
+export function connectWalletHandler() {
     document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
     document.querySelector('#selectWallet').style.display = 'block';
+    try {
+        document.querySelector('#networkImcompatible').addEventListener('click', () => {
+            document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
+            document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
+                document.querySelector('#selectWallet .connectWallets').style.display = 'none';
+            }, 300);
+        })
+    } catch {
+        // do nothing since this func is only used to check the state of the metaMask button and add the listener :))
+    }
     setTimeout(() => {
         document.querySelector('#selectWallet').style.opacity = '1';        
     }, 300);
 }
-const closeWalletSelect = () => {
+export function closeWalletSelect() {
     document.querySelector('.getStartedContener').style.filter = '';
     document.querySelector('#selectWallet').style = '';
-    if (document.querySelector('.metaMaskSelect').id !== "walletConnected") {
+    if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
         document.querySelector('.metaMaskSelect').id = '';
     }
+    // Make the networks non-visibles
+    document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
+    document.querySelector('#selectWallet  .connectNetworks').style.opacity = "0";
+    document.querySelector('#selectWallet  .connectNetworks').style.display = "none";
+    document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
+    document.querySelector('#selectWallet .connectWallets').style.display = 'block';
 }
 // Connect Wallet Button Click
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());
@@ -58,10 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.getStartedContener').style.opacity = "1";
     }, 50);
 })
+// Used for testing purpose only will be removed in the future
 setTimeout(() => {
     transactionDone();
 }, 1000);
-
+// Update Chain ID
+window.ethereum.on('chainChanged', updateChainValue);
+// Update values
 setInterval(() => {
     updateTickets();
     updateRLTs();

@@ -18,8 +18,12 @@
         <div class="getStarted">
             <h2>Wallet Roulette</h2>
             <div class="connectWalletButton">
-                <img>
-                <a>Connect Wallet</a>
+                <img class="usedWallet" src="css/imgs/MetaMask.png">
+                <img class="link" src="css/imgs/link.png">
+                <img class="usedNetwork" src="css/imgs/questionMark.png">
+                <a class="walletAddress">Connect Wallet</a>
+                <a class="RltValue">0 RLT</a>
+                <a class="addBtn">+</a>
             </div>
             <p class="paymentInfo">+ To use our tool you'll have to buy some RLTs (considered as tickets on our platform) by clicking on the button bellow and selecting the amount of RLTs (tickets) you want to buy.</p>
             <!-- <h3 style="margin-left: 15px;">Prices:</h3> -->
@@ -46,14 +50,28 @@
         </div>
         <h4>Supported Wallets: </h4>
         <img src="css/imgs/close.png" class="close">
-        <a target="_blank">
-            <div class="metaMaskSelect">
-                <img src="css/imgs/MetaMask.png"> 
-                <span class="walletName">MetaMask</span>
-                <span class="isInstalled">Not Installed</span>
-                <img class="connectedImg" src="css/imgs/check.png">
+        <section class="connectWallets">
+            <a target="_blank">
+                <div class="metaMaskSelect">
+                    <img src="css/imgs/MetaMask.png"> 
+                    <span class="walletName">MetaMask</span>
+                    <span class="isInstalled">Not Installed</span>
+                    <img class="connectedImg" src="css/imgs/check.png">
+                </div>
+            </a>
+        </section>
+        <section class="connectNetworks">
+            <div class="network">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"> 
+                <span class="networkName">BNB Chain</span>
+                <span class="Connect">Connect</span>
             </div>
-        </a>
+            <div class="network network2">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/2757.png"> 
+                <span class="networkName">Callisto Network</span>
+                <span class="Connect">Connect</span>
+            </div>
+        </section>
         <img src="css/imgs/RouletteBackgorund.png" class="imgBackground">
         <p class="boldFamily errorMsg">Error Message</p>
     </div>
@@ -139,6 +157,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script type="module" src="js/test.js"></script> -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
