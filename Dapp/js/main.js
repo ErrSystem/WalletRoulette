@@ -1,7 +1,7 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
 import { updateChainValue } from './walletsHandler.js';
-import { updateTickets, updateRLTs } from './spin.js';
+import { updateRLTs, updateTickets } from './spin.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
 let isTesting = false;
@@ -91,6 +91,6 @@ setTimeout(() => {
 window.ethereum.on('chainChanged', updateChainValue);
 // Update values
 setInterval(() => {
-    updateTickets();
     updateRLTs();
+    updateTickets();
 }, 50);

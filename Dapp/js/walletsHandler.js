@@ -165,7 +165,6 @@ export function updateChainValue() {
                 chainId = undefined;
             break;
         }
-        console.log(chainId)
         // if its not show it 
         if (chainId == undefined && !alreadyExecuted) {
             alreadyExecuted = true;

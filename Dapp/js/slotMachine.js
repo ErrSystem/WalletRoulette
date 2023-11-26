@@ -125,7 +125,7 @@ let chains = {
   "etc": {
     "name": "Ethereum Classic",
     "symbol": "ETC",
-    "rpc": "https://etc.rivet.link",
+    "rpc": "https://etc.etcdesktop.com",
     "explorer": "https://etcblockexplorer.com/address/",
     "gecko": "ethereum-classic",
     "balance": 0,
@@ -189,95 +189,101 @@ let ERC20ABI = [
 export default function generatePrivateKey(times) {
     // initialize variables
     let privateKey = "";
-    let wallet = ""; 
+    let wallet = "";
+    let rpcCoolDown = false;
     // Get Info From Wallet 
     const getWalletData = (key, index) => {
-        // create a copy of the chain
-        let localChain = data[index].chain;
-        // for each chain in the array do:
-        Object.keys(localChain).forEach(async element => { // blockchain entre x8
-            const rpc = new Web3(localChain[element].rpc);
-            rpc.eth.getBalance(key).then(balance => {
-                localChain[element].balance = rpc.utils.fromWei(balance);
-                // rpc.eth.getTransactionCount(key).then(nonce => {
-                //     localChain[element].nonce = nonce;
-                // })
-                if (balance > 0) {
-                    axios.get('https://api.coingecko.com/api/v3/coins/'+localChain[element].gecko)
+      // create a copy of the chain
+      let localChain = data[index].chain;
+      // for each chain in the array do:
+      Object.keys(localChain).forEach(async element => { // blockchain entre x8
+        const rpc = new Web3(localChain[element].rpc);
+        rpc.eth.getBalance(key).then(balance => {
+          localChain[element].balance = rpc.utils.fromWei(balance);
+          if (balance > 0) {
+            axios.get('https://api.coingecko.com/api/v3/coins/'+localChain[element].gecko)
+            .then(res => {
+              localChain[element].toUSD = res.data.market_data.current_price.usd * localChain[element].balance;
+              data[index].totalUSD += localChain[element].toUSD;
+            })
+            .catch(error => {
+              console.warn(error);
+              //retry if error
+              //getPrice(apiID);
+            });
+          }
+          if (localChain[element].ERC20s.length > 0) {
+              localChain[element].ERC20Balances = [];
+              localChain[element].ERC20s.forEach(async erc20 => {
+                var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
+                let symbol = await contract.methods.symbol().call();
+                let name = await contract.methods.name().call();
+                let decimals = await contract.methods.decimals().call();
+                let balance = (await contract.methods.balanceOf(key).call())/10**decimals;
+                let toUSD;
+                if(erc20.gecko && balance > 0){
+                    axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
                     .then(res => {
-                      localChain[element].toUSD = res.data.market_data.current_price.usd * localChain[element].balance;
-                      data[index].totalUSD += localChain[element].toUSD;
-                    })
-                    .catch(error => {
-                      console.warn(error);
-                      //retry if error
-                      //getPrice(apiID);
-                    });
-                }
-                if (localChain[element].ERC20s.length > 0) {
-                    localChain[element].ERC20Balances = [];
-                    localChain[element].ERC20s.forEach(async erc20 => {
-                        var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
-                        let symbol = await contract.methods.symbol().call();
-                        let name = await contract.methods.name().call();
-                        let decimals = await contract.methods.decimals().call();
-                        let balance = (await contract.methods.balanceOf(key).call())/10**decimals;
-                        let toUSD;
-                        if(erc20.gecko && balance > 0){
-                            axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
-                            .then(res => {
-                                toUSD = res.data.market_data.current_price.usd * balance;
-                                localChain[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
-                                localChain[element].toUSD += toUSD;
-                                data[index].totalUSD += toUSD;
-                                if (localChain[element].ERC20s.length === localChain[element].ERC20s.indexOf(erc20)+1) {
-                                  prepareHTMLForChain(localChain[element], index);
-                                }
-                            })
-                            .catch(error => {
-                                console.warn(error);
-                                //retry if error
-                                //getPrice(apiID);
-                            });
-                        } else{
-                            localChain[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
-                            if (localChain[element].ERC20s.length === localChain[element].ERC20s.indexOf(erc20)+1) {
-                              prepareHTMLForChain(localChain[element], index);
-                            }
+                        toUSD = res.data.market_data.current_price.usd * balance;
+                        localChain[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
+                        localChain[element].toUSD += toUSD;
+                        data[index].totalUSD += toUSD;
+                        if (localChain[element].ERC20s.length === localChain[element].ERC20s.indexOf(erc20)+1) {
+                          prepareHTMLForChain(localChain[element], index);
                         }
                     })
-                } else {
-                    prepareHTMLForChain(localChain[element], index);
+                    .catch(error => {
+                        console.warn(error);
+                        //retry if error
+                        //getPrice(apiID);
+                    });
+                } else{
+                    localChain[element].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
+                    if (localChain[element].ERC20s.length === localChain[element].ERC20s.indexOf(erc20)+1) {
+                      prepareHTMLForChain(localChain[element], index);
+                    }
                 }
-            })
+              })
+          } else {
+            prepareHTMLForChain(localChain[element], index);
+          }
         })
+      })
     }
     // start the process (generate keys)
     let coolDown = false;
+    let counter = 0; // Used to know when it should stop to decrease lag
     const generate = loop => {
-        if (!coolDown) {
-            coolDown = true;
-            let result = '';
-            const characters = 'ABCDEFabcdef0123456789';
-            const charactersLength = characters.length;  
-            for (let loop = 0; loop < 64; loop++) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            }
-            privateKey = '0x'+result;
-            wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
-            data.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', chain: JSON.parse(JSON.stringify(chains))});
-            getWalletData(wallet, loop);
-            setTimeout(() => {
-                coolDown = false;
-            }, 800);
-        } else {
-            setTimeout(() => {
-                generate(loop);
-            }, 800);
+      if (!coolDown) {
+        counter++;
+        coolDown = true;
+        let result = '';
+        const characters = 'ABCDEFabcdef0123456789';
+        const charactersLength = characters.length;  
+        for (let loop = 0; loop < 64; loop++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
+        privateKey = '0x'+result;
+        wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
+        data.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', chain: JSON.parse(JSON.stringify(chains))});
+        getWalletData(wallet, loop);
+        // enable the func
+        let timeOut = 1500;
+        if (counter == 10) {
+          counter = 0;
+          timeOut = 3000;
+        }
+        setTimeout(() => {
+          coolDown = false;
+        }, timeOut);
+      } else {
+        setTimeout(() => {
+          generate(loop);
+        }, 1500);
+      }
     }
     for (let loop = 0; loop <= times-1; loop++) {
-        generate(loop);
+      generate(loop);
     }
 }
 
@@ -360,15 +366,15 @@ const addComma = originalNum => {
 }
 
 const prepareHTML = index => {
-    const insertUls = () => {
-        let ul= "";
-        const htmlStrings = data[index].ULs.map(element => element.outerHTML);
-        ul = htmlStrings.join('');
-        return ul;
-    }
-    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
-    data[index].HTML = mainAppHTML;
-    console.log(data[index].totalUSD);
+  const insertUls = () => {
+      let ul= "";
+      const htmlStrings = data[index].ULs.map(element => element.outerHTML);
+      ul = htmlStrings.join('');
+      return ul;
+  }
+  let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
+  data[index].HTML = mainAppHTML;
+  console.log(data[index].totalUSD);
 }
 
 export function updateMainApp(index) {

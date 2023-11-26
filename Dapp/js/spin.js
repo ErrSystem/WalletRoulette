@@ -260,6 +260,7 @@ const spinAnim = lever => {
 
 const spinFinished = () => {
     if (spinAmount > 0 && !state) {
+        console.log(spinAmount)
         // to speedup animation
         let timeOut;
         if (isMobile()) {
