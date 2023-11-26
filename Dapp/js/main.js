@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => detectWallets());
 document.querySelector('#selectWallet .close').addEventListener('click', () => closeWalletSelect());
 
 // Buy Rlts Button
-const buyRLTBtn = document.querySelector('.getStarted .connectWalletButton .addBtn');
 const buyRLTSection = document.querySelector('#paymentSection');
 const openRLTPayments = () => {
     isAddRLTButton = true;
@@ -73,7 +72,7 @@ const closeRLTPayments = () => {
     }, 300);
 }
 // Open payment section
-buyRLTBtn.addEventListener('click', openRLTPayments);
+document.querySelector('.getStarted .connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
 // Close payment section
 document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
 // Check if test mode
