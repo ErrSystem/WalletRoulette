@@ -1,6 +1,6 @@
 import { webSiteAdress } from "./main.js";
 import { reduceTickets } from "./spin.js";
-import { spinAmount } from "./spin.js";
+import { originalSpinAmount } from "./spin.js";
 
 let state;
 let amount;
@@ -367,43 +367,43 @@ const addComma = originalNum => {
 
 const prepareHTML = index => {
   const insertUls = () => {
-      let ul= "";
-      const htmlStrings = data[index].ULs.map(element => element.outerHTML);
-      ul = htmlStrings.join('');
-      return ul;
+    let ul= "";
+    const htmlStrings = data[index].ULs.map(element => element.outerHTML);
+    ul = htmlStrings.join('');
+    return ul;
   }
-  let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${spinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
+  console.log(originalSpinAmount - (index + 1));
+  let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
   data[index].HTML = mainAppHTML;
-  console.log(data[index].totalUSD);
 }
 
 export function updateMainApp(index) {
-    index = index + 1;
-    // updates HTML
-    document.querySelector('.mainApp').innerHTML = data[index].HTML;
-    // reduce number of tickets  
-    reduceTickets();
-    // shows if you won or not
-    if (data[index].totalUSD > 0) {
-      state = true;
-    } else {
-      state = false;
+  index = index + 1;
+  // updates HTML
+  document.querySelector('.mainApp').innerHTML = data[index].HTML;
+  // reduce number of tickets  
+  reduceTickets();
+  // shows if you won or not
+  if (data[index].totalUSD > 0) {
+    state = true;
+  } else {
+    state = false;
+  }
+  amount = addComma(data[index].totalUSD.toFixed(2));
+  // push data
+  let localChainArr = Object.keys(data[index].chain);
+  let localChainObj = data[index].chain;
+  let chainsWithMoney = [];
+  localChainArr.forEach(chain => {
+    if (localChainObj[chain].toUSD > 0) {
+      chainsWithMoney.push(localChainObj[chain].name);
+    } else if (localChainArr.length === localChainArr.indexOf(chain)+1) {
+      wallets.push({wallet: data[index].walletAdress, privateKey: data[index].privateAdress, balance: `${addComma(data[index].totalUSD.toFixed(2))} USD`, status: state, chains: chainsWithMoney});
     }
-    amount = addComma(data[index].totalUSD.toFixed(2));
-    // push data
-    let localChainArr = Object.keys(data[index].chain);
-    let localChainObj = data[index].chain;
-    let chainsWithMoney = [];
-    localChainArr.forEach(chain => {
-      if (localChainObj[chain].toUSD > 0) {
-        chainsWithMoney.push(localChainObj[chain].name);
-      } else if (localChainArr.length === localChainArr.indexOf(chain)+1) {
-        wallets.push({wallet: data[index].walletAdress, privateKey: data[index].privateAdress, balance: `${addComma(data[index].totalUSD.toFixed(2))} USD`, status: state, chains: chainsWithMoney});
-      }
-    })
+  })
 }
 
 export function emptyWalletsStorage() {
-    wallets = [];
-    data = [];
+  wallets = [];
+  data = [];
 }

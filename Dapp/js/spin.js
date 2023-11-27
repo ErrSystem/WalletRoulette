@@ -123,8 +123,6 @@ const askContract = async() => {
 }
 
 export function updateTickets () {
-    const counter = document.querySelector('.mainApp .RltsTicketsCounter');
-    counter.innerHTML = spinAmount;
     if (spinAmount > 9) {
         if (!isMobile()) {
             counter.style.right = "65px"; 
@@ -260,7 +258,6 @@ const spinAnim = lever => {
 
 const spinFinished = () => {
     if (spinAmount > 0 && !state) {
-        console.log(spinAmount)
         // to speedup animation
         let timeOut;
         if (isMobile()) {
