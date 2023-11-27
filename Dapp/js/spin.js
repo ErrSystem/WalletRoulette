@@ -123,8 +123,8 @@ const askContract = async() => {
 }
 
 export function updateTickets () {
-    const counter = document.querySelector('.RltsTicketsCounter');
-    counter.innerText = spinAmount;
+    const counter = document.querySelector('.mainApp .RltsTicketsCounter');
+    counter.innerHTML = spinAmount;
     if (spinAmount > 9) {
         if (!isMobile()) {
             counter.style.right = "65px"; 

@@ -1,6 +1,6 @@
 import detectWallets from './walletsHandler.js';
 import isMobile from './detectSmallScreen.js';
-import { updateChainValue } from './walletsHandler.js';
+import { switchNetworks } from './walletsHandler.js';
 import { updateRLTs, updateTickets } from './spin.js';
 import Testing from './testingMod.js';
 import transactionDone from './transactionDone.js';
@@ -88,7 +88,7 @@ setTimeout(() => {
     transactionDone();
 }, 1000);
 // Update Chain ID
-window.ethereum.on('chainChanged', updateChainValue);
+window.ethereum.on('chainChanged', switchNetworks);
 // Update values
 setInterval(() => {
     updateRLTs();
