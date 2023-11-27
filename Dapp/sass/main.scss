@@ -866,9 +866,22 @@
                     left: 178px;
                 }
             }
+            @include mobile(600px) {
+                top: 145px;
+                left: 15px;
+                .networkName {
+                    left: 77px;
+                }
+                .Connect {
+                    left: 78px;
+                }
+            }
         }
         .network2 {
             top: 165px;
+            @include mobile(600px) {
+                top: 236px;
+            }
         }
     }
 }
@@ -1057,7 +1070,8 @@
             box-shadow: 0 0 5px #afafaf;
         }
     }
-    .Prices {
+    .PricesBNB {
+        transition: all ease .3s;
         background: linear-gradient(45deg, black, #333333);
         width: 389px;
         height: 466px;
@@ -1072,6 +1086,7 @@
             border-bottom: #515151 solid .1px;
         }
         button {
+            transition: all ease .3s;
             position: absolute;
             color: gray;
             padding: 13px 16px;
@@ -1083,6 +1098,10 @@
             color: #e1e1e1;
             width: 227px;
             transition: all ease 0.2s;
+            span {
+                font-size: 9px;
+                color: #38abff;
+            }
         }
         .fiveRLT {
             top: 85px;
@@ -1098,6 +1117,14 @@
         }
         .twoHundredRLT {
             top: 338px;
+        }
+    }
+    .PricesCLO {
+        display: none;
+        @extend .PricesBNB;
+        button {
+            display: none;
+            opacity: 0;
         }
     }
 }

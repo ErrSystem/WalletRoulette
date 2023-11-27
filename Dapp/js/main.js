@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => detectWallets());
 // Close Wallet select button
 document.querySelector('#selectWallet .close').addEventListener('click', () => closeWalletSelect());
 
-// Buy Rlts Button
+// Add Rlts Button
 const buyRLTSection = document.querySelector('#paymentSection');
 const openRLTPayments = () => {
     isAddRLTButton = true;
@@ -75,6 +75,98 @@ const closeRLTPayments = () => {
 document.querySelector('.getStarted .connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
 // Close payment section
 document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
+
+// Buy Rlts with BNB 
+const rltBNBbtn = () => {
+    const BNB = Array.from(document.querySelectorAll('.PricesBNB button'));
+    const CLO = Array.from(document.querySelectorAll('.PricesCLO button'));
+    document.querySelector('.selectMethods .BNB').id = 'selectedCurrency';
+    document.querySelector('.selectMethods .CLO').id = '';
+    CLO.map(element => element.style.opacity = "0");
+    BNB.map(element => element.style.display = "block");
+    setTimeout(() => {
+        document.querySelector('.PricesCLO').style.opacity = "0";
+        CLO.map(element => element.style.display = "none");
+        BNB.map(element => element.style.opacity = "1");
+        setTimeout(() => {
+            document.querySelector('.PricesCLO').style.display = "none";
+        }, 300);
+    }, 300);
+}
+// Buy Rlts with CLO 
+const rltCLObtn = () => {
+    document.querySelector('.PricesCLO').style.display = "block";
+    const BNB = Array.from(document.querySelectorAll('.PricesBNB button'));
+    const CLO = Array.from(document.querySelectorAll('.PricesCLO button'));
+    document.querySelector('.selectMethods .CLO').id = 'selectedCurrency';
+    document.querySelector('.selectMethods .BNB').id = '';
+    BNB.map(element => element.style.opacity = "0");
+    CLO.map(element => element.style.display = "block");
+    setTimeout(() => {
+        document.querySelector('.PricesCLO').style.opacity = "1";
+        BNB.map(element => element.style.display = "none");
+        CLO.map(element => element.style.opacity = "1");
+    }, 300);
+}
+// click on BNB
+document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
+// click on CLO
+document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
+
+// Update BNB and CLO values
+const getPrices = () => {
+    axios.get('https://api.coingecko.com/api/v3/coins/callisto')
+    .then(response => {
+        const CLObtns = Array.from(document.querySelectorAll('.PricesCLO button'));
+        let ids = CLObtns.map(element => element.className.slice(0, element.className.indexOf("R")));
+        ids.forEach(id => {
+            console.log(id)
+            switch (id) {
+                case "five":
+                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(1 / response.data.market_data.current_price.usd)} CLO)`;
+                break;
+                case 'twentyFive':
+                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(3 / response.data.market_data.current_price.usd)} CLO)`;
+                break;
+                case 'fifty':
+                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(6 / response.data.market_data.current_price.usd)} CLO)`;
+                break;
+                case 'hundred':
+                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(10 / response.data.market_data.current_price.usd)} CLO)`;
+                break;
+                case 'twoHundred':
+                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(15 / response.data.market_data.current_price.usd)} CLO)`;
+                break;
+            }
+        })
+    })
+    axios.get('https://api.coingecko.com/api/v3/coins/binancecoin')
+    .then(response => {
+        const BNBbtns = Array.from(document.querySelectorAll('.PricesBNB button'));
+        let ids = BNBbtns.map(element => element.className.slice(0, element.className.indexOf("R")));
+        ids.forEach(id => {
+            console.log(id)
+            switch (id) {
+                case "five":
+                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(1 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                break;
+                case 'twentyFive':
+                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(3 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                break;
+                case 'fifty':
+                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(6 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                break;
+                case 'hundred':
+                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(10 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                break;
+                case 'twoHundred':
+                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(15 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                break;
+            }
+        })
+    })
+}
+getPrices();
 // Check if test mode
 document.addEventListener('DOMContentLoaded', () => Testing(isTesting));
 // WebSite Appears
