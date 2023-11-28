@@ -1,9 +1,7 @@
-import { RLT } from './RLTSCounter.js';
-import { enableFunction } from './transactionDone.js';
-import { state, wallets, amount, emptyWalletsStorage, updateMainApp } from './slotMachine.js';
-import generatePrivateKey from './slotMachine.js';
-import transactionDone from './transactionDone.js';
-import isMobile from './detectSmallScreen.js';
+import { enableFunction } from '../transactionDone.js';
+import { state, wallets, amount, emptyWalletsStorage, updateMainApp } from './generator.js';
+import transactionDone from '../transactionDone.js';
+import { isMobile, RLT } from '../main.js';
 
 let spinAmount;
 let originalSpinAmount;
@@ -18,7 +16,7 @@ Array.from(document.getElementsByClassName('spinOptions')).forEach(element => {
     element.addEventListener('click', () => detectAmount(element));
 })
 
-export default function showSection(leverID) {
+export function showSpinParameters(leverID) {
     lever = leverID;
     document.querySelector('#spinSection').style.display = "block";
     setTimeout(() => {
@@ -39,6 +37,7 @@ const closeSpinOptions = () => {
     }
 }
 
+// When you click on a btn to spin
 const spinButton = async () => {
     if (RLT >= spinAmount && !alreadySpinning) {
         // add loading anim to the button
@@ -56,7 +55,8 @@ const spinButton = async () => {
             alreadySpinning = true;
             originalSpinAmount = spinAmount;
             // launch the generation of the private key
-            generatePrivateKey(originalSpinAmount);
+            const importGenerated = await import('./generator.js');
+            importGenerated.generatePrivateKey(originalSpinAmount);
             if (lever == 1) {
                 document.querySelector('.mainAppContener .mainApp').style.display = 'block';
                 document.querySelector('.mainAppContener .results').style.opacity = '0';
@@ -122,13 +122,13 @@ const askContract = async() => {
     return contractAnswer;
 }
 
-export function updateTickets () {
+function updateTickets () {
     const counter = document.querySelector('.RltsTicketsCounter');
     if (spinAmount > 9) {
         if (!isMobile()) {
             counter.style.right = "71px"; 
         } else {
-            counter.style.right = "5px"; 
+            counter.style.right = "2px"; 
         }
     } else {
         if (!isMobile()) {
@@ -139,20 +139,11 @@ export function updateTickets () {
     }
 }
 
-export function updateRLTs() {
-    const counter = document.querySelector('.RltsCoinsCounter');
-    counter.innerText = RLT;
-    if (RLT > 99 && RLT < 999) {
-        counter.style.right =  "2px";
-    } else if (RLT > 999) {
-        counter.style.right = "-7px";
-    }
-}
-
 export function reduceTickets() {
     spinAmount--;
 }
 
+// Spinning animation
 const spinAnim = lever => {
     let loadingTime = 1500;
     if (spinAmount < originalSpinAmount) {
@@ -257,8 +248,9 @@ const spinAnim = lever => {
     }, 450);
 }
 
+// When each spin is finished
 const spinFinished = () => {
-    if (spinAmount > 0 && !state) {
+    if (spinAmount > 0 && !state && spinAmount < 101) {
         // to speedup animation
         let timeOut;
         if (isMobile()) {
@@ -285,10 +277,10 @@ const spinFinished = () => {
                 spinAnim(1);
             }, timeOut);
         }
-    } else if (state && spinAmount > 0) {
+    } else if (state && spinAmount > 0 && spinAmount < 101) {
         enableFunction();
         transactionDone("Continue");
-    } else {
+    } else if (spinAmount == 0) {
         setTimeout(() => {
             showResults();
             setTimeout(() => {
@@ -303,6 +295,7 @@ const spinFinished = () => {
     }
 }
 
+// Results of the spins
 const showResults = () => {
     let overall = [];
     let input = document.querySelector('.mainAppContener .results input');
@@ -328,8 +321,24 @@ const showResults = () => {
             className = "Empty";
         }
         newLi.className = className;
-        newLi.innerHTML = `<span style="font-weight: bold;">${index}. Wallet:</span> ${wallet} <br><span style="font-weight: bold;">PrivateKey:</span> ${privateKey} <br><span style="font-weight: bold;">Balance:</span> ${balance} <br><span style="font-weight: bold;color:${statusColor}">${status}</span>`;
+        newLi.innerHTML = `<span style="font-weight: bold;">${index}.</span> <span class="wallet${index-1}" style="font-weight: bold; margin-left:24px;">Wallet:</span> ${wallet} <br><span class="private${index-1}" style="font-weight: bold; margin-left:24px;">PrivateKey:</span> ${privateKey} <br><span style="font-weight: bold;">Balance:</span> ${balance} <br><span style="font-weight: bold;color:${statusColor}">${status}</span>`;
         document.querySelector('.mainAppContener .results ul').insertAdjacentElement('beforeend', newLi);
+        // add copy wallet btn
+        let walletCopy = document.createElement('img');
+        walletCopy.src = "css/imgs/copyToClipBoard.jpg";
+        walletCopy.style = "width: 18px;filter: invert(.5); position: absolute; margin-top: 3px; margin-left: 1px;";
+        walletCopy.addEventListener('click', function () {
+            copyToClipboard(wallet);
+        });
+        newLi.querySelector(`.wallet${index-1}`).insertAdjacentElement("beforebegin", walletCopy);
+        // add copy private key btn
+        let privateKeyCopy = document.createElement('img');
+        privateKeyCopy.src = "css/imgs/copyToClipBoard.jpg";
+        privateKeyCopy.style = "width: 18px;filter: invert(.5); position: absolute; margin-top: 3px; margin-left: 1px;";
+        privateKeyCopy.addEventListener('click', function () {
+            copyToClipboard(privateKey);
+        });
+        newLi.querySelector(`.private${index-1}`).insertAdjacentElement("beforebegin", privateKeyCopy);
     })
     const displayOnly = () => {
         let isChecked = input.checked;
@@ -365,6 +374,11 @@ const showResults = () => {
     input.addEventListener('click', () => displayOnly());
 }
 
+// Copy to clipBoard
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+}
+
 setInterval(() => {
-    updateRLTs();
-}, 500);
+    updateTickets();
+}, 10);

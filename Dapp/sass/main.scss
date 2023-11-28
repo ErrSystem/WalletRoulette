@@ -666,6 +666,9 @@
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
+            img:hover {
+                cursor: pointer;
+            }
         }
     }
     .getBack {

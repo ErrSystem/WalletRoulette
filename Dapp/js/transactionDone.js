@@ -1,9 +1,8 @@
-import {account} from './walletsHandler.js';
-import { leverAnim } from './lever.js';
-import { RLT } from './RLTSCounter.js';
-import isMobile from './detectSmallScreen.js';
-import showSpinParameters from './spin.js';
-import { spinAnim } from './spin.js';
+import {account} from './connectWallets/walletsHandler.js';
+import { leverAnim } from './slotMachine/lever.js';
+import { isMobile, RLT} from './main.js';
+import { showSpinParameters } from './slotMachine/spin.js';
+import { spinAnim } from './slotMachine/spin.js';
 let alreadyRunning = false;
 let alreadyRunned = false;
 let touchStart;

@@ -1,6 +1,5 @@
-import connect from './connectMetaMask.js';
-import isMobile from './detectSmallScreen.js';
-import { connectWalletHandler } from './main.js';
+import connectMetaMask from './metaMask.js';
+import { connectWalletHandler } from '../main.js';
 let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
@@ -27,7 +26,7 @@ export default function detectWallets() {
         }
         // checks if MetaMask is installed
         if (typeof window.ethereum != "undefined" && ethereum.isMetaMask) {
-            document.querySelector('.metaMaskSelect').addEventListener('click', connect);
+            document.querySelector('.metaMaskSelect').addEventListener('click', connectMetaMask);
             document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Installed';
             document.querySelector('.metaMaskSelect .isInstalled').style.color = '#47b747';
             // checks if there was already a connected account in the last session
@@ -37,7 +36,7 @@ export default function detectWallets() {
                     account = accounts[0];
                     setAdress(accounts[0], "MetaMask"); 
                     document.querySelector('.metaMaskSelect .isInstalled').innerText = "Connected";
-                    document.querySelector('.metaMaskSelect').removeEventListener('click', connect);
+                    document.querySelector('.metaMaskSelect').removeEventListener('click', connectMetaMask);
                     document.querySelector('.metaMaskSelect').id = 'walletConnected';
                 }
             } catch(err) {
@@ -60,7 +59,7 @@ export function switchNetworks() {
         // try to switch the network
         try {
             setTimeout(() => {
-                alreadySent = true;                
+                alreadySent = true;
             }, 10);
             await ethereum.request({
                 method: 'wallet_switchEthereumChain',
@@ -187,6 +186,7 @@ export function switchNetworks() {
                 alreadyExecuted = true;
                 // shows to the user that its imcompatible using a PopUp
                 document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
+                
                 document.querySelector('#walletConnected').addEventListener('click', showChangeNetwork);
                 document.querySelector('#walletConnected .isInstalled').innerText = 'Imcompatible Network!';
                 document.querySelector('#walletConnected').id = "networkImcompatible";
@@ -218,7 +218,7 @@ export function setAdress(adress, wallet) {
             document.querySelector('.metaMaskSelect').id = '';
             document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Installed';
             document.querySelector('.metaMaskSelect .isInstalled').color = "#47b747";
-            document.querySelector('.metaMaskSelect').addEventListener('click', connect);
+            document.querySelector('.metaMaskSelect').addEventListener('click', connectMetaMask);
         }
     }
 }

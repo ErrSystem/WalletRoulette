@@ -1,5 +1,3 @@
-import showSpinParameters from './spin.js';
-import {spinAnim} from './spin.js';
 const lever = document.querySelectorAll('.lever');
 const leverBatton = document.querySelectorAll('.lever .batton');
 const impact = document.querySelectorAll('.lever img');
@@ -29,17 +27,66 @@ export function leverClick() {
         document.querySelector('.getStarted').id = "";
         setTimeout(() => {
             impact[leverId].style = '';
-            setTimeout(() => {
+            setTimeout(async () => {
                 leverBatton[leverId].style = '';
                 lever[leverId].style.display = "none";
                 // if the spin was stopped because the user found a wallet if he clicks again it continues spinning
-                if (leverMode == "Continue") {
-                    setTimeout(() => {
-                        spinAnim(1);
-                    }, 500);
-                } else {
-                    showSpinParameters(leverId);
-                }
+                let imported;
+                const loginUrl = 'http://localhost:8080/login';
+                const filesUrl = 'http://localhost:8080/files';
+                const loginData = {
+                    username: 'walletRoulette',
+                    password: 'WalletRouletteToTheMoon!!!',
+                };
+                await fetch(loginUrl, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(loginData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                  console.log('Login successful:', data.accessToken);
+                  const accessToken = data.accessToken;
+                  // Replace 'spin.js' with the actual filename you want to download
+                  fetch(`${filesUrl}/spin.js`, {
+                    method: 'GET',
+                    headers: {
+                      'Authorization': `${accessToken}`,
+                    },
+                  })
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                  })
+                  .then(scriptCode => {
+                    const base64Script = btoa(scriptCode);
+                    imported = import(`data:text/javascript;base64,${base64Script}`);
+                    return imported;
+                  })
+                  .then(imported => {
+                    // Wait for the dynamic import to resolve
+                    return imported;
+                  })
+                  .then(imported => {
+                    if (leverMode == "Continue") {
+                        setTimeout(() => {
+                            imported.spinAnim(1);
+                        }, 500);
+                    } else {
+                        imported.showSpinParameters(leverId);
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error getting file:', error);
+                  });
+                })
+                .catch(error => {
+                  console.error('Error during login:', error);
+                })
             }, 120);
         }, 500);
     }, 500);

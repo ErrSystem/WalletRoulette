@@ -1,4 +1,3 @@
-import { webSiteAdress } from "./main.js";
 import { reduceTickets } from "./spin.js";
 import { originalSpinAmount } from "./spin.js";
 
@@ -186,7 +185,7 @@ let ERC20ABI = [
   {"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}
 ]
 
-export default function generatePrivateKey(times) {
+export function generatePrivateKey(times) {
     // initialize variables
     let privateKey = "";
     let wallet = "";
@@ -301,7 +300,7 @@ const prepareHTMLForChain = (chain, index) => {
   let priceSpan = document.createElement('span');
   let newLogo = document.createElement('img');
   if (chain.name == "Optimism") {
-    newLogo.src = `${webSiteAdress}Dapp/css/imgs/Optimism.png`;
+    newLogo.src = `css/imgs/Optimism.png`;
   } else {
     newLogo.src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chain.logo}.png`;
   }
@@ -378,7 +377,6 @@ const prepareHTML = index => {
     ul = htmlStrings.join('');
     return ul;
   }
-  console.log(originalSpinAmount - (index + 1));
   let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (index + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[index].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[index].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[index].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
   data[index].HTML = mainAppHTML;
 }

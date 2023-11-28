@@ -1,12 +1,22 @@
-import detectWallets from './walletsHandler.js';
-import isMobile from './detectSmallScreen.js';
-import { switchNetworks } from './walletsHandler.js';
-import { updateRLTs, updateTickets } from './spin.js';
-import Testing from './testingMod.js';
+import detectWallets from './connectWallets/walletsHandler.js';
+import { switchNetworks } from './connectWallets/walletsHandler.js';
 import transactionDone from './transactionDone.js';
-let isTesting = false;
 let isAddRLTButton = false;
-export let webSiteAdress = "https://errsystem.github.io/WalletRoulette/";
+
+const getRLT = () => {
+    // Here write the code to get from BlockChain
+    let RLT = 100;
+    document.querySelector('.connectWalletButton .RltValue').innerHTML = `${RLT} RLT`;
+    if (RLT > 999 && RLT < 1000000) {
+        document.querySelector('.connectWalletButton .RltValue').innerHTML = `${RLT / 1000}k RLT`;
+    } else if (RLT > 999999) {
+        document.querySelector('.connectWalletButton .RltValue').innerHTML = `${RLT / 1000000}M RLT`;
+    }
+    // return it
+    return RLT;
+}
+
+export const RLT = getRLT();
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
@@ -108,10 +118,6 @@ const rltCLObtn = () => {
         CLO.map(element => element.style.opacity = "1");
     }, 300);
 }
-// click on BNB
-document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
-// click on CLO
-document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
 
 // Update BNB and CLO values
 const getPrices = () => {
@@ -120,7 +126,6 @@ const getPrices = () => {
         const CLObtns = Array.from(document.querySelectorAll('.PricesCLO button'));
         let ids = CLObtns.map(element => element.className.slice(0, element.className.indexOf("R")));
         ids.forEach(id => {
-            console.log(id)
             switch (id) {
                 case "five":
                     document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(1 / response.data.market_data.current_price.usd)} CLO)`;
@@ -145,7 +150,6 @@ const getPrices = () => {
         const BNBbtns = Array.from(document.querySelectorAll('.PricesBNB button'));
         let ids = BNBbtns.map(element => element.className.slice(0, element.className.indexOf("R")));
         ids.forEach(id => {
-            console.log(id)
             switch (id) {
                 case "five":
                     document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(1 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
@@ -166,9 +170,22 @@ const getPrices = () => {
         })
     })
 }
-getPrices();
-// Check if test mode
-document.addEventListener('DOMContentLoaded', () => Testing(isTesting));
+
+// Detect if its a small screen
+export function isMobile() {
+    if (window.screen.width >= 600) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Update RLTs price
+document.addEventListener('DOMContentLoaded', getPrices);
+// click on BNB
+document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
+// click on CLO
+document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
 // WebSite Appears
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -181,8 +198,3 @@ setTimeout(() => {
 }, 1000);
 // Update Chain ID
 window.ethereum.on('chainChanged', switchNetworks);
-// Update values
-setInterval(() => {
-    updateRLTs();
-    updateTickets();
-}, 50);
