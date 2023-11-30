@@ -33,8 +33,8 @@ const users = [
   },
   {
     id: 2,
-    username: 'walletRoulette',
-    password: '$2b$10$z3PMPBJDruKDjkdbqba2luSzR2YqFgpMzNc8lFADQCi2H5Nn7tyHi',
+    username: process.env.WEBSITE_USERNAME,
+    password: process.env.WEBSITE_PASSWORD,
   },
 ];
 
@@ -42,12 +42,77 @@ let secretKey = generateSecretKey();
 let newSecretKey = secretKey;
 let currentUsers = [];
 let blacklist = [];
-let RpcCounter = 0;
-const cleanupInterval = 3000; // 3 seconds
+const cleanupInterval = 5000; // 3 seconds
+
+// Related to generation
+const networkNames = [
+  'Optimism',
+  'Gnosis',
+  'ETC',
+  'Avalanche',
+  'BSC',
+  'Ethereum',
+  'CLO',
+  'Polygon'
+];
+
+let RPCs = {
+  "Optimism": [
+    'https://optimism.llamarpc.com', 
+    'https://op-pokt.nodies.app', 
+    'https://optimism.publicnode.com', 
+    'https://optimism.meowrpc.com'
+  ],
+  "Gnosis": [
+    'https://gnosis.publicnode.com', 
+    'https://gnosis.drpc.org',
+    'https://gnosis-pokt.nodies.app', 
+    'https://1rpc.io/gnosis'
+  ],
+  "ETC": [
+    'https://geth-de.etc-network.info', 
+    'https://etc.etcdesktop.com', 
+    'https://rpc.etcinscribe.com', 
+    'https://etc.rivet.link'
+  ],
+  "Avalanche": [
+    'https://1rpc.io/avax/c', 
+    'https://avalanche.drpc.org', 
+    'https://avax.meowrpc.com', 
+    'https://avax-pokt.nodies.app/ext/bc/C/rpc'
+  ],
+  "BSC": [
+    'https://binance.llamarpc.com', 
+    'https://bsc.publicnode.com', 
+    'https://bsc.rpc.blxrbdn.com', 
+    'https://bsc-pokt.nodies.app'
+  ],
+  "Ethereum": [
+    'https://ethereum.publicnode.com',
+    'https://1rpc.io/eth', 
+    'https://eth-pokt.nodies.app',
+    'https://eth.llamarpc.com'
+  ],
+  "CLO": [
+    'https://rpc.callisto.network', 
+    'https://rpc.callisto.network', 
+    'https://rpc.callisto.network', 
+    'https://rpc.callisto.network'
+  ],
+  "Polygon": [
+    'https://polygon.llamarpc.com', 
+    'https://polygon-bor.publicnode.com', 
+    'https://polygon-pokt.nodies.app', 
+    'https://polygon.rpc.blxrbdn.com'
+  ],
+};
+
+let workingRPCs = { ...RPCs };
+
 
 // Queue system vars
 const loginBatchSize = 40;
-const processBatchSize = 15;
+const processBatchSize = 25;
 let currentLoginBatch = [];
 let currentProcessBatch = [];
 let pendingRequestsLogin = [];
@@ -58,7 +123,6 @@ let processingProcess = false;
 function generateSecretKey() {
   const buffer = randomBytes(32);
   const secretKey = buffer.toString('hex');
-
   return secretKey;
 }
 
@@ -68,13 +132,13 @@ function rotateSecretKey() {
   console.log(`Key rotated. New key: ${newSecretKey}`);
   setTimeout(() => {
     secretKey = newSecretKey;
-    console.log("rotated")
+    console.log("Cleared the old key!")
   }, 10 * 60000); // 10 minutes in milliseconds
 }
 
 setInterval(() => {
   rotateSecretKey();
-}, 60 * 60000); // Rotate keys every hour (60secs = 60k ms)
+}, 60 * 60000); // Rotate keys every hour (1min = 60k ms)
 
 function verifyToken(req, res, next) {
   const token = req.headers['authorization'];
@@ -85,7 +149,7 @@ function verifyToken(req, res, next) {
     if (err) {
       jwt.verify(token, newSecretKey, (err, user) => { // try new one
         if (err) {
-          return res.status(403).send('ZB.'); // if fails return error
+          return res.status(403).send('An error occured please try again later.'); // if fails return error
         } else {
           req.user = user;
           next();
@@ -116,7 +180,7 @@ function handleLoginRequest(req, res) {
   //   return res.status(403).json({ message: 'Invalid origin' });
   // }
 
-  console.log(`${username}, ${wallet} is Connecting from ${origin}`);
+  // console.log(`${username}, ${wallet} is Connecting from ${origin}`);
 
   const user = users.find((u) => u.username === username && u.password === password);
 
@@ -142,7 +206,7 @@ function handleLoginRequest(req, res) {
 
   const accessToken = jwt.sign({ username: wallet, id: user.id, network: network }, newSecretKey, { expiresIn: '5m' });
 
-  console.log(`${wallet} got the token ${accessToken}`);
+  // console.log(`${wallet} got the token ${accessToken}`);
 
   // Add user to the currentUsers list
   currentUsers.push({
@@ -151,6 +215,16 @@ function handleLoginRequest(req, res) {
     lastRequestTime: Date.now(),
     network: network,
     inQueue: false,
+    currentLinkIndices: {
+      'Optimism': 0,
+      'Gnosis': 0,
+      'ETC': 0,
+      'Avalanche': 0,
+      'BSC': 0,
+      'Ethereum': 0,
+      'CLO': 0,
+      'Polygon': 0
+    },
   });
 
   res.status(200).json({ accessToken });
@@ -172,39 +246,45 @@ const processLoginBatch = async (batch) => {
   }));
 };
 
-const startLoginBatch = () => {
-  // If there are requests in the list, transfer them to the current batch
-  while (currentLoginBatch.length < loginBatchSize && pendingRequestsLogin.length > 0) {
-    currentLoginBatch.push(pendingRequestsLogin.shift());
-  }
+const startLoginBatch = async () => {
+  // Check if there are pending requests and not currently processing
+  if (pendingRequestsLogin.length > 0 && !processingLogin) {
+    processingLogin = true;
 
-  // Start processing the current batch after a 2-second delay
-  setTimeout(async () => {
-    processingLogin = true; // Set processing to true to avoid starting another batch
-
-    // If there are requests in the list, start the next batch
-    if (pendingRequestsLogin.length > 0) {
-      startLoginBatch();
+    // Transfer requests to the current batch
+    while (currentLoginBatch.length < loginBatchSize && pendingRequestsLogin.length > 0) {
+      currentLoginBatch.push(pendingRequestsLogin.shift());
     }
 
-    // Process the current batch
-    await processLoginBatch(currentLoginBatch);
+    try {
+      // Process the current batch
+      await processLoginBatch(currentLoginBatch);
+    } catch (error) {
+      console.error('Error processing login batch:', error);
+    } finally {
+      // Clear the current batch
+      currentLoginBatch = [];
+      processingLogin = false; // Set processing to false to allow starting another batch
+      console.log('Login batch processing completed.');
+    }
 
-    // Clear the current batch
-    currentLoginBatch = [];
-    processingLogin = false; // Set processing to false to allow starting another batch
-  }, 1000);
+    // If there are still pending requests, start the next batch
+    if (pendingRequestsLogin.length > 0) {
+      setTimeout(startLoginBatch, 500);
+    }
+  }
 };
 
 app.post('/login', checkApiKey, (req, res) => {
-  console.log('Login Request received.');
-
   // Add the request to the pendingRequests array
   pendingRequestsLogin.push({ req, res });
 
   // If the current batch is empty and not currently processing, start processing it
   if (currentLoginBatch.length === 0 && !processingLogin) {
-    startLoginBatch();
+    setTimeout(() => startLoginBatch(), 500);
+  } else {
+    // If there are no more pending requests, set processingProcess to false
+    processingProcess = false; // Set to false after processing the batch
   }
 });
 
@@ -218,9 +298,34 @@ function generatePrivateKey() {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     const privateKey = '0x'+result;
-    keys.push(privateKey)
+    keys.push(privateKey);
   }
   return keys;
+}
+
+function getNextLinkForNetwork(network, counts) {
+  const links = workingRPCs[network];
+  const currentIndex = counts[network];
+  const nextIndex = (currentIndex + 1) % links.length;
+  counts[network] = nextIndex;
+  return links[nextIndex];
+}
+
+function getSequentialRPCs(counts) {
+  const sequentialRPCs = [];
+
+  for (let loop = 0; loop < 10; loop++) {
+    const loopRPCs = {};
+
+    for (const network of networkNames) {
+      const linkForNetwork = getNextLinkForNetwork(network, counts);
+      loopRPCs[network] = linkForNetwork;
+    }
+
+    sequentialRPCs.push(loopRPCs);
+  }
+
+  return sequentialRPCs;
 }
 
 function handleGenerateKeysRequest(req, res) {
@@ -252,15 +357,14 @@ function handleGenerateKeysRequest(req, res) {
     return res.status(403).json({ message: 'User banned' });
   }
 
-  // const rpcLinks = getRPCsForCurrentKey(user.count);
+  const rpcLinks = getSequentialRPCs(user.currentLinkIndices);
   const privateKeys = generatePrivateKey();
 
   // Assuming you have a function to send private keys to the client
   // Modify this based on your actual implementation
   const result = {
     PrivateKeys: privateKeys,
-    Count: user.count,
-    // ...rpcLinks,
+    RPCs: rpcLinks,
   };
 
   // Return private key to the user
@@ -298,7 +402,7 @@ const startProcessBatch = async () => {
 
     // If there are still pending requests, start the next batch
     if (pendingRequestsProcess.length > 0) {
-      setTimeout(() => startProcessBatch(), 2000); // Start after 2 seconds
+      setTimeout(() => startProcessBatch(), 500);
     } else {
       // If there are no more pending requests, set processingProcess to false
       processingProcess = false; // Set to false after processing the batch
@@ -318,19 +422,49 @@ app.post('/process', verifyToken, async (req, res) => {
   // Add the request to the pendingRequests array
   pendingRequestsProcess.push({ req, res });
 
-  console.log(processingProcess);
-
   // If a batch is not currently being processed, start processing
   if (!processingProcess) {
     processingProcess = true; // Set to true when starting a new batch
-    setTimeout(() => startProcessBatch(), 2000); // Start after 2 seconds
+    setTimeout(() => startProcessBatch(), 500);
   }
 });
+
+async function testRPCs() {
+  for (const network in RPCs) {
+    workingRPCs[network] = [];
+
+    for (let i = 0; i < 4; i++) {
+      const linkIndex = i % RPCs[network].length;
+      const link = RPCs[network][linkIndex];
+
+      try {
+        // Attempt to make a request to the RPC
+        await axios.get(link);
+        workingRPCs[network].push(link);
+      } catch (error) {
+        // Log the error, and continue to the next link
+        console.error(`Error testing RPC link ${link} for network ${network}:`, error.message);
+
+        // If there are less than 4 links, add a copy of the opposite link
+        if (workingRPCs[network].length < 4) {
+          const oppositeLinkIndex = (i + 2) % RPCs[network].length;
+          const oppositeLink = RPCs[network][oppositeLinkIndex];
+          workingRPCs[network].push(oppositeLink);
+        }
+      }
+    }
+  }
+
+  console.log('Working RPCs:', workingRPCs);
+}
+
+setInterval(testRPCs, 5 * 60 * 1000); // every 5 mins 
+setTimeout( testRPCs, 500); // when the server execute
 
 setInterval(() => {
   const currentTime = Date.now();
   currentUsers = currentUsers.filter((user) => {
-    // Remove users who haven't requested anything for 3 seconds
+    // Remove users who haven't requested anything for x seconds
     if (user.inQueue) {
       return true;
     }
@@ -343,16 +477,6 @@ setInterval(() => {
     return true;
   });
 }, 100);
-
-function getRPCsForCurrentKey(index) {
-  const rpcLinks = {};
-  for (let j = 1; j <= 8; j++) {
-    const network = `network${j}`;
-    const linkIndex = (index - 1) % workingRPCs[network].length;
-    rpcLinks[network] = workingRPCs[network][linkIndex];
-  }
-  return rpcLinks;
-}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
