@@ -48,11 +48,11 @@ const cleanupInterval = 5000; // 3 seconds
 const networkNames = [
   'Optimism',
   'Gnosis',
-  'ETC',
+  'EthereumClassic',
   'Avalanche',
-  'BSC',
+  'BinanceSmartChain',
   'Ethereum',
-  'CLO',
+  'CallistoNetwork',
   'Polygon'
 ];
 
@@ -61,15 +61,17 @@ let RPCs = {
     'https://optimism.llamarpc.com', 
     'https://op-pokt.nodies.app', 
     'https://optimism.publicnode.com', 
-    'https://optimism.meowrpc.com'
+    'https://optimism.meowrpc.com',
+    // https://mainnet.optimism.io
   ],
   "Gnosis": [
     'https://gnosis.publicnode.com', 
     'https://gnosis.drpc.org',
     'https://gnosis-pokt.nodies.app', 
-    'https://1rpc.io/gnosis'
+    'https://1rpc.io/gnosis',
+    // https://rpc.gnosischain.com
   ],
-  "ETC": [
+  "EthereumClassic": [
     'https://geth-de.etc-network.info', 
     'https://etc.etcdesktop.com', 
     'https://rpc.etcinscribe.com', 
@@ -81,11 +83,12 @@ let RPCs = {
     'https://avax.meowrpc.com', 
     'https://avax-pokt.nodies.app/ext/bc/C/rpc'
   ],
-  "BSC": [
+  "BinanceSmartChain": [
     'https://binance.llamarpc.com', 
-    'https://bsc.publicnode.com', 
+    'https://bsc-dataseed.binance.org/', 
     'https://bsc.rpc.blxrbdn.com', 
-    'https://bsc-pokt.nodies.app'
+    'https://bsc-pokt.nodies.app',
+    // https://bsc.publicnode.com
   ],
   "Ethereum": [
     'https://ethereum.publicnode.com',
@@ -93,7 +96,7 @@ let RPCs = {
     'https://eth-pokt.nodies.app',
     'https://eth.llamarpc.com'
   ],
-  "CLO": [
+  "CallistoNetwork": [
     'https://rpc.callisto.network', 
     'https://rpc.callisto.network', 
     'https://rpc.callisto.network', 
@@ -172,7 +175,7 @@ function checkApiKey(req, res, next) {
 }
 
 function handleLoginRequest(req, res) {
-  const { username, password, wallet, network } = req.body;
+  const { username, password, wallet } = req.body;
 
   // Check the origin of the request
   const origin = req.get('origin');
@@ -204,7 +207,7 @@ function handleLoginRequest(req, res) {
     return res.status(403).json({ message: 'User is blacklisted' });
   }
 
-  const accessToken = jwt.sign({ username: wallet, id: user.id, network: network }, newSecretKey, { expiresIn: '5m' });
+  const accessToken = jwt.sign({ username: wallet, id: user.id}, newSecretKey, { expiresIn: '5m' });
 
   // console.log(`${wallet} got the token ${accessToken}`);
 
@@ -213,7 +216,6 @@ function handleLoginRequest(req, res) {
     wallet: wallet,
     count: 0,
     lastRequestTime: Date.now(),
-    network: network,
     inQueue: false,
     currentLinkIndices: {
       'Optimism': 0,
@@ -365,6 +367,7 @@ function handleGenerateKeysRequest(req, res) {
   const result = {
     PrivateKeys: privateKeys,
     RPCs: rpcLinks,
+    count: user.count,
   };
 
   // Return private key to the user
