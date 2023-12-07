@@ -28,171 +28,97 @@
     letter-spacing: 5px;
   }
 
-  .lever {
-    display: none;
-    background-color: #282b28;
-    width: 142px;
-    height: 444px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: #313330 solid 0.1px;
-    border-left: 0;
-    float: right;
-    margin-top: 245px;
+  .secondBackground {
     position: absolute;
-    right: 100px;
-    transition: all ease 1s;
+    width: 100%;
+    height: 100%;
+    background: url(imgs/LaunchBackgroundNew.png);
+    background-size: 100% 100%;
+    filter: blur(18px);
   }
-  .lever .littleBase {
-    top: 149px;
+
+  .background {
+    background: url(imgs/LaunchBackgroundNew.png) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    max-width: 2400px;
+    margin: 0 auto;
     position: absolute;
-    width: 87px;
-    height: 130px;
-    background: #2e312e;
-    border-radius: 5px;
-    left: 26px;
-    box-shadow: 1px 1px 20px #1a1a1a;
+    transform: translate(-50%, -50%);
+    max-height: 1235px;
+    top: 50%;
+    left: 50%;
   }
-  .lever .batton {
-    top: -80px;
+
+  .touchZone {
     position: absolute;
-    width: 40px;
-    height: 275px;
-    background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
-    border-radius: 5px;
-    left: 49px;
-    box-shadow: -2px -20px 20px #1a1a1a;
+    left: 50%;
+    bottom: 3%;
+    height: 215px;
+    width: 294px;
+    transform: translate(-50%, -50%);
   }
-  .lever .boule {
-    top: -110px;
-    z-index: 2;
-    position: absolute;
-    width: 87px;
-    height: 89px;
-    background: #274d3c;
-    border-radius: 46px;
-    left: 25px;
-    box-shadow: -1px -20px 20px #1a1a1a;
-    border: white 0.1px solid;
-  }
-  .lever .boule:hover {
-    cursor: pointer;
-  }
-  .lever .boule::before {
+ 
+  .touchZone::before {
     content: "";
     display: block;
     width: 82px;
     height: 82px;
     border-radius: 50%;
-    border: white 1px solid;
-    animation: indicator 0.8s linear infinite;
+    border: #ffffff26 3px solid;
+    animation: indicator 1s linear infinite;
     margin-left: 1px;
     margin-top: 1px;
-    box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3215686275);
+    box-shadow: 1px 1px 20px rgb(67 60 45);
     filter: blur(0.8px);
-  }
-  .lever img {
-    transition: 0.5s all ease;
     position: absolute;
-    bottom: -156px;
-    left: -44px;
-    opacity: 0.5;
-    animation: impactAnim 1s;
-    display: none;
-  }
-  
-  #clickLever1 .batton {
-    animation: leverBattonClick1 0.3s;
-  }
-  #clickLever1 .boule {
-    animation: leverBallClick1 0.3s;
-    border: none;
-  }
-  #clickLever1 .boule::before {
-    display: none;
-  }
-  
-  #clickLever2 .batton {
-    animation: leverBattonClick2 0.3s;
-  }
-  #clickLever2 .boule {
-    animation: leverBallClick2 0.3s;
-    border: none;
-  }
-  #clickLever2 .boule::before {
-    display: none;
-  }
-  
-  #incliningLever1 .batton {
-    animation: leverBattonEnable1 0.3s;
-  }
-  #incliningLever1 .boule {
-    animation: leverBallEnable1 0.3s;
-    border: none;
-  }
-  #incliningLever1 .boule::before {
-    display: none;
-  }
-  
-  #incliningLever2 .batton {
-    animation: leverBattonEnable2 0.3s;
-  }
-  #incliningLever2 .boule {
-    animation: leverBallEnable2 0.3s;
-    border: none;
-  }
-  #incliningLever2 .boule::before {
-    display: none;
-  }
-  
-  #inclinedLever .batton {
-    animation: none;
-    top: 226px;
-    position: absolute;
-    width: 40px;
-    height: 275px;
-    background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
-    border-radius: 5px;
-    left: 49px;
-    box-shadow: -2px -20px 20px #1a1a1a;
-    transform: rotate(180deg);
-  }
-  #inclinedLever .boule {
-    animation: none;
-    top: 446px;
-    position: absolute;
-    width: 87px;
-    height: 89px;
-    background: #23392f;
-    border-radius: 46px;
-    left: 25px;
-    box-shadow: 0px -2px 20px #1a1a1a;
-    border: none;
-  }
-  #inclinedLever .boule:hover {
-    cursor: default;
-  }
-  #inclinedLever .boule::before {
-    display: none;
-    animation: none;
+    top: 61px;
+    right: 118px;
   }
 
+  @media (max-width: 500px) {
+    .background {
+      background: url(imgs/LaunchBackgroundMobile.png) no-repeat;
+      background-size: 100% 100%;
+    }
+    .touchZone {
+      position: absolute;
+      bottom: 0%;
+      height: 182px;
+      width: 326px;
+      background: transparent;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (max-height: 1125px) {
+    .touchZone {
+      bottom: -2%;
+    }
+  }
+
+  @media (max-height: 750px) {
+    .touchZone {
+      bottom: -10%;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .touchZone {
+      bottom: -15%;
+    }
+  }
+  
   .getStartedContener {
-    width: 1033px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 5%;
+    top: 50%;
     left: 50%;
     transition: all ease 0.3s;
-  }
-  @media (max-width: 600px) {
-    .getStartedContener {
-      position: relative;
-      transform: none;
-      width: 90vw;
-      top: 0;
-      left: -3px;
-    }
   }
   
   #getStartedShake {
@@ -299,112 +225,15 @@
     0% {
       transform: scale(1);
     }
-    50% {
+    40% {
       transform: scale(1.4);
       opacity: 1;
     }
-    100% {
+    70% {
       transform: scale(1.8);
       opacity: 0;
     }
-  }
-
-  @keyframes impactAnim {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-  }
-
-  @keyframes leverBattonClick1 {
-    0% {
-      top: -80px;
-      height: 275px;
-    }
     100% {
-      top: 175px;
-      height: 50px;
-    }
-  }
-  @keyframes leverBattonClick2 {
-    0% {
-      top: 175px;
-      height: 50px;
-    }
-    100% {
-      top: 226px;
-      height: 275px;
-    }
-  }
-  @keyframes leverBallClick1 {
-    0% {
-      top: -110px;
-    }
-    100% {
-      top: 170px;
-    }
-  }
-  @keyframes leverBallClick2 {
-    0% {
-      top: 170px;
-    }
-    100% {
-      top: 446px;
-    }
-  }
-  @keyframes leverBattonEnable1 {
-    0% {
-      top: 226px;
-      height: 275px;
-    }
-    100% {
-      top: 175px;
-      height: 50px;
-    }
-  }
-  @keyframes leverBattonEnable2 {
-    0% {
-      top: 175px;
-      height: 50px;
-    }
-    100% {
-      top: -80px;
-      height: 275px;
-    }
-  }
-  @keyframes leverBallEnable1 {
-    0% {
-      top: 446px;
-    }
-    100% {
-      top: 170px;
-    }
-  }
-  @keyframes leverBallEnable2 {
-    0% {
-      top: 170px;
-    }
-    100% {
-      top: -110px;
-    }
-  }
-
-  @keyframes shake {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(1deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(1deg);
-    }
-    100% {
-      transform: rotate(0deg);
+      opacity: 0;
     }
   }

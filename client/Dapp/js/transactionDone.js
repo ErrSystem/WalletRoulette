@@ -1,4 +1,4 @@
-import {account} from './connectWallets/walletsHandler.js';
+import {wallet} from './connectWallets/walletsHandler.js';
 import { leverAnim } from './slotMachine/lever.js';
 import { isMobile, RLT} from './main.js';
 let alreadyRunning = false;

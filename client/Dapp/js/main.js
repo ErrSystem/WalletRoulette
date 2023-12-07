@@ -51,8 +51,8 @@ export function closeWalletSelect() {
     }
     // Make the networks non-visibles
     document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
-    document.querySelector('#selectWallet  .connectNetworks').style.opacity = "0";
-    document.querySelector('#selectWallet  .connectNetworks').style.display = "none";
+    document.querySelector('#selectWallet .connectNetworks').style.opacity = "0";
+    document.querySelector('#selectWallet .connectNetworks').style.display = "none";
     document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
     document.querySelector('#selectWallet .connectWallets').style.display = 'block';
 }

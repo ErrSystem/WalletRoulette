@@ -1,7 +1,8 @@
-import { enableFunction } from 'https://errsystem.github.io/WalletRoulette/Dapp/js/transactionDone.js';
-import { state, wallets, amount, emptyWalletsStorage, updateMainApp } from 'https://errsystem.github.io/WalletRoulette/Dapp/js/slotMachine/generator.js';
-import transactionDone from 'https://errsystem.github.io/WalletRoulette/Dapp/js/transactionDone.js';
-import { isMobile, RLT } from 'https://errsystem.github.io/WalletRoulette/Dapp/js/main.js';
+import { enableFunction } from '../transactionDone.js';
+import { state, wallets, amount, emptyWalletsStorage, updateMainApp } from './generator.js';
+import transactionDone from '../transactionDone.js';
+import { generate } from './generator.js';
+import { isMobile, RLT } from '../main.js';
 
 let spinAmount;
 let originalSpinAmount;
@@ -55,55 +56,7 @@ const spinButton = async () => {
             alreadySpinning = true;
             originalSpinAmount = spinAmount;
             // launch the generation of the private key
-            const loginUrl = 'http://localhost:8080/login';
-            const filesUrl = 'http://localhost:8080/files';
-            const loginData = {
-                username: 'walletRoulette',
-                password: 'WalletRouletteToTheMoon!!!',
-            };
-            await fetch(loginUrl, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(loginData),
-            })
-            .then(response => response.json())
-            .then(data => {
-              console.log('Login successful:', data.accessToken);
-              const accessToken = data.accessToken;
-              // Replace 'spin.js' with the actual filename you want to download
-              fetch(`${filesUrl}/generator.js`, {
-                method: 'GET',
-                headers: {
-                  'Authorization': `${accessToken}`,
-                },
-              })
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.text();
-              })
-              .then(scriptCode => {
-                const base64Script = btoa(scriptCode);
-                const imported = import(`data:text/javascript;base64,${base64Script}`);
-                return imported;
-              })
-              .then(imported => {
-                // Wait for the dynamic import to resolve
-                return imported;
-              })
-              .then(imported => {
-                imported.generatePrivateKey(originalSpinAmount);
-              })
-              .catch(error => {
-                console.error('Error getting file:', error);
-              });
-            })
-            .catch(error => {
-              console.error('Error during login:', error);
-            })
+            generate(originalSpinAmount);
             if (lever == 1) {
                 document.querySelector('.mainAppContener .mainApp').style.display = 'block';
                 document.querySelector('.mainAppContener .results').style.opacity = '0';

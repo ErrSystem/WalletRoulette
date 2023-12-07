@@ -3,7 +3,7 @@ import { connectWalletHandler } from '../main.js';
 let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
-export let account;
+export let wallet;
 let alreadyExecuted = false; // used to update chain (the func wont execute two times only if you connect to the good network and change the chain again)
 let chainId;
 export default function detectWallets() {
@@ -14,7 +14,7 @@ export default function detectWallets() {
                 if (ethereum.isMetaMask) {
                     walletUsed = "MetaMask";
                 }
-                account = accounts[0];
+                wallet = accounts[0];
                 setAdress(accounts[0], walletUsed);
             })
         }
@@ -33,7 +33,7 @@ export default function detectWallets() {
             try {
                 const accounts = await window.ethereum.request({method: "eth_accounts"});
                 if (accounts.length > 0) {
-                    account = accounts[0];
+                    wallet = accounts[0];
                     setAdress(accounts[0], "MetaMask"); 
                     document.querySelector('.metaMaskSelect .isInstalled').innerText = "Connected";
                     document.querySelector('.metaMaskSelect').removeEventListener('click', connectMetaMask);
@@ -182,11 +182,10 @@ export function switchNetworks() {
                 break;
             }
             // if its not show it 
-            if (chainId == undefined && !alreadyExecuted) {
+            if (chainId === undefined && !alreadyExecuted) {
                 alreadyExecuted = true;
                 // shows to the user that its imcompatible using a PopUp
                 document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
-                
                 document.querySelector('#walletConnected').addEventListener('click', showChangeNetwork);
                 document.querySelector('#walletConnected .isInstalled').innerText = 'Imcompatible Network!';
                 document.querySelector('#walletConnected').id = "networkImcompatible";
@@ -195,6 +194,8 @@ export function switchNetworks() {
                 }, 300);
             } else if(alreadyExecuted && chainId !== undefined) {
                 revertToInitialState();
+            } else if(alreadyExecuted && chainId === undefined){
+                document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
             } else {
                 document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
             }
@@ -203,9 +204,9 @@ export function switchNetworks() {
     updateChainValue();
 }
 
-export function setAdress(adress, wallet) {
-    if (typeof adress != "undefined") {
-        let text = [adress.slice(0, 6), adress.slice(adress.length - 4, adress.length)];
+export function setAdress(address, wallet) {
+    if (typeof address != "undefined") {
+        let text = [address.slice(0, 6), address.slice(address.length - 4, address.length)];
         walletBtnText.innerText = `${text[0]}...${text[1]} `;
         walletBtnImg.src = `css/imgs/${wallet}.png`;
         walletConnectBnt.id = "connectedWalletBtn";

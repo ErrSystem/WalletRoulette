@@ -59,17 +59,15 @@ const networkNames = [
 let RPCs = {
   "Optimism": [
     'https://optimism.llamarpc.com', 
-    'https://op-pokt.nodies.app', 
+    'https://mainnet.optimism.io', 
     'https://optimism.publicnode.com', 
     'https://optimism.meowrpc.com',
-    // https://mainnet.optimism.io
   ],
   "Gnosis": [
     'https://gnosis.publicnode.com', 
     'https://gnosis.drpc.org',
-    'https://gnosis-pokt.nodies.app', 
+    'https://rpc.gnosischain.com', 
     'https://1rpc.io/gnosis',
-    // https://rpc.gnosischain.com
   ],
   "EthereumClassic": [
     'https://geth-de.etc-network.info', 
@@ -81,19 +79,19 @@ let RPCs = {
     'https://1rpc.io/avax/c', 
     'https://avalanche.drpc.org', 
     'https://avax.meowrpc.com', 
-    'https://avax-pokt.nodies.app/ext/bc/C/rpc'
+    'https://api.avax.network/ext/bc/C/rpc'
   ],
   "BinanceSmartChain": [
     'https://binance.llamarpc.com', 
-    'https://bsc-dataseed.binance.org/', 
+    'https://bsc.publicnode.com', 
     'https://bsc.rpc.blxrbdn.com', 
-    'https://bsc-pokt.nodies.app',
-    // https://bsc.publicnode.com
+    'https://bsc.meowrpc.com',
+    // https://bsc-dataseed.binance.org/
   ],
   "Ethereum": [
     'https://ethereum.publicnode.com',
     'https://1rpc.io/eth', 
-    'https://eth-pokt.nodies.app',
+    'https://rpc.mevblocker.io	',
     'https://eth.llamarpc.com'
   ],
   "CallistoNetwork": [
@@ -105,7 +103,7 @@ let RPCs = {
   "Polygon": [
     'https://polygon.llamarpc.com', 
     'https://polygon-bor.publicnode.com', 
-    'https://polygon-pokt.nodies.app', 
+    'https://polygon.meowrpc.com	', 
     'https://polygon.rpc.blxrbdn.com'
   ],
 };
@@ -183,7 +181,7 @@ function handleLoginRequest(req, res) {
   //   return res.status(403).json({ message: 'Invalid origin' });
   // }
 
-  // console.log(`${username}, ${wallet} is Connecting from ${origin}`);
+  console.log(`${username}, ${wallet} is Connecting from ${origin}`);
 
   const user = users.find((u) => u.username === username && u.password === password);
 
@@ -220,11 +218,11 @@ function handleLoginRequest(req, res) {
     currentLinkIndices: {
       'Optimism': 0,
       'Gnosis': 0,
-      'ETC': 0,
+      'EthereumClassic': 0,
       'Avalanche': 0,
-      'BSC': 0,
+      'BinanceSmartChain': 0,
       'Ethereum': 0,
-      'CLO': 0,
+      'CallistoNetwork': 0,
       'Polygon': 0
     },
   });
@@ -461,8 +459,8 @@ async function testRPCs() {
   console.log('Working RPCs:', workingRPCs);
 }
 
-setInterval(testRPCs, 5 * 60 * 1000); // every 5 mins 
-setTimeout( testRPCs, 500); // when the server execute
+// setInterval(testRPCs, 5 * 60 * 1000); // every 5 mins 
+// setTimeout( testRPCs, 500); // when the server execute
 
 setInterval(() => {
   const currentTime = Date.now();
