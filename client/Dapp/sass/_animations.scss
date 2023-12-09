@@ -79,6 +79,27 @@
     }
 }
 
+@keyframes loadingImg {
+    0% {
+        filter: drop-shadow(0px 2px 11px black) brightness(1);
+    }
+    50% {
+        filter: drop-shadow(0px 2px 11px black) brightness(.5);
+    }
+    100% {
+        filter: drop-shadow(0px 2px 11px black) brightness(1);
+    }
+}
+
+@keyframes loadingImgLoadingFinished {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 @keyframes walletImgFailed {
     25% {
         margin-left: 170px;

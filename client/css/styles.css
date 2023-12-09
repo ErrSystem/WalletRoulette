@@ -32,13 +32,13 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(imgs/LaunchBackgroundNew.png);
+    background: url(imgs/LaunchBackground.jpg);
     background-size: 100% 100%;
     filter: blur(18px);
   }
 
   .background {
-    background: url(imgs/LaunchBackgroundNew.png) no-repeat;
+    background: url(imgs/LaunchBackground.jpg) no-repeat;
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -58,15 +58,17 @@
     height: 215px;
     width: 294px;
     transform: translate(-50%, -50%);
+    cursor: pointer;
   }
  
   .touchZone::before {
+    transition: all ease 1s;
     content: "";
     display: block;
     width: 82px;
     height: 82px;
     border-radius: 50%;
-    border: #ffffff26 3px solid;
+    border: #d59241c9 3px solid;
     animation: indicator 1s linear infinite;
     margin-left: 1px;
     margin-top: 1px;
@@ -77,9 +79,23 @@
     right: 118px;
   }
 
-  @media (max-width: 500px) {
+  .clickedTouchZone::before {
+    animation: none;
+    transform: scale(1);
+    transition: all ease 1s;
+    box-shadow: none;
+    background: #dbdbdb;
+    border: none;
+  }
+
+  .scaling::before {
+    transition: all ease 1s;
+    transform: scale(100);
+  }
+
+  @media (max-width: 600px) {
     .background {
-      background: url(imgs/LaunchBackgroundMobile.png) no-repeat;
+      background: url(imgs/LaunchBackgroundMobile.jpg) no-repeat;
       background-size: 100% 100%;
     }
     .touchZone {
@@ -90,6 +106,12 @@
       background: transparent;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+    .touchZone::before {
+      width: 45px;
+      height: 45px;
+      top: 61px;
+      right: 135px;
     }
   }
 
@@ -119,6 +141,7 @@
     top: 50%;
     left: 50%;
     transition: all ease 0.3s;
+    overflow: hidden;
   }
   
   #getStartedShake {

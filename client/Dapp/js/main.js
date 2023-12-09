@@ -1,10 +1,10 @@
 import detectWallets from './connectWallets/walletsHandler.js';
-import { switchNetworks } from './connectWallets/walletsHandler.js';
-import transactionDone from './transactionDone.js';
+// import { switchNetworks } from './connectWallets/walletsHandler.js';
+// import transactionDone from './transactionDone.js';
 let isAddRLTButton = false;
 
 const getRLT = () => {
-    // Here write the code to get from BlockChain
+    // Here write the code to get from contract
     let RLT = 100;
     document.querySelector('.connectWalletButton .RltValue').innerHTML = `${RLT} RLT`;
     if (RLT > 999 && RLT < 1000000) {
@@ -16,7 +16,33 @@ const getRLT = () => {
     return RLT;
 }
 
-export const RLT = getRLT();
+// export const RLT = getRLT();
+
+const loading = () => {
+    setTimeout(() => {
+        document.querySelector('.loading img').style.opacity = "1";
+        setTimeout(() => {
+            document.querySelector('.loading img').style.animation = "loadingImgLoadingFinished 1s";
+            document.querySelector('.loading').className = "finishedLoading";
+            setTimeout(() => {
+                document.querySelector('.finishedLoading').className = "loading logoOnly";
+                document.querySelector('header').style.display = "block";
+                setTimeout(() => {
+                    document.querySelector('header').style.opacity = "1";
+                    setTimeout(() => {
+                        document.querySelector('.loading').remove();
+                        setTimeout(() => {
+                            document.querySelector('.card').style.opacity =  "1";
+                            setTimeout(() => {
+                                document.querySelector('.card').className += " flipped";                                
+                            }, 1000);
+                        }, 500);
+                    }, 500);
+                }, 1000);
+            }, 1500);
+        }, 2500);
+    }, 1000);
+}
 
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
@@ -81,10 +107,10 @@ const closeRLTPayments = () => {
         buyRLTSection.style.display = 'none';
     }, 300);
 }
-// Open payment section
-document.querySelector('.getStarted .connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
-// Close payment section
-document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
+// // Open payment section
+// document.querySelector('.getStarted .connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
+// // Close payment section
+// document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
 
 // Buy Rlts with BNB 
 const rltBNBbtn = () => {
@@ -180,21 +206,23 @@ export function isMobile() {
     }
 }
 
-// Update RLTs price
-document.addEventListener('DOMContentLoaded', getPrices);
-// click on BNB
-document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
-// click on CLO
-document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
-// WebSite Appears
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        document.querySelector('.getStartedContener').style.opacity = "1";
-    }, 50);
-})
-// Used for testing purpose only will be removed in the future
-setTimeout(() => {
-    transactionDone();
-}, 1000);
-// Update Chain ID
-window.ethereum.on('chainChanged', switchNetworks);
+// Loading
+loading();
+// // Update RLTs price
+// document.addEventListener('DOMContentLoaded', getPrices);
+// // click on BNB
+// document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
+// // click on CLO
+// document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
+// // WebSite Appears
+// document.addEventListener('DOMContentLoaded', () => {
+//     setTimeout(() => {
+//         document.querySelector('.getStartedContener').style.opacity = "1";
+//     }, 50);
+// })
+// // Used for testing purpose only will be removed in the future
+// setTimeout(() => {
+//     transactionDone();
+// }, 1000);
+// // Update Chain ID
+// window.ethereum.on('chainChanged', switchNetworks);

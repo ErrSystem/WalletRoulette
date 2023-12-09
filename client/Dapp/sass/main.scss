@@ -9,118 +9,38 @@
     transition: all ease .3s;
 }
 
-#Shake {
-    animation: shake .5s !important;
-}
-
-#Spinning {
-    animation: fall .5s !important;
-}
-
-.getStarted {
-    @include divTemplate();
-    h2 {
-        padding-top: 45px;
-        font-size: 45px;
-        @include mobile(600px) {
-            padding-top: 80px;
-            font-size: 36px;
-        }
-    }
-    ul {
-        padding-left: 50px;
-        font-family: lightRobotto;
-        @include mobile(600px) {
-            font-size: 13px;
-        }
-        li {
-            margin-bottom: 10px;
-            transition: all ease 0.3s;
-            list-style: none;
-            width: 70px;
-            &:hover {
-                transition: all ease 0.3s;
-                padding-left: 10px;
-                cursor: pointer;
-            }
-            a {
-                transition: all ease 0.3s;
-                color: white;
-                text-decoration: none;
-                &:hover {
-                    transition: all ease 0.3s;
-                    color: #888aec;
-                }
-            }
-        }
-    }
-    .paymentInfo {
-        margin-top: 20px;
-        font-size: 17px;
-        line-height: 30px;
-        @include mobile(600px) {
-            font-size: 14px;
-            line-height: 26px;
-            margin-top: -5px;
-        }
-    }
-    h3 {
-        @include mobile(600px) {
-            margin-left: 15px;
-            font-size: 16px;
-        }
-    }
-    .prices {
-        margin-top: 0;
-        line-height: 30px;
-        font-size: 17px;
-        font-weight: bold;
-        color: #6464df;
-    }
-    .buyBtn {
-        text-align: center;
-        display: block;
-        width: 140px;
-        transition: all ease .3s;
-        color: white;
-        background-color: #191c19;
-        border: #494949 solid .1px;
-        padding: 20px;
-        border-radius: 5px;
-        margin-top: 55px;
-        font-family: lightRobotto;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: left;
-        margin-left: 35px;
-        margin-bottom: 30px;
-        padding-left: 33px;
-        &:hover {
-            transition: all ease .3s;
-            background-color: #a9aea9;
-            border: .1px solid #191c19;
-            color: black;
-            margin-left: 45px;
-            cursor: pointer;
-        }
-        @include mobile(600px) {
-            padding: 14px 24px;
-            font-size: 14px;
-            width: 120px;
-        }
+header {
+    transition: all ease .5s;
+    opacity: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(45deg, #232323b0, #a17129ab);
+    background-size: 100% 100%;
+    box-shadow: 3px 0px 20px #e3ca7978;
+    margin-bottom: 14px;
+    img {
+        opacity: 1;
+        animation: 1s ease 0s 1 normal none running loadingImgLoadingFinished;
+        transition: all ease 0.3s;
+        width: 135px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(0px 2px 11px black);
+        top: 80px;
+        z-index: 99;
     }
     .connectWalletButton {
         padding: 11px 33px;
         transition: all ease 0.3s;
-        border: 1px solid #656464;
+        border: 1px solid #b5b4b4;
         font-family: boldUbuntu;
         border-radius: 10px;
         float: right;
-        margin-top: -74px;
+        margin-top: 30px;
         margin-right: 30px;
         position: relative;
-        background: linear-gradient(273deg, black, #514a4a);
+        background: linear-gradient(273deg, #331e02, #181818);
         &:hover {
             transition: all ease 0.3s;
             cursor: pointer;
@@ -263,6 +183,258 @@
             margin-top: -135px;
             padding-right: 125px !important;
             height: 48px;
+        }
+    }
+}
+
+.loading {
+    @include contenerTemplate();
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    &::before {
+        transition: all ease 1s;
+        content: "";
+        display: block;
+        width: 82px;
+        background-color: #dbdbdb;
+        height: 82px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(100);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+    img {
+        transition: all ease .3s;
+        width: 135px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(0px 2px 11px black);
+        opacity: 0;
+        animation: loadingImg 2s infinite;
+        animation-delay: 2s;
+    }
+    .finished {
+        animation: loadingImgLoadingFinished 1s;
+    }
+    @include mobile(600px) {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        img {
+            width: 100px;
+        }
+        &::before {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+.finishedLoading {
+    @extend .loading;
+    &::before {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.logoOnly {
+    img {
+        top: 80px;
+    }
+    &::before {
+        display: none;
+    }
+}
+
+.app {
+    .secondBackground {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../css/imgs/appBackground.png);
+        background-size: 100% 100%;
+        filter: blur(6px) brightness(0.7);
+        max-height: 1630px;
+        max-width: 2980px;
+        transform: translate(-50%);
+        left: 50%;
+    }
+    .main {
+        .card{
+            opacity: 0;
+            margin:15px;
+            width: 805px;
+            height: 1050px;
+            border-radius: 75px;
+            position: absolute;
+            -webkit-perspective: 1000px;
+            perspective: 1000px;
+            font-family:verdana;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transition: all .5s linear;
+            transition: all .5s linear;
+            border-radius: 107px;
+            left: 50%;
+            top: 174px;
+            transform: translate(-50%, 0);
+            .face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                background-color:whitesmoke;  
+                border-radius: 107px;
+            }
+            .back {
+              overflow:hidden;
+              z-index:-1;
+              display: block;
+              -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              box-sizing: border-box;
+              &:before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background-size:100% 100%;
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -ms-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+              }
+            }
+            img {
+              width: 100%;
+            }
+            .front, .back{
+              transition: all .5s linear;
+            }
+            .front{
+              z-index:1;
+            }
+        }
+        .flipped{
+          -webkit-transform: translate(-50%, 0) rotateY(180deg);
+          transform: translate(-50%, 0) rotateY(180deg);
+        }
+    }
+}
+
+#Shake {
+    animation: shake .5s !important;
+}
+
+#Spinning {
+    animation: fall .5s !important;
+}
+
+.getStarted {
+    @include divTemplate();
+    display: none;
+    opacity: 0;
+    h2 {
+        padding-top: 45px;
+        font-size: 45px;
+        @include mobile(600px) {
+            padding-top: 80px;
+            font-size: 36px;
+        }
+    }
+    ul {
+        padding-left: 50px;
+        font-family: lightRobotto;
+        @include mobile(600px) {
+            font-size: 13px;
+        }
+        li {
+            margin-bottom: 10px;
+            transition: all ease 0.3s;
+            list-style: none;
+            width: 70px;
+            &:hover {
+                transition: all ease 0.3s;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+            a {
+                transition: all ease 0.3s;
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    transition: all ease 0.3s;
+                    color: #888aec;
+                }
+            }
+        }
+    }
+    .paymentInfo {
+        margin-top: 20px;
+        font-size: 17px;
+        line-height: 30px;
+        @include mobile(600px) {
+            font-size: 14px;
+            line-height: 26px;
+            margin-top: -5px;
+        }
+    }
+    h3 {
+        @include mobile(600px) {
+            margin-left: 15px;
+            font-size: 16px;
+        }
+    }
+    .prices {
+        margin-top: 0;
+        line-height: 30px;
+        font-size: 17px;
+        font-weight: bold;
+        color: #6464df;
+    }
+    .buyBtn {
+        text-align: center;
+        display: block;
+        width: 140px;
+        transition: all ease .3s;
+        color: white;
+        background-color: #191c19;
+        border: #494949 solid .1px;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 55px;
+        font-family: lightRobotto;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: left;
+        margin-left: 35px;
+        margin-bottom: 30px;
+        padding-left: 33px;
+        &:hover {
+            transition: all ease .3s;
+            background-color: #a9aea9;
+            border: .1px solid #191c19;
+            color: black;
+            margin-left: 45px;
+            cursor: pointer;
+        }
+        @include mobile(600px) {
+            padding: 14px 24px;
+            font-size: 14px;
+            width: 120px;
         }
     }
 }
