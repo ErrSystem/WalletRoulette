@@ -1,4 +1,5 @@
 import { wallet } from '../connectWallets/walletsHandler.js';
+import { reduceTickets } from './spin.js';
 let state;
 let amount;
 let isLoading = false;
@@ -191,7 +192,6 @@ export async function generate(originalSpinAmount) {
           'x-api-key': '0xa7B49aDD3823E9c3AAbd0088162CA085e38D38cBDc6EBc28200b8d488189dEE8fc691F633E93Bd3CeFdE5A0a4C38C7e33EEd9fa67ABed607a08306aBb3FD52Da864cECeAB5a7FF2ed',
         },
       });
-      console.log(`Success: ${response.data}`);
       token = response.data.accessToken;
     } catch (err) {
       console.log(`Error while fetching data from login endpoint: ${err.message}`)
@@ -209,10 +209,14 @@ export async function generate(originalSpinAmount) {
       data.push(response.data);
       // if its the first time requesting make an interval for process wallet
       if (response.data.count === 1) {
-        processWallet();
-        setInterval(() => {
-          keyCount++;
-          processWallet();
+        processWallet(keyCount, packCount);
+        let intervalId = setInterval(() => {
+          if (keyCount !== loop*10) {
+            keyCount++;
+            processWallet(keyCount, packCount);
+          } else {
+            clearInterval(intervalId);
+          }
         }, 1000);
       }
       // then request again after 1.5secs
@@ -224,53 +228,53 @@ export async function generate(originalSpinAmount) {
       console.error('Error making process request:', err.message);
     }
   }
-  const getRpcPath = name => {
+  const getRpcPath = (name, key, pack) => {
     switch (name) {
       case 'Optimism':
-        return new Web3(data[packCount].RPCs[keyCount].Optimism);
+        return new Web3(data[pack].RPCs[key].Optimism);
       break;
       case 'Gnosis':
-        return new Web3(data[packCount].RPCs[keyCount].Gnosis);
+        return new Web3(data[pack].RPCs[key].Gnosis);
       break;
       case 'Avalanche':
-        return new Web3(data[packCount].RPCs[keyCount].Avalanche);
+        return new Web3(data[pack].RPCs[key].Avalanche);
       break;
       case 'Ethereum':
-        return new Web3(data[packCount].RPCs[keyCount].Ethereum);
+        return new Web3(data[pack].RPCs[key].Ethereum);
       break;
       case 'Binance Smart Chain':
-        return new Web3(data[packCount].RPCs[keyCount].BinanceSmartChain);
+        return new Web3(data[pack].RPCs[key].BinanceSmartChain);
       break;
       case 'Callisto Network':
-        return new Web3(data[packCount].RPCs[keyCount].CallistoNetwork);
+        return new Web3(data[pack].RPCs[key].CallistoNetwork);
       break;
       case 'Ethereum Classic':
-        return new Web3(data[packCount].RPCs[keyCount].EthereumClassic);
+        return new Web3(data[pack].RPCs[key].EthereumClassic);
       break;
       case 'Polygon':
-        return new Web3(data[packCount].RPCs[keyCount].Polygon);
+        return new Web3(data[pack].RPCs[key].Polygon);
       break;
       default:
         console.warn(name);
       break;
     }
   }
-  const processWallet = key => {
-    if (keyCount === 11) {
-      packCount++;
+  const processWallet = (key, pack) => {
+    console.log(key, pack)
+    if (key === 11) {
+      pack++;
     }
-    const privateKeycount = keyCount % 10;
-    const generatedPrivateKeyCount = keyCount;
-    let privateKey = data[packCount].PrivateKeys[privateKeycount];
+    const privateKeycount = key % 10;
+    const generatedPrivateKeyCount = key;
+    let privateKey = data[pack].PrivateKeys[privateKeycount];
     let wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
     wallets.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', chain: JSON.parse(JSON.stringify(chains))});
     let totalUSD = wallets[generatedPrivateKeyCount].totalUSD;
     let chain = wallets[generatedPrivateKeyCount].chain;
     Object.keys(chain).forEach(async network => {
       try {
-        let rpc = getRpcPath(chain[network].name);
+        let rpc = getRpcPath(chain[network].name, privateKeycount, pack);
         rpc.eth.getBalance(wallet).then(balance => {
-          console.log(network, balance)
           chain[network].balance = rpc.utils.fromWei(balance);
           if (balance > 0) {
             axios.get('https://api.coingecko.com/api/v3/coins/'+chain[network].gecko)
@@ -333,8 +337,8 @@ export async function generate(originalSpinAmount) {
     } else {
       newLogo.src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chain.logo}.png`;
     }
-    console.log(data[key], key)
-    newLink.href = `${chain.explorer+data[key].walletAdress}`;
+    console.log(wallets[key].walletAdress, key)
+    newLink.href = `${chain.explorer+wallets[key].walletAdress}`;
     newLink.target = '_blank';
     newUl.className = 'chain';
     setTimeout (() => {
@@ -354,18 +358,18 @@ export async function generate(originalSpinAmount) {
               newLi.innerText = `+ ${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
               newUl.insertAdjacentElement('beforeend', newLi);
               if (chain.ERC20Balances.length === chain.ERC20Balances.indexOf(erc20) + 1) {
-                data[key].ULs.push(newUl);
+                wallets[key].ULs.push(newUl);
               }
             })
           } else {
-            data[key].ULs.push(newUl);
+            wallets[key].ULs.push(newUl);
           }
       }
       // Create erc20 tokens list
       createLis();
       intervalId = setInterval(() => isDone(key), 50);
       const isDone = key => {
-        if (data[key].ULs.length === Object.keys(data[key].chain).length) {
+        if (wallets[key].ULs.length === Object.keys(wallets[key].chain).length) {
           prepareHTML(key, originalSpinAmount); 
           clearInterval(intervalId);
         }
@@ -375,12 +379,12 @@ export async function generate(originalSpinAmount) {
   const prepareHTML = (key, originalSpinAmount) => {
     const insertUls = () => {
       let ul= "";
-      const htmlStrings = data[key].ULs.map(element => element.outerHTML);
+      const htmlStrings = wallets[key].ULs.map(element => element.outerHTML);
       ul = htmlStrings.join('');
       return ul;
     }
-    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${data[key].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${data[key].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(data[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
-    data[key].HTML = mainAppHTML;
+    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
+    wallets[key].HTML = mainAppHTML;
   }
   await requestLogin();
   await requestPrivateKey(token);
@@ -388,27 +392,26 @@ export async function generate(originalSpinAmount) {
 
 export function updateMainApp (index) {
   index = index + 1;
-  console.log(index)
   // updates HTML
-  document.querySelector('.mainApp').innerHTML = data[index].HTML;
+  document.querySelector('.mainApp').innerHTML = wallets[index].HTML;
   // reduce number of tickets  
   reduceTickets();
   // shows if you won or not
-  if (data[index].totalUSD > 0) {
+  if (wallets[index].totalUSD > 0) {
     state = true;
   } else {
     state = false;
   }
-  amount = addComma(data[index].totalUSD.toFixed(2));
+  amount = addComma(wallets[index].totalUSD.toFixed(2));
   // push data
-  let localChainArr = Object.keys(data[index].chain);
-  let localChainObj = data[index].chain;
+  let localChainArr = Object.keys(wallets[index].chain);
+  let localChainObj = wallets[index].chain;
   let chainsWithMoney = [];
   localChainArr.forEach(chain => {
     if (localChainObj[chain].toUSD > 0) {
       chainsWithMoney.push(localChainObj[chain].name);
     } else if (localChainArr.length === localChainArr.indexOf(chain)+1) {
-      results.push({wallet: data[index].walletAdress, privateKey: data[index].privateAdress, balance: `${addComma(data[index].totalUSD.toFixed(2))} USD`, status: state, chains: chainsWithMoney});
+      results.push({wallet: wallets[index].walletAdress, privateKey: wallets[index].privateAdress, balance: `${addComma(wallets[index].totalUSD.toFixed(2))} USD`, status: state, chains: chainsWithMoney});
     }
   })
 }
@@ -442,5 +445,5 @@ const addComma = originalNum => {
 
 export function emptyWalletsStorage() {
   results = [];
-  data = [];
+  wallets = [];
 }
