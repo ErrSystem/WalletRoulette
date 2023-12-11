@@ -256,7 +256,7 @@ header {
 }
 
 .app {
-    .secondBackground {
+    .background {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -264,7 +264,7 @@ header {
         background-size: 100% 100%;
         filter: blur(6px) brightness(0.7);
         max-height: 1630px;
-        max-width: 2980px;
+        max-width: 2600px;
         transform: translate(-50%);
         left: 50%;
     }
@@ -293,11 +293,13 @@ header {
                 height: 100%;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
-                background-color:whitesmoke;  
+                background:linear-gradient(45deg, #101010, #2b1d03);  
                 border-radius: 107px;
             }
             .back {
               overflow:hidden;
+              text-align: center;
+              border: #a78651 2px solid;  
               z-index:-1;
               display: block;
               -webkit-transform: rotateY(180deg);
@@ -316,6 +318,28 @@ header {
                 -o-transform: rotateY(180deg);
                 transform: rotateY(180deg);
               }
+              img {
+                width: 175px;
+              }
+              .introduction {
+                color: white;
+                padding: 0 82px;
+                margin-top: 17px;
+                font-size: 17px;
+                line-height: 25px;
+                text-align: left;
+              }
+              h3 {
+                color: #efe122;
+              }
+              .explaination {
+                color: white;
+                padding: 0 77px;
+                font-size: 17px;
+                line-height: 28px;
+                text-align: left;
+                margin-top: 12px;
+              }
             }
             img {
               width: 100%;
@@ -330,6 +354,12 @@ header {
         .flipped{
           -webkit-transform: translate(-50%, 0) rotateY(180deg);
           transform: translate(-50%, 0) rotateY(180deg);
+          .back {
+            z-index: 1;
+          }
+          .front {
+            opacity: 0;
+          }
         }
     }
 }

@@ -40,8 +40,8 @@ const loading = () => {
                     }, 500);
                 }, 1000);
             }, 1500);
-        }, 2500);
-    }, 1000);
+        }, 3300);
+    }, 100);
 }
 
 // Connect wallet button handler 
