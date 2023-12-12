@@ -1,7 +1,9 @@
 import detectWallets from './connectWallets/walletsHandler.js';
-// import { switchNetworks } from './connectWallets/walletsHandler.js';
+import { switchNetworks } from './connectWallets/walletsHandler.js';
 // import transactionDone from './transactionDone.js';
 let isAddRLTButton = false;
+let loadingState = true;
+export {loadingState};
 
 const getRLT = () => {
     // Here write the code to get from contract
@@ -16,7 +18,7 @@ const getRLT = () => {
     return RLT;
 }
 
-// export const RLT = getRLT();
+export const RLT = getRLT();
 
 const loading = () => {
     setTimeout(() => {
@@ -34,7 +36,8 @@ const loading = () => {
                         setTimeout(() => {
                             document.querySelector('.card').style.opacity =  "1";
                             setTimeout(() => {
-                                document.querySelector('.card').className += " flipped";                                
+                                document.querySelector('.card').className += " flipped";       
+                                loadingState = false;                         
                             }, 1000);
                         }, 500);
                     }, 500);
@@ -49,7 +52,7 @@ const connectWalletBtn = document.querySelector('.connectWalletButton');
 export function connectWalletHandler() {
     setTimeout(() => {
         if (!isAddRLTButton) {
-            document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
+            document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
             document.querySelector('#selectWallet').style.display = 'block';
             try {
                 document.querySelector('#networkImcompatible').addEventListener('click', () => {
@@ -70,7 +73,7 @@ export function connectWalletHandler() {
     }, 10);
 }
 export function closeWalletSelect() {
-    document.querySelector('.getStartedContener').style.filter = '';
+    document.querySelector('.getStarted .back').style.filter = '';
     document.querySelector('#selectWallet').style = '';
     if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
         document.querySelector('.metaMaskSelect').id = '';
@@ -225,4 +228,4 @@ loading();
 //     transactionDone();
 // }, 1000);
 // // Update Chain ID
-// window.ethereum.on('chainChanged', switchNetworks);
+window.ethereum.on('chainChanged', switchNetworks);

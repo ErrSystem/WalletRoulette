@@ -1,5 +1,5 @@
 import connectMetaMask from './metaMask.js';
-import { connectWalletHandler } from '../main.js';
+import { connectWalletHandler, loadingState } from '../main.js';
 let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
@@ -53,155 +53,161 @@ export default function detectWallets() {
 }
 
 export function switchNetworks() {
-    let alreadySent = false;
-    // functions to switch network
-    const switchBNB = async () => {
-        // try to switch the network
-        try {
-            setTimeout(() => {
-                alreadySent = true;
-            }, 10);
-            await ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '0x38' }],
-            });
-        } catch {
-            // asks the user if he wants to install it
+    if (!loadingState) {
+        let alreadySent = false;
+        // functions to switch network
+        const switchBNB = async () => {
+            // try to switch the network
             try {
-                if (!alreadySent) {
+                setTimeout(() => {
+                    alreadySent = true;
+                }, 10);
+                await ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x38' }],
+                });
+            } catch {
+                // asks the user if he wants to install it
+                try {
+                    if (!alreadySent) {
+                        await window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [
+                            {
+                                chainName: 'BNB Smart Chain',
+                                chainId: "0x38",
+                                nativeCurrency: { name: 'Binance Coin', decimals: 18, symbol: 'BNB' },
+                                rpcUrls: ['https://bsc-dataseed.binance.org']
+                            }
+                            ]
+                        });
+                    } else {
+                        alreadySent = false;
+                    }
+                } catch (error) {
+                    alreadySent = false;
+                    // error msg
+                    document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
+                    document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
+                    setTimeout(() => {
+                        document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
+                    }, 1500);
+                }
+            }
+        }
+        const switchCallisto = async () => {
+            // try to switch network
+            try {
+                setTimeout(() => {
+                    alreadySent = true;                
+                }, 10);
+                await ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x334' }],
+                });
+            } catch {
+                // ask the user if he wants to install it
+                try {
+                    if (!alreadySent) {
                     await window.ethereum.request({
                         method: 'wallet_addEthereumChain',
                         params: [
                         {
-                            chainName: 'BNB Smart Chain',
-                            chainId: "0x38",
-                            nativeCurrency: { name: 'Binance Coin', decimals: 18, symbol: 'BNB' },
-                            rpcUrls: ['https://bsc-dataseed.binance.org']
+                            chainName: 'Callisto Network',
+                            chainId: "0x334",
+                            nativeCurrency: { name: 'CLO', decimals: 18, symbol: 'CLO' },
+                            rpcUrls: ['https://rpc.callisto.network']
                         }
                         ]
                     });
-                } else {
-                    alreadySent = false;
-                }
-            } catch (error) {
-                alreadySent = false;
-                // error msg
-                document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
-                document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
-                setTimeout(() => {
-                    document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
-                }, 1500);
-            }
-        }
-    }
-    const switchCallisto = async () => {
-        // try to switch network
-        try {
-            setTimeout(() => {
-                alreadySent = true;                
-            }, 10);
-            await ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '0x334' }],
-            });
-        } catch {
-            // ask the user if he wants to install it
-            try {
-                if (!alreadySent) {
-                await window.ethereum.request({
-                    method: 'wallet_addEthereumChain',
-                    params: [
-                    {
-                        chainName: 'Callisto Network',
-                        chainId: "0x334",
-                        nativeCurrency: { name: 'CLO', decimals: 18, symbol: 'CLO' },
-                        rpcUrls: ['https://rpc.callisto.network']
+                    } else {
+                        alreadySent = false;
                     }
-                    ]
-                });
-                } else {
+                } catch (error) {
                     alreadySent = false;
+                    // error msg
+                    document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
+                    document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
+                    setTimeout(() => {
+                        document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
+                    }, 1500);
                 }
-            } catch (error) {
-                alreadySent = false;
-                // error msg
-                document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
-                document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
-                setTimeout(() => {
-                    document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
-                }, 1500);
             }
         }
-    }
-    // Used to show to the user that he has to change the network
-    const showChangeNetwork = () => {
-        document.querySelector('.connectNetworks .network').addEventListener('click', switchBNB);
-        document.querySelector('.connectNetworks .network2').addEventListener('click', switchCallisto);
-        document.querySelector('#selectWallet h4').innerHTML = "Supported Networks:";
-        document.querySelector('#selectWallet h4').style = "right: -18px; padding-left: 11px;";
-        document.querySelector('#selectWallet .connectWallets').style.opacity = "0";
-        document.querySelector('.connectNetworks').style.display = 'block';
-        setTimeout(() => {
-            document.querySelector('#selectWallet .connectWallets').style.display = "none";
-            document.querySelector('.connectNetworks').style.opacity = '1';
-        }, 300);
-    }
-    // Checks if there is an update to the Network used and process
-    function updateChainValue() {
-        // To remove all change network elements
-        const revertToInitialState = () => {
-            document.querySelector('#networkImcompatible').removeEventListener('click', showChangeNetwork);
-            document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
-            document.querySelector('#networkImcompatible').id = 'walletConnected';
-            document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
-            document.querySelector('#selectWallet h4').style = "";
-            document.querySelector('#walletConnected .isInstalled').innerText = 'Connected!';
-            document.querySelector('.connectNetworks').style.opacity = '0';
-            document.querySelector('.connectWallets').style.display = 'block';
-            document.querySelector('.connectNetworks .network').removeEventListener('click', switchBNB);
-            document.querySelector('.connectNetworks .network2').removeEventListener('click', switchCallisto);
-            alreadyExecuted = false;
+        // Used to show to the user that he has to change the network
+        const showChangeNetwork = () => {
+            document.querySelector('.connectNetworks .network').addEventListener('click', switchBNB);
+            document.querySelector('.connectNetworks .network2').addEventListener('click', switchCallisto);
+            document.querySelector('#selectWallet h4').innerHTML = "Supported Networks:";
+            document.querySelector('#selectWallet h4').style = "right: -18px; padding-left: 11px;";
+            document.querySelector('#selectWallet .connectWallets').style.opacity = "0";
+            document.querySelector('.connectNetworks').style.display = 'block';
             setTimeout(() => {
-                document.querySelector('.connectWallets').style.opacity = '1';
-                document.querySelector('.connectNetworks').style.display = 'none';
+                document.querySelector('#selectWallet .connectWallets').style.display = "none";
+                document.querySelector('.connectNetworks').style.opacity = '1';
             }, 300);
         }
-        setTimeout(async () => {
-            chainId = await window.ethereum.request({ method: 'eth_chainId' });
-            // checks if its supported
-            switch (chainId) {
-                // will use link of their imgs for the ID
-                case "0x334":
-                    chainId = "2757";
-                break;
-                case "0x38":
-                    chainId = "1839";
-                break;
-                default:
-                    chainId = undefined;
-                break;
-            }
-            // if its not show it 
-            if (chainId === undefined && !alreadyExecuted) {
-                alreadyExecuted = true;
-                // shows to the user that its imcompatible using a PopUp
-                document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
-                document.querySelector('#walletConnected').addEventListener('click', showChangeNetwork);
-                document.querySelector('#walletConnected .isInstalled').innerText = 'Imcompatible Network!';
-                document.querySelector('#walletConnected').id = "networkImcompatible";
-                setTimeout(() => {
-                    connectWalletHandler();
-                }, 300);
-            } else if(alreadyExecuted && chainId !== undefined) {
-                revertToInitialState();
-            } else if(alreadyExecuted && chainId === undefined){
-                document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
-            } else {
+        // Checks if there is an update to the Network used and process
+        function updateChainValue() {
+            // To remove all change network elements
+            const revertToInitialState = () => {
+                document.querySelector('#networkImcompatible').removeEventListener('click', showChangeNetwork);
                 document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
+                document.querySelector('#networkImcompatible').id = 'walletConnected';
+                document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
+                document.querySelector('#selectWallet h4').style = "";
+                document.querySelector('#walletConnected .isInstalled').innerText = 'Connected';
+                document.querySelector('.connectNetworks').style.opacity = '0';
+                document.querySelector('.connectWallets').style.display = 'block';
+                document.querySelector('.connectNetworks .network').removeEventListener('click', switchBNB);
+                document.querySelector('.connectNetworks .network2').removeEventListener('click', switchCallisto);
+                alreadyExecuted = false;
+                setTimeout(() => {
+                    document.querySelector('.connectWallets').style.opacity = '1';
+                    document.querySelector('.connectNetworks').style.display = 'none';
+                }, 300);
             }
-        }, 2500);
+            setTimeout(async () => {
+                chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                // checks if its supported
+                switch (chainId) {
+                    // will use link of their imgs for the ID
+                    case "0x334":
+                        chainId = "2757";
+                    break;
+                    case "0x38":
+                        chainId = "1839";
+                    break;
+                    default:
+                        chainId = undefined;
+                    break;
+                }
+                // if its not show it 
+                if (chainId === undefined && !alreadyExecuted) {
+                    alreadyExecuted = true;
+                    // shows to the user that its imcompatible using a PopUp
+                    document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
+                    document.querySelector('#walletConnected').addEventListener('click', showChangeNetwork);
+                    document.querySelector('#walletConnected .isInstalled').innerText = 'Imcompatible Network!';
+                    document.querySelector('#walletConnected').id = "networkImcompatible";
+                    setTimeout(() => {
+                        connectWalletHandler();
+                    }, 300);
+                } else if(alreadyExecuted && chainId !== undefined) {
+                    revertToInitialState();
+                } else if(alreadyExecuted && chainId === undefined){
+                    document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
+                } else {
+                    document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
+                }
+            }, 2500);
+        }
+        updateChainValue();
+    } else {
+        setTimeout(() => {
+            switchNetworks();
+        }, 3000);
     }
-    updateChainValue();
 }
 
 export function setAdress(address, wallet) {
