@@ -93,6 +93,13 @@
     transform: scale(100);
   }
 
+  @media (max-width: 1300px) {
+    .background {
+      background: url(imgs/LaunchBackgroundTablet.jpg) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
   @media (max-width: 600px) {
     .background {
       background: url(imgs/LaunchBackgroundMobile.jpg) no-repeat;
