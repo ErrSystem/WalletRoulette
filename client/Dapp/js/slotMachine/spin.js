@@ -379,6 +379,6 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text);
 }
 
-setInterval(() => {
-    updateTickets();
-}, 10);
+// setInterval(() => {
+//     updateTickets();
+// }, 10);

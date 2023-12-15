@@ -3,22 +3,23 @@
     display: none;
     opacity: 0;
     transition: all ease .3s;
-    width: 63px;
+    width: 63px !important;
     filter: invert(1);
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    bottom: 0;
+    bottom: 55%;
     animation: arrowDown 3s infinite;
+    z-index: 5;
 }
 
 @keyframes arrowDown {
     0% {
-        bottom: 0;
+        bottom: 50%;
     } 50% {
-        bottom: 40px;
+        bottom: 53%;
     } 100% {
-        bottom: 0;
+        bottom: 50%;
     }
 }
 
@@ -127,12 +128,12 @@
 }
 
 // getStarted animations
-@keyframes shake {
-    0% { transform:  rotate(0deg); }
-    25% { transform: rotate(1deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform:  rotate(1deg); }
-    100% { transform:  rotate(0deg); }
+@keyframes getStartedShake {
+    0% { transform:  translate(-50%, 0) rotateY(180deg) rotate(360deg); }
+    25% { transform: translate(-50%, 0) rotateY(180deg) rotate(357deg); }
+    50% { transform: translate(-50%, 0) rotateY(180deg) rotate(360deg); }
+    75% { transform:  translate(-50%, 0) rotateY(180deg) rotate(357deg); }
+    100% { transform:  translate(-50%, 0) rotateY(180deg) rotate(360deg); }
 }
 
 @keyframes fall {
@@ -152,6 +153,14 @@
     } 100% {
         top: 155%;
     }
+}
+
+@keyframes shake {
+    0% { transform:  rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform:  rotate(1deg); }
+    100% { transform:  rotate(0deg); }
 }
 
 // lever animations

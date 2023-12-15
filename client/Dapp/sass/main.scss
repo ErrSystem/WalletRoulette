@@ -193,7 +193,7 @@ header {
             }
         }
         @include mobile(600px){
-            padding-right: 120px !important;
+            padding-right: 130px !important;
             height: 48px;
         }
     }
@@ -232,7 +232,7 @@ header {
         animation-delay: 2s;
     }
     .finished {
-        animation: loadingImgLoadingFinished 1s;
+        animation: loadingImgFinished 1s;
     }
     @include mobile(600px) {
         position: absolute;
@@ -272,7 +272,7 @@ header {
     }
 }
 
-.getStarted {
+.app {
     .background {
         position: absolute;
         width: 100%;
@@ -286,7 +286,7 @@ header {
         left: 50%;
     }
     .main {
-        .card{
+        .getStarted{
             opacity: 0;
             width: 805px;
             height: 1050px;
@@ -330,7 +330,7 @@ header {
               text-align: center;
               border: #a78651 2px solid; 
               background:linear-gradient(45deg, #101010, #2b1d03);   
-              z-index:-1;
+              z-index: -1;
               display: block;
               -webkit-transform: rotateY(180deg);
               transform: rotateY(180deg);
@@ -395,19 +395,89 @@ header {
               transition: all .5s linear;
             }
             .front{
-              z-index:1;
+              z-index: 3;
               img {
                 width: 100%;
                 height: 100%;
               }
             }
-            
+            .lever {
+                display: none;
+                background: linear-gradient(68deg, #4b2902, #a78651);;
+                width: 142px;
+                height: 444px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                border-left: 0;
+                float: right;
+                margin-top: 245px;
+                position: absolute;
+                left: 0;
+                transition: all ease 1s;
+                .littleBase {
+                    top: 149px;
+                    position: absolute;
+                    width: 87px;
+                    height: 130px;
+                    background: linear-gradient(45deg, #5d4721, #a96f14);
+                    border-radius: 22px;
+                    left: 26px;
+                    box-shadow: 1px 1px 20px #1a1a1a9c;
+                }
+                .batton {
+                    top: -80px;
+                    position: absolute;
+                    width: 40px;
+                    height: 275px;
+                    background: linear-gradient(180deg, #cba427, #b38e1d, #bb982ab5, #a58d56, #a58d56, rgba(69, 58, 21, 0));
+                    border-radius: 5px;
+                    left: 49px;
+                    box-shadow: -2px -20px 20px #1a1a1a;
+                }
+                .boule {
+                    top: -110px;
+                    z-index: 2;
+                    position: absolute;
+                    width: 87px;
+                    height: 89px;
+                    background: #987c28;
+                    border-radius: 46px;
+                    left: 25px;
+                    box-shadow: -1px -20px 20px #1a1a1a;
+                    border: white .1px solid;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 82px;
+                        height: 82px;
+                        border-radius: 50%;
+                        border: white 1px solid;
+                        animation: indicator 0.8s linear infinite;
+                        margin-left: 1px;
+                        margin-top: 1px;
+                        box-shadow: 1px 1px 20px #ffffff52;   
+                        filter: blur(0.8px);     
+                    }
+                }
+                img {
+                    transition: .5s all ease;
+                    position: absolute;
+                    bottom: -156px;
+                    left: -44px;
+                    opacity: .5;
+                    animation: impactAnim 1s;
+                    display: none;
+                }
+            }
         }
         .flipped{
           -webkit-transform: translate(-50%, 0) rotateY(180deg);
           transform: translate(-50%, 0) rotateY(180deg);
           .back {
-            z-index: 1;
+            z-index: 4;
           }
           .front {
             opacity: 0;
@@ -418,6 +488,10 @@ header {
 
 #Shake {
     animation: shake .5s !important;
+}
+
+#getStartedShake {
+    animation: getStartedShake .5s !important;
 }
 
 #Spinning {
@@ -522,78 +596,78 @@ header {
 // }
 
 // lever
-.lever {
-    display: none;
-    background-color: #282b28;
-    width: 142px;
-    height: 444px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: #313330 solid 0.1px;
-    border-left: 0;
-    float: right;
-    margin-top: 245px;
-    position: absolute;
-    right: 100px;
-    transition: all ease 1s;
-    .littleBase {
-        top: 149px;
-        position: absolute;
-        width: 87px;
-        height: 130px;
-        background: #2e312e;
-        border-radius: 5px;
-        left: 26px;
-        box-shadow: 1px 1px 20px #1a1a1a;
-    }
-    .batton {
-        top: -80px;
-        position: absolute;
-        width: 40px;
-        height: 275px;
-        background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
-        border-radius: 5px;
-        left: 49px;
-        box-shadow: -2px -20px 20px #1a1a1a;
-    }
-    .boule {
-        top: -110px;
-        z-index: 2;
-        position: absolute;
-        width: 87px;
-        height: 89px;
-        background: #274d3c;
-        border-radius: 46px;
-        left: 25px;
-        box-shadow: -1px -20px 20px #1a1a1a;
-        border: white .1px solid;
-        &:hover {
-            cursor: pointer;
-        }
-        &::before {
-            content: "";
-            display: block;
-            width: 82px;
-            height: 82px;
-            border-radius: 50%;
-            border: white 1px solid;
-            animation: indicator 0.8s linear infinite;
-            margin-left: 1px;
-            margin-top: 1px;
-            box-shadow: 1px 1px 20px #ffffff52;   
-            filter: blur(0.8px);     
-        }
-    }
-    img {
-        transition: .5s all ease;
-        position: absolute;
-        bottom: -156px;
-        left: -44px;
-        opacity: .5;
-        animation: impactAnim 1s;
-        display: none;
-    }
-}
+// .lever {
+//     display: none;
+//     background-color: #282b28;
+//     width: 142px;
+//     height: 444px;
+//     border-top-right-radius: 5px;
+//     border-bottom-right-radius: 5px;
+//     border: #313330 solid 0.1px;
+//     border-left: 0;
+//     float: right;
+//     margin-top: 245px;
+//     position: absolute;
+//     right: 100px;
+//     transition: all ease 1s;
+//     .littleBase {
+//         top: 149px;
+//         position: absolute;
+//         width: 87px;
+//         height: 130px;
+//         background: #2e312e;
+//         border-radius: 5px;
+//         left: 26px;
+//         box-shadow: 1px 1px 20px #1a1a1a;
+//     }
+//     .batton {
+//         top: -80px;
+//         position: absolute;
+//         width: 40px;
+//         height: 275px;
+//         background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
+//         border-radius: 5px;
+//         left: 49px;
+//         box-shadow: -2px -20px 20px #1a1a1a;
+//     }
+//     .boule {
+//         top: -110px;
+//         z-index: 2;
+//         position: absolute;
+//         width: 87px;
+//         height: 89px;
+//         background: #274d3c;
+//         border-radius: 46px;
+//         left: 25px;
+//         box-shadow: -1px -20px 20px #1a1a1a;
+//         border: white .1px solid;
+//         &:hover {
+//             cursor: pointer;
+//         }
+//         &::before {
+//             content: "";
+//             display: block;
+//             width: 82px;
+//             height: 82px;
+//             border-radius: 50%;
+//             border: white 1px solid;
+//             animation: indicator 0.8s linear infinite;
+//             margin-left: 1px;
+//             margin-top: 1px;
+//             box-shadow: 1px 1px 20px #ffffff52;   
+//             filter: blur(0.8px);     
+//         }
+//     }
+//     img {
+//         transition: .5s all ease;
+//         position: absolute;
+//         bottom: -156px;
+//         left: -44px;
+//         opacity: .5;
+//         animation: impactAnim 1s;
+//         display: none;
+//     }
+// }
 
 #clickLever1 {
     .batton {
@@ -624,6 +698,7 @@ header {
 #incliningLever1 {
     .batton {
         animation: leverBattonEnable1 .3s;
+        box-shadow: -1px 20px 20px #1a1a1a8f !important;
     }
     .boule {
         animation: leverBallEnable1 .3s;
@@ -654,10 +729,8 @@ header {
         position: absolute;
         width: 40px;
         height: 275px;
-        background: linear-gradient(184deg, #7b7b7b, #414040, transparent);
         border-radius: 5px;
         left: 49px;
-        box-shadow: -2px -20px 20px #1a1a1a;
         transform: rotate(180deg);
     }
     .boule {
@@ -666,7 +739,7 @@ header {
         position: absolute;
         width: 87px;
         height: 89px;
-        background: #23392f;
+        background: #614e15;
         border-radius: 46px;
         left: 25px;
         box-shadow: 0px -2px 20px #1a1a1a;

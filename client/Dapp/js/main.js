@@ -1,6 +1,6 @@
 import detectWallets from './connectWallets/walletsHandler.js';
 import { switchNetworks } from './connectWallets/walletsHandler.js';
-// import transactionDone from './transactionDone.js';
+import transactionDone from './transactionDone.js';
 let isAddRLTButton = false;
 let loadingState = true;
 export {loadingState};
@@ -24,7 +24,7 @@ const loading = () => {
     setTimeout(() => {
         document.querySelector('.loading img').style.opacity = "1";
         setTimeout(() => {
-            document.querySelector('.loading img').style.animation = "loadingImgLoadingFinished 1s";
+            document.querySelector('.loading img').className = "finished";
             document.querySelector('.loading').className = "finishedLoading";
             setTimeout(() => {
                 document.querySelector('.finishedLoading').className = "loading logoOnly";
@@ -34,9 +34,9 @@ const loading = () => {
                     setTimeout(() => {
                         document.querySelector('.loading').remove();
                         setTimeout(() => {
-                            document.querySelector('.card').style.opacity =  "1";
+                            document.querySelector('.getStarted').style.opacity =  "1";
                             setTimeout(() => {
-                                document.querySelector('.card').className += " flipped";       
+                                document.querySelector('.getStarted').className += " flipped";       
                                 loadingState = false;                         
                             }, 1000);
                         }, 500);
@@ -53,6 +53,7 @@ export function connectWalletHandler() {
     setTimeout(() => {
         if (!isAddRLTButton) {
             document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
+            document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
             document.querySelector('#selectWallet').style.display = 'block';
             try {
                 document.querySelector('#networkImcompatible').addEventListener('click', () => {
@@ -74,6 +75,7 @@ export function connectWalletHandler() {
 }
 export function closeWalletSelect() {
     document.querySelector('.getStarted .back').style.filter = '';
+    document.querySelector('.getStarted .lever').style.filter = '';
     document.querySelector('#selectWallet').style = '';
     if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
         document.querySelector('.metaMaskSelect').id = '';
@@ -217,15 +219,9 @@ loading();
 // document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
 // // click on CLO
 // document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
-// // WebSite Appears
-// document.addEventListener('DOMContentLoaded', () => {
-//     setTimeout(() => {
-//         document.querySelector('.getStartedContener').style.opacity = "1";
-//     }, 50);
-// })
 // // Used for testing purpose only will be removed in the future
-// setTimeout(() => {
-//     transactionDone();
-// }, 1000);
+setTimeout(() => {
+    transactionDone();
+}, 10000);
 // // Update Chain ID
 window.ethereum.on('chainChanged', switchNetworks);

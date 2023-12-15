@@ -23,7 +23,11 @@ export function leverClick() {
         }, 100);
     }, 130);
     setTimeout(() => {
-        lever[leverId].style.right = '100px';
+        if (leverId == 0) {
+            lever[id].style.left = '0';
+        } else {
+            lever[leverId].style.right = '100px';
+        }
         impact[leverId].style.opacity = '0';
         document.querySelector('.getStarted').id = "";
         setTimeout(() => {
@@ -55,9 +59,19 @@ export function leverAnim(id, mode) {
     leverId = id;
     lever[id].style.display = "block";
     leverBatton[id].style.transform = 'rotate(180deg)';
-    document.querySelector(divId).id = "Shake";
+    if (id == 0) {
+        divId = ".getStarted";
+        document.querySelector(divId).id = "getStartedShake";
+    } else {
+        divId = ".mainApp";
+        document.querySelector(divId).id = "Shake";
+    }
     setTimeout(() => {
-        lever[id].style.right = '-71px';
+        if (leverId == 0) {
+            lever[id].style.left = '-140px';
+        } else {
+            lever[id].style.right = '-71px';
+        }
         setTimeout(() => {
             lever[id].id = "incliningLever1";
             setTimeout(() => {
