@@ -176,6 +176,7 @@ let ERC20ABI = [
 export async function generate(originalSpinAmount) {
   let data = [];
   const loop = originalSpinAmount / 10;
+  console.log(loop)
   let keyCount = 0;
   let packCount = 0;
   let token;

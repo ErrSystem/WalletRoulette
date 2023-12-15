@@ -279,7 +279,7 @@ header {
         height: 100%;
         background: url(../css/imgs/appBackground.png);
         background-size: 100% 100%;
-        filter: blur(6px) brightness(0.7);
+        filter: blur(3px) brightness(0.7);
         max-height: 1630px;
         max-width: 2600px;
         transform: translate(-50%);
@@ -698,7 +698,6 @@ header {
 #incliningLever1 {
     .batton {
         animation: leverBattonEnable1 .3s;
-        box-shadow: -1px 20px 20px #1a1a1a8f !important;
     }
     .boule {
         animation: leverBallEnable1 .3s;
@@ -1353,6 +1352,7 @@ header {
     button:hover {
         box-shadow: 0 0 5px #afafaf;
         transition: all ease .2s;
+        cursor: pointer;
     }
     .close {
         z-index: 2;

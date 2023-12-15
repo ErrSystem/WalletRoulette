@@ -45,6 +45,34 @@
                 </div>
                 <img src="css/imgs/arrowDown.png" class="arrowDownMobile">
             </div>
+            <div class="mainAppContener" id="notLoadedApp">
+                <div class="lever" id="inclinedLever">
+                    <div class="littleBase"></div>
+                    <div class="batton"></div>
+                    <div class="boule"></div>
+                    <img src="css/imgs/impact.png">
+                </div>
+                <div class="mainApp">
+                    <img src="css/imgs/RLTs.png" class="RltsTickets">
+                    <p class="RltsTicketsCounter">0</p>
+                    <h2>Wallet Roulette</h2>
+                    <p class="boldFamily PrivateKey">+ Private Key:</p>
+                    <p class=""></p>
+                    <p class="boldFamily WalletKey">+ Wallet Adress:</p>
+                    <p class="balance boldFamily">+ Balance (0 USD):</p>
+                    <ul class="mainChainContener"></ul>
+                    <h3 id="spinPopUp">NaN</h3>
+                    <p id="spinPopUpSub">NaN</p>
+                    <p class="mobileContinue">Continue Spinning!</p>
+                </div>
+                <div class="results">
+                    <h2>Wallet Roulette</h2>
+                    <a href="./" class="getBack">Go Back!</a>
+                    <input type="checkbox">
+                    <p>Only Show Non-Empty Wallets</p>
+                    <ul></ul>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -113,7 +141,7 @@
         <img src="css/imgs/RouletteBackgorund.png" class="imgBackground">
         <p class="boldFamily errorMsg">Error Message</p>
     </div>
-    <!-- <div id="spinSection"> 
+    <div id="spinSection"> 
         <div class="explaination">
             <h3>Spin Options</h3>
             <p>Choose the amount of RLTs you want to convert into spins and read carefully the warnings!<br><br><span style="color: crimson; font-weight: bold;">Note: 1 RLT = 1 Spin!</span></p>
@@ -171,34 +199,6 @@
             <button class="twoHundredRLT">250 RLT > 15$ <span>(NaN CLO)</span></button>
         </div>
     </div>
-    <div class="mainAppContener" id="notLoadedApp">
-        <div class="lever" id="inclinedLever">
-            <div class="littleBase"></div>
-            <div class="batton"></div>
-            <div class="boule"></div>
-            <img src="css/imgs/impact.png">
-        </div>
-        <div class="mainApp">
-            <img src="css/imgs/RLTs.png" class="RltsTickets">
-            <p class="RltsTicketsCounter">0</p>
-            <h2>Wallet Roulette</h2>
-            <p class="boldFamily PrivateKey">+ Private Key:</p>
-            <p class=""></p>
-            <p class="boldFamily WalletKey">+ Wallet Adress:</p>
-            <p class="balance boldFamily">+ Balance (0 USD):</p>
-            <ul class="mainChainContener"></ul>
-            <h3 id="spinPopUp">NaN</h3>
-            <p id="spinPopUpSub">NaN</p>
-            <p class="mobileContinue">Continue Spinning!</p>
-        </div>
-        <div class="results">
-            <h2>Wallet Roulette</h2>
-            <a href="./" class="getBack">Go Back!</a>
-            <input type="checkbox">
-            <p>Only Show Non-Empty Wallets</p>
-            <ul></ul>
-        </div>
-    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="js/main.js"></script>

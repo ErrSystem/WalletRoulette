@@ -22,15 +22,15 @@ export function showSpinParameters(leverID) {
     document.querySelector('#spinSection').style.display = "block";
     setTimeout(() => {
         document.querySelector('#spinSection').style.opacity = "1";    
-        document.querySelector('.getStartedContener').style.filter = "blur(15px)";
-        document.querySelector('.mainAppContener').style.filter = "blur(15px)";
+        document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
+        document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
     }, 300);
     document.querySelector('#spinSection .close').addEventListener('click', closeSpinOptions);
 }
 
 const closeSpinOptions = () => {
-    document.querySelector('.getStartedContener').style.filter = '';
-    document.querySelector('.mainAppContener').style.filter = "";
+    document.querySelector('.getStarted .back').style.filter = '';
+        document.querySelector('.getStarted .lever').style.filter = '';
     document.querySelector('#spinSection').style = '';
     if (lever == 0) {
         enableFunction(0);
@@ -68,7 +68,7 @@ const spinButton = async () => {
             // start spinning after 1s so it has time to load
             setTimeout(() => {
                 document.querySelector('#spinSection').style.opacity = "0";
-                document.querySelector('.getStartedContener').style = "";
+                document.querySelector('.getStarted').style = "";
                 document.querySelector('.mainAppContener').style = "";
                 setTimeout(() => {
                     document.querySelector('#spinSection').style.display = "none";
@@ -154,7 +154,7 @@ const spinAnim = lever => {
     }
     let start;
     if (lever == 0) {
-        start = document.querySelector('.getStartedContener');
+        start = document.querySelector('.getStarted');
     } else {
         start = document.querySelector('.mainAppContener');
     }

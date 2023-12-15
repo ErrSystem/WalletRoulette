@@ -11,7 +11,7 @@ export function leverClick() {
     // remove event listener
     removeLeverListener();
     // Adds loading effect to main app
-    document.querySelector('.mainChainContener').style.opacity = "0";
+    // document.querySelector('.mainChainContener').style.opacity = "0";
     // animation for the lever
     lever[leverId].id = "clickLever1";
     setTimeout(() => {
@@ -24,7 +24,7 @@ export function leverClick() {
     }, 130);
     setTimeout(() => {
         if (leverId == 0) {
-            lever[id].style.left = '0';
+            lever[leverId].style.left = '0';
         } else {
             lever[leverId].style.right = '100px';
         }

@@ -1,6 +1,7 @@
 import {wallet} from './connectWallets/walletsHandler.js';
 import { leverAnim } from './slotMachine/lever.js';
-import { isMobile, RLT} from './main.js';
+import { isMobile, RLT } from './main.js';
+import { showSpinParameters } from './slotMachine/spin.js';
 let alreadyRunning = false;
 let alreadyRunned = false;
 let touchStart;
@@ -16,6 +17,7 @@ export default function transactionDone(mode) {
                 leverAnim(0);
             } else {
                 document.querySelector('.getStarted .back').style.filter = "brightness(0.3)";
+                document.querySelector('.getStarted .back').style.overflow = "hidden";
                 arrowDownMobile.style.display = "block";
                 setTimeout(() => {
                     arrowDownMobile.style.opacity = "1";
@@ -65,6 +67,7 @@ const touchDetector = event => {
     if (direction == 'down') {
         arrowDownMobile.style.opacity = "0";
         document.querySelector('.getStarted .back').style.filter = "";
+        document.querySelector('.getStarted .back').style.overflow = "";
         setTimeout(() => {
             arrowDownMobile.style.display = "none";
             showSpinParameters(id);

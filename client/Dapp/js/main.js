@@ -100,22 +100,24 @@ const openRLTPayments = () => {
     isAddRLTButton = true;
     buyRLTSection.style.display = 'block';
     setTimeout(() => {
-        document.querySelector('.getStartedContener').style.filter = 'blur(15px)';
+        document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
+        document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
         buyRLTSection.style.opacity = '1';
         isAddRLTButton = false;
     }, 300);
 }
 const closeRLTPayments = () => {
-    document.querySelector('.getStartedContener').style.filter = '';
+    document.querySelector('.getStarted .back').style.filter = '';
+    document.querySelector('.getStarted .lever').style.filter = '';
     buyRLTSection.style.opacity = '0';
     setTimeout(() => {
         buyRLTSection.style.display = 'none';
     }, 300);
 }
-// // Open payment section
-// document.querySelector('.getStarted .connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
-// // Close payment section
-// document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
+// Open payment section
+document.querySelector('.connectWalletButton .addBtn').addEventListener('click', openRLTPayments);
+// Close payment section
+document.querySelector('#paymentSection .close').addEventListener('click', closeRLTPayments);
 
 // Buy Rlts with BNB 
 const rltBNBbtn = () => {
@@ -213,15 +215,15 @@ export function isMobile() {
 
 // Loading
 loading();
-// // Update RLTs price
-// document.addEventListener('DOMContentLoaded', getPrices);
-// // click on BNB
-// document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
-// // click on CLO
-// document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
-// // Used for testing purpose only will be removed in the future
+// Update RLTs price
+document.addEventListener('DOMContentLoaded', getPrices);
+// click on BNB
+document.querySelector('.selectMethods .BNB').addEventListener('click', rltBNBbtn);
+// click on CLO
+document.querySelector('.selectMethods .CLO').addEventListener('click', rltCLObtn);
+// Used for testing purpose only will be removed in the future
 setTimeout(() => {
     transactionDone();
 }, 10000);
-// // Update Chain ID
+// Update Chain ID
 window.ethereum.on('chainChanged', switchNetworks);
