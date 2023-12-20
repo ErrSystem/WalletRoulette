@@ -1,7 +1,6 @@
 import { enableFunction } from '../transactionDone.js';
-import { state, wallets, amount, emptyWalletsStorage, updateMainApp } from './generator.js';
+import { generate, state, wallets, amount, emptyWalletsStorage, updateMainApp, isTheKeyReady } from './generator.js';
 import transactionDone from '../transactionDone.js';
-import { generate } from './generator.js';
 import { isMobile, RLT } from '../main.js';
 
 let spinAmount;
@@ -57,33 +56,47 @@ const spinButton = async () => {
             originalSpinAmount = spinAmount;
             // launch the generation of the private key
             generate(originalSpinAmount);
-            if (lever == 1) {
-                document.querySelector('.mainAppContener .mainApp').style.display = 'block';
-                document.querySelector('.mainAppContener .results').style.opacity = '0';
-                setTimeout(() => {
-                    document.querySelector('.mainAppContener .results').style.display = 'none';
-                    document.querySelector('.mainAppContener .results ul').innerHTML = "";
-                }, 300);
-            }
-            // start spinning after 1s so it has time to load
-            setTimeout(() => {
-                document.querySelector('#spinSection').style.opacity = "0";
-                document.querySelector('.getStarted').style = "";
-                document.querySelector('.mainAppContener').style = "";
-                setTimeout(() => {
-                    document.querySelector('#spinSection').style.display = "none";
-                }, 300);
-                setTimeout(() => {
-                    document.querySelector('.mainAppContener .mainApp').style.opacity = '1';
-                    spinAnim(lever);
+            const animation = () => {
+                if (lever == 1) {
+                    document.querySelector('.mainAppContener .mainApp').style.display = 'block';
+                    document.querySelector('.mainAppContener .results').style.opacity = '0';
                     setTimeout(() => {
-                        saveBtn.style = '';
-                        saveBtn.innerHTML = saveInnerBtn;
-                        saveInnerBtn = "";
-                        saveBtn = "";
-                    }, 1000);
-                }, 500);
-            }, 2500);
+                        document.querySelector('.mainAppContener .results').style.display = 'none';
+                        document.querySelector('.mainAppContener .results ul').innerHTML = "";
+                    }, 300);
+                }
+                // start spinning after 1s so it has time to load
+                setTimeout(() => {
+                    document.querySelector('#spinSection').style.opacity = "0";
+                    document.querySelector('.getStarted').style = "";
+                    document.querySelector('.mainAppContener').style = "";
+                    setTimeout(() => {
+                        document.querySelector('#spinSection').style.display = "none";
+                    }, 300);
+                    setTimeout(() => {
+                        document.querySelector('.mainAppContener .mainApp').style.opacity = '1';
+                        spinAnim(lever);
+                        setTimeout(() => {
+                            saveBtn.style = '';
+                            saveBtn.innerHTML = saveInnerBtn;
+                            saveInnerBtn = "";
+                            saveBtn = "";
+                        }, 1000);
+                    }, 500);
+                }, 2500);
+            }
+            setTimeout(() => {
+                let keyDetectionInterval = setInterval(() => {
+                    try {
+                        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+                            clearInterval(keyDetectionInterval);
+                            animation();
+                        }
+                    } catch (err) {
+                        console.warn("Error occured, retrying.. : "+err.message)
+                    }
+                }, 50);
+            }, 2000);
         } else {
             alert('Failed!');
         }
@@ -251,35 +264,47 @@ const spinAnim = lever => {
 // When each spin is finished
 const spinFinished = () => {
     if (spinAmount > 0 && !state && spinAmount < 101) {
-        // to speedup animation
-        let timeOut;
-        if (isMobile()) {
-            timeOut = 3000;
-        } else {
-            timeOut = 2000;
-        }
-        if (spinAmount < originalSpinAmount / 1.5) {
-            timeOut -= 500;
-            if (spinAmount < originalSpinAmount / 2) {
-                timeOut -= 500;
+        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+            // to speedup animation
+            let timeOut;
+            if (isMobile()) {
+                timeOut = 3000;
+            } else {
+                timeOut = 2000;
             }
-        }
-        // to continue the process
-        if (isMobile()) {
-            setTimeout(() => {
-                document.querySelector('.mainAppContener').style.marginTop = "1500px";
+            if (spinAmount < originalSpinAmount / 1.5) {
+                timeOut -= 500;
+                if (spinAmount < originalSpinAmount / 2) {
+                    timeOut -= 500;
+                }
+            }
+            // to continue the process
+            if (isMobile()) {
+                setTimeout(() => {
+                    document.querySelector('.mainAppContener').style.marginTop = "1500px";
+                    setTimeout(() => {
+                        spinAnim(1);
+                    }, 1000);
+                }, timeOut);    
+            } else {
                 setTimeout(() => {
                     spinAnim(1);
-                }, 1000);
-            }, timeOut);    
+                }, timeOut);
+            }
         } else {
             setTimeout(() => {
-                spinAnim(1);
-            }, timeOut);
+                spinFinished();
+            }, 10);
         }
     } else if (state && spinAmount > 0 && spinAmount < 101) {
-        enableFunction();
-        transactionDone("Continue");
+        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+            enableFunction();
+            transactionDone("Continue");
+        } else {
+            setTimeout(() => {
+                spinFinished();
+            }, 10);
+        }
     } else if (spinAmount == 0) {
         setTimeout(() => {
             showResults();

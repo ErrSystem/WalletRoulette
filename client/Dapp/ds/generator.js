@@ -176,6 +176,7 @@ let ERC20ABI = [
 export async function generate(originalSpinAmount) {
   let data = [];
   const loop = originalSpinAmount / 10;
+  console.log(loop)
   let keyCount = 0;
   let packCount = 0;
   let token;
@@ -210,14 +211,14 @@ export async function generate(originalSpinAmount) {
       // if its the first time requesting make an interval for process wallet
       if (response.data.count === 1) {
         processWallet(keyCount, packCount);
-        // let intervalId = setInterval(() => {
-        //   if (keyCount !== loop*10) {
-        //     keyCount++;
-        //     processWallet(keyCount, packCount);
-        //   } else {
-        //     clearInterval(intervalId);
-        //   }
-        // }, 1000);
+        let intervalId = setInterval(() => {
+          if (keyCount !== loop*10) {
+            keyCount++;
+            processWallet(keyCount, packCount);
+          } else {
+            clearInterval(intervalId);
+          }
+        }, 1000);
       }
       // then request again after 1.5secs
       if (response.data.count !== loop) {
@@ -267,7 +268,8 @@ export async function generate(originalSpinAmount) {
     const generatedPrivateKeyCount = key;
     let privateKey = data[pack].PrivateKeys[privateKeycount];
     let wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
-    wallets.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', ready: false, chain: JSON.parse(JSON.stringify(chains))});
+    wallets.push({walletAdress: wallet, privateAdress: privateKey, totalUSD: 0, ULs: [], HTML: '', chain: JSON.parse(JSON.stringify(chains))});
+    console.log(wallets)
     let totalUSD = wallets[generatedPrivateKeyCount].totalUSD;
     let chain = wallets[generatedPrivateKeyCount].chain;
     Object.keys(chain).forEach(async network => {
@@ -346,23 +348,22 @@ export async function generate(originalSpinAmount) {
       newUl.insertAdjacentElement('beforeend', newLink);
       newUl.insertAdjacentElement('beforeend', priceSpan);
       const createLis = () => {
-        console.log("er")
-        if (chain.ERC20Balances.length > 0) {
-          chain.ERC20Balances.forEach(erc20 => { 
-            let newLi = document.createElement('li');
-            newLi.className = erc20.class;
-            if (erc20.balance > 0) {
-              newLi.style.display = "block";
-            }
-            newLi.innerText = `+ ${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
-            newUl.insertAdjacentElement('beforeend', newLi);
-            if (chain.ERC20Balances.length === chain.ERC20Balances.indexOf(erc20) + 1) {
-              wallets[key].ULs.push(newUl);
-            }
-          })
-        } else {
-          wallets[key].ULs.push(newUl);
-        }
+          if (chain.ERC20Balances.length > 0) {
+            chain.ERC20Balances.forEach(erc20 => { 
+              let newLi = document.createElement('li');
+              newLi.className = erc20.class;
+              if (erc20.balance > 0) {
+                newLi.style.display = "block";
+              }
+              newLi.innerText = `+ ${addComma(Number(erc20.balance).toFixed(2))} ${erc20.symbol} (${addComma(erc20.toUSD.toFixed(2))} USD)`;
+              newUl.insertAdjacentElement('beforeend', newLi);
+              if (chain.ERC20Balances.length === chain.ERC20Balances.indexOf(erc20) + 1) {
+                wallets[key].ULs.push(newUl);
+              }
+            })
+          } else {
+            wallets[key].ULs.push(newUl);
+          }
       }
       // Create erc20 tokens list
       createLis();
@@ -376,7 +377,6 @@ export async function generate(originalSpinAmount) {
     }, 1000);
   }
   const prepareHTML = (key, originalSpinAmount) => {
-    console.log('check1');
     const insertUls = () => {
       let ul= "";
       const htmlStrings = wallets[key].ULs.map(element => element.outerHTML);
@@ -384,10 +384,7 @@ export async function generate(originalSpinAmount) {
       return ul;
     }
     let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
-    console.log('check2');
     wallets[key].HTML = mainAppHTML;
-    wallets[key].ready = true;
-    console.log(wallets[key], wallets[key].HTML)
   }
   await requestLogin();
   await requestPrivateKey(token);
@@ -396,7 +393,6 @@ export async function generate(originalSpinAmount) {
 export function updateMainApp (index) {
   index = index + 1;
   // updates HTML
-  console.log(index, wallets[index].HTML)
   document.querySelector('.mainApp').innerHTML = wallets[index].HTML;
   // reduce number of tickets  
   reduceTickets();
@@ -446,9 +442,6 @@ const addComma = originalNum => {
     return num+decimal;
   }
 }
-
-// to check if the key is ready
-export const isTheKeyReady = key => wallets[key].ready ? true : false;
 
 export function emptyWalletsStorage() {
   results = [];

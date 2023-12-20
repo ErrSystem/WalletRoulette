@@ -70,7 +70,7 @@ let RPCs = {
     'https://1rpc.io/gnosis',
   ],
   "EthereumClassic": [
-    'https://geth-de.etc-network.info', 
+    'https://rpc.etcinscribe.com', 
     'https://etc.etcdesktop.com', 
     'https://rpc.etcinscribe.com', 
     'https://etc.rivet.link'
