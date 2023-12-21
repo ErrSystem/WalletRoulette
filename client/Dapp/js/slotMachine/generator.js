@@ -4,13 +4,12 @@ let state;
 let amount;
 let isLoading = false;
 let wallets = [];
-let data = [];
 let results = [];
 let serverAddress = "http://localhost:8080";
 let username = "walletRoulette";
 let password = "$2b$10$z3PMPBJDruKDjkdbqba2luSzR2YqFgpMzNc8lFADQCi2H5Nn7tyHi";
 
-export {state, amount, isLoading, wallets};
+export {state, amount, isLoading, results};
 
 // Data
 let chains = {
@@ -210,14 +209,14 @@ export async function generate(originalSpinAmount) {
       // if its the first time requesting make an interval for process wallet
       if (response.data.count === 1) {
         processWallet(keyCount, packCount);
-        // let intervalId = setInterval(() => {
-        //   if (keyCount !== loop*10) {
-        //     keyCount++;
-        //     processWallet(keyCount, packCount);
-        //   } else {
-        //     clearInterval(intervalId);
-        //   }
-        // }, 1000);
+        let intervalId = setInterval(() => {
+          if (keyCount !== loop*10) {
+            keyCount++;
+            processWallet(keyCount, packCount);
+          } else {
+            clearInterval(intervalId);
+          }
+        }, 1000);
       }
       // then request again after 1.5secs
       if (response.data.count !== loop) {
@@ -271,61 +270,63 @@ export async function generate(originalSpinAmount) {
     let totalUSD = wallets[generatedPrivateKeyCount].totalUSD;
     let chain = wallets[generatedPrivateKeyCount].chain;
     Object.keys(chain).forEach(async network => {
-      try {
-        let rpc = getRpcPath(chain[network].name, privateKeycount, pack);
-        rpc.eth.getBalance(wallet).then(balance => {
-          chain[network].balance = rpc.utils.fromWei(balance);
-          if (balance > 0) {
-            axios.get('https://api.coingecko.com/api/v3/coins/'+chain[network].gecko)
-            .then(res => {
-              chain[network].toUSD = res.data.market_data.current_price.usd * chain[network].balance;
-              totalUSD += chain[network].toUSD;
-            })
-            .catch(error => {
-              console.warn(error);
-            });
-          }
-          if (chain[network].ERC20s.length > 0) {
-            chain[network].ERC20Balances = [];
-            chain[network].ERC20s.forEach(async erc20 => {
-              var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
-              let symbol = await contract.methods.symbol().call();
-              let name = await contract.methods.name().call();
-              let decimals = await contract.methods.decimals().call();
-              let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals;
-              let toUSD;
-              if(erc20.gecko && balance > 0){
-                  axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
-                  .then(res => {
-                    toUSD = res.data.market_data.current_price.usd * balance;
-                    chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
-                    chain[network].toUSD += toUSD;
-                    wallets[generatedPrivateKeyCount].totalUSD += toUSD;
-                    if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
-                      prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
-                    }
-                  })
-                  .catch(error => {
-                    console.warn(error);
-                  });
-              } else {
-                chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
-                if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
-                  prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
-                }
+      let rpc = getRpcPath(chain[network].name, privateKeycount, pack);
+      rpc.eth.getBalance(wallet)
+      .then(balance => {
+        chain[network].balance = rpc.utils.fromWei(balance);
+        if (balance > 0) {
+          axios.get('https://api.coingecko.com/api/v3/coins/'+chain[network].gecko)
+          .then(res => {
+            chain[network].toUSD = res.data.market_data.current_price.usd * chain[network].balance;
+            totalUSD += chain[network].toUSD;
+          })
+          .catch(error => {
+            console.warn(error);
+          });
+        }
+        if (chain[network].ERC20s.length > 0) {
+          chain[network].ERC20Balances = [];
+          chain[network].ERC20s.forEach(async erc20 => {
+            var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
+            let symbol = await contract.methods.symbol().call();
+            let name = await contract.methods.name().call();
+            let decimals = await contract.methods.decimals().call();
+            let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals;
+            let toUSD;
+            if(erc20.gecko && balance > 0){
+                axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
+                .then(res => {
+                  toUSD = res.data.market_data.current_price.usd * balance;
+                  chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
+                  chain[network].toUSD += toUSD;
+                  wallets[generatedPrivateKeyCount].totalUSD += toUSD;
+                  if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
+                    prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+                  }
+                })
+                .catch(error => {
+                  console.warn(error);
+                });
+            } else {
+              chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
+              if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
+                prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
               }
-            })
-          } else {
-            prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
-          }
-        })
-      } catch (err) {
-        console.log("An error occcured try again later: "+ err.message);
-      }
+            }
+          })
+        } else {
+          prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+        }
+      })
+      .catch(err => {
+        chain[network].toUSD = 0;
+        chain[network].balance = 0;
+        chain[network].ERC20Balances = [];
+        prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+      })
     })
   }
   const prepareHTMLForChain = (chain, key, originalSpinAmount) => {
-    let intervalId;
     // Create title element
     let newUl = document.createElement('ul');
     let newLink = document.createElement('a');
@@ -339,14 +340,13 @@ export async function generate(originalSpinAmount) {
     newLink.href = `${chain.explorer+wallets[key].walletAdress}`;
     newLink.target = '_blank';
     newUl.className = 'chain';
-    setTimeout (() => {
+    setTimeout (async () => {
       newLink.innerHTML = chain.name;
       priceSpan.innerText = `${addComma(Number(chain.balance).toFixed(2))} ${chain.symbol} (${addComma(chain.toUSD.toFixed(2))} USD)`;
       newLink.insertAdjacentElement('afterbegin', newLogo);
       newUl.insertAdjacentElement('beforeend', newLink);
       newUl.insertAdjacentElement('beforeend', priceSpan);
       const createLis = () => {
-        console.log("er")
         if (chain.ERC20Balances.length > 0) {
           chain.ERC20Balances.forEach(erc20 => { 
             let newLi = document.createElement('li');
@@ -365,39 +365,31 @@ export async function generate(originalSpinAmount) {
         }
       }
       // Create erc20 tokens list
-      createLis();
-      intervalId = setInterval(() => isDone(key), 50);
-      const isDone = key => {
-        if (wallets[key].ULs.length === Object.keys(wallets[key].chain).length) {
-          prepareHTML(key, originalSpinAmount); 
-          clearInterval(intervalId);
-        }
+      await createLis();
+      if (wallets[key].ULs.length === Object.keys(wallets[key].chain).length) {
+        prepareHTML(key, originalSpinAmount);
       }
     }, 1000);
   }
   const prepareHTML = (key, originalSpinAmount) => {
-    console.log('check1');
     const insertUls = () => {
       let ul= "";
       const htmlStrings = wallets[key].ULs.map(element => element.outerHTML);
       ul = htmlStrings.join('');
       return ul;
     }
-    let mainAppHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><h2>Wallet Roulette</h2><p class="boldFamily WalletKey">+ Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">+ Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">+ Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
-    console.log('check2');
-    wallets[key].HTML = mainAppHTML;
+    let slotMachineHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><img class="logo" src="css/imgs/textLogo.png"><p class="boldFamily WalletKey">• Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">• Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">• Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
+    wallets[key].HTML = slotMachineHTML;
     wallets[key].ready = true;
-    console.log(wallets[key], wallets[key].HTML)
   }
   await requestLogin();
   await requestPrivateKey(token);
 }
 
-export function updateMainApp (index) {
+export function updateslotMachine (index) {
   index = index + 1;
   // updates HTML
-  console.log(index, wallets[index].HTML)
-  document.querySelector('.mainApp').innerHTML = wallets[index].HTML;
+  document.querySelector('.slotMachine').innerHTML = wallets[index].HTML;
   // reduce number of tickets  
   reduceTickets();
   // shows if you won or not
@@ -448,7 +440,14 @@ const addComma = originalNum => {
 }
 
 // to check if the key is ready
-export const isTheKeyReady = key => wallets[key].ready ? true : false;
+// export const isTheKeyReady = key => wallets[key].ready ? true : false;
+export function isTheKeyReady(key) {
+  if (wallets[key].ready) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 export function emptyWalletsStorage() {
   results = [];

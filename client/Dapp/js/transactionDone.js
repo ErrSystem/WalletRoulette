@@ -30,16 +30,16 @@ export default function transactionDone(mode) {
             if (!isMobile()) {
                 leverAnim(1, mode);
             } else {
-                document.querySelector('.mainAppContener .mainApp .mobileContinue').style.display = "block";
+                document.querySelector('.slotMachineContener .slotMachine .mobileContinue').style.display = "block";
                 setTimeout(() => {
-                    document.querySelector('.mainAppContener .mainApp .mobileContinue').addEventListener('click', continueSpin);
-                    document.querySelector('.mainAppContener .mainApp .mobileContinue').style.opacity = "1"; 
+                    document.querySelector('.slotMachineContener .slotMachine .mobileContinue').addEventListener('click', continueSpin);
+                    document.querySelector('.slotMachineContener .slotMachine .mobileContinue').style.opacity = "1"; 
                 }, 300); 
                 const continueSpin = () => {
-                    document.querySelector('.mainAppContener .mainApp .mobileContinue').removeEventListener('click', continueSpin);
-                    document.querySelector('.mainAppContener .mainApp .mobileContinue').style.opacity = "0";
+                    document.querySelector('.slotMachineContener .slotMachine .mobileContinue').removeEventListener('click', continueSpin);
+                    document.querySelector('.slotMachineContener .slotMachine .mobileContinue').style.opacity = "0";
                     setTimeout(() => {
-                        document.querySelector('.mainAppContener .mainApp .mobileContinue').style.display = "none";
+                        document.querySelector('.slotMachineContener .slotMachine .mobileContinue').style.display = "none";
                     }, 300); 
                 }
             }

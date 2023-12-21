@@ -11,7 +11,7 @@ export function leverClick() {
     // remove event listener
     removeLeverListener();
     // Adds loading effect to main app
-    // document.querySelector('.mainChainContener').style.opacity = "0";
+    document.querySelector('.mainChainContener').style.opacity = "0";
     // animation for the lever
     lever[leverId].id = "clickLever1";
     setTimeout(() => {
@@ -54,7 +54,7 @@ export function leverAnim(id, mode) {
     if (id == 0) {
         divId = ".getStarted";
     } else {
-        divId = ".mainApp";
+        divId = ".slotMachine";
     }
     leverId = id;
     lever[id].style.display = "block";
@@ -63,14 +63,14 @@ export function leverAnim(id, mode) {
         divId = ".getStarted";
         document.querySelector(divId).id = "getStartedShake";
     } else {
-        divId = ".mainApp";
+        divId = ".slotMachine";
         document.querySelector(divId).id = "Shake";
     }
     setTimeout(() => {
         if (leverId == 0) {
             lever[id].style.left = '-140px';
         } else {
-            lever[id].style.right = '-71px';
+            lever[id].style.right = '-141px';
         }
         setTimeout(() => {
             lever[id].id = "incliningLever1";

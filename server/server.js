@@ -70,10 +70,10 @@ let RPCs = {
     'https://1rpc.io/gnosis',
   ],
   "EthereumClassic": [
-    'https://rpc.etcinscribe.com', 
+    'https://etc.rivet.link', 
     'https://etc.etcdesktop.com', 
-    'https://rpc.etcinscribe.com', 
-    'https://etc.rivet.link'
+    'https://etc.rivet.link', 
+    'https://etc.etcdesktop.com'
   ],
   "Avalanche": [
     'https://1rpc.io/avax/c', 
@@ -84,7 +84,7 @@ let RPCs = {
   "BinanceSmartChain": [
     'https://binance.llamarpc.com', 
     'https://bsc.publicnode.com', 
-    'https://bsc.rpc.blxrbdn.com', 
+    'https://binance.llamarpc.com', 
     'https://bsc.meowrpc.com',
     // https://bsc-dataseed.binance.org/
   ],

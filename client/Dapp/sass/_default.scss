@@ -57,6 +57,7 @@ h2 {
 // scroll bar
 
 ::-webkit-scrollbar {
+    display: none;
     width: 6px;
     background: transparent;
     cursor: pointer !important;

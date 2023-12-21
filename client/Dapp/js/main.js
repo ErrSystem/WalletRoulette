@@ -54,6 +54,7 @@ export function connectWalletHandler() {
         if (!isAddRLTButton) {
             document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
             document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
+            document.querySelector('.results').style.filter = 'blur(4px)';
             document.querySelector('#selectWallet').style.display = 'block';
             try {
                 document.querySelector('#networkImcompatible').addEventListener('click', () => {
@@ -76,16 +77,20 @@ export function connectWalletHandler() {
 export function closeWalletSelect() {
     document.querySelector('.getStarted .back').style.filter = '';
     document.querySelector('.getStarted .lever').style.filter = '';
-    document.querySelector('#selectWallet').style = '';
-    if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
-        document.querySelector('.metaMaskSelect').id = '';
-    }
-    // Make the networks non-visibles
-    document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
-    document.querySelector('#selectWallet .connectNetworks').style.opacity = "0";
-    document.querySelector('#selectWallet .connectNetworks').style.display = "none";
-    document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
-    document.querySelector('#selectWallet .connectWallets').style.display = 'block';
+    document.querySelector('.results').style.filter = '';
+    document.querySelector('#selectWallet').style.opacity = '0';
+    setTimeout(() => {
+        document.querySelector('#selectWallet').style = '';
+        if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
+            document.querySelector('.metaMaskSelect').id = '';
+        }
+        // Make the networks non-visibles
+        document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
+        document.querySelector('#selectWallet .connectNetworks').style.opacity = "0";
+        document.querySelector('#selectWallet .connectNetworks').style.display = "none";
+        document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
+        document.querySelector('#selectWallet .connectWallets').style.display = 'block';
+    }, 500);
 }
 // Connect Wallet Button Click
 connectWalletBtn.addEventListener('click', () => connectWalletHandler());

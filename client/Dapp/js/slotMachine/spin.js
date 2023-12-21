@@ -1,5 +1,5 @@
 import { enableFunction } from '../transactionDone.js';
-import { generate, state, wallets, amount, emptyWalletsStorage, updateMainApp, isTheKeyReady } from './generator.js';
+import { generate, state, results, amount, emptyWalletsStorage, updateslotMachine, isTheKeyReady } from './generator.js';
 import transactionDone from '../transactionDone.js';
 import { isMobile, RLT } from '../main.js';
 
@@ -23,13 +23,15 @@ export function showSpinParameters(leverID) {
         document.querySelector('#spinSection').style.opacity = "1";    
         document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
         document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
+        document.querySelector('.results').style.filter = 'blur(4px)';
     }, 300);
     document.querySelector('#spinSection .close').addEventListener('click', closeSpinOptions);
 }
 
 const closeSpinOptions = () => {
     document.querySelector('.getStarted .back').style.filter = '';
-        document.querySelector('.getStarted .lever').style.filter = '';
+    document.querySelector('.getStarted .lever').style.filter = '';
+    document.querySelector('.results').style.filter = '';
     document.querySelector('#spinSection').style = '';
     if (lever == 0) {
         enableFunction(0);
@@ -58,23 +60,24 @@ const spinButton = async () => {
             generate(originalSpinAmount);
             const animation = () => {
                 if (lever == 1) {
-                    document.querySelector('.mainAppContener .mainApp').style.display = 'block';
-                    document.querySelector('.mainAppContener .results').style.opacity = '0';
+                    document.querySelector('.slotMachineContener .slotMachine').style.display = 'block';
+                    document.querySelector('.slotMachineContener .results').style.opacity = '0';
                     setTimeout(() => {
-                        document.querySelector('.mainAppContener .results').style.display = 'none';
-                        document.querySelector('.mainAppContener .results ul').innerHTML = "";
+                        document.querySelector('.slotMachineContener .results').style.display = 'none';
+                        document.querySelector('.slotMachineContener .results ul').innerHTML = "";
                     }, 300);
                 }
                 // start spinning after 1s so it has time to load
                 setTimeout(() => {
                     document.querySelector('#spinSection').style.opacity = "0";
                     document.querySelector('.getStarted').style = "";
-                    document.querySelector('.mainAppContener').style = "";
+                    document.querySelector('.slotMachineContener').style = "";
                     setTimeout(() => {
                         document.querySelector('#spinSection').style.display = "none";
+                        document.querySelector('.results').style.filter = '';
                     }, 300);
                     setTimeout(() => {
-                        document.querySelector('.mainAppContener .mainApp').style.opacity = '1';
+                        document.querySelector('.slotMachineContener .slotMachine').style.opacity = '1';
                         spinAnim(lever);
                         setTimeout(() => {
                             saveBtn.style = '';
@@ -83,20 +86,20 @@ const spinButton = async () => {
                             saveBtn = "";
                         }, 1000);
                     }, 500);
-                }, 2500);
+                }, 500);
             }
             setTimeout(() => {
                 let keyDetectionInterval = setInterval(() => {
                     try {
-                        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+                        if (isTheKeyReady(originalSpinAmount - spinAmount)) {
                             clearInterval(keyDetectionInterval);
                             animation();
                         }
                     } catch (err) {
-                        console.warn("Error occured, retrying.. : "+err.message)
+                        console.warn("An error occured, retrying...")
                     }
                 }, 50);
-            }, 2000);
+            }, 1000);
         } else {
             alert('Failed!');
         }
@@ -136,19 +139,23 @@ const askContract = async() => {
 }
 
 function updateTickets () {
-    const counter = document.querySelector('.RltsTicketsCounter');
-    if (spinAmount > 9) {
-        if (!isMobile()) {
-            counter.style.right = "71px"; 
+    try {
+        const counter = document.querySelector('.RltsTicketsCounter');
+        if (spinAmount > 9) {
+            if (!isMobile()) {
+                counter.style.right = "71px"; 
+            } else {
+                counter.style.right = "2px"; 
+            }
         } else {
-            counter.style.right = "2px"; 
+            if (!isMobile()) {
+                counter.style.right = "75px"; 
+            } else {
+                counter.style.right = "8px"; 
+            }
         }
-    } else {
-        if (!isMobile()) {
-            counter.style.right = "75px"; 
-        } else {
-            counter.style.right = "8px"; 
-        }
+    } catch {
+        // dont do anything
     }
 }
 
@@ -169,34 +176,34 @@ const spinAnim = lever => {
     if (lever == 0) {
         start = document.querySelector('.getStarted');
     } else {
-        start = document.querySelector('.mainAppContener');
+        start = document.querySelector('.slotMachineContener');
     }
-    const mainAppContener = document.querySelector('.mainAppContener');
-    const mainApp = document.querySelector('.mainAppContener .mainApp');
+    const slotMachineContener = document.querySelector('.slotMachineContener');
+    const slotMachine = document.querySelector('.slotMachineContener .slotMachine');
     document.querySelector('body').style.overflow = 'hidden';
     if (!isMobile()) {
         start.id = "Spinning";
     }
     setTimeout(() => {
         start.style.display = "none"; 
-        mainAppContener.style.display = "none";
+        slotMachineContener.style.display = "none";
         if (!isMobile()) {
-            mainAppContener.style.top = "-155%";
-            mainAppContener.id = '';
+            slotMachineContener.style.top = "-155%";
+            slotMachineContener.id = '';
         } else {
-            mainAppContener.style.marginTop = "-1500px";
-            mainAppContener.id = '';
+            slotMachineContener.style.marginTop = "-1500px";
+            slotMachineContener.id = '';
         }
         setTimeout(() => {
-            updateMainApp(originalSpinAmount - spinAmount - 1);
+            updateslotMachine(originalSpinAmount - spinAmount - 1);
             setTimeout(() => {
-                mainAppContener.style.display = "block";
+                slotMachineContener.style.display = "block";
                 setTimeout(() => {
                     let nextTimeOut;
                     if (!isMobile()) {
-                        mainAppContener.style.top = "";
+                        slotMachineContener.style.top = "";
                     } else {
-                        mainAppContener.style.marginTop = "";
+                        slotMachineContener.style.marginTop = "";
                     }
                     document.querySelector('body').style.overflow = 'auto';
                     document.querySelector('.mainChainContener').style.opacity = "1";
@@ -210,7 +217,7 @@ const spinAnim = lever => {
                         title.style.opacity = '1';
                         subTitle.style.display = 'block';
                         subTitle.style.opacity = '1';
-                        mainApp.style.boxShadow = "0px 0px 20px 20px #b34545";
+                        slotMachine.style.boxShadow = "0px 0px 20px 20px #b34545";
                         setTimeout(() => {
                             title.style.opacity = '0';
                             subTitle.style.opacity = '0';
@@ -236,7 +243,7 @@ const spinAnim = lever => {
                         subTitle.style.display = 'block';
                         subTitle.style.opacity = '1';
                         if (!isMobile()) {
-                            mainApp.style.boxShadow = "0px 0px 20px 20px #5090c7";
+                            slotMachine.style.boxShadow = "0px 0px 20px 20px #5090c7";
                         } else {
                             setTimeout(() => {
                                 title.style.opacity = '0';
@@ -252,7 +259,7 @@ const spinAnim = lever => {
                     }
                     setTimeout(() => {
                         start.id = "";
-                        mainApp.style = "";
+                        slotMachine.style = "";
                         spinFinished();
                     }, nextTimeOut);
                 }, 300); 
@@ -281,7 +288,7 @@ const spinFinished = () => {
             // to continue the process
             if (isMobile()) {
                 setTimeout(() => {
-                    document.querySelector('.mainAppContener').style.marginTop = "1500px";
+                    document.querySelector('.slotMachineContener').style.marginTop = "1500px";
                     setTimeout(() => {
                         spinAnim(1);
                     }, 1000);
@@ -323,10 +330,10 @@ const spinFinished = () => {
 // Results of the spins
 const showResults = () => {
     let overall = [];
-    let input = document.querySelector('.mainAppContener .results input');
-    wallets.forEach(element => {
+    let input = document.querySelector('.slotMachineContener .results input');
+    results.forEach(element => {
         let newLi = document.createElement('li');
-        let index = wallets.indexOf(element) + 1;
+        let index = results.indexOf(element) + 1;
         let wallet = element.wallet;
         let privateKey = element.privateKey;
         let balance = element.balance;
@@ -347,7 +354,7 @@ const showResults = () => {
         }
         newLi.className = className;
         newLi.innerHTML = `<span style="font-weight: bold;">${index}.</span> <span class="wallet${index-1}" style="font-weight: bold; margin-left:24px;">Wallet:</span> ${wallet} <br><span class="private${index-1}" style="font-weight: bold; margin-left:24px;">PrivateKey:</span> ${privateKey} <br><span style="font-weight: bold;">Balance:</span> ${balance} <br><span style="font-weight: bold;color:${statusColor}">${status}</span>`;
-        document.querySelector('.mainAppContener .results ul').insertAdjacentElement('beforeend', newLi);
+        document.querySelector('.slotMachineContener .results ul').insertAdjacentElement('beforeend', newLi);
         // add copy wallet btn
         let walletCopy = document.createElement('img');
         walletCopy.src = "css/imgs/copyToClipBoard.jpg";
@@ -367,8 +374,7 @@ const showResults = () => {
     })
     const displayOnly = () => {
         let isChecked = input.checked;
-        let emptyLis = Array.from(document.querySelectorAll('.mainAppContener .results ul .Empty'));
-        console.log(emptyLis);
+        let emptyLis = Array.from(document.querySelectorAll('.slotMachineContener .results ul .Empty'));
         if (isChecked) {
             emptyLis.forEach(element => {
                 element.style.display = "none";
@@ -379,21 +385,21 @@ const showResults = () => {
             })
         }
     }
-    document.querySelector('.mainAppContener .mainApp').style.opacity = '0';
+    document.querySelector('.slotMachineContener .slotMachine').style.opacity = '0';
     setTimeout(() => {
         overall = overall.filter(element => element === true)
         if (overall[0] === undefined) {
-            document.querySelector('.mainAppContener .results h2').innerText = "Score: 0 USD";
-            document.querySelector('.mainAppContener .results h2').style.color = "red";
+            document.querySelector('.slotMachineContener .results h2').innerText = "Score: 0 USD";
+            document.querySelector('.slotMachineContener .results h2').style.color = "red";
         } else {
-            document.querySelector('.mainAppContener .results h2').innerText = "JackPot !";
-            document.querySelector('.mainAppContener .results h2').style.color = "#fff700";
+            document.querySelector('.slotMachineContener .results h2').innerText = "JackPot !";
+            document.querySelector('.slotMachineContener .results h2').style.color = "#fff700";
         }
-        document.querySelector('.mainAppContener .mainApp').style.display = 'none';
-        document.querySelector('.mainAppContener .results').style.display = 'block';
+        document.querySelector('.slotMachineContener .slotMachine').style.display = 'none';
+        document.querySelector('.slotMachineContener .results').style.display = 'block';
         setTimeout(() => {
             
-            document.querySelector('.mainAppContener .results').style.opacity = '1';
+            document.querySelector('.slotMachineContener .results').style.opacity = '1';
         }, 300);
     }, 300);
     input.addEventListener('click', () => displayOnly());
@@ -404,6 +410,6 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text);
 }
 
-// setInterval(() => {
-//     updateTickets();
-// }, 10);
+setInterval(() => {
+    updateTickets();
+}, 500);
