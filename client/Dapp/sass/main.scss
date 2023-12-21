@@ -615,8 +615,8 @@ header {
             position: absolute;
             width: 87px;
             height: 130px;
-            background: linear-gradient(45deg, #5d4721, #a96f14);
-            border-radius: 5px;
+            background: linear-gradient(45deg, #71572a, #a96f14);
+            border-radius: 20px;
             left: 26px;
             box-shadow: 1px 1px 20px #1a1a1a9c;
         }
@@ -718,10 +718,10 @@ header {
         }
     }
     .RltsTickets {
-        width: 60px;
+        width: 80px;
         float: right;
         margin-right: 120px;
-        margin-top: 35px;
+        margin-top: 25px;
         @include mobile(600px) {
             width: 49px;
             margin-right: 55px;

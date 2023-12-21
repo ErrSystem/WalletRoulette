@@ -1,5 +1,5 @@
 import { enableFunction } from '../transactionDone.js';
-import { generate, state, results, amount, emptyWalletsStorage, updateslotMachine, isTheKeyReady } from './generator.js';
+import { generate, state, results, amount, emptyWalletsStorage, updateslotMachine, wallets } from './generator.js';
 import transactionDone from '../transactionDone.js';
 import { isMobile, RLT } from '../main.js';
 
@@ -9,11 +9,17 @@ let lever;
 let alreadySpinning = false;
 let saveBtn;
 let saveInnerBtn = "";
+let alreadyClicked = false;
 
 export { spinAmount, originalSpinAmount, spinAnim };
 
 Array.from(document.getElementsByClassName('spinOptions')).forEach(element => {
-    element.addEventListener('click', () => detectAmount(element));
+    element.addEventListener('click', () => {
+        if (!alreadyClicked) {
+            alreadyClicked = true;
+            detectAmount(element);
+        }
+    });
 })
 
 export function showSpinParameters(leverID) {
@@ -80,6 +86,7 @@ const spinButton = async () => {
                         document.querySelector('.slotMachineContener .slotMachine').style.opacity = '1';
                         spinAnim(lever);
                         setTimeout(() => {
+                            alreadyClicked = false;
                             saveBtn.style = '';
                             saveBtn.innerHTML = saveInnerBtn;
                             saveInnerBtn = "";
@@ -91,7 +98,7 @@ const spinButton = async () => {
             setTimeout(() => {
                 let keyDetectionInterval = setInterval(() => {
                     try {
-                        if (isTheKeyReady(originalSpinAmount - spinAmount)) {
+                        if (wallets[originalSpinAmount - spinAmount].ready) {
                             clearInterval(keyDetectionInterval);
                             animation();
                         }
@@ -102,6 +109,7 @@ const spinButton = async () => {
             }, 1000);
         } else {
             alert('Failed!');
+            alreadyClicked = false;
         }
     }
 }
@@ -195,7 +203,7 @@ const spinAnim = lever => {
             slotMachineContener.id = '';
         }
         setTimeout(() => {
-            updateslotMachine(originalSpinAmount - spinAmount - 1);
+            updateslotMachine(originalSpinAmount - spinAmount);
             setTimeout(() => {
                 slotMachineContener.style.display = "block";
                 setTimeout(() => {
@@ -225,7 +233,7 @@ const spinAnim = lever => {
                                 subTitle.style = '';
                                 title.style = '';
                             }, 300);
-                        }, 2000);
+                        }, 1000);
                     } else if (state) {
                         nextTimeOut = 4500;
                         title.textContent = "Congratulations!";
@@ -259,10 +267,12 @@ const spinAnim = lever => {
                     }
                     setTimeout(() => {
                         start.id = "";
-                        slotMachine.style = "";
                         spinFinished();
+                        setTimeout(() => {
+                            slotMachine.style = "";
+                        }, 1000);
                     }, nextTimeOut);
-                }, 300); 
+                }, 500); 
             }, 300);
         }, loadingTime);
     }, 450);
@@ -271,7 +281,7 @@ const spinAnim = lever => {
 // When each spin is finished
 const spinFinished = () => {
     if (spinAmount > 0 && !state && spinAmount < 101) {
-        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+        if (wallets[originalSpinAmount - spinAmount].ready) {
             // to speedup animation
             let timeOut;
             if (isMobile()) {
@@ -304,7 +314,7 @@ const spinFinished = () => {
             }, 10);
         }
     } else if (state && spinAmount > 0 && spinAmount < 101) {
-        if (isTheKeyReady(originalSpinAmount - spinAmount - 1)) {
+        if (wallets[originalSpinAmount - spinAmount].ready) {
             enableFunction();
             transactionDone("Continue");
         } else {

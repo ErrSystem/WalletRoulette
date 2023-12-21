@@ -86,7 +86,6 @@ let RPCs = {
     'https://bsc.publicnode.com', 
     'https://binance.llamarpc.com', 
     'https://bsc.meowrpc.com',
-    // https://bsc-dataseed.binance.org/
   ],
   "Ethereum": [
     'https://ethereum.publicnode.com',
@@ -103,8 +102,8 @@ let RPCs = {
   "Polygon": [
     'https://polygon.llamarpc.com', 
     'https://polygon-bor.publicnode.com', 
-    'https://polygon.meowrpc.com	', 
-    'https://polygon.rpc.blxrbdn.com'
+    'https://polygon.meowrpc.com', 
+    'https://polygon-bor.publicnode.com'
   ],
 };
 
@@ -206,8 +205,6 @@ function handleLoginRequest(req, res) {
   }
 
   const accessToken = jwt.sign({ username: wallet, id: user.id}, newSecretKey, { expiresIn: '5m' });
-
-  // console.log(`${wallet} got the token ${accessToken}`);
 
   // Add user to the currentUsers list
   currentUsers.push({

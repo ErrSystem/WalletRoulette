@@ -55,6 +55,7 @@ export function connectWalletHandler() {
             document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
             document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
             document.querySelector('.results').style.filter = 'blur(4px)';
+            document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
             document.querySelector('#selectWallet').style.display = 'block';
             try {
                 document.querySelector('#networkImcompatible').addEventListener('click', () => {
@@ -78,6 +79,7 @@ export function closeWalletSelect() {
     document.querySelector('.getStarted .back').style.filter = '';
     document.querySelector('.getStarted .lever').style.filter = '';
     document.querySelector('.results').style.filter = '';
+    document.querySelector('.slotMachineContener .lever').style.filter = '';
     document.querySelector('#selectWallet').style.opacity = '0';
     setTimeout(() => {
         document.querySelector('#selectWallet').style = '';
@@ -107,6 +109,8 @@ const openRLTPayments = () => {
     setTimeout(() => {
         document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
         document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
+        document.querySelector('.results').style.filter = 'blur(4px)';
+        document.querySelector('.slotMachine .lever').style.filter = 'blur(4px)';
         buyRLTSection.style.opacity = '1';
         isAddRLTButton = false;
     }, 300);
@@ -114,6 +118,8 @@ const openRLTPayments = () => {
 const closeRLTPayments = () => {
     document.querySelector('.getStarted .back').style.filter = '';
     document.querySelector('.getStarted .lever').style.filter = '';
+    document.querySelector('.results').style.filter = '';
+    document.querySelector('.slotMachine .lever').style.filter = '';
     buyRLTSection.style.opacity = '0';
     setTimeout(() => {
         buyRLTSection.style.display = 'none';

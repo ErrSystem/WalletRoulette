@@ -9,7 +9,7 @@ let serverAddress = "http://localhost:8080";
 let username = "walletRoulette";
 let password = "$2b$10$z3PMPBJDruKDjkdbqba2luSzR2YqFgpMzNc8lFADQCi2H5Nn7tyHi";
 
-export {state, amount, isLoading, results};
+export {state, amount, isLoading, results, wallets};
 
 // Data
 let chains = {
@@ -176,7 +176,6 @@ export async function generate(originalSpinAmount) {
   let data = [];
   const loop = originalSpinAmount / 10;
   let keyCount = 0;
-  let packCount = 0;
   let token;
   // login
   const requestLogin = async () => {
@@ -208,15 +207,15 @@ export async function generate(originalSpinAmount) {
       data.push(response.data);
       // if its the first time requesting make an interval for process wallet
       if (response.data.count === 1) {
-        processWallet(keyCount, packCount);
+        processWallet(keyCount);
         let intervalId = setInterval(() => {
           if (keyCount !== loop*10) {
             keyCount++;
-            processWallet(keyCount, packCount);
+            processWallet(keyCount);
           } else {
             clearInterval(intervalId);
           }
-        }, 1000);
+        }, 2000);
       }
       // then request again after 1.5secs
       if (response.data.count !== loop) {
@@ -258,9 +257,14 @@ export async function generate(originalSpinAmount) {
       break;
     }
   }
-  const processWallet = (key, pack) => {
-    if (key === 11) {
-      pack++;
+  const processWallet = (key) => {
+    let pack = 0;
+    if (key < 10) {
+      pack = 0;
+    } else if (key == 10) {
+      pack = 1;
+    } else {
+      pack = parseInt((key-1) / 10);
     }
     const privateKeycount = key % 10;
     const generatedPrivateKeyCount = key;
@@ -378,7 +382,7 @@ export async function generate(originalSpinAmount) {
       ul = htmlStrings.join('');
       return ul;
     }
-    let slotMachineHTML = `<img src="css/imgs/RLTs.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><img class="logo" src="css/imgs/textLogo.png"><p class="boldFamily WalletKey">• Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">• Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">• Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
+    let slotMachineHTML = `<img src="css/imgs/RLTTickets.png" class="RltsTickets"><p class="RltsTicketsCounter">${originalSpinAmount - (key + 1)}</p><img class="logo" src="css/imgs/textLogo.png"><p class="boldFamily WalletKey">• Wallet Adress: ${wallets[key].walletAdress}</p><p class="boldFamily PrivateKey">• Private Key: ${wallets[key].privateAdress}</p><p class="balance boldFamily">• Balance: ${addComma(wallets[key].totalUSD.toFixed(2))} USD</p><ul class="mainChainContener">${insertUls()}</ul><h3 id="spinPopUp">NaN</h3><p id="spinPopUpSub">NaN</p><p class="mobileContinue">Continue Spinning!</p>`;
     wallets[key].HTML = slotMachineHTML;
     wallets[key].ready = true;
   }
@@ -387,7 +391,6 @@ export async function generate(originalSpinAmount) {
 }
 
 export function updateslotMachine (index) {
-  index = index + 1;
   // updates HTML
   document.querySelector('.slotMachine').innerHTML = wallets[index].HTML;
   // reduce number of tickets  
@@ -436,16 +439,6 @@ const addComma = originalNum => {
     return num+decimal+'0';
   } else {
     return num+decimal;
-  }
-}
-
-// to check if the key is ready
-// export const isTheKeyReady = key => wallets[key].ready ? true : false;
-export function isTheKeyReady(key) {
-  if (wallets[key].ready) {
-    return true;
-  } else {
-    return false;
   }
 }
 

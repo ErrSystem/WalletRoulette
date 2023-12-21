@@ -24,7 +24,7 @@ export function leverClick() {
     }, 130);
     setTimeout(() => {
         if (leverId == 0) {
-            lever[leverId].style.left = '0';
+            lever[leverId].style.left = '100px';
         } else {
             lever[leverId].style.right = '100px';
         }
