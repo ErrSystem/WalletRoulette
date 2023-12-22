@@ -41,7 +41,9 @@ const closeSpinOptions = () => {
     document.querySelector('#spinSection').style = '';
     if (lever == 0) {
         enableFunction(0);
-        transactionDone();
+        setTimeout(() => {
+            transactionDone();            
+        }, 5000);
     }
 }
 
@@ -98,7 +100,7 @@ const spinButton = async () => {
             setTimeout(() => {
                 let keyDetectionInterval = setInterval(() => {
                     try {
-                        if (wallets[originalSpinAmount - spinAmount].ready) {
+                        if (wallets[originalSpinAmount - spinAmount].ready && wallets[originalSpinAmount - spinAmount] !== undefined) {
                             clearInterval(keyDetectionInterval);
                             animation();
                         }
@@ -281,7 +283,7 @@ const spinAnim = lever => {
 // When each spin is finished
 const spinFinished = () => {
     if (spinAmount > 0 && !state && spinAmount < 101) {
-        if (wallets[originalSpinAmount - spinAmount].ready) {
+        if (wallets[originalSpinAmount - spinAmount] !== undefined && wallets[originalSpinAmount - spinAmount].ready) {
             // to speedup animation
             let timeOut;
             if (isMobile()) {
@@ -314,7 +316,7 @@ const spinFinished = () => {
             }, 10);
         }
     } else if (state && spinAmount > 0 && spinAmount < 101) {
-        if (wallets[originalSpinAmount - spinAmount].ready) {
+        if (wallets[originalSpinAmount - spinAmount] !== undefined && wallets[originalSpinAmount - spinAmount].ready) {
             enableFunction();
             transactionDone("Continue");
         } else {

@@ -176,6 +176,7 @@ export async function generate(originalSpinAmount) {
   let data = [];
   const loop = originalSpinAmount / 10;
   let keyCount = 0;
+  let generatedKeys = 0;
   let token;
   // login
   const requestLogin = async () => {
@@ -205,15 +206,19 @@ export async function generate(originalSpinAmount) {
         },
       });
       data.push(response.data);
+      generatedKeys += 10;
       // if its the first time requesting make an interval for process wallet
       if (response.data.count === 1) {
         processWallet(keyCount);
         let intervalId = setInterval(() => {
-          if (keyCount !== loop*10) {
+          if (keyCount !== loop*10-1 && generatedKeys > keyCount+1) {
+            console.log(generatedKeys, keyCount+1)
             keyCount++;
             processWallet(keyCount);
-          } else {
+          } else if (keyCount === loop*10-1) {
             clearInterval(intervalId);
+          } else {
+            console.log("Queue is full retrying...")
           }
         }, 2000);
       }
@@ -263,10 +268,27 @@ export async function generate(originalSpinAmount) {
       pack = 0;
     } else if (key == 10) {
       pack = 1;
+    } else if (key == 20) {
+      pack = 2;
+    } else if (key == 30) {
+      pack = 3;
+    } else if (key == 40) {
+      pack = 4;
+    } else if (key == 50) {
+      pack = 5;
+    } else if (key == 60) {
+      pack = 6;
+    } else if (key == 70) {
+      pack = 7;
+    } else if (key == 80) {
+      pack = 8;
+    } else if (key == 90) {
+      pack = 9;
     } else {
       pack = parseInt((key-1) / 10);
     }
     const privateKeycount = key % 10;
+    console.log(pack, privateKeycount)
     const generatedPrivateKeyCount = key;
     let privateKey = data[pack].PrivateKeys[privateKeycount];
     let wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
