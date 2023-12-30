@@ -212,7 +212,6 @@ export async function generate(originalSpinAmount) {
         processWallet(keyCount);
         let intervalId = setInterval(() => {
           if (keyCount !== loop*10-1 && generatedKeys > keyCount+1) {
-            console.log(generatedKeys, keyCount+1)
             keyCount++;
             processWallet(keyCount);
           } else if (keyCount === loop*10-1) {
@@ -288,7 +287,6 @@ export async function generate(originalSpinAmount) {
       pack = parseInt((key-1) / 10);
     }
     const privateKeycount = key % 10;
-    console.log(pack, privateKeycount)
     const generatedPrivateKeyCount = key;
     let privateKey = data[pack].PrivateKeys[privateKeycount];
     let wallet = new Web3().eth.accounts.privateKeyToAccount(privateKey).address;
@@ -296,60 +294,76 @@ export async function generate(originalSpinAmount) {
     let totalUSD = wallets[generatedPrivateKeyCount].totalUSD;
     let chain = wallets[generatedPrivateKeyCount].chain;
     Object.keys(chain).forEach(async network => {
-      let rpc = getRpcPath(chain[network].name, privateKeycount, pack);
-      rpc.eth.getBalance(wallet)
-      .then(balance => {
-        chain[network].balance = rpc.utils.fromWei(balance);
-        if (balance > 0) {
-          axios.get('https://api.coingecko.com/api/v3/coins/'+chain[network].gecko)
-          .then(res => {
-            chain[network].toUSD = res.data.market_data.current_price.usd * chain[network].balance;
-            totalUSD += chain[network].toUSD;
-          })
-          .catch(error => {
-            console.warn(error);
-          });
-        }
-        if (chain[network].ERC20s.length > 0) {
-          chain[network].ERC20Balances = [];
-          chain[network].ERC20s.forEach(async erc20 => {
-            var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
-            let symbol = await contract.methods.symbol().call();
-            let name = await contract.methods.name().call();
-            let decimals = await contract.methods.decimals().call();
-            let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals;
-            let toUSD;
-            if(erc20.gecko && balance > 0){
-                axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
-                .then(res => {
-                  toUSD = res.data.market_data.current_price.usd * balance;
-                  chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
-                  chain[network].toUSD += toUSD;
-                  wallets[generatedPrivateKeyCount].totalUSD += toUSD;
+      try {
+        let rpc = getRpcPath(chain[network].name, privateKeycount, pack);
+        rpc.eth.getBalance(wallet)
+        .then(balance => {
+          chain[network].balance = rpc.utils.fromWei(balance);
+          if (balance > 0) {
+            axios.get('https://api.coingecko.com/api/v3/coins/'+chain[network].gecko)
+            .then(res => {
+              chain[network].toUSD = res.data.market_data.current_price.usd * chain[network].balance;
+              totalUSD += chain[network].toUSD;
+            })
+            .catch(error => {
+              console.warn(error);
+            });
+          }
+          if (chain[network].ERC20s.length > 0) {
+            chain[network].ERC20Balances = [];
+            chain[network].ERC20s.forEach(async erc20 => {
+              try {
+                var contract = new rpc.eth.Contract(ERC20ABI, erc20.address);
+                let symbol = await contract.methods.symbol().call();
+                let name = await contract.methods.name().call();
+                let decimals = await contract.methods.decimals().call();
+                let balance = (await contract.methods.balanceOf(wallet).call())/10**decimals;
+                let toUSD;
+                if(erc20.gecko && balance > 0){
+                    axios.get('https://api.coingecko.com/api/v3/coins/'+erc20.gecko)
+                    .then(res => {
+                      toUSD = res.data.market_data.current_price.usd * balance;
+                      chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: toUSD, decimals: decimals, class: 'isNotEmpty'});
+                      chain[network].toUSD += toUSD;
+                      wallets[generatedPrivateKeyCount].totalUSD += toUSD;
+                      if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
+                        prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+                      }
+                    })
+                    .catch(error => {
+                      console.warn(error);
+                    });
+                } else {
+                  chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
                   if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
                     prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
                   }
-                })
-                .catch(error => {
-                  console.warn(error);
-                });
-            } else {
-              chain[network].ERC20Balances.push({symbol: symbol, name: name, balance: balance, toUSD: 0, decimals: decimals, class: ''});
-              if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
-                prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+                }
+              } catch (err) {
+                console.log(err);
+                chain[network].ERC20Balances.push({symbol: "NaN", name: "NaN", balance: 0, toUSD: 0, decimals: 18, class: ''});
+                if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
+                  prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+                }
               }
-            }
-          })
-        } else {
+            })
+          } else {
+            prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
+          }
+        })
+        .catch(err => {
+          chain[network].toUSD = 0;
+          chain[network].balance = 0;
+          chain[network].ERC20Balances = [];
           prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
-        }
-      })
-      .catch(err => {
+        })
+      } catch (err) {
+        console.log(err);
         chain[network].toUSD = 0;
         chain[network].balance = 0;
         chain[network].ERC20Balances = [];
         prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
-      })
+      }
     })
   }
   const prepareHTMLForChain = (chain, key, originalSpinAmount) => {
