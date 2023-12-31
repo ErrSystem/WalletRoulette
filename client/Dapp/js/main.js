@@ -3,7 +3,8 @@ import { switchNetworks } from './connectWallets/walletsHandler.js';
 import transactionDone from './transactionDone.js';
 let isAddRLTButton = false;
 let loadingState = true;
-export {loadingState};
+let popUpOpened = true;
+export {loadingState, popUpOpened};
 
 const getRLT = () => {
     // Here write the code to get from contract
@@ -37,7 +38,8 @@ const loading = () => {
                             document.querySelector('.getStarted').style.opacity =  "1";
                             setTimeout(() => {
                                 document.querySelector('.getStarted').className += " flipped";       
-                                loadingState = false;                         
+                                loadingState = false;
+                                popUpOpened = false;                     
                             }, 1000);
                         }, 500);
                     }, 500);
@@ -50,30 +52,33 @@ const loading = () => {
 // Connect wallet button handler 
 const connectWalletBtn = document.querySelector('.connectWalletButton');
 export function connectWalletHandler() {
-    setTimeout(() => {
-        if (!isAddRLTButton) {
-            document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
-            document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
-            document.querySelector('.results').style.filter = 'blur(4px)';
-            document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
-            document.querySelector('#selectWallet').style.display = 'block';
-            try {
-                document.querySelector('#networkImcompatible').addEventListener('click', () => {
-                    document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
-                    document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
-                    setTimeout(() => {
-                        document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
-                        document.querySelector('#selectWallet .connectWallets').style.display = 'none';
-                    }, 300);
-                })
-            } catch {
-                // do nothing since this func is only used to check the state of the metaMask button and add the listener :))
+    if (!popUpOpened) {
+        setTimeout(() => {
+            if (!isAddRLTButton) {
+                popUpOpened = true;
+                document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
+                document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
+                document.querySelector('.results').style.filter = 'blur(4px)';
+                document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
+                document.querySelector('#selectWallet').style.display = 'block';
+                try {
+                    document.querySelector('#networkImcompatible').addEventListener('click', () => {
+                        document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
+                        document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
+                        setTimeout(() => {
+                            document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
+                            document.querySelector('#selectWallet .connectWallets').style.display = 'none';
+                        }, 300);
+                    })
+                } catch {
+                    // do nothing since this func is only used to check the state of the metaMask button and add the listener :))
+                }
+                setTimeout(() => {
+                    document.querySelector('#selectWallet').style.opacity = '1';        
+                }, 300);
             }
-            setTimeout(() => {
-                document.querySelector('#selectWallet').style.opacity = '1';        
-            }, 300);
-        }
-    }, 10);
+        }, 10);
+    }
 }
 export function closeWalletSelect() {
     document.querySelector('.getStarted .back').style.filter = '';
@@ -92,6 +97,7 @@ export function closeWalletSelect() {
         document.querySelector('#selectWallet .connectNetworks').style.display = "none";
         document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
         document.querySelector('#selectWallet .connectWallets').style.display = 'block';
+        popUpOpened = false;
     }, 500);
 }
 // Connect Wallet Button Click
@@ -104,25 +110,29 @@ document.querySelector('#selectWallet .close').addEventListener('click', () => c
 // Add Rlts Button
 const buyRLTSection = document.querySelector('#paymentSection');
 const openRLTPayments = () => {
-    isAddRLTButton = true;
-    buyRLTSection.style.display = 'block';
-    setTimeout(() => {
-        document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
-        document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
-        document.querySelector('.results').style.filter = 'blur(4px)';
-        document.querySelector('.slotMachine .lever').style.filter = 'blur(4px)';
-        buyRLTSection.style.opacity = '1';
-        isAddRLTButton = false;
-    }, 300);
+    if (!popUpOpened) {
+        popUpOpened = true;
+        isAddRLTButton = true;
+        buyRLTSection.style.display = 'block';
+        setTimeout(() => {
+            document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
+            document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
+            document.querySelector('.results').style.filter = 'blur(4px)';
+            document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
+            buyRLTSection.style.opacity = '1';
+            isAddRLTButton = false;
+        }, 300);
+    }
 }
 const closeRLTPayments = () => {
     document.querySelector('.getStarted .back').style.filter = '';
     document.querySelector('.getStarted .lever').style.filter = '';
     document.querySelector('.results').style.filter = '';
-    document.querySelector('.slotMachine .lever').style.filter = '';
+    document.querySelector('.slotMachineContener .lever').style.filter = '';
     buyRLTSection.style.opacity = '0';
     setTimeout(() => {
         buyRLTSection.style.display = 'none';
+        popUpOpened = false;
     }, 300);
 }
 // Open payment section
@@ -165,54 +175,70 @@ const rltCLObtn = () => {
 
 // Update BNB and CLO values
 const getPrices = () => {
-    axios.get('https://api.coingecko.com/api/v3/coins/callisto')
-    .then(response => {
-        const CLObtns = Array.from(document.querySelectorAll('.PricesCLO button'));
-        let ids = CLObtns.map(element => element.className.slice(0, element.className.indexOf("R")));
-        ids.forEach(id => {
-            switch (id) {
-                case "five":
-                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(1 / response.data.market_data.current_price.usd)} CLO)`;
-                break;
-                case 'twentyFive':
-                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(3 / response.data.market_data.current_price.usd)} CLO)`;
-                break;
-                case 'fifty':
-                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(6 / response.data.market_data.current_price.usd)} CLO)`;
-                break;
-                case 'hundred':
-                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(10 / response.data.market_data.current_price.usd)} CLO)`;
-                break;
-                case 'twoHundred':
-                    document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(15 / response.data.market_data.current_price.usd)} CLO)`;
-                break;
-            }
+    const getClo = () => {
+        axios.get('https://api.coingecko.com/api/v3/coins/callisto')
+        .then(response => {
+            const CLObtns = Array.from(document.querySelectorAll('.PricesCLO button'));
+            let ids = CLObtns.map(element => element.className.slice(0, element.className.indexOf("R")));
+            ids.forEach(id => {
+                switch (id) {
+                    case "five":
+                        document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(1 / response.data.market_data.current_price.usd)} CLO)`;
+                    break;
+                    case 'twentyFive':
+                        document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(3 / response.data.market_data.current_price.usd)} CLO)`;
+                    break;
+                    case 'fifty':
+                        document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(6 / response.data.market_data.current_price.usd)} CLO)`;
+                    break;
+                    case 'hundred':
+                        document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(10 / response.data.market_data.current_price.usd)} CLO)`;
+                    break;
+                    case 'twoHundred':
+                        document.querySelectorAll('.PricesCLO button span')[ids.indexOf(id)].innerHTML = `(${parseInt(15 / response.data.market_data.current_price.usd)} CLO)`;
+                    break;
+                }
+            })
         })
-    })
-    axios.get('https://api.coingecko.com/api/v3/coins/binancecoin')
-    .then(response => {
-        const BNBbtns = Array.from(document.querySelectorAll('.PricesBNB button'));
-        let ids = BNBbtns.map(element => element.className.slice(0, element.className.indexOf("R")));
-        ids.forEach(id => {
-            switch (id) {
-                case "five":
-                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(1 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
-                break;
-                case 'twentyFive':
-                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(3 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
-                break;
-                case 'fifty':
-                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(6 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
-                break;
-                case 'hundred':
-                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(10 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
-                break;
-                case 'twoHundred':
-                    document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(15 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
-                break;
-            }
+        .catch(err => {
+            setTimeout(() => {
+                getClo();
+            }, 1000 * 60);
         })
-    })
+    }
+    const getBnb = () => {
+        axios.get('https://api.coingecko.com/api/v3/coins/binancecoin')
+        .then(response => {
+            const BNBbtns = Array.from(document.querySelectorAll('.PricesBNB button'));
+            let ids = BNBbtns.map(element => element.className.slice(0, element.className.indexOf("R")));
+            ids.forEach(id => {
+                switch (id) {
+                    case "five":
+                        document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(1 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                    break;
+                    case 'twentyFive':
+                        document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(3 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                    break;
+                    case 'fifty':
+                        document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(6 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                    break;
+                    case 'hundred':
+                        document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(10 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                    break;
+                    case 'twoHundred':
+                        document.querySelectorAll('.PricesBNB button span')[ids.indexOf(id)].innerHTML = `(${(15 / response.data.market_data.current_price.usd).toFixed(4)} BNB)`;
+                    break;
+                }
+            })
+        })
+        .catch(err => {
+            setTimeout(() => {
+                getBnb();
+            }, 1000 * 60);
+        })
+    }
+    getClo();
+    getBnb();
 }
 
 // Detect if its a small screen
@@ -222,6 +248,10 @@ export function isMobile() {
     } else {
         return true;
     }
+}
+
+export function changePopUpValue(value) {
+    popUpOpened = value;
 }
 
 // Loading

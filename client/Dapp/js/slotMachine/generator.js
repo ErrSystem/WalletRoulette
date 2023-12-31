@@ -176,6 +176,7 @@ export async function generate(originalSpinAmount) {
   let data = [];
   const loop = originalSpinAmount / 10;
   let keyCount = 0;
+  let isAlerted = false;
   let generatedKeys = 0;
   let token;
   // login
@@ -217,7 +218,13 @@ export async function generate(originalSpinAmount) {
           } else if (keyCount === loop*10-1) {
             clearInterval(intervalId);
           } else {
-            console.log("Queue is full retrying...")
+            if (!isAlerted) {
+              isAlerted = true;
+              alert("Queue is full, please be patient")
+              console.log("Queue is full, retrying...")
+            } else {
+              console.log("Queue is full, retrying...")
+            }
           }
         }, 2000);
       }
@@ -227,7 +234,7 @@ export async function generate(originalSpinAmount) {
         await requestPrivateKey(token);
       }
     } catch (err) {
-      console.error('Error making process request:', err.message);
+      console.error('Error making process request...');
     }
   }
   const getRpcPath = (name, key, pack) => {
@@ -340,7 +347,6 @@ export async function generate(originalSpinAmount) {
                   }
                 }
               } catch (err) {
-                console.log(err);
                 chain[network].ERC20Balances.push({symbol: "NaN", name: "NaN", balance: 0, toUSD: 0, decimals: 18, class: ''});
                 if (chain[network].ERC20s.length === chain[network].ERC20s.indexOf(erc20)+1) {
                   prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
@@ -358,7 +364,6 @@ export async function generate(originalSpinAmount) {
           prepareHTMLForChain(chain[network], generatedPrivateKeyCount, originalSpinAmount);
         })
       } catch (err) {
-        console.log(err);
         chain[network].toUSD = 0;
         chain[network].balance = 0;
         chain[network].ERC20Balances = [];

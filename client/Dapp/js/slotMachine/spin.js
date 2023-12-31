@@ -1,7 +1,7 @@
 import { enableFunction } from '../transactionDone.js';
 import { generate, state, results, amount, emptyWalletsStorage, updateslotMachine, wallets } from './generator.js';
 import transactionDone from '../transactionDone.js';
-import { isMobile, RLT } from '../main.js';
+import { isMobile, RLT, changePopUpValue } from '../main.js';
 
 let spinAmount;
 let originalSpinAmount;
@@ -41,6 +41,7 @@ const closeSpinOptions = () => {
     document.querySelector('#spinSection').style = '';
     if (lever == 0) {
         enableFunction(0);
+        changePopUpValue(false);
         setTimeout(() => {
             transactionDone();            
         }, 5000);
@@ -330,6 +331,7 @@ const spinFinished = () => {
             setTimeout(() => {
                 alreadySpinning = false;
                 emptyWalletsStorage();
+                changePopUpValue(false);
                 if (!isMobile()) {
                     enableFunction();
                     transactionDone();

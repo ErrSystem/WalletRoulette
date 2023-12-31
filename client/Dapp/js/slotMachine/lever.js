@@ -1,4 +1,5 @@
 import { spinAnim, showSpinParameters } from "./spin.js";
+import { popUpOpened, changePopUpValue } from "../main.js";
 const lever = document.querySelectorAll('.lever');
 const leverBatton = document.querySelectorAll('.lever .batton');
 const impact = document.querySelectorAll('.lever img');
@@ -8,44 +9,47 @@ let leverMode;
 
 // when you click on it
 export function leverClick() {
-    // remove event listener
-    removeLeverListener();
-    // Adds loading effect to main app
-    document.querySelector('.mainChainContener').style.opacity = "0";
-    // animation for the lever
-    lever[leverId].id = "clickLever1";
-    setTimeout(() => {
-        leverBatton[leverId].style.transform = 'rotate(180deg)';
-        lever[leverId].id = "clickLever2";
+    if (!popUpOpened) {
+        changePopUpValue(true);
+        // remove event listener
+        removeLeverListener();
+        // Adds loading effect to main app
+        document.querySelector('.mainChainContener').style.opacity = "0";
+        // animation for the lever
+        lever[leverId].id = "clickLever1";
         setTimeout(() => {
-            impact[leverId].style.display = 'block';
-            lever[leverId].id = 'inclinedLever';
-        }, 100);
-    }, 130);
-    setTimeout(() => {
-        if (leverId == 0) {
-            lever[leverId].style.left = '100px';
-        } else {
-            lever[leverId].style.right = '100px';
-        }
-        impact[leverId].style.opacity = '0';
-        document.querySelector('.getStarted').id = "";
+            leverBatton[leverId].style.transform = 'rotate(180deg)';
+            lever[leverId].id = "clickLever2";
+            setTimeout(() => {
+                impact[leverId].style.display = 'block';
+                lever[leverId].id = 'inclinedLever';
+            }, 100);
+        }, 130);
         setTimeout(() => {
-            impact[leverId].style = '';
-            setTimeout(async () => {
-              leverBatton[leverId].style = '';
-              lever[leverId].style.display = "none";
-              // if the spin was stopped because the user found a wallet if he clicks again it continues spinning
-              if (leverMode == "Continue") {
-                setTimeout(() => {
-                  spinAnim(1);
-                }, 500);
-              } else {
-                showSpinParameters(leverId);
-              }
-            }, 120);
+            if (leverId == 0) {
+                lever[leverId].style.left = '100px';
+            } else {
+                lever[leverId].style.right = '100px';
+            }
+            impact[leverId].style.opacity = '0';
+            document.querySelector('.getStarted').id = "";
+            setTimeout(() => {
+                impact[leverId].style = '';
+                setTimeout(async () => {
+                leverBatton[leverId].style = '';
+                lever[leverId].style.display = "none";
+                // if the spin was stopped because the user found a wallet if he clicks again it continues spinning
+                if (leverMode == "Continue") {
+                    setTimeout(() => {
+                    spinAnim(1);
+                    }, 500);
+                } else {
+                    showSpinParameters(leverId);
+                }
+                }, 120);
+            }, 500);
         }, 500);
-    }, 500);
+    }
 }
 
 // when lever appears
