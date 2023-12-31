@@ -940,10 +940,9 @@ header {
     .connectWallets {
         transition: all ease .3s;
         .metaMaskSelect {
-            background-color: white;
             border: #d0d4f7 1px solid;
-            transition: all .3s ease;
-            color: black;
+            transition: all 0.3s ease;
+            color: #cfcfcf;
             position: absolute;
             top: 70px;
             width: 220px;
@@ -951,8 +950,10 @@ header {
             height: 80px;
             left: 256px;
             z-index: 2;
+            background: linear-gradient(45deg, #29251291, #2726264d);
             &:hover {
-                background-color: #eff1fc;
+                transition: all .3s ease;
+                background: linear-gradient(45deg, #292512d4, #272626d9);
                 cursor: pointer;
             }
             img {
@@ -993,6 +994,8 @@ header {
             }
         }
         #metaMaskSelected {
+            background: linear-gradient(45deg, #292512, #393838);
+            border: none;
             transition: all ease 0.3s;
             top: 0;
             width: 625px;
@@ -1003,6 +1006,7 @@ header {
                 cursor: initial;
             }
             .walletName {
+                color: white;
                 top: 182px;
                 left: 260px;
                 font-size: 22px;

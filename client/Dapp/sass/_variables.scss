@@ -61,7 +61,7 @@
     z-index: 99;
     width: 625px;
     border-radius: 14px;
-    background: #f1f1f1;
+    background: #474331;
     height: 465px;
     overflow: hidden;
     @include mobile(600px) {
@@ -69,8 +69,10 @@
     }
     h3 {
         font-size: 17px;
+        color: #bfbebe;
     }
     h4 {
+        color: #bfbebe;
         font-size: 16px;
         border-bottom: 1px solid #d5d5d5;
         padding-bottom: 10px;
@@ -96,26 +98,20 @@
         }
     }
     .imgBackground {
-        height: 280px;
+        height: 213px;
         position: absolute;
-        bottom: -121px;
-        filter: blur(3px);
-        left: -203px;
-        width: 398px;
-        transform: rotate(-40deg);
-        @include mobile(600px) {
-            bottom: -140px;
-            left: -228px;
-        }
+        bottom: 11px;
+        left: 14px;
+        width: 211px;
+        transform: rotate(17deg);
     }
     .explaination {
         width: 235px;
-        height: 463px;
-        background: #e1e1e1;
+        height: 465px;
+        background: #453821;
         border-bottom-left-radius: 5px;
         border-top-left-radius: 5px;
         position: absolute;
-        top: 1px;
         @include mobile(600px) {
             width: 100%;
         }
