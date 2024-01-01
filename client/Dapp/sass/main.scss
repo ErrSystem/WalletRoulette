@@ -1148,7 +1148,9 @@ header {
 // spin options 
 #spinSection {
     @include popUp();
+    background-color: #413219;
     .explaination {
+        background: #4f4128;
         p {
             padding-top: 15px;
             @include mobile(600px) {
@@ -1168,6 +1170,7 @@ header {
         top: 46px;
         right: 30px;
         font-size: 15px;
+        color: #e7e7e7;
     }
     input {
         position: absolute;
@@ -1218,6 +1221,9 @@ header {
         right: 25px;
         padding: 10px 25px;
         font-family: 'lightFont';
+        border: none;
+        border-radius: 3px;
+        background: #b3b3b3;
         img {
             width: 17px;
             animation: loadingRotation 2s infinite;
@@ -1283,7 +1289,7 @@ header {
 #paymentSection {
     @include popUp();
     button:hover {
-        box-shadow: 0 0 5px #afafaf;
+        box-shadow: 0 0 5px #615111;
         transition: all ease .2s;
         cursor: pointer;
     }
@@ -1292,7 +1298,7 @@ header {
         filter: invert(1);
     }
     .selectMethods {
-        background: linear-gradient(325deg, black, #474747);
+        background: linear-gradient(325deg, #452f0d, #272419);
         height: 100%;
         color: white;
         h3 {
@@ -1307,7 +1313,7 @@ header {
             margin-top: 23px;
             transition: all ease .2s;
             width: 101px;
-            background: linear-gradient(45deg, black, #333333);;
+            background: linear-gradient(45deg, #232019, #333333);
             img {
                 width: 28px;
                 margin-left: -23px;
@@ -1335,7 +1341,7 @@ header {
     }
     .PricesBNB {
         transition: all ease .3s;
-        background: linear-gradient(45deg, black, #333333);
+        background: linear-gradient(45deg, #4d3818, #231b0a);
         width: 389px;
         height: 466px;
         position: absolute;
@@ -1357,7 +1363,7 @@ header {
             border-radius: 10px;
             font-weight: 800;
             left: 81px;
-            background: linear-gradient(45deg, black, #333333);
+            background: linear-gradient(45deg, #33200c, #231d15);
             color: #e1e1e1;
             width: 227px;
             transition: all ease 0.2s;
