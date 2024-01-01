@@ -82,14 +82,12 @@ header {
         }
         .usedWallet {
             display: none;
-            background: #212121;
             margin-top: 7px;
             margin-bottom: 4px;
             margin-left: 6px;
         }
         .usedNetwork {
             display: none;
-            background: #212121;
             margin-bottom: 4px;
         }
         .RltValue {
@@ -1189,7 +1187,16 @@ header {
         }
     }
     .imgBackground {
-        display: none;
+        height: 238px;
+        position: absolute;
+        bottom: 13px;
+        left: -26px;
+        width: 267px;
+        filter: none;
+        transform: none;
+        @include mobile(600px) {
+            display: none
+        }
     }
     .warning2 {
         @extend .warning;
