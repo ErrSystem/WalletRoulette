@@ -4,6 +4,7 @@ import transactionDone from './transactionDone.js';
 let isAddRLTButton = false;
 let loadingState = true;
 let popUpOpened = true;
+let oldAppState = '';
 export {loadingState, popUpOpened};
 
 const getRLT = () => {
@@ -56,10 +57,11 @@ export function connectWalletHandler() {
         setTimeout(() => {
             if (!isAddRLTButton) {
                 popUpOpened = true;
-                document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
-                document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
-                document.querySelector('.results').style.filter = 'blur(4px)';
-                document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
+                oldAppState = document.querySelector('.getStarted .back').style.filter;
+                document.querySelector('.getStarted .back').style.filter += 'blur(4px)';
+                document.querySelector('.getStarted .lever').style.filter += 'blur(4px)';
+                document.querySelector('.results').style.filter += 'blur(4px)';
+                document.querySelector('.slotMachineContener .lever').style.filter += 'blur(4px)';
                 document.querySelector('#selectWallet').style.display = 'block';
                 try {
                     document.querySelector('#networkImcompatible').addEventListener('click', () => {
@@ -81,10 +83,10 @@ export function connectWalletHandler() {
     }
 }
 export function closeWalletSelect() {
-    document.querySelector('.getStarted .back').style.filter = '';
-    document.querySelector('.getStarted .lever').style.filter = '';
-    document.querySelector('.results').style.filter = '';
-    document.querySelector('.slotMachineContener .lever').style.filter = '';
+    document.querySelector('.getStarted .back').style.filter = oldAppState;
+    document.querySelector('.getStarted .lever').style.filter = oldAppState;
+    document.querySelector('.results').style.filter = "";
+    document.querySelector('.slotMachineContener .lever').style.filter = "";
     document.querySelector('#selectWallet').style.opacity = '0';
     setTimeout(() => {
         document.querySelector('#selectWallet').style = '';
@@ -115,20 +117,21 @@ const openRLTPayments = () => {
         isAddRLTButton = true;
         buyRLTSection.style.display = 'block';
         setTimeout(() => {
-            document.querySelector('.getStarted .back').style.filter = 'blur(4px)';
-            document.querySelector('.getStarted .lever').style.filter = 'blur(4px)';
-            document.querySelector('.results').style.filter = 'blur(4px)';
-            document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
+            oldAppState = document.querySelector('.getStarted .back').style.filter;
+            document.querySelector('.getStarted .back').style.filter += 'blur(4px)';
+            document.querySelector('.getStarted .lever').style.filter += 'blur(4px)';
+            document.querySelector('.results').style.filter += 'blur(4px)';
+            document.querySelector('.slotMachineContener .lever').style.filter += 'blur(4px)';
             buyRLTSection.style.opacity = '1';
             isAddRLTButton = false;
         }, 300);
     }
 }
 const closeRLTPayments = () => {
-    document.querySelector('.getStarted .back').style.filter = '';
-    document.querySelector('.getStarted .lever').style.filter = '';
-    document.querySelector('.results').style.filter = '';
-    document.querySelector('.slotMachineContener .lever').style.filter = '';
+    document.querySelector('.getStarted .back').style.filter = oldAppState;
+    document.querySelector('.getStarted .lever').style.filter = oldAppState;
+    document.querySelector('.results').style.filter = 'blur(4px)';
+    document.querySelector('.slotMachineContener .lever').style.filter = 'blur(4px)';
     buyRLTSection.style.opacity = '0';
     setTimeout(() => {
         buyRLTSection.style.display = 'none';

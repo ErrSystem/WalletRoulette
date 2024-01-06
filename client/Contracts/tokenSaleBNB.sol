@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./RLTERC223.sol";
+import "./RLTtoken.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -12,7 +12,8 @@ contract TokenSale is Ownable, ReentrancyGuard {
 
     RouletteToken public tokenContract; // The contract of the token
     AggregatorV3Interface public priceFeed; // To get the price of BNB/USD
-    uint256 public rltAmount; // The amount of rlts thats needs to be sent 
+    uint256 public rltTransfered = 0;
+    uint256 public usdGained = 0;
 
     event TokensPurchased(address indexed buyer, uint256 amountBNB, uint256 amountRLT);
     event BNBReceived(address indexed from, uint256 value);
@@ -36,25 +37,32 @@ contract TokenSale is Ownable, ReentrancyGuard {
         // Get BNB/USD price from Chainlink Price Feed
         (, int256 price, , ,) = priceFeed.latestRoundData();
 
-        require(price > 0, "Invalid price");
-
         // Calculate the number of RLTs based on sent BNBs and their current price (calculated in Cents because solidity doesnt support float nums)
-        uint256 sentBNBCents = bnbAmount.mul(uint256(price)).div(10**24); // BNB are defined in WEI so I need to divise them by 10**18 but I did 10**16 since 1$ = 10**2 cents
+        uint256 sentBNBCents = bnbAmount.mul(uint256(price)).div(10**24);
+
+        require(sentBNBCents > 0, "Invalid price");
+
+        uint256 rltAmount;
 
         // Prices are just examples
         if (sentBNBCents > 70 && sentBNBCents <= 130) { // around 1$ = 5RLTs
-            rltAmount = 5*10**18;
+            rltAmount = 5;
         } else if (sentBNBCents > 270 && sentBNBCents <= 330) { // around 3$ = 25
-            rltAmount = 25*10**18;
+            rltAmount = 25;
         } else if (sentBNBCents > 570 && sentBNBCents <= 630) { // around 6$ = 50
-            rltAmount = 50*10**18; 
+            rltAmount = 50; 
         } else if (sentBNBCents > 970 && sentBNBCents <= 1030) { // around 10$ = 100
-            rltAmount = 100*10**18;
+            rltAmount = 100;
         } else if (sentBNBCents > 1470 && sentBNBCents <= 1530) { // around 15$ = 250
-            rltAmount = 250*10**18;
+            rltAmount = 250;
         } else {
             revert("Invalid number of tokens to buy");
         }
+
+        rltAmount.mul(10**18);
+
+        rltTransfered.add(rltAmount);
+        usdGained.add(sentBNBCents.div(10**2));
 
         // Transfer RLTs to the user
         tokenContract.transferFromOwner(rltAmount, msg.sender); // Transfer Rlts from the owner to the user
@@ -66,7 +74,7 @@ contract TokenSale is Ownable, ReentrancyGuard {
     function transferBNB(address to, uint256 amount) internal {
         require(to != address(0), "Invalid recipient address");
         require(address(this).balance >= amount, "Insufficient BNB balance");
-        (bool success,) = payable(to).call{value: amount}(""); // I am not sure for the GAS amount can you check it please? Thank you for your time :)
+        (bool success,) = payable(to).call{value: amount}("");
         require(success, "BNB transfer failed");
     }
 }
