@@ -125,6 +125,14 @@ header {
             border-radius: 10px;
             border: .1px solid #6f6c6c;
         }
+        .loadingPic {
+            padding-right: 0.5px;
+            width: 45px;
+        }
+        .imcomptible {
+            filter: invert(76%);
+            padding: 11px;
+        }
         @include mobile(600px) {
             padding: 11px 11px;
             font-size: 14px;
@@ -1055,7 +1063,7 @@ header {
             }
             .isInstalled {
                 color: #fdba36 !important;
-                font-size: 11px
+                font-size: 10px;
             }
         }
         #walletSuccess {
@@ -1071,16 +1079,22 @@ header {
             }
         }
     }
+}
+
+#selectNetworks {
+    @include popUp();
+    h4 {
+        right: -19px;
+        padding-left: 11px;
+    }
     .connectNetworks {
         transition: all ease .3s;
         font-family: "boldUbuntu";
-        display: none;
-        opacity: 0;
         .network {
-            background-color: white;
-            border: #d0d4f7 1px solid;
+            background: linear-gradient(45deg, #29251291, #2726264d);
+            border: #cfcfcf 1px solid;
             transition: all .3s ease;
-            color: black;
+            color: #cfcfcf;
             position: absolute;
             top: 70px;
             width: 220px;
@@ -1089,7 +1103,7 @@ header {
             left: 256px;
             z-index: 2;
             &:hover {
-                background-color: #eff1fc;
+                background: linear-gradient(45deg, #292512d4, #272626d9);
                 cursor: pointer;
             }
             img {
@@ -1315,12 +1329,12 @@ header {
             padding: 10px 35px;
             font-size: 14px;
             font-weight: 700;
-            border-radius: 4px;
+            border-radius: 7px;
             margin-left: 20px;
             margin-top: 23px;
             transition: all ease .2s;
             width: 101px;
-            background: linear-gradient(45deg, #232019, #333333);
+            background: linear-gradient(45deg, #4d4022, #333333);
             img {
                 width: 28px;
                 margin-left: -23px;
@@ -1343,7 +1357,7 @@ header {
             border: 0.1px solid #479ea7;
         }
         #selectedCurrency {
-            box-shadow: 0 0 5px #afafaf;
+            box-shadow: 0 0 5px #afafafbf;
         }
     }
     .PricesBNB {

@@ -4,7 +4,8 @@ let walletConnectBnt = document.querySelector('.connectWalletButton');
 let walletBtnImg = document.querySelector('.connectWalletButton img');
 let walletBtnText = document.querySelector('.connectWalletButton a');
 export let wallet;
-let alreadyExecuted = false; // used to update chain (the func wont execute two times only if you connect to the good network and change the chain again)
+let alreadyExecuted = false; // used to update chain (the func wont execute two times. It will do so only if you connect to a compatible network and change the chain again)
+let isCompatibleNetwork = true;
 let chainId;
 export default function detectWallets() {
     const walletListener = () => {
@@ -87,10 +88,10 @@ export function switchNetworks() {
                 } catch (error) {
                     alreadySent = false;
                     // error msg
-                    document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
-                    document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
+                    document.querySelector('#selectNetworks .errorMsg').innerHTML = error.message;
+                    document.querySelector('#selectNetworks .errorMsg').style.opacity = "1";
                     setTimeout(() => {
-                        document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
+                        document.querySelector('#selectNetworks .errorMsg').style.opacity = "0";
                     }, 1500);
                 }
             }
@@ -126,47 +127,51 @@ export function switchNetworks() {
                 } catch (error) {
                     alreadySent = false;
                     // error msg
-                    document.querySelector('#selectWallet .errorMsg').innerHTML = error.message;
-                    document.querySelector('#selectWallet .errorMsg').style.opacity = "1";
+                    document.querySelector('#selectNetworks .errorMsg').innerHTML = error.message;
+                    document.querySelector('#selectNetworks .errorMsg').style.opacity = "1";
                     setTimeout(() => {
-                        document.querySelector('#selectWallet .errorMsg').style.opacity = "0";
+                        document.querySelector('#selectNetworks .errorMsg').style.opacity = "0";
                     }, 1500);
                 }
             }
         }
-        // Used to show to the user that he has to change the network
-        const showChangeNetwork = () => {
-            document.querySelector('.connectNetworks .network').addEventListener('click', switchBNB);
-            document.querySelector('.connectNetworks .network2').addEventListener('click', switchCallisto);
-            document.querySelector('#selectWallet h4').innerHTML = "Supported Networks:";
-            document.querySelector('#selectWallet h4').style = "right: -18px; padding-left: 11px;";
-            document.querySelector('#selectWallet .connectWallets').style.opacity = "0";
-            document.querySelector('.connectNetworks').style.display = 'block';
-            setTimeout(() => {
-                document.querySelector('#selectWallet .connectWallets').style.display = "none";
-                document.querySelector('.connectNetworks').style.opacity = '1';
-            }, 300);
-        }
-        // Checks if there is an update to the Network used and process
-        function updateChainValue() {
-            // To remove all change network elements
-            const revertToInitialState = () => {
+        const revertToInitialState = () => {
                 document.querySelector('#networkImcompatible').removeEventListener('click', showChangeNetwork);
                 document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
                 document.querySelector('#networkImcompatible').id = 'walletConnected';
-                document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
-                document.querySelector('#selectWallet h4').style = "";
                 document.querySelector('#walletConnected .isInstalled').innerText = 'Connected';
-                document.querySelector('.connectNetworks').style.opacity = '0';
-                document.querySelector('.connectWallets').style.display = 'block';
+                document.querySelector('#selectNetworks').style.opacity = '0';
+                document.querySelector('.connectWalletButton .usedNetwork').className = "usedNetwork";
+                document.querySelector('#selectNetworks .close').removeEventListener('click', closeSwitchNetwork);
                 document.querySelector('.connectNetworks .network').removeEventListener('click', switchBNB);
                 document.querySelector('.connectNetworks .network2').removeEventListener('click', switchCallisto);
                 alreadyExecuted = false;
+                isCompatibleNetwork = true;
                 setTimeout(() => {
-                    document.querySelector('.connectWallets').style.opacity = '1';
-                    document.querySelector('.connectNetworks').style.display = 'none';
+                    document.querySelector('#selectNetworks').style.display = 'none';
                 }, 300);
             }
+        // Used to show to the user that he has to change the network
+        const showChangeNetwork = () => {
+            if (!isCompatibleNetwork) {
+                document.querySelector('.connectNetworks .network').addEventListener('click', switchBNB);
+                document.querySelector('.connectNetworks .network2').addEventListener('click', switchCallisto);
+                document.querySelector('#selectNetworks .close').addEventListener('click', closeSwitchNetwork);
+                document.querySelector('#selectNetworks').style.display = 'block';
+                setTimeout(() => {
+                    document.querySelector('#selectNetworks').style.opacity = '1';
+                }, 300);
+            }
+        }
+        const closeSwitchNetwork = () => {
+            document.querySelector('#selectNetworks').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('#selectNetworks').style.display = 'none';
+            }, 300);
+        }        
+        // Checks if there is an update to the Network used and process
+        function updateChainValue() {
+            // To remove all change network elements
             setTimeout(async () => {
                 chainId = await window.ethereum.request({ method: 'eth_chainId' });
                 // checks if its supported
@@ -180,12 +185,14 @@ export function switchNetworks() {
                     break;
                     default:
                         chainId = undefined;
+                        isCompatibleNetwork = false;
                     break;
                 }
                 // if its not show it 
                 if (chainId === undefined && !alreadyExecuted) {
                     alreadyExecuted = true;
                     // shows to the user that its imcompatible using a PopUp
+                    document.querySelector('.connectWalletButton .usedNetwork').className = "usedNetwork imcomptible";
                     document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
                     document.querySelector('#walletConnected').addEventListener('click', showChangeNetwork);
                     document.querySelector('#walletConnected .isInstalled').innerText = 'Imcompatible Network!';
@@ -196,8 +203,10 @@ export function switchNetworks() {
                 } else if(alreadyExecuted && chainId !== undefined) {
                     revertToInitialState();
                 } else if(alreadyExecuted && chainId === undefined){
+                    document.querySelector('.connectWalletButton .usedNetwork').className = "usedNetwork imcomptible";
                     document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
                 } else {
+                    document.querySelector('.connectWalletButton .usedNetwork').className = "usedNetwork";
                     document.querySelector('.connectWalletButton .usedNetwork').src = `https://s2.coinmarketcap.com/static/img/coins/64x64/${chainId}.png`;
                 }
             }, 2500);
@@ -220,7 +229,8 @@ export function setAdress(address, wallet) {
     } else {
         walletBtnText.innerText = "Connect Wallet";
         walletConnectBnt.id = "";
-        document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/questionMark.png`;
+        document.querySelector('.connectWalletButton .usedNetwork').src = `css/imgs/loadAnimation.gif`;
+        document.querySelector('.connectWalletButton .usedNetwork').className += " loadingPic"
         if (wallet == 'MetaMask') {
             document.querySelector('.metaMaskSelect').id = '';
             document.querySelector('.metaMaskSelect .isInstalled').innerText = 'Installed';

@@ -65,11 +65,9 @@ export function connectWalletHandler() {
                 document.querySelector('#selectWallet').style.display = 'block';
                 try {
                     document.querySelector('#networkImcompatible').addEventListener('click', () => {
-                        document.querySelector('#selectWallet .connectNetworks').style.display = 'block';
-                        document.querySelector('#selectWallet .connectWallets').style.opacity = '0';
+                        document.querySelector('#selectNetworks .connectNetworks').style.display = 'block';
                         setTimeout(() => {
-                            document.querySelector('#selectWallet .connectNetworks').style.opacity = '1';
-                            document.querySelector('#selectWallet .connectWallets').style.display = 'none';
+                            document.querySelector('#selectNetworks .connectNetworks').style.opacity = '1';
                         }, 300);
                     })
                 } catch {
@@ -93,12 +91,6 @@ export function closeWalletSelect() {
         if (document.querySelector('.metaMaskSelect').id !== "walletConnected" && document.querySelector('.metaMaskSelect').id !== "networkImcompatible") {
             document.querySelector('.metaMaskSelect').id = '';
         }
-        // Make the networks non-visibles
-        document.querySelector('#selectWallet h4').innerHTML = "Supported Wallets:";
-        document.querySelector('#selectWallet .connectNetworks').style.opacity = "0";
-        document.querySelector('#selectWallet .connectNetworks').style.display = "none";
-        document.querySelector('#selectWallet .connectWallets').style.opacity = '1';
-        document.querySelector('#selectWallet .connectWallets').style.display = 'block';
         popUpOpened = false;
     }, 500);
 }
